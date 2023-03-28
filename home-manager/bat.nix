@@ -1,6 +1,8 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }:
+let cfg = config.programs.bat.catppuccin; in
+{
   options.programs.bat.catppuccin = {
-    enable = lib.mkEnableOption "Catppuccin";
+    enable = lib.mkEnableOption "Catppuccin theme";
     flavour = lib.mkOption {
       type = lib.types.enum [ "latte" "frappe" "macchiato" "mocha" ];
       default = config.catppuccin.flavour;
@@ -8,13 +10,8 @@
     };
   };
 
-  config = let
-    cfg = config.programs.bat.catppuccin;
-  in
-  {
-    home.activation = {
-      batCache = "${pkgs.bat}/bin/bat cache --build";
-    };
+  config = {
+    home.activation.batCache = "${pkgs.bat}/bin/bat cache --build";
 
     programs.bat = lib.mkIf cfg.enable {
       enable = true;
