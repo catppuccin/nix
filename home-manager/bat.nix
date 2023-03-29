@@ -14,7 +14,6 @@ let cfg = config.programs.bat.catppuccin; in
     home.activation.batCache = "${pkgs.bat}/bin/bat cache --build";
 
     programs.bat = lib.mkIf cfg.enable {
-      enable = true;
       config.theme = "Catppuccin-${cfg.flavour}";
       themes."Catppuccin-${cfg.flavour}" = builtins.readFile (pkgs.fetchFromGitHub
         {
