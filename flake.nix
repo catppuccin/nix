@@ -1,6 +1,5 @@
 {
   description = "Soothing pastel theme for Nix";
-
   inputs = {
     flake-compat = {
       url = "github:edolstra/flake-compat";
@@ -9,7 +8,7 @@
   };
 
   outputs = _: {
-    nixosModules.default = import ./nixos;
-    homeManagerModules.default = import ./home-manager;
+    nixosModules.catppuccin = import ./nixos;
+    homeManagerModules.catppuccin = import ./home-manager;
   };
 }
