@@ -8,7 +8,7 @@
   };
 
   outputs = _: {
-    nixosModules.catppuccin = import ./nixos;
-    homeManagerModules.catppuccin = import ./home-manager;
+    nixosModules.catppuccin = import ./modules/nixos;
+    homeManagerModules.catppuccin = import ./modules/home-manager;
   };
 }
