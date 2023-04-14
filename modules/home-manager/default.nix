@@ -2,6 +2,7 @@
   imports = [
     ./bat.nix
     ./starship.nix
+    ./helix.nix
   ];
   options.catppuccin = {
     flavour = lib.mkOption {
