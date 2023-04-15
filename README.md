@@ -130,21 +130,13 @@ _: {
 
 2. Choose your desired flavour with `catppuccin.flavour`
 
-<details>
-<summary>Example</summary>
-
 ```nix
 _: {
   catppuccin.flavour = "mocha";
 }
 ```
 
-</details>
-
 3. Enable for supported programs with `catppucin.enable = true;`
-
-<details>
-<summary>Example</summary>
 
 ```nix
 _: {
@@ -154,8 +146,6 @@ _: {
   };
 }
 ```
-
-</details>
 
 ## 🙋 FAQ
 
