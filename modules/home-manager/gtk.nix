@@ -31,7 +31,7 @@ in {
       # string -> string
       # this capitalizes the first letter in a string
       # it's used to set the theme name correctly here
-      mkUpper = word: (toUpper (substring 0 1 word)) + (substring 1 999 word);
+      mkUpper = word: (toUpper (substring 0 1 word)) + (substring 1 (stringLength word) word);
 
       flavourUpper = mkUpper cfg.flavour;
       accentUpper = mkUpper cfg.accent;
