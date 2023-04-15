@@ -2,6 +2,7 @@
   imports = [
     ./bat.nix
     ./starship.nix
+    ./helix.nix
     ./gtk.nix
   ];
   options.catppuccin = {
