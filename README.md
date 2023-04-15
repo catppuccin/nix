@@ -36,7 +36,7 @@
 
 ## Usage
 
-1. Import the NixOS and [home-manager](https://github.com/nix-community/home-manager) modules
+1. Import the [NixOS](https://nixos.org) and [home-manager](https://github.com/nix-community/home-manager) modules
 
 <details>
 <summary>With Flakes</summary>
@@ -126,6 +126,8 @@ _: {
 }
 ```
 
+</details>
+
 2. Choose your desired flavour with `catppuccin.flavour`
 
 <details>
@@ -155,7 +157,6 @@ _: {
 
 </details>
 
-<!-- this section is optional -->
 ## 🙋 FAQ
 
 - Q: **"How do I know what programs are supported?"**\
