@@ -8,11 +8,14 @@ Create a file in `modules/<module>/` with the name of the port. Add the file to 
 `catppuccin.accent` option. `catppuccin.flavour` and `catppuccin.accent` should
 default to `config.catppuccin.flavour` and `config.catppuccin.accent`, respectively.
 
+<!-- This loooks the best with the changelog generator. -->
+Commits that add ports should be of the format `feat(modules): add support for <port>`.
+
 ## Commit messages
 
 This repository uses [Conventional Commits](https://conventionalcommits.org).
-All commits should include a body that briefly describes the motivation and content
-of the commit.
+Commit headers should be lowercase. Most commits should include a body that briefly
+describes the motivation and content of the commit.
 
 ### Commit types
 
@@ -29,8 +32,8 @@ of the commit.
 
 ### Commit scopes
 
-For the commit scope, put the name of the port the commit affects. If the commit
-does not affect a specific port, omit the scope.
+Available commit scopes are port names and `modules`. If neither of these apply,
+omit the scope.
 
 ### Breaking changes
 
