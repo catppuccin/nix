@@ -20,7 +20,7 @@ in {
     };
     tweaks = mkOption {
       type = types.listOf (types.enum [ "black" "rimless" "normal" ]);
-      default = ["normal"];
+      default = [ "normal" ];
       description = "Catppuccin tweaks for gtk";
     };
   };
