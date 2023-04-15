@@ -26,7 +26,7 @@ describes the motivation and content of the commit.
 - `docs`: Any change to documentation
 - `ci`: Any change to CI files
 - `revert`: A revert commit. The message should describe the reasoning and the
-  commit should include the `Refs:` header with the short hashes of the commits
+  commit should include the `Refs:` footer with the short hashes of the commits
   being reverted.
 - `chore`: catch-all type
 
