@@ -5,6 +5,7 @@
     ./starship.nix
     ./helix.nix
     ./gtk.nix
+    ./polybar.nix
   ];
   options.catppuccin = {
     flavour = lib.mkOption {
