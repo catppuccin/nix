@@ -52,9 +52,13 @@
     };
   };
 
-  outputs = { nixpkgs, catppuccin, home-manager }: {
-    host = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+  outputs = { nixpkgs, catppuccin, home-manager }: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {inherit system;};
+  in {
+    # for nixos module home-manager installations
+    nixosConfigurations.host = pkgs.lib.nixosSystem {
+      inherit system;
       modules = [
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
@@ -67,6 +71,14 @@
         }
       ];
     };
+
+    # for standalone home-manager installations
+    homeConfigurations.user = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        catppuccin.homeManagerModules.catppuccin
+      ];
+    };
   };
 }
 ```
@@ -74,13 +86,15 @@
 </details>
 
 <details>
-<summary>Without Flakes</summary>
+<summary>With Nix Channels</summary>
 
 ```bash
 sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 sudo nix-channel --add https://github.com/catppuccin/nix/archive/main.tar.gz catppuccin
 sudo nix-channel --update
 ```
+
+For [NixOS module installations](https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module):
 
 ```nix
 _: {
@@ -98,7 +112,19 @@ _: {
 
 ```
 
-</details>
+For [standalone installations](https://nix-community.github.io/home-manager/index.html#sec-install-standalone)
+
+```nix
+_: {
+  imports = [
+    <catppuccin/modules/home-manager>
+  ];
+
+  home.username = "user";
+  home.homeDirectory = "user";
+  programs.home-manager.enable = true;
+}
+```
 
 2. Choose your desired flavour with `catppuccin.flavour`
 
@@ -121,8 +147,8 @@ _: {
 ```nix
 _: {
   programs.starship = {
-      enable = true;
-      catppuccin.enable = true;
+    enable = true;
+    catppuccin.enable = true;
   };
 }
 ```
