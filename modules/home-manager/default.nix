@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }: {
   imports = [
+    ./alacritty.nix
     ./bat.nix
     ./bottom.nix
     ./starship.nix
