@@ -45,7 +45,7 @@ in {
         "Catppuccin-${flavourUpper}-${sizeUpper}-${accentUpper}-${gtkTheme}";
       package = pkgs.catppuccin-gtk.override {
         inherit (cfg) size tweaks;
-        accents = [cfg.accent];
+        accents = [ cfg.accent ];
         variant = cfg.flavour;
       };
     };
