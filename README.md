@@ -6,9 +6,9 @@
 </h3>
 
 <p align="center">
-	<a href="https://github.com/catppuccin/template/stargazers"><img src="https://img.shields.io/github/stars/catppuccin/template?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
-	<a href="https://github.com/catppuccin/template/issues"><img src="https://img.shields.io/github/issues/catppuccin/template?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
-	<a href="https://github.com/catppuccin/template/contributors"><img src="https://img.shields.io/github/contributors/catppuccin/template?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+	<a href="https://github.com/catppuccin/nix/stargazers"><img src="https://img.shields.io/github/stars/catppuccin/nix?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+	<a href="https://github.com/catppuccin/nix/issues"><img src="https://img.shields.io/github/issues/catppuccin/nix?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+	<a href="https://github.com/catppuccin/nix/contributors"><img src="https://img.shields.io/github/contributors/catppuccin/nix?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
 <p align="center">
@@ -36,20 +36,136 @@
 
 ## Usage
 
-1. Clone this repository locally
-2. Open the app's settings
-3. Select `import theme` and browse to where you cloned Catppuccin
-4. Select it
+1. Import the [NixOS](https://nixos.org) and [home-manager](https://github.com/nix-community/home-manager) modules
 
-<!-- this section is optional -->
+<details>
+<summary>With Flakes</summary>
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixos-22.11";
+    catppuccin.url = "github:catppuccin/nix";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { nixpkgs, catppuccin, home-manager }: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {inherit system;};
+  in {
+    # for nixos module home-manager installations
+    nixosConfigurations.host = pkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        catppuccin.nixosModules.catppuccin
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.users.user = {
+            modules = [
+              catppuccin.homeManagerModules.catppuccin
+            ];
+          };
+        }
+      ];
+    };
+
+    # for standalone home-manager installations
+    homeConfigurations.user = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        catppuccin.homeManagerModules.catppuccin
+      ];
+    };
+  };
+}
+```
+
+</details>
+
+<details>
+<summary>With Nix Channels</summary>
+
+```bash
+sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+sudo nix-channel --add https://github.com/catppuccin/nix/archive/main.tar.gz catppuccin
+sudo nix-channel --update
+```
+
+For [NixOS module installations](https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module):
+
+```nix
+_: {
+  imports = [
+    <home-manager/nixos>
+    <catppuccin/modules/nixos>
+  ];
+
+  home-manager.users.user = {
+    modules = [
+      <catppuccin/modules/home-manager>
+    ];
+  };
+}
+
+```
+
+For [standalone installations](https://nix-community.github.io/home-manager/index.html#sec-install-standalone)
+
+```nix
+_: {
+  imports = [
+    <catppuccin/modules/home-manager>
+  ];
+
+  home.username = "user";
+  home.homeDirectory = "user";
+  programs.home-manager.enable = true;
+}
+```
+
+</details>
+
+2. Choose your desired flavour with `catppuccin.flavour`
+
+<details>
+<summary>Example</summary>
+
+```nix
+_: {
+  catppuccin.flavour = "mocha";
+}
+```
+
+</details>
+
+3. Enable for supported programs with `catppucin.enable = true;`
+
+<details>
+<summary>Example</summary>
+
+```nix
+_: {
+  programs.starship = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+}
+```
+
+</details>
+
 ## 🙋 FAQ
 
--	Q: **_"Where can I find the doc?"_**\
-	A: Run `:help theme`
+- Q: **"How do I know what programs are supported?"**\
+  A: You can find supported programs [here](https://github.com/catppuccin/nix/tree/main/modules/home-manager)
 
 ## 💝 Thanks to
 
 - [Stonks3141](https://github.com/Stonks3141)
+- [getchoo](https://github.com/getchoo)
 
 &nbsp;
 
