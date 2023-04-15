@@ -6,6 +6,7 @@
     ./helix.nix
     ./gtk.nix
     ./polybar.nix
+    ./tmux.nix
   ];
   options.catppuccin = {
     flavour = lib.mkOption {
