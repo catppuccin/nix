@@ -2,6 +2,7 @@
   imports = [
     ./bat.nix
     ./bottom.nix
+    ./kitty.nix
     ./starship.nix
     ./helix.nix
     ./gtk.nix
