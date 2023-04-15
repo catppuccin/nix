@@ -9,7 +9,11 @@ Create a file in `modules/<module>/` with the name of the port. Add the file to 
 default to `config.catppuccin.flavour` and `config.catppuccin.accent`, respectively.
 
 <!-- This loooks the best with the changelog generator. -->
-Commits that add ports should be of the format `feat(modules): add support for <port>`.
+Commits that add ports should be of the format
+
+```
+feat(<nixos or home-manager>): add support for <port>
+```
 
 ## Commit messages
 
@@ -32,8 +36,8 @@ describes the motivation and content of the commit.
 
 ### Commit scopes
 
-Available commit scopes are port names and `modules`. If neither of these apply,
-omit the scope.
+Available commit scopes are port names, `nixos`, `home-manager`, and `modules`. If
+none of these apply, omit the scope.
 
 ### Breaking changes
 
