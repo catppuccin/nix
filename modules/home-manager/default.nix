@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }: {
   imports = [
     ./bat.nix
+    ./bottom.nix
     ./starship.nix
   ];
   options.catppuccin = {
