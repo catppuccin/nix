@@ -5,7 +5,7 @@ let
   plugin = with builtins;
     with pkgs;
     let rev = "4e48b09a76829edc7b55fbb15467cf0411f07931";
-    in pkgs.tmuxPlugins.mkTmuxPlugin {
+    in tmuxPlugins.mkTmuxPlugin {
       pluginName = "catppuccin";
       version = substring 0 7 rev;
       src = fetchFromGitHub {
