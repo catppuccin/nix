@@ -25,9 +25,10 @@ in {
     };
   };
 
-  config.programs.tmux.plugins = with lib;
-    mkIf cfg.enable [{
+  config.programs.tmux.plugins = with lib; mkIf cfg.enable [
+    {
       inherit plugin;
       extraConfig = "set -g @catppuccin_flavour '${cfg.flavour}'";
-    }];
+    }
+  ];
 }
