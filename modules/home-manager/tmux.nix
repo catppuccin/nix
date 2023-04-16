@@ -16,14 +16,8 @@ let
       };
     };
 in {
-  options.programs.tmux.catppuccin = with lib; {
-    enable = mkEnableOption "Catppuccin theme";
-    flavour = mkOption {
-      type = types.enum [ "latte" "frappe" "macchiato" "mocha" ];
-      default = config.catppuccin.flavour;
-      description = "Catppuccin flavour for tmux";
-    };
-  };
+  options.programs.tmux.catppuccin =
+    lib.ctp.mkCatppuccinOpt "tmux" config;
 
   config.programs.tmux.plugins = with lib; mkIf cfg.enable [
     {

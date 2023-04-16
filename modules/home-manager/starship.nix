@@ -1,14 +1,8 @@
 { config, pkgs, lib, ... }:
 let cfg = config.programs.starship.catppuccin; in
 {
-  options.programs.starship.catppuccin = {
-    enable = lib.mkEnableOption "Catppuccin theme";
-    flavour = lib.mkOption {
-      type = lib.types.enum [ "latte" "frappe" "macchiato" "mocha" ];
-      default = config.catppuccin.flavour;
-      description = "Catppuccin flavour for starship";
-    };
-  };
+  options.programs.starship.catppuccin =
+    lib.ctp.mkCatppuccinOpt "starship" config;
 
   config.programs.starship.settings = lib.mkIf cfg.enable
     ({

@@ -1,14 +1,8 @@
 { config, pkgs, lib, ... }:
 let cfg = config.services.polybar.catppuccin;
 in {
-  options.services.polybar.catppuccin = with lib; {
-    enable = mkEnableOption "Catppuccin theme";
-    flavour = mkOption {
-      type = types.enum [ "latte" "frappe" "macchiato" "mocha" ];
-      default = config.catppuccin.flavour;
-      description = "Catppuccin flavour for polybar";
-    };
-  };
+  options.services.polybar.catppuccin =
+    lib.ctp.mkCatppuccinOpt "polybar" config;
 
   config.services.polybar.extraConfig = with builtins;
     with lib;

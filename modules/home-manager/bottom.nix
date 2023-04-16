@@ -1,14 +1,8 @@
 { config, pkgs, lib, ... }:
 let cfg = config.programs.bottom.catppuccin;
 in {
-  options.programs.bottom.catppuccin = with lib; {
-    enable = mkEnableOption "Catppuccin theme";
-    flavour = mkOption {
-      type = types.enum [ "latte" "frappe" "macchiato" "mocha" ];
-      default = config.catppuccin.flavour;
-      description = "Catppuccin flavour for bottom";
-    };
-  };
+  options.programs.bottom.catppuccin =
+    lib.ctp.mkCatppuccinOpt "bottom" config;
 
   config.programs.bottom.settings = with builtins;
     with lib;

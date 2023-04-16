@@ -1,18 +1,10 @@
 { config, pkgs, lib, ... }:
 let cfg = config.gtk.catppuccin;
 in {
-  options.gtk.catppuccin = with lib; {
-    enable = mkEnableOption "Catppuccin theme";
-    flavour = mkOption {
-      type = types.enum [ "latte" "frappe" "macchiato" "mocha" ];
-      default = config.catppuccin.flavour;
-      description = "Catppuccin flavour for gtk";
-    };
-    accent = mkOption {
-      type = types.enum [ "blue" "flamingo" "green" "lavender" "maroon" "mauve" "peach" "pink" "red" "rosewater" "sapphire" "sky" "teal" "yellow" ];
-      default = config.catppuccin.accent;
-      description = "Catppuccin accents for gtk";
-    };
+  options.gtk.catppuccin =
+    lib.ctp.mkCatppuccinOpt "gtk" config // (
+    with lib; {
+    accent = ctp.mkAccentOpt "gtk" config;
     size = mkOption {
       type = types.enum [ "standard" "compact" ];
       default = "standard";
@@ -23,19 +15,14 @@ in {
       default = [ "normal" ];
       description = "Catppuccin tweaks for gtk";
     };
-  };
+  });
 
-  config.gtk.theme = with lib;
-    with builtins;
+  config.gtk.theme = with builtins;
+    with lib;
     let
-      # string -> string
-      # this capitalizes the first letter in a string
-      # it's used to set the theme name correctly here
-      mkUpper = word: (toUpper (substring 0 1 word)) + (substring 1 (stringLength word) word);
-
-      flavourUpper = mkUpper cfg.flavour;
-      accentUpper = mkUpper cfg.accent;
-      sizeUpper = mkUpper cfg.size;
+      flavourUpper = ctp.mkUpper cfg.flavour;
+      accentUpper = ctp.mkUpper cfg.accent;
+      sizeUpper = ctp.mkUpper cfg.size;
 
       # use the light gtk theme for latte
       gtkTheme = if cfg.flavour == "latte" then "Light" else "Dark";

@@ -1,14 +1,8 @@
 { config, pkgs, lib, ... }:
 let cfg = config.programs.alacritty.catppuccin;
 in {
-  options.programs.alacritty.catppuccin = with lib; {
-    enable = mkEnableOption "Catppuccin theme";
-    flavour = mkOption {
-      type = types.enum [ "latte" "frappe" "macchiato" "mocha" ];
-      default = config.catppuccin.flavour;
-      description = "Catppuccin flavour for alacritty";
-    };
-  };
+  options.programs.alacritty.catppuccin =
+    lib.ctp.mkCatppuccinOpt "alacritty" config;
 
   config.programs.alacritty.settings = with builtins;
     with lib;
