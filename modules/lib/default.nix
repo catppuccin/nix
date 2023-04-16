@@ -8,6 +8,17 @@ with lib; rec {
   mkUpper = word:
     (toUpper (substring 0 1 word)) + (substring 1 (stringLength word) word);
 
+  # a -> path -> a
+  # fromJSON but for yaml (and without readFile)
+  # a should be the local pkgs attrset
+  fromYaml = pkgs: file:
+    let
+      # convert to json
+      json = with pkgs; runCommand "converted.json" { } ''
+        ${yj}/bin/yj < ${file} > $out
+      '';
+    in fromJSON (readFile json);
+
   # a -> a -> [path] -> [path]
   # this imports a list of paths while inheriting
   # multiple attributes

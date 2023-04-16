@@ -8,16 +8,6 @@ in {
     with lib;
     with pkgs;
     let
-      # path -> a
-      # fromJSON but for yaml
-      fromYaml = file:
-        let
-          # convert to json
-          json = runCommand "converted.json" { } ''
-            ${yj}/bin/yj < ${file} > $out
-          '';
-        in fromJSON (readFile json);
-
       file = fetchFromGitHub {
         owner = "catppuccin";
         repo = "alacritty";
@@ -25,5 +15,5 @@ in {
         sha256 = "sha256-w9XVtEe7TqzxxGUCDUR9BFkzLZjG8XrplXJ3lX6f+x0=";
       } + "/catppuccin-${cfg.flavour}.yml";
 
-    in mkIf cfg.enable (fromYaml file);
+    in mkIf cfg.enable (ctp.fromYaml pkgs file);
 }
