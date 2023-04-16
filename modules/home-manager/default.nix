@@ -3,6 +3,7 @@
     ./alacritty.nix
     ./bat.nix
     ./bottom.nix
+    ./btop.nix
     ./kitty.nix
     ./starship.nix
     ./helix.nix
