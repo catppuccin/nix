@@ -1,15 +1,10 @@
 { config, pkgs, lib, ... }:
 let cfg = config.programs.helix.catppuccin;
 in {
-  options.programs.helix.catppuccin = with lib; {
-    enable = mkEnableOption "Catppuccin theme";
-    flavour = mkOption {
-      type = types.enum [ "latte" "frappe" "macchiato" "mocha" ];
-      default = config.catppuccin.flavour;
-      description = "Catppuccin flavour for Helix";
+  options.programs.helix.catppuccin = with lib;
+    ctp.mkCatppuccinOpt "helix" config // {
+      useItalics = mkEnableOption "Italics in Catppuccin theme for Helix";
     };
-    useItalics = mkEnableOption "Italics in Catppuccin theme for Helix";
-  };
 
   config.programs.helix = with builtins;
     with lib;

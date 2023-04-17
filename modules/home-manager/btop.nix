@@ -9,14 +9,8 @@ let
     sha256 = "sha256-QoPPx4AzxJMYo/prqmWD/CM7e5vn/ueyx+XQ5+YfHF8=";
   } + themePath;
 in {
-  options.programs.btop.catppuccin = with lib; {
-    enable = mkEnableOption "Catppuccin theme";
-    flavour = mkOption {
-      type = types.enum [ "latte" "frappe" "macchiato" "mocha" ];
-      default = config.catppuccin.flavour;
-      description = "Catppuccin flavour for btop";
-    };
-  };
+  options.programs.btop.catppuccin =
+    lib.ctp.mkCatppuccinOpt "btop" config;
 
   # xdg is required for this to work
   config.xdg.enable = with lib; mkIf cfg.enable (mkForce true);

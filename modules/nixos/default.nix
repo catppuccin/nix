@@ -1,11 +1,17 @@
-{ lib, ... }: {
-  imports = [
-    ./grub.nix
-  ];
+{ config, pkgs, lib, ... }: let
+ extendedLib = import ../lib/mkExtLib.nix lib;
+in {
+  imports = let
+    files = [
+      ./grub.nix
+    ];
+  in
+    extendedLib.ctp.mapModules config pkgs extendedLib files;
 
-  options.catppuccin = {
-    flavour = lib.mkOption {
-      type = lib.types.enum [ "latte" "frappe" "macchiato" "mocha" ];
+
+  options.catppuccin = with extendedLib; {
+    flavour = mkOption {
+      type = ctp.types.flavourOption;
       default = "latte";
       description = "Global Catppuccin flavour";
     };
