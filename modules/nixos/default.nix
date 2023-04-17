@@ -3,6 +3,7 @@
 in {
   imports = let
     files = [
+      ./grub.nix
     ];
   in
     extendedLib.ctp.mapModules config pkgs extendedLib files;
