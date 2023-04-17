@@ -5,7 +5,6 @@ in {
     lib.ctp.mkCatppuccinOpt "kitty" config;
 
   config.programs.kitty = with lib;
-    with ctp;
-    let flavourUpper = mkUpper cfg.flavour;
+    let flavourUpper = ctp.mkUpper cfg.flavour;
     in mkIf cfg.enable { theme = "Catppuccin-${flavourUpper}"; };
 }

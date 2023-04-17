@@ -1,9 +1,9 @@
 { config, pkgs, lib, ... }:
 let cfg = config.programs.helix.catppuccin;
 in {
-  options.programs.helix.catppuccin =
-    lib.ctp.mkCatppuccinOpt "helix" config // {
-      useItalics = lib.mkEnableOption "Italics in Catppuccin theme for Helix";
+  options.programs.helix.catppuccin = with lib;
+    ctp.mkCatppuccinOpt "helix" config // {
+      useItalics = mkEnableOption "Italics in Catppuccin theme for Helix";
     };
 
   config.programs.helix = with builtins;

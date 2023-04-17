@@ -1,9 +1,8 @@
 { config, pkgs, lib, ... }:
 let cfg = config.gtk.catppuccin;
 in {
-  options.gtk.catppuccin =
-    lib.ctp.mkCatppuccinOpt "gtk" config // (
-    with lib; {
+  options.gtk.catppuccin = with lib;
+    ctp.mkCatppuccinOpt "gtk" config // {
     accent = ctp.mkAccentOpt "gtk" config;
     size = mkOption {
       type = types.enum [ "standard" "compact" ];
@@ -15,7 +14,7 @@ in {
       default = [ "normal" ];
       description = "Catppuccin tweaks for gtk";
     };
-  });
+  };
 
   config.gtk.theme = with builtins;
     with lib;
