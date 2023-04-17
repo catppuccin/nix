@@ -8,9 +8,9 @@ in {
     extendedLib.ctp.mapModules config pkgs extendedLib files;
 
 
-  options.catppuccin = {
-    flavour = lib.mkOption {
-      type = lib.types.enum [ "latte" "frappe" "macchiato" "mocha" ];
+  options.catppuccin = with extendedLib; {
+    flavour = mkOption {
+      type = ctp.types.flavourOption;
       default = "latte";
       description = "Global Catppuccin flavour";
     };
