@@ -12,6 +12,7 @@ in {
       ./helix.nix
       ./gtk.nix
       ./polybar.nix
+      ./sway.nix
       ./tmux.nix
     ];
   in extendedLib.ctp.mapModules config pkgs extendedLib files;
