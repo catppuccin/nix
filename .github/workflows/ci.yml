@@ -15,4 +15,4 @@ jobs:
       - name: Run formatter
         run: nix run nixpkgs#nixpkgs-fmt .
       - name: Check for changes
-        run: git diff --exit-code
+        run: git diff --color=always --exit-code
