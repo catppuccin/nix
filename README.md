@@ -150,7 +150,8 @@ _: {
 ## 🙋 FAQ
 
 - Q: **"How do I know what programs are supported?"**\
-  A: You can find supported programs [here](https://github.com/catppuccin/nix/tree/main/modules/home-manager)
+  A: You can find programs supported through home-manager [here](https://github.com/catppuccin/nix/tree/main/modules/home-manager),
+     and NixOS modules [here](https://github.com/catppuccin/nix/tree/main/modules/nixos)
 
 ## 💝 Thanks to
 
