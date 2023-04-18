@@ -15,14 +15,8 @@ let
       cp -r ${src}/src/catppuccin-${cfg.flavour}-grub-theme/* "$out"/
     '';
 in {
-  options.boot.loader.grub.catppuccin = with lib; {
-    enable = mkEnableOption "Catppuccin theme";
-    flavour = mkOption {
-      type = types.enum [ "latte" "frappe" "macchiato" "mocha" ];
-      default = config.catppuccin.flavour;
-      description = "Catppuccin flavour for grub";
-    };
-  };
+  options.boot.loader.grub.catppuccin =
+    lib.ctp.mkCatppuccinOpt "grub" config;
 
   config.boot.loader.grub = with lib; mkIf cfg.enable {
     font = "${theme}/font.pf2";
