@@ -1,11 +1,14 @@
-{ config, pkgs, lib, ... }: let
- extendedLib = import ../lib/mkExtLib.nix lib;
-in {
-  imports = let
-    files = [
-      ./grub.nix
-    ];
-  in
+{ config, pkgs, lib, ... }:
+let
+  extendedLib = import ../lib/mkExtLib.nix lib;
+in
+{
+  imports =
+    let
+      files = [
+        ./grub.nix
+      ];
+    in
     extendedLib.ctp.mapModules config pkgs extendedLib files;
 
 

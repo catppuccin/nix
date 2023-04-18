@@ -15,7 +15,8 @@ let
         sha256 = "sha256-bXEsxt4ozl3cAzV3ZyvbPsnmy0RAdpLxHwN82gvjLdU=";
       };
     };
-in {
+in
+{
   options.programs.tmux.catppuccin =
     lib.ctp.mkCatppuccinOpt "tmux" config;
 

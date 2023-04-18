@@ -10,11 +10,13 @@ let
         rev = "803c5df0e83aba61668777bb96d90ab8f6847106";
         sha256 = "sha256-/bSolCta8GCZ4lP0u5NVqYQ9Y3ZooYCNdTwORNvR7M0=";
       };
-    in runCommand "catppuccin-grub-theme" { } ''
+    in
+    runCommand "catppuccin-grub-theme" { } ''
       mkdir -p "$out"
       cp -r ${src}/src/catppuccin-${cfg.flavour}-grub-theme/* "$out"/
     '';
-in {
+in
+{
   options.boot.loader.grub.catppuccin =
     lib.ctp.mkCatppuccinOpt "grub" config;
 

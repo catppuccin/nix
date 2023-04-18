@@ -17,7 +17,8 @@ with lib; rec {
       json = with pkgs; runCommand "converted.json" { } ''
         ${yj}/bin/yj < ${file} > $out
       '';
-    in fromJSON (readFile json);
+    in
+    fromJSON (readFile json);
 
   # a -> a -> [path] -> [path]
   # this imports a list of paths while inheriting
