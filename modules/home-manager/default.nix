@@ -11,6 +11,7 @@ in {
       ./starship.nix
       ./helix.nix
       ./gtk.nix
+      ./neovim.nix
       ./polybar.nix
       ./sway.nix
       ./tmux.nix
