@@ -12,5 +12,7 @@ jobs:
       - uses: cachix/install-nix-action@v20
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}        
-      - name: Check formatting
+      - name: Run formatter
         run: nix run nixpkgs#nixpkgs-fmt .
+      - name: Check for changes
+        run: git diff --exit-code
