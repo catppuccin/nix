@@ -1,22 +1,26 @@
-{ config, pkgs, lib, ... }: let
- extendedLib = import ../lib/mkExtLib.nix lib;
-in {
-  imports = let
-    files = [
-      ./alacritty.nix
-      ./bat.nix
-      ./bottom.nix
-      ./btop.nix
-      ./kitty.nix
-      ./starship.nix
-      ./helix.nix
-      ./gtk.nix
-      ./neovim.nix
-      ./polybar.nix
-      ./sway.nix
-      ./tmux.nix
-    ];
-  in extendedLib.ctp.mapModules config pkgs extendedLib files;
+{ config, pkgs, lib, ... }:
+let
+  extendedLib = import ../lib/mkExtLib.nix lib;
+in
+{
+  imports =
+    let
+      files = [
+        ./alacritty.nix
+        ./bat.nix
+        ./bottom.nix
+        ./btop.nix
+        ./kitty.nix
+        ./starship.nix
+        ./helix.nix
+        ./gtk.nix
+        ./neovim.nix
+        ./polybar.nix
+        ./sway.nix
+        ./tmux.nix
+      ];
+    in
+    extendedLib.ctp.mapModules config pkgs extendedLib files;
 
   options.catppuccin = with extendedLib; {
     flavour = mkOption {
