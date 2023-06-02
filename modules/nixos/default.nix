@@ -1,6 +1,6 @@
-{ config, pkgs, lib, ... }:
+nixpkgs: { config, pkgs, lib, ... }:
 let
-  extendedLib = import ../lib/mkExtLib.nix lib;
+  extendedLib = import ../lib/mkExtLib.nix nixpkgs.lib;
 in
 {
   imports =
