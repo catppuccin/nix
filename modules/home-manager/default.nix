@@ -11,6 +11,7 @@ in
         ./bottom.nix
         ./btop.nix
         ./kitty.nix
+        ./lazygit.nix
         ./starship.nix
         ./helix.nix
         ./gtk.nix
