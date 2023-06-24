@@ -24,7 +24,7 @@ in {
       sizeUpper = ctp.mkUpper cfg.size;
 
       # use the light gtk theme for latte
-      gtkTheme = if cfg.flavour == "latte" then "Light" else "Dark";
+      gtkTheme = if cfg.flavour == "latte" then "light" else "dark";
 
     in
     mkIf cfg.enable {
