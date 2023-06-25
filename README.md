@@ -12,26 +12,26 @@
 </p>
 
 <p align="center">
-	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/preview.webp"/>
+	<img src="https://raw.githubusercontent.com/catppuccin/nix/main/assets/previews/preview.webp"/>
 </p>
 
 ## Previews
 
 <details>
   <summary>🌻 Latte</summary>
-  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/latte.webp"/>
+  <img src="https://raw.githubusercontent.com/catppuccin/nix/main/assets/previews/latte.webp"/>
 </details>
 <details>
   <summary>🪴 Frappé</summary>
-  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/frappe.webp"/>
+  <img src="https://raw.githubusercontent.com/catppuccin/nix/main/assets/previews/frappe.webp"/>
 </details>
 <details>
   <summary>🌺 Macchiato</summary>
-  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/macchiato.webp"/>
+  <img src="https://raw.githubusercontent.com/catppuccin/nix/main/assets/previews/macchiato.webp"/>
 </details>
 <details>
   <summary>🌿 Mocha</summary>
-  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/mocha.webp"/>
+  <img src="https://raw.githubusercontent.com/catppuccin/nix/main/assets/previews/mocha.webp"/>
 </details>
 
 ## Usage
@@ -151,7 +151,7 @@ _: {
 
 - Q: **"How do I know what programs are supported?"**\
   A: You can find programs supported through home-manager [here](https://github.com/catppuccin/nix/tree/main/modules/home-manager),
-     and NixOS modules [here](https://github.com/catppuccin/nix/tree/main/modules/nixos)
+  and NixOS modules [here](https://github.com/catppuccin/nix/tree/main/modules/nixos)
 
 ## 💝 Thanks to
 
