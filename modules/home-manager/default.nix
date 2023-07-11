@@ -1,6 +1,11 @@
-nixpkgs: { config, pkgs, lib, ... }:
+nixpkgs: { config
+         , pkgs
+         , lib
+         , ...
+         }:
 let
   extendedLib = import ../lib/mkExtLib.nix nixpkgs.lib;
+  inherit (extendedLib) ctp;
 in
 {
   imports =
@@ -23,13 +28,13 @@ in
     in
     extendedLib.ctp.mapModules config pkgs extendedLib files;
 
-  options.catppuccin = with extendedLib; {
-    flavour = mkOption {
+  options.catppuccin = {
+    flavour = lib.mkOption {
       type = ctp.types.flavourOption;
       default = "latte";
       description = "Global Catppuccin flavour";
     };
-    accent = mkOption {
+    accent = lib.mkOption {
       type = ctp.types.accentOption;
       default = "teal";
       description = "Global Catppuccin accent";

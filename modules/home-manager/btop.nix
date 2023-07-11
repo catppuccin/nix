@@ -4,7 +4,10 @@
 , ...
 }:
 let
+  inherit (lib) mkIf;
   cfg = config.programs.btop.catppuccin;
+  enable = cfg.enable && config.programs.btop.enable;
+
   themePath = "/themes/catppuccin_${cfg.flavour}.theme";
   theme =
     pkgs.fetchFromGitHub
@@ -23,12 +26,12 @@ in
   # xdg is required for this to work
   config =
     {
-      xdg.enable = with lib; mkIf cfg.enable (mkForce true);
+      xdg.enable = mkIf enable (lib.mkForce true);
 
-      programs.btop.settings.color_theme = with lib;
-        mkIf cfg.enable "${config.xdg.configHome + "/btop/${themePath}"}";
+      programs.btop.settings.color_theme =
+        mkIf enable "${config.xdg.configHome + "/btop/${themePath}"}";
     }
-    // (lib.mkIf cfg.enable {
+    // (lib.mkIf enable {
       xdg.configFile."btop${themePath}".source = theme;
     });
 }
