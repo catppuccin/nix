@@ -1,11 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config
+, pkgs
+, lib
+, ...
+}:
 let
   cfg = config.programs.neovim.catppuccin;
+  enable = cfg.enable && config.programs.neovim.enable;
 in
 {
   options.programs.neovim.catppuccin = lib.ctp.mkCatppuccinOpt "neovim" config;
 
-  config.programs.neovim = with lib; mkIf cfg.enable {
+  config.programs.neovim = lib.mkIf enable {
     plugins = with pkgs.vimPlugins; [
       {
         plugin = catppuccin-nvim;
