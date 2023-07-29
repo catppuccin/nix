@@ -1,0 +1,41 @@
+name: Update docs
+
+on:
+  push:
+    paths:
+      - "modules/home-manager/**"
+      - "modules/nixos/**"
+
+permissions:
+  contents: write
+
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 1
+      matrix:
+        package: ["nixos", "home-manager"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v22
+
+      - name: Build doc
+        run: nix build .#${{ matrix.package }}-doc
+
+      - name: Update doc
+        run: cat result > docs/${{ matrix.package }}-options.md
+
+      - name: Get short revision
+        id: rev
+        run:
+          echo "rev=$(git rev parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: "docs: update docs for ${{ steps.rev.outputs.rev }}"
