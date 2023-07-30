@@ -1,6 +1,6 @@
 { config
 , lib
-, inputs
+, sources
 , ...
 }:
 let
@@ -28,6 +28,6 @@ in
       };
 
       themes."catppuccin-${cfg.flavour}" = builtins.fromTOML
-        (builtins.readFile "${inputs.helix}/themes/${subdir}/catppuccin_${cfg.flavour}.toml");
+        (builtins.readFile "${sources.helix}/themes/${subdir}/catppuccin_${cfg.flavour}.toml");
     };
 }

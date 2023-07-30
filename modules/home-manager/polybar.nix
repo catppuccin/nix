@@ -1,6 +1,6 @@
 { config
 , lib
-, inputs
+, sources
 , ...
 }:
 let
@@ -12,5 +12,5 @@ in
     lib.ctp.mkCatppuccinOpt "polybar" config;
 
   config.services.polybar.extraConfig = lib.mkIf enable
-    (builtins.readFile "${inputs.polybar}/themes/${cfg.flavour}.ini");
+    (builtins.readFile "${sources.polybar}/themes/${cfg.flavour}.ini");
 }

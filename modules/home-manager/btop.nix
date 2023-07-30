@@ -1,6 +1,6 @@
 { config
 , lib
-, inputs
+, sources
 , ...
 }:
 let
@@ -9,7 +9,7 @@ let
 
   themeFile = "catppuccin_${cfg.flavour}.theme";
   themePath = "/themes/${themeFile}";
-  theme = inputs.btop + themePath;
+  theme = sources.btop + themePath;
 in
 {
   options.programs.btop.catppuccin =

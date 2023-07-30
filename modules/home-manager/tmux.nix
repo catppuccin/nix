@@ -1,6 +1,7 @@
 { config
-, pkgs
 , lib
+, pkgs
+, sources
 , ...
 }:
 let
@@ -8,19 +9,11 @@ let
   enable = cfg.enable && config.programs.tmux.enable;
 
   plugin =
-    let
-      rev = "4e48b09a76829edc7b55fbb15467cf0411f07931";
-    in
     # TODO @getchoo: upstream this in nixpkgs
     pkgs.tmuxPlugins.mkTmuxPlugin {
       pluginName = "catppuccin";
-      version = builtins.substring 0 7 rev;
-      src = pkgs.fetchFromGitHub {
-        owner = "catppuccin";
-        repo = "tmux";
-        inherit rev;
-        sha256 = "sha256-bXEsxt4ozl3cAzV3ZyvbPsnmy0RAdpLxHwN82gvjLdU=";
-      };
+      version = builtins.substring 0 7 sources.tmux.rev;
+      src = sources.tmux;
     };
 in
 {

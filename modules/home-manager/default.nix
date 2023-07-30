@@ -1,8 +1,8 @@
-inputs: { config
-        , pkgs
-        , lib
-        , ...
-        }:
+{ inputs, sources }: { config
+                     , pkgs
+                     , lib
+                     , ...
+                     }:
 let
   extendedLib = import ../lib/mkExtLib.nix inputs.nixpkgs.lib;
   inherit (extendedLib) ctp;
@@ -30,7 +30,7 @@ in
         ./tmux.nix
       ];
     in
-    extendedLib.ctp.mapModules config pkgs extendedLib inputs files;
+    extendedLib.ctp.mapModules config pkgs extendedLib (sources pkgs) files;
 
   options.catppuccin = {
     flavour = lib.mkOption {

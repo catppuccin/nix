@@ -1,7 +1,7 @@
 { config
-, pkgs
 , lib
-, inputs
+, pkgs
+, sources
 , ...
 }:
 let
@@ -14,7 +14,7 @@ in
 
   config.programs.lazygit.settings =
     let
-      file = "${inputs.lazygit}/themes/${cfg.flavour}.yml";
+      file = "${sources.lazygit}/themes/${cfg.flavour}.yml";
     in
     lib.mkIf enable (lib.ctp.fromYaml pkgs file);
 }

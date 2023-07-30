@@ -1,6 +1,6 @@
 { config
 , lib
-, inputs
+, sources
 , ...
 }:
 let
@@ -12,5 +12,5 @@ in
   options.programs.bottom.catppuccin =
     lib.ctp.mkCatppuccinOpt "bottom" config;
 
-  config.programs.bottom.settings = lib.mkIf enable (fromTOML (readFile "${inputs.bottom}/themes/${cfg.flavour}.toml"));
+  config.programs.bottom.settings = lib.mkIf enable (fromTOML (readFile "${sources.bottom}/themes/${cfg.flavour}.toml"));
 }

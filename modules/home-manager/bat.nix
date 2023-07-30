@@ -1,6 +1,6 @@
 { config
 , lib
-, inputs
+, sources
 , ...
 }:
 let
@@ -17,7 +17,7 @@ in
       config.theme = themeName;
 
       themes.${themeName} = {
-        src = inputs.bat;
+        src = sources.bat;
         file = "${themeName}.tmTheme";
       };
     };

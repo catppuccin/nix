@@ -5,7 +5,7 @@
 }:
 let
   cfg = config.programs.glamour.catppuccin;
-  enable = cfg.enable;
+  inherit (cfg) enable;
 
   version = "1.0.0";
 

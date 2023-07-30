@@ -1,7 +1,7 @@
 { config
 , pkgs
 , lib
-, inputs
+, sources
 , ...
 }:
 let
@@ -15,7 +15,7 @@ in
 
   config.programs.alacritty.settings =
     let
-      file = "${inputs.alacritty}/catppuccin-${cfg.flavour}.yml";
+      file = "${sources.alacritty}/catppuccin-${cfg.flavour}.yml";
     in
     lib.mkIf enable (ctp.fromYaml pkgs file);
 }

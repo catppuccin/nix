@@ -1,4 +1,4 @@
-name: Update flake lockfile
+name: Update lockfiles
 
 on:
   schedule:
@@ -7,19 +7,35 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-lock:
+  update-locks:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v22
 
-      - uses: DeterminateSystems/update-flake-lock@v20
+      - name: Set Git user info
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Update flake inputs
+        run: |
+          nix flake update \
+            --commit-lock-file --commit-lockfile-summary "chore: update flake inputs"
+
+      - name: Update upstream sources
+        run: |
+          nix run nixpkgs#nvfetcher
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v5
         with:
-          commit-msg: "chore: update flake lockfile"
-          pr-title: "chore: update flake lockfile"
-          token: ${{ secrets.FLAKE_UPDATE_TOKEN }}
+          token: ${{ secrets.LOCKFILE_TOKEN }}
+          base: "main"
+          branch: "update-lock"
+          delete-branch: true
+          committer: github-actions[bot] github-actions[bot]@users.noreply.github.com
+          commit-message: "chore: update nvfetcher sources"
+          title: "chore: update lockfiles"
+          body: "Automated pull request updating flake inputs and nvfetcher sources"

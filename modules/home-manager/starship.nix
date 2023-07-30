@@ -1,6 +1,6 @@
 { config
 , lib
-, inputs
+, sources
 , ...
 }:
 let
@@ -18,5 +18,5 @@ in
         format = lib.mkDefault "$all";
         palette = "catppuccin_${cfg.flavour}";
       }
-      // fromTOML (readFile "${inputs.starship}/palettes/${cfg.flavour}.toml"));
+      // fromTOML (readFile "${sources.starship}/palettes/${cfg.flavour}.toml"));
 }

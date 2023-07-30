@@ -1,6 +1,7 @@
 { config
 , pkgs
 , lib
+, sources
 , ...
 }:
 let
@@ -8,13 +9,7 @@ let
 
   cfg = config.services.mako.catppuccin;
   enable = cfg.enable && config.services.mako.enable;
-  theme = lib.ctp.fromINI pkgs (pkgs.fetchFromGitHub
-    {
-      owner = "catppuccin";
-      repo = "mako";
-      rev = "9dd088aa5f4529a3dd4d9760415e340664cb86df";
-      hash = "sha256-nUzWkQVsIH4rrCFSP87mXAka6P+Td2ifNbTuP7NM/SQ=";
-    } + /src/${cfg.flavour});
+  theme = lib.ctp.fromINI pkgs (sources.mako + /src/${cfg.flavour});
 
   # Settings that need to be extracted and put in extraConfig
   extraConfigAttrs = lib.attrsets.getAttrs [ "urgency=high" ] theme;

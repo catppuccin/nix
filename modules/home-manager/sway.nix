@@ -1,12 +1,12 @@
 { config
 , lib
-, inputs
+, sources
 , ...
 }:
 let
   cfg = config.wayland.windowManager.sway.catppuccin;
   enable = cfg.enable && config.wayland.windowManager.sway.enable;
-  theme = "${inputs.sway}/themes/catppuccin-${cfg.flavour}";
+  theme = "${sources.sway}/themes/catppuccin-${cfg.flavour}";
 in
 {
   options.wayland.windowManager.sway.catppuccin =
