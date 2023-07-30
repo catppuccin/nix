@@ -1,4 +1,4 @@
-{ self, nixpkgs, ... }@inputs:
+{ self, nixpkgs, home-manager, ... }@inputs:
 let
   systems = [
     "x86_64-linux"
@@ -9,7 +9,20 @@ let
 
   inherit (nixpkgs) lib;
 
-  forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
+  forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgsFor.${s});
+  nixpkgsFor = lib.genAttrs systems (system: import nixpkgs { inherit system; });
+
+  nixosLib = import (nixpkgs + "/nixos/lib") { };
+  runTestFor = system: test: nixosLib.runTest {
+    imports = [ test ];
+
+    hostPkgs = nixpkgsFor.${system};
+
+    _module.args = {
+      catppuccin = self;
+      inherit nixpkgs home-manager;
+    };
+  };
 in
 {
   formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
@@ -52,4 +65,6 @@ in
       home-manager-doc = mkDoc "home-manager" hmEval.options;
       default = home-manager-doc;
     });
+
+  tests.x86_64-linux.modules = runTestFor "x86_64-linux" ./test.nix;
 }
