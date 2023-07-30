@@ -1,0 +1,25 @@
+name: Update flake lockfile
+
+on:
+  schedule:
+    # run every friday
+    - cron: "0 0 * * 5"
+  workflow_dispatch:
+
+jobs:
+  update-lock:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v22
+
+      - uses: DeterminateSystems/update-flake-lock@v20
+        with:
+          commit-msg: "chore: update flake lockfile"
+          pr-title: "chore: update flake lockfile"
+          token: ${{ github.token }}
