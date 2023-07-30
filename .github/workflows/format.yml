@@ -1,11 +1,11 @@
-name: CI
+name: Format
 
 on:
   - push
   - pull_request
 
 jobs:
-  Check:
+  format-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
