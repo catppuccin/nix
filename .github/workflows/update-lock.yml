@@ -22,4 +22,4 @@ jobs:
         with:
           commit-msg: "chore: update flake lockfile"
           pr-title: "chore: update flake lockfile"
-          token: ${{ github.token }}
+          token: ${{ secrets.FLAKE_UPDATE_TOKEN }}
