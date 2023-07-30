@@ -7,6 +7,14 @@ Create a file in `modules/<module>/` with the name of the port. Add the file to 
 `catppuccin.enable` and `catppuccin.flavour` options, and optionally the
 `catppuccin.accent` option. `catppuccin.flavour` and `catppuccin.accent` should
 default to `config.catppuccin.flavour` and `config.catppuccin.accent`, respectively.
+[Flake inputs](https://nixos.wiki/wiki/Flakes#Input_schema) should also be used over
+`fetchFromGitHub` when themes are not avalible in nixpkgs - this in order to reduce
+[IFD](https://nixos.wiki/wiki/Import_From_Derivation) and allow for auto-updating the 
+specified commits for repositories.
+
+After creating your module, add the options to enable it in `test.nix` under the
+`nodes.machine` attrset. This will allow for your configuration to be tested along
+with the other modules in a VM automatically.
 
 <!-- This loooks the best with the changelog generator. -->
 Commits that add ports should be of the format
