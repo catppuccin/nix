@@ -7,14 +7,15 @@ let
   cfg = config.programs.tmux.catppuccin;
   enable = cfg.enable && config.programs.tmux.enable;
 
-  plugin = with builtins;
-    with pkgs; let
+  plugin =
+    let
       rev = "4e48b09a76829edc7b55fbb15467cf0411f07931";
     in
-    tmuxPlugins.mkTmuxPlugin {
+    # TODO @getchoo: upstream this in nixpkgs
+    pkgs.tmuxPlugins.mkTmuxPlugin {
       pluginName = "catppuccin";
-      version = substring 0 7 rev;
-      src = fetchFromGitHub {
+      version = builtins.substring 0 7 rev;
+      src = pkgs.fetchFromGitHub {
         owner = "catppuccin";
         repo = "tmux";
         inherit rev;

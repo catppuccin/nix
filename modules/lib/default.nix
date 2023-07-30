@@ -83,9 +83,9 @@ in
   # a -> a -> [path] -> [path]
   # this imports a list of paths while inheriting
   # multiple attributes
-  mapModules = config: pkgs: extendedLib:
+  mapModules = config: pkgs: extendedLib: inputs:
     map (m: (import m {
-      inherit config pkgs;
+      inherit config pkgs inputs;
       lib = extendedLib;
     }));
 

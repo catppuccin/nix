@@ -1,10 +1,10 @@
 { config
 , pkgs
 , lib
+, inputs
 , ...
 }:
 let
-  inherit (builtins) fromTOML readFile;
   cfg = config.programs.helix.catppuccin;
   enable = cfg.enable && config.programs.helix.enable;
 in
@@ -28,13 +28,7 @@ in
         editor.color-modes = lib.mkDefault true;
       };
 
-      themes."catppuccin-${cfg.flavour}" = fromTOML (readFile (pkgs.fetchFromGitHub
-        {
-          owner = "catppuccin";
-          repo = "helix";
-          rev = "5677c16dc95297a804caea9161072ff174018fdd";
-          sha256 = "sha256-aa8KZ7/1TXcBqaV/TYOZ8rpusOf5QeQ9i2Upnncbziw=";
-        }
-      + "/themes/${subdir}/catppuccin_${cfg.flavour}.toml"));
+      themes."catppuccin-${cfg.flavour}" = builtins.fromTOML
+        "${inputs.helix}/themes/${subdir}/catppuccin_${cfg.flavour}.toml";
     };
 }

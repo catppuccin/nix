@@ -1,7 +1,7 @@
 { config
 , pkgs
 , lib
-,
+, ...
 }:
 let
   cfg = config.programs.glamour.catppuccin;

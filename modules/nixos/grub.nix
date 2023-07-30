@@ -1,23 +1,17 @@
 { config
 , pkgs
 , lib
+, inputs
 , ...
 }:
 let
   cfg = config.boot.loader.grub.catppuccin;
   enable = cfg.enable && config.boot.loader.grub.enable;
 
-  theme = with pkgs; let
-    src = fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "grub";
-      rev = "803c5df0e83aba61668777bb96d90ab8f6847106";
-      sha256 = "sha256-/bSolCta8GCZ4lP0u5NVqYQ9Y3ZooYCNdTwORNvR7M0=";
-    };
-  in
-  runCommand "catppuccin-grub-theme" { } ''
+  # TODO @getchoo: upstream this in nixpkgs maybe? idk if they have grub themes
+  theme = pkgs.runCommand "catppuccin-grub-theme" { } ''
     mkdir -p "$out"
-    cp -r ${src}/src/catppuccin-${cfg.flavour}-grub-theme/* "$out"/
+    cp -r ${inputs.grub}/src/catppuccin-${cfg.flavour}-grub-theme/* "$out"/
   '';
 in
 {
