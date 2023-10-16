@@ -19,6 +19,7 @@ in
         ./lazygit.nix
         ./starship.nix
         ./helix.nix
+        ./glamour.nix
         ./gtk.nix
         ./neovim.nix
         ./polybar.nix
