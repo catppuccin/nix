@@ -15,6 +15,7 @@ in
         ./bat.nix
         ./bottom.nix
         ./btop.nix
+        ./fish.nix
         ./kitty.nix
         ./lazygit.nix
         ./starship.nix
