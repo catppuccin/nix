@@ -21,5 +21,7 @@ in
     lib.ctp.mkCatppuccinOpt "sway" config;
 
   config.wayland.windowManager.sway.extraConfigEarly =
-    lib.mkIf enable (builtins.readFile theme);
+    lib.mkIf enable ''
+      include ${theme}
+    '';
 }
