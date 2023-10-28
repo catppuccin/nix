@@ -23,6 +23,7 @@ in
         ./glamour.nix
         ./gtk.nix
         ./neovim.nix
+        ./micro.nix
         ./polybar.nix
         ./sway.nix
         ./tmux.nix
