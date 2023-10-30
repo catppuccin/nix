@@ -8,7 +8,8 @@ let
   cfg = config.programs.btop.catppuccin;
   enable = cfg.enable && config.programs.btop.enable;
 
-  themePath = "/themes/catppuccin_${cfg.flavour}.theme";
+  themeFile = "catppuccin_${cfg.flavour}.theme";
+  themePath = "/themes/${themeFile}";
   theme =
     pkgs.fetchFromGitHub
       {
@@ -23,15 +24,14 @@ in
   options.programs.btop.catppuccin =
     lib.ctp.mkCatppuccinOpt "btop" config;
 
-  # xdg is required for this to work
-  config =
+  config = mkIf enable
     {
-      xdg.enable = mkIf enable (lib.mkForce true);
+      xdg = {
+        # xdg is required for this to work
+        enable = lib.mkForce true;
+        configFile."btop${themePath}".source = theme;
+      };
 
-      programs.btop.settings.color_theme =
-        mkIf enable "${config.xdg.configHome + "/btop/${themePath}"}";
-    }
-    // (lib.mkIf enable {
-      xdg.configFile."btop${themePath}".source = theme;
-    });
+      programs.btop.settings.color_theme = themeFile;
+    };
 }
