@@ -22,6 +22,7 @@ in
         ./helix.nix
         ./glamour.nix
         ./gtk.nix
+        ./mako.nix
         ./neovim.nix
         ./polybar.nix
         ./sway.nix
