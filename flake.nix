@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       systems = [
         "x86_64-linux"
@@ -21,20 +21,7 @@
 
       inherit (nixpkgs) lib;
 
-      forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgsFor.${s});
-      nixpkgsFor = lib.genAttrs systems (system: import nixpkgs { inherit system; });
-
-      nixosLib = import (nixpkgs + "/nixos/lib") { };
-      runTestFor = system: test: nixosLib.runTest {
-        imports = [ test ];
-
-        hostPkgs = nixpkgsFor.${system};
-
-        _module.args = {
-          catppuccin = self;
-          inherit nixpkgs home-manager;
-        };
-      };
+      forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
 
       sources = pkgs:
         let
@@ -44,6 +31,10 @@
         builtins.mapAttrs (_: p: p.src) s;
     in
     {
+      checks = forAllSystems (pkgs: lib.optionalAttrs pkgs.stdenv.isLinux {
+        module-vm-test = pkgs.nixosTest (import ./test.nix { inherit self inputs; });
+      });
+
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
 
       homeManagerModules.catppuccin = import ./modules/home-manager { inherit inputs sources; };
@@ -52,7 +43,7 @@
 
       packages = forAllSystems (pkgs:
         let
-          mkEval = module: lib.evalModules {
+          eval = module: lib.evalModules {
             modules = [
               module
               {
@@ -64,27 +55,23 @@
             ];
           };
 
-          mkDoc = name: options:
+          mkDoc = name: module:
             let
               doc = pkgs.nixosOptionsDoc {
-                options = lib.filterAttrs (n: _: n != "_module") options;
+                options = lib.filterAttrs (n: _: n != "_module") (eval module).options;
                 documentType = "none";
-                revision = if self ? rev then builtins.substring 0 7 self.rev else "dirty";
+                revision = builtins.substring 0 7 self.rev or "dirty";
               };
             in
             pkgs.runCommand "${name}-module-doc.md" { } ''
               cat ${doc.optionsCommonMark} > $out
             '';
-
-          hmEval = mkEval self.homeManagerModules.catppuccin;
-          nixosEval = mkEval self.nixosModules.catppuccin;
         in
-        rec {
-          nixos-doc = mkDoc "nixos" nixosEval.options;
-          home-manager-doc = mkDoc "home-manager" hmEval.options;
-          default = home-manager-doc;
-        });
+        {
+          nixos-doc = mkDoc "nixos" self.nixosModules.catppuccin;
+          home-manager-doc = mkDoc "home-manager" self.homeManagerModules.catppuccin;
 
-      tests.x86_64-linux.modules = runTestFor "x86_64-linux" ./test.nix;
+          default = self.packages.${pkgs.system}.home-manager-doc;
+        });
     };
 }

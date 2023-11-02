@@ -25,4 +25,4 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Run VM
-        run: nix build -Lv .#tests.x86_64-linux.modules
+        run: nix build -Lv .#checks.x86_64-linux.module-vm-test
