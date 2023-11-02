@@ -1,6 +1,8 @@
 ## boot\.loader\.grub\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+Whether to enable Catppuccin theme\.
+
+
 
 *Type:*
 boolean
@@ -19,6 +21,8 @@ boolean
 
 ## boot\.loader\.grub\.catppuccin\.flavour
 
+
+
 Catppuccin flavour for grub
 
 
@@ -34,6 +38,8 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 ## catppuccin\.flavour
+
+
 
 Global Catppuccin flavour
 
