@@ -25,6 +25,7 @@ in
         ./polybar.nix
         ./sway.nix
         ./tmux.nix
+        ./zathura.nix
       ];
     in
     extendedLib.ctp.mapModules extendedLib files;

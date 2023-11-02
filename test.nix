@@ -64,6 +64,7 @@ in
         neovim = ctpEnable;
         starship = ctpEnable;
         tmux = ctpEnable;
+        zathura = ctpEnable;
       };
 
       gtk = ctpEnable;
