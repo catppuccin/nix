@@ -65,6 +65,21 @@ in
     in
     fromJSON (readFile json);
 
+  # a -> path -> a
+  # fromJSON but for ini (and without readFile)
+  # a should be the local pkgs attrset
+  fromINI = pkgs: file:
+    let
+      inherit (builtins) fromJSON readFile;
+
+      # convert to json
+      json = with pkgs;
+        runCommand "converted.json" { } ''
+          ${jc}/bin/jc --ini < ${file} > $out
+        '';
+    in
+    fromJSON (readFile json);
+
   # a -> a -> [path] -> [path]
   # this imports a list of paths while inheriting
   # multiple attributes
