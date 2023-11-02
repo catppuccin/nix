@@ -20,19 +20,19 @@ jobs:
         package: ["nixos", "home-manager"]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v22
+
+      - name: Get short revision
+        id: rev
+        run:
+          echo "rev=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Build doc
         run: nix build .#${{ matrix.package }}-doc
 
       - name: Update doc
         run: cat result > docs/${{ matrix.package }}-options.md
-
-      - name: Get short revision
-        id: rev
-        run:
-          echo "rev=$(git rev parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
