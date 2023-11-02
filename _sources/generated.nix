@@ -217,4 +217,16 @@
     };
     date = "2023-11-01";
   };
+  wofi = {
+    pname = "wofi";
+    version = "6c37e0f65b9af45ebe680e3e0f5131f452747c6f";
+    src = fetchFromGitHub {
+      owner = "quantumfate";
+      repo = "wofi";
+      rev = "6c37e0f65b9af45ebe680e3e0f5131f452747c6f";
+      fetchSubmodules = false;
+      sha256 = "sha256-zQGiF/8WZ15ZlQVVgxuQq4qatinxMx2Y6Xl5Zcuhp7Y=";
+    };
+    date = "2023-09-16";
+  };
 }

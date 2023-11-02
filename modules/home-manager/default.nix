@@ -24,6 +24,7 @@ in
         ./polybar.nix
         ./sway.nix
         ./tmux.nix
+        ./wofi.nix
       ];
     in
     extendedLib.ctp.mapModules extendedLib files;

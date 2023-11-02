@@ -358,5 +358,25 @@
             "type": "github"
         },
         "version": "47e33044b4b47b1c1faca1e42508fc92be12131a"
+    },
+    "wofi": {
+        "cargoLocks": null,
+        "date": "2023-09-16",
+        "extract": null,
+        "name": "wofi",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "quantumfate",
+            "repo": "wofi",
+            "rev": "6c37e0f65b9af45ebe680e3e0f5131f452747c6f",
+            "sha256": "sha256-zQGiF/8WZ15ZlQVVgxuQq4qatinxMx2Y6Xl5Zcuhp7Y=",
+            "type": "github"
+        },
+        "version": "6c37e0f65b9af45ebe680e3e0f5131f452747c6f"
     }
 }
