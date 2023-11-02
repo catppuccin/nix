@@ -23,6 +23,7 @@ in
         ./micro.nix
         ./polybar.nix
         ./sway.nix
+        ./swaylock.nix
         ./tmux.nix
       ];
     in

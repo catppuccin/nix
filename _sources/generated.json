@@ -339,6 +339,26 @@
         },
         "version": "c976222e5cacbba7946fb82163944924bd5fac12"
     },
+    "swaylock": {
+        "cargoLocks": null,
+        "date": "2023-02-10",
+        "extract": null,
+        "name": "swaylock",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "remiposo",
+            "repo": "swaylock",
+            "rev": "9b88d9e866c044d47c98046ee6c8d6de2546cf82",
+            "sha256": "sha256-v2op7V52VYqzY9govnfkgmF7ybRRlPkohgnrUWDjItI=",
+            "type": "github"
+        },
+        "version": "9b88d9e866c044d47c98046ee6c8d6de2546cf82"
+    },
     "tmux": {
         "cargoLocks": null,
         "date": "2023-11-01",
