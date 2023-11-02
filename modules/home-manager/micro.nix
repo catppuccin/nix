@@ -11,7 +11,7 @@ let
 in
 {
   options.programs.micro.catppuccin =
-    lib.ctp.mkCatppuccinOpt "micro" config;
+    lib.ctp.mkCatppuccinOpt "micro";
 
   config = lib.mkIf enable {
     programs.micro.settings.colorscheme = lib.removeSuffix ".micro" themePath;

@@ -12,7 +12,7 @@ let
   themePath = "/themes/${themeName}.theme";
 in
 {
-  options.programs.fish.catppuccin = lib.ctp.mkCatppuccinOpt "fish" config;
+  options.programs.fish.catppuccin = lib.ctp.mkCatppuccinOpt "fish";
 
   # xdg is required for this to work
   config = mkIf enable {

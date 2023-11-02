@@ -16,7 +16,7 @@ let
 in
 {
   options.boot.loader.grub.catppuccin =
-    lib.ctp.mkCatppuccinOpt "grub" config;
+    lib.ctp.mkCatppuccinOpt "grub";
 
   config.boot.loader.grub = lib.mkIf enable {
     font = "${theme}/font.pf2";

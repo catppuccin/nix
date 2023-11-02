@@ -18,7 +18,7 @@ let
 in
 {
   options.programs.tmux.catppuccin =
-    lib.ctp.mkCatppuccinOpt "tmux" config;
+    lib.ctp.mkCatppuccinOpt "tmux";
 
   config.programs.tmux.plugins = lib.mkIf enable [
     {

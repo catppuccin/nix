@@ -10,7 +10,7 @@ let
 in
 {
   options.wayland.windowManager.sway.catppuccin =
-    lib.ctp.mkCatppuccinOpt "sway" config;
+    lib.ctp.mkCatppuccinOpt "sway";
 
   config.wayland.windowManager.sway.extraConfigEarly =
     lib.mkIf enable ''

@@ -1,10 +1,6 @@
-{ inputs, sources }: { config
-                     , pkgs
-                     , lib
-                     , ...
-                     }:
+{ inputs, ... }@flakeArgs: { lib, pkgs, ... }@systemArgs:
 let
-  extendedLib = import ../lib/mkExtLib.nix inputs.nixpkgs.lib;
+  extendedLib = import ../lib/mkExtLib.nix inputs.nixpkgs.lib (flakeArgs // systemArgs);
   inherit (extendedLib) ctp;
 in
 {
@@ -30,7 +26,7 @@ in
         ./tmux.nix
       ];
     in
-    extendedLib.ctp.mapModules config pkgs extendedLib (sources pkgs) files;
+    extendedLib.ctp.mapModules extendedLib files;
 
   options.catppuccin = {
     flavour = lib.mkOption {

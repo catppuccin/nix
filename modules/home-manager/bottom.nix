@@ -4,13 +4,20 @@
 , ...
 }:
 let
-  inherit (builtins) fromTOML readFile;
   cfg = config.programs.bottom.catppuccin;
   enable = cfg.enable && config.programs.bottom.enable;
 in
 {
   options.programs.bottom.catppuccin =
-    lib.ctp.mkCatppuccinOpt "bottom" config;
+    lib.ctp.mkCatppuccinOpt "bottom";
 
-  config.programs.bottom.settings = lib.mkIf enable (fromTOML (readFile "${sources.bottom}/themes/${cfg.flavour}.toml"));
+  config = lib.mkIf enable {
+
+    programs.bottom = {
+
+      settings = builtins.fromTOML (
+        builtins.readFile "${sources.bottom}/themes/${cfg.flavour}.toml"
+      );
+    };
+  };
 }

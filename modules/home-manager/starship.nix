@@ -10,7 +10,7 @@ let
 in
 {
   options.programs.starship.catppuccin =
-    lib.ctp.mkCatppuccinOpt "starship" config;
+    lib.ctp.mkCatppuccinOpt "starship";
 
   config.programs.starship.settings =
     lib.mkIf enable

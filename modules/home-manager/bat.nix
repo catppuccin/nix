@@ -10,7 +10,7 @@ let
 in
 {
   options.programs.bat.catppuccin =
-    lib.ctp.mkCatppuccinOpt "bat" config;
+    lib.ctp.mkCatppuccinOpt "bat";
 
   config = lib.mkIf enable {
     programs.bat = {

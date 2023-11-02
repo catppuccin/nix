@@ -1,6 +1,6 @@
-{ inputs, sources }: { config, pkgs, lib, ... }:
+{ inputs, ... }@flakeArgs: { lib, pkgs, ... }@systemArgs:
 let
-  extendedLib = import ../lib/mkExtLib.nix inputs.nixpkgs.lib;
+  extendedLib = import ../lib/mkExtLib.nix inputs.nixpkgs.lib (systemArgs // flakeArgs);
 in
 {
   imports =
@@ -9,7 +9,7 @@ in
         ./grub.nix
       ];
     in
-    extendedLib.ctp.mapModules config pkgs extendedLib (sources pkgs) files;
+    extendedLib.ctp.mapModules extendedLib files;
 
 
   options.catppuccin = with extendedLib; {

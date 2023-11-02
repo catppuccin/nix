@@ -18,7 +18,7 @@ let
 in
 {
   options.programs.glamour.catppuccin =
-    lib.ctp.mkCatppuccinOpt "glamour" config;
+    lib.ctp.mkCatppuccinOpt "glamour";
 
   config = {
     home.sessionVariables = lib.mkIf enable {

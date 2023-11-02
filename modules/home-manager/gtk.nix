@@ -10,9 +10,9 @@ let
 in
 {
   options.gtk.catppuccin =
-    ctp.mkCatppuccinOpt "gtk" config
+    ctp.mkCatppuccinOpt "gtk"
     // {
-      accent = ctp.mkAccentOpt "gtk" config;
+      accent = ctp.mkAccentOpt "gtk";
       size = mkOption {
         type = types.enum [ "standard" "compact" ];
         default = "standard";

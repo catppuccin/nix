@@ -1,6 +1,5 @@
 { config
 , lib
-, pkgs
 , sources
 , ...
 }:
@@ -13,17 +12,13 @@ let
 in
 {
   options.programs.lazygit.catppuccin =
-    lib.ctp.mkCatppuccinOpt "lazygit" config // {
-      accent = ctp.mkAccentOpt "lazygit" config;
+    lib.ctp.mkCatppuccinOpt "lazygit" // {
+      accent = ctp.mkAccentOpt "lazygit";
 
     };
 
   config = lib.mkIf enable {
 
-    programs.lazygit.settings =
-      let
-        file = "${sources.lazygit}/themes/${themePath}";
-      in
-      lib.ctp.fromYaml pkgs file;
+    programs.lazygit.settings = lib.ctp.fromYaml "${sources.lazygit}/themes/${themePath}";
   };
 }

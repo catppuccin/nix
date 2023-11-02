@@ -9,7 +9,7 @@ let
 in
 {
   options.programs.helix.catppuccin = with lib;
-    ctp.mkCatppuccinOpt "helix" config
+    ctp.mkCatppuccinOpt "helix"
     // {
       useItalics = mkEnableOption "Italics in Catppuccin theme for Helix";
     };

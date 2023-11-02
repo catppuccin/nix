@@ -13,7 +13,7 @@ let
 in
 {
   options.programs.btop.catppuccin =
-    lib.ctp.mkCatppuccinOpt "btop" config;
+    lib.ctp.mkCatppuccinOpt "btop";
 
   config = lib.mkIf enable
     {
