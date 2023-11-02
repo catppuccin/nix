@@ -24,6 +24,7 @@ in
         ./gtk.nix
         ./mako.nix
         ./neovim.nix
+        ./micro.nix
         ./polybar.nix
         ./sway.nix
         ./tmux.nix
