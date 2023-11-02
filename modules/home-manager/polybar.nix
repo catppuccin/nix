@@ -1,6 +1,6 @@
 { config
-, pkgs
 , lib
+, sources
 , ...
 }:
 let
@@ -9,14 +9,8 @@ let
 in
 {
   options.services.polybar.catppuccin =
-    lib.ctp.mkCatppuccinOpt "polybar" config;
+    lib.ctp.mkCatppuccinOpt "polybar";
 
-  config.services.polybar.extraConfig = lib.mkIf enable (builtins.readFile (pkgs.fetchFromGitHub
-    {
-      owner = "catppuccin";
-      repo = "polybar";
-      rev = "9ee66f83335404186ce979bac32fcf3cd047396a";
-      sha256 = "sha256-bUbSgMg/sa2faeEUZo80GNmhOX3wn2jLzfA9neF8ERA=";
-    }
-  + "/themes/${cfg.flavour}.ini"));
+  config.services.polybar.extraConfig = lib.mkIf enable
+    (builtins.readFile "${sources.polybar}/themes/${cfg.flavour}.ini");
 }

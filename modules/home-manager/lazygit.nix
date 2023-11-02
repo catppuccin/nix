@@ -1,27 +1,24 @@
 { config
-, pkgs
 , lib
+, sources
 , ...
 }:
 let
+  inherit (lib) ctp;
   cfg = config.programs.lazygit.catppuccin;
   enable = cfg.enable && config.programs.lazygit.enable;
+
+  themePath = "/${cfg.flavour}/${cfg.accent}.yml";
 in
 {
   options.programs.lazygit.catppuccin =
-    lib.ctp.mkCatppuccinOpt "lazygit" config;
+    lib.ctp.mkCatppuccinOpt "lazygit" // {
+      accent = ctp.mkAccentOpt "lazygit";
 
-  config.programs.lazygit.settings =
-    let
-      file =
-        pkgs.fetchFromGitHub
-          {
-            owner = "catppuccin";
-            repo = "lazygit";
-            rev = "f01edfd57fa2aa7cd69a92537a613bb3c91e65dd";
-            sha256 = "sha256-zjzDtXcGtUon4QbrZnlAPzngEyH56yy8TCyFv0rIbOA=";
-          }
-        + "/themes/${cfg.flavour}.yml";
-    in
-    lib.mkIf enable (lib.ctp.fromYaml pkgs file);
+    };
+
+  config = lib.mkIf enable {
+
+    programs.lazygit.settings = lib.ctp.fromYaml "${sources.lazygit}/themes/${themePath}";
+  };
 }

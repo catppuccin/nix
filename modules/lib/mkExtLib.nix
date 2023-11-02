@@ -1,1 +1,1 @@
-lib: lib.extend (self: _: { ctp = import ./. self; })
+lib: args: lib.extend (self: _: { ctp = import ./. self args; })

@@ -1,4 +1,4 @@
-lib:
+lib: { config, pkgs, sources, ... }:
 let
   # string -> type -> string -> a -> a
   # this is an internal function and shouldn't be
@@ -6,7 +6,7 @@ let
   # a string (the name of the property, i.e., flavour
   # or accent), the type of the property, the name of
   # the module, followed by local config attrset
-  mkBasicOpt = attr: type: name: config:
+  mkBasicOpt = attr: type: name:
     lib.mkOption {
       inherit type;
       default = config.catppuccin.${attr};
@@ -53,7 +53,7 @@ in
   # a -> path -> a
   # fromJSON but for yaml (and without readFile)
   # a should be the local pkgs attrset
-  fromYaml = pkgs: file:
+  fromYaml = file:
     let
       inherit (builtins) fromJSON readFile;
 
@@ -68,7 +68,7 @@ in
   # a -> path -> a
   # fromJSON but for ini (and without readFile)
   # a should be the local pkgs attrset
-  fromINI = pkgs: file:
+  fromINI = file:
     let
       inherit (builtins) fromJSON readFile;
 
@@ -83,9 +83,10 @@ in
   # a -> a -> [path] -> [path]
   # this imports a list of paths while inheriting
   # multiple attributes
-  mapModules = config: pkgs: extendedLib:
+  mapModules = extendedLib:
     map (m: (import m {
       inherit config pkgs;
+      sources = sources pkgs;
       lib = extendedLib;
     }));
 
@@ -94,9 +95,9 @@ in
   # enable and flavour option. the fist string should
   # be the name of the module, followed by the local config
   # attrset
-  mkCatppuccinOpt = name: config: {
+  mkCatppuccinOpt = name: {
     enable = lib.mkEnableOption "Catppuccin theme";
-    flavour = mkFlavourOpt name config;
+    flavour = mkFlavourOpt name;
   };
 
   # string -> a -> a

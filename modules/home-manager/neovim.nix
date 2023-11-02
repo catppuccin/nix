@@ -8,7 +8,7 @@ let
   enable = cfg.enable && config.programs.neovim.enable;
 in
 {
-  options.programs.neovim.catppuccin = lib.ctp.mkCatppuccinOpt "neovim" config;
+  options.programs.neovim.catppuccin = lib.ctp.mkCatppuccinOpt "neovim";
 
   config.programs.neovim = lib.mkIf enable {
     plugins = with pkgs.vimPlugins; [
