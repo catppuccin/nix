@@ -2,6 +2,8 @@
 
 Global Catppuccin accent
 
+
+
 *Type:*
 one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, “mauve”, “peach”, “pink”, “red”, “rosewater”, “sapphire”, “sky”, “teal”, “yellow”
 
@@ -13,6 +15,8 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 
 
 ## catppuccin\.flavour
+
+
 
 Global Catppuccin flavour
 
@@ -30,7 +34,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## gtk\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -51,6 +57,8 @@ boolean
 
 ## gtk\.catppuccin\.accent
 
+
+
 Catppuccin accent for gtk
 
 
@@ -66,6 +74,8 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 
 
 ## gtk\.catppuccin\.flavour
+
+
 
 Catppuccin flavour for gtk
 
@@ -83,6 +93,8 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## gtk\.catppuccin\.size
 
+
+
 Catppuccin size variant for gtk
 
 
@@ -98,6 +110,8 @@ one of “standard”, “compact”
 
 
 ## gtk\.catppuccin\.tweaks
+
+
 
 Catppuccin tweaks for gtk
 
@@ -120,7 +134,9 @@ list of (one of “black”, “rimless”, “normal”)
 
 ## programs\.alacritty\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -141,6 +157,8 @@ boolean
 
 ## programs\.alacritty\.catppuccin\.flavour
 
+
+
 Catppuccin flavour for alacritty
 
 
@@ -157,7 +175,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## programs\.bat\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -178,6 +198,8 @@ boolean
 
 ## programs\.bat\.catppuccin\.flavour
 
+
+
 Catppuccin flavour for bat
 
 
@@ -194,7 +216,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## programs\.bottom\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -215,6 +239,8 @@ boolean
 
 ## programs\.bottom\.catppuccin\.flavour
 
+
+
 Catppuccin flavour for bottom
 
 
@@ -231,7 +257,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## programs\.btop\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -252,7 +280,91 @@ boolean
 
 ## programs\.btop\.catppuccin\.flavour
 
+
+
 Catppuccin flavour for btop
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
+## programs\.fish\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.fish\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for fish
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
+## programs\.glamour\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.glamour\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for glamour
 
 
 
@@ -268,7 +380,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## programs\.helix\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -289,6 +403,8 @@ boolean
 
 ## programs\.helix\.catppuccin\.flavour
 
+
+
 Catppuccin flavour for helix
 
 
@@ -305,7 +421,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## programs\.helix\.catppuccin\.useItalics
 
-Whether to enable Italics in Catppuccin theme for Helix.
+
+
+Whether to enable Italics in Catppuccin theme for Helix\.
 
 
 
@@ -326,7 +444,9 @@ boolean
 
 ## programs\.kitty\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -347,6 +467,8 @@ boolean
 
 ## programs\.kitty\.catppuccin\.flavour
 
+
+
 Catppuccin flavour for kitty
 
 
@@ -363,7 +485,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## programs\.lazygit\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -382,7 +506,27 @@ boolean
 
 
 
+## programs\.lazygit\.catppuccin\.accent
+
+
+
+Catppuccin accent for lazygit
+
+
+
+*Type:*
+one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, “mauve”, “peach”, “pink”, “red”, “rosewater”, “sapphire”, “sky”, “teal”, “yellow”
+
+
+
+*Default:*
+` "teal" `
+
+
+
 ## programs\.lazygit\.catppuccin\.flavour
+
+
 
 Catppuccin flavour for lazygit
 
@@ -398,9 +542,52 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.micro\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.micro\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for micro
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.neovim\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -421,6 +608,8 @@ boolean
 
 ## programs\.neovim\.catppuccin\.flavour
 
+
+
 Catppuccin flavour for neovim
 
 
@@ -437,7 +626,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## programs\.starship\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -458,6 +649,8 @@ boolean
 
 ## programs\.starship\.catppuccin\.flavour
 
+
+
 Catppuccin flavour for starship
 
 
@@ -474,7 +667,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## programs\.tmux\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -495,7 +690,109 @@ boolean
 
 ## programs\.tmux\.catppuccin\.flavour
 
+
+
 Catppuccin flavour for tmux
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
+## programs\.wofi\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.wofi\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for wofi
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
+## programs\.wofi\.catppuccin\.font
+
+
+
+Font to use for wofi
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "Inconsolata Nerd Font" `
+
+
+
+## services\.mako\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## services\.mako\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for mako
 
 
 
@@ -511,7 +808,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## services\.polybar\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -532,6 +831,8 @@ boolean
 
 ## services\.polybar\.catppuccin\.flavour
 
+
+
 Catppuccin flavour for polybar
 
 
@@ -548,7 +849,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 ## wayland\.windowManager\.sway\.catppuccin\.enable
 
-Whether to enable Catppuccin theme.
+
+
+Whether to enable Catppuccin theme\.
 
 
 
@@ -568,6 +871,8 @@ boolean
 
 
 ## wayland\.windowManager\.sway\.catppuccin\.flavour
+
+
 
 Catppuccin flavour for sway
 
