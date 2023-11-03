@@ -29,6 +29,10 @@ Commits that add ports should be of the format
 feat(<nixos or home-manager>): add support for <port>
 ```
 
+> **Note**
+> Unofficial ports will not be accepted; all sources must be from the
+> [Catppuccin](https://github.com/catppuccin) GitHub organization
+
 ## Commit messages
 
 This repository uses [Conventional Commits](https://conventionalcommits.org).
