@@ -2,6 +2,7 @@
 , pkgs
 , lib
 , sources
+, ...
 }:
 let
   cfg = config.programs.zathura.catppuccin;

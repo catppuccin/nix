@@ -1,4 +1,4 @@
-lib: { config, pkgs, sources, ... }:
+{ config, lib, pkgs, ... }:
 let
   # string -> type -> string -> a -> a
   # this is an internal function and shouldn't be
@@ -79,16 +79,6 @@ in
         '';
     in
     fromJSON (readFile json);
-
-  # a -> a -> [path] -> [path]
-  # this imports a list of paths while inheriting
-  # multiple attributes
-  mapModules = extendedLib:
-    map (m: (import m {
-      inherit config pkgs;
-      sources = sources pkgs;
-      lib = extendedLib;
-    }));
 
   # string -> a -> a
   # this creates a basic attrset only containing an
