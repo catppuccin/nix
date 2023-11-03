@@ -34,6 +34,10 @@ fetch.github = "catppuccin/gtk"
 src.git = "https://github.com/catppuccin/helix.git"
 fetch.github = "catppuccin/helix"
 
+[hyprland]
+src.git = "https://github.com/catppuccin/hyprland.git"
+fetch.github = "catppuccin/hyprland"
+
 [kitty]
 src.git = "https://github.com/catppuccin/kitty.git"
 fetch.github = "catppuccin/kitty"

@@ -179,6 +179,26 @@
         },
         "version": "8313c7250fcbbb22c6680db332669073ec6b28c2"
     },
+    "hyprland": {
+        "cargoLocks": null,
+        "date": "2023-05-03",
+        "extract": null,
+        "name": "hyprland",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "hyprland",
+            "rev": "99a88fd21fac270bd999d4a26cf0f4a4222c58be",
+            "sha256": "sha256-07B5QmQmsUKYf38oWU3+2C6KO4JvinuTwmW1Pfk8CT8=",
+            "type": "github"
+        },
+        "version": "99a88fd21fac270bd999d4a26cf0f4a4222c58be"
+    },
     "kitty": {
         "cargoLocks": null,
         "date": "2023-06-09",

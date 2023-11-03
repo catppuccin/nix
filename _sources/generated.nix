@@ -109,6 +109,18 @@
     };
     date = "2023-10-20";
   };
+  hyprland = {
+    pname = "hyprland";
+    version = "99a88fd21fac270bd999d4a26cf0f4a4222c58be";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "hyprland";
+      rev = "99a88fd21fac270bd999d4a26cf0f4a4222c58be";
+      fetchSubmodules = false;
+      sha256 = "sha256-07B5QmQmsUKYf38oWU3+2C6KO4JvinuTwmW1Pfk8CT8=";
+    };
+    date = "2023-05-03";
+  };
   kitty = {
     pname = "kitty";
     version = "4820b3ef3f4968cf3084b2239ce7d1e99ea04dda";
