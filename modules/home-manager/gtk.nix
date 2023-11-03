@@ -23,26 +23,43 @@ in
         default = [ "normal" ];
         description = "Catppuccin tweaks for gtk";
       };
-    };
 
-  config.gtk.theme =
-    let
-      flavourUpper = ctp.mkUpper cfg.flavour;
-      accentUpper = ctp.mkUpper cfg.accent;
-      sizeUpper = ctp.mkUpper cfg.size;
-
-      # use the light gtk theme for latte
-      gtkTheme =
-        if cfg.flavour == "latte"
-        then "Light"
-        else "Dark";
-    in
-    lib.mkIf enable {
-      name = "Catppuccin-${flavourUpper}-${sizeUpper}-${accentUpper}-${gtkTheme}";
-      package = pkgs.catppuccin-gtk.override {
-        inherit (cfg) size tweaks;
-        accents = [ cfg.accent ];
-        variant = cfg.flavour;
+      cursor = ctp.mkCatppuccinOpt "gtk cursors"
+      // {
+        accent = ctp.mkAccentOpt "gtk cursors";
       };
     };
+
+  config.gtk = lib.mkIf enable {
+    theme =
+      let
+        flavourUpper = ctp.mkUpper cfg.flavour;
+        accentUpper = ctp.mkUpper cfg.accent;
+        sizeUpper = ctp.mkUpper cfg.size;
+
+        # use the light gtk theme for latte
+        gtkTheme =
+          if cfg.flavour == "latte"
+          then "Light"
+          else "Dark";
+      in
+      {
+        name = "Catppuccin-${flavourUpper}-${sizeUpper}-${accentUpper}-${gtkTheme}";
+        package = pkgs.catppuccin-gtk.override {
+          inherit (cfg) size tweaks;
+          accents = [ cfg.accent ];
+          variant = cfg.flavour;
+        };
+      };
+
+    cursorTheme =
+      let
+        flavourUpper = ctp.mkUpper cfg.cursor.flavour;
+        accentUpper = ctp.mkUpper cfg.cursor.accent;
+      in
+      lib.mkIf cfg.cursor.enable {
+        name = "Catppuccin-${flavourUpper}-${accentUpper}";
+        package = pkgs.catppuccin-cursors.${cfg.cursor.flavour + accentUpper};
+      };
+  };
 }

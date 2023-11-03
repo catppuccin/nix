@@ -69,7 +69,11 @@ in
         zathura = ctpEnable;
       };
 
-      gtk = ctpEnable;
+      gtk =
+        ctpEnable
+        // {
+          catppuccin.cursor.enable = true;
+        };
 
       services = {
         mako = ctpEnable;
