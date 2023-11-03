@@ -706,6 +706,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.zathura\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.zathura\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for zathura
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## services\.mako\.catppuccin\.enable
 
 
