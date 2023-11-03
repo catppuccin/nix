@@ -788,6 +788,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## wayland\.windowManager\.hyprland\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## wayland\.windowManager\.hyprland\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for hyprland
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## wayland\.windowManager\.sway\.catppuccin\.enable
 
 
