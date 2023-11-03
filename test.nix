@@ -80,6 +80,7 @@ in
       };
 
       wayland.windowManager.sway = ctpEnable;
+      wayland.windowManager.hyprland = ctpEnable;
     };
   };
 

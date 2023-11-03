@@ -16,6 +16,7 @@ in
         ./lazygit.nix
         ./starship.nix
         ./helix.nix
+        ./hyprland.nix
         ./glamour.nix
         ./gtk.nix
         ./mako.nix
