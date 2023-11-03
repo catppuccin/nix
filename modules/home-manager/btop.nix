@@ -17,11 +17,11 @@ in
 
   config = lib.mkIf enable
     {
-      xdg = {
-        # xdg is required for this to work
-        enable = lib.mkForce true;
-        configFile."btop${themePath}".source = theme;
-      };
+      assertions = [
+        (lib.ctp.assertXdgEnabled "btop")
+      ];
+
+      xdg.configFile."btop${themePath}".source = theme;
 
       programs.btop.settings.color_theme = themeFile;
     };

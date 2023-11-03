@@ -105,4 +105,9 @@ in
   # the first string should be the name of the module,
   # followed by the local config attrset
   mkAccentOpt = mkBasicOpt "accent" types.accentOption;
+
+  assertXdgEnabled = name: {
+    assertion = config.xdg.enable;
+    message = "Option xdg.enable must be enabled to apply Catppuccin theming for ${name}";
+  };
 }

@@ -42,6 +42,8 @@ in
 
       inherit (common) catppuccin;
 
+      xdg.enable = true;
+
       home = {
         username = "test";
         stateVersion = lib.mkDefault "23.11";
