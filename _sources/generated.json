@@ -378,5 +378,25 @@
             "type": "github"
         },
         "version": "47e33044b4b47b1c1faca1e42508fc92be12131a"
+    },
+    "zathura": {
+        "cargoLocks": null,
+        "date": "2022-09-27",
+        "extract": null,
+        "name": "zathura",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "zathura",
+            "rev": "d85d8750acd0b0247aa10e0653998180391110a4",
+            "sha256": "sha256-5Vh2bVabuBluVCJm9vfdnjnk32CtsK7wGIWM5+XnacM=",
+            "type": "github"
+        },
+        "version": "d85d8750acd0b0247aa10e0653998180391110a4"
     }
 }

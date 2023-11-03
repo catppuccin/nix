@@ -229,4 +229,16 @@
     };
     date = "2023-11-01";
   };
+  zathura = {
+    pname = "zathura";
+    version = "d85d8750acd0b0247aa10e0653998180391110a4";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "zathura";
+      rev = "d85d8750acd0b0247aa10e0653998180391110a4";
+      fetchSubmodules = false;
+      sha256 = "sha256-5Vh2bVabuBluVCJm9vfdnjnk32CtsK7wGIWM5+XnacM=";
+    };
+    date = "2022-09-27";
+  };
 }
