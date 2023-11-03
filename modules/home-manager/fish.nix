@@ -14,13 +14,12 @@ in
 {
   options.programs.fish.catppuccin = lib.ctp.mkCatppuccinOpt "fish";
 
-  # xdg is required for this to work
   config = mkIf enable {
-    xdg = {
-      enable = lib.mkForce true;
+    assertions = [
+      (lib.ctp.assertXdgEnabled "fish")
+    ];
 
-      configFile."fish${themePath}".source = "${sources.fish}${themePath}";
-    };
+    xdg.configFile."fish${themePath}".source = "${sources.fish}${themePath}";
 
     programs.fish.shellInit = ''
       fish_config theme choose "${themeName}"
