@@ -22,13 +22,6 @@
       inherit (nixpkgs) lib;
 
       forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
-
-      sources = pkgs:
-        let
-          s =
-            import ./_sources/generated.nix { inherit (pkgs) fetchgit fetchurl fetchFromGitHub dockerTools; };
-        in
-        builtins.mapAttrs (_: p: p.src) s;
     in
     {
       checks = forAllSystems (pkgs: lib.optionalAttrs pkgs.stdenv.isLinux {
@@ -37,9 +30,9 @@
 
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
 
-      homeManagerModules.catppuccin = import ./modules/home-manager { inherit inputs sources; };
+      homeManagerModules.catppuccin = import ./modules/home-manager;
 
-      nixosModules.catppuccin = import ./modules/nixos { inherit inputs sources; };
+      nixosModules.catppuccin = import ./modules/nixos;
 
       packages = forAllSystems (pkgs:
         let
@@ -60,7 +53,7 @@
               doc = pkgs.nixosOptionsDoc {
                 options = lib.filterAttrs (n: _: n != "_module") (eval module).options;
                 documentType = "none";
-                revision = builtins.substring 0 7 self.rev or "dirty";
+                revision = builtins.substring 0 8 self.rev or "dirty";
               };
             in
             pkgs.runCommand "${name}-module-doc.md" { } ''
