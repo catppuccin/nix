@@ -5,19 +5,22 @@ on:
     paths:
       - "modules/home-manager/**"
       - "modules/nixos/**"
-
-permissions:
-  contents: write
-
+  workflow_dispatch:
 
 jobs:
   update-docs:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     strategy:
       max-parallel: 1
       matrix:
         package: ["nixos", "home-manager"]
+
+    # we only want this running on our repo, on the `main` branch
+    if: github.repository == 'Stonks3141/ctp-nix' && github.ref_name == 'main'
 
     steps:
       - uses: actions/checkout@v4
