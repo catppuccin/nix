@@ -73,6 +73,65 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 
 
 
+## gtk\.catppuccin\.cursor\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## gtk\.catppuccin\.cursor\.accent
+
+
+
+Catppuccin accent for gtk cursors
+
+
+
+*Type:*
+one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, “mauve”, “peach”, “pink”, “red”, “rosewater”, “sapphire”, “sky”, “teal”, “yellow”
+
+
+
+*Default:*
+` "teal" `
+
+
+
+## gtk\.catppuccin\.cursor\.flavour
+
+
+
+Catppuccin flavour for gtk cursors
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## gtk\.catppuccin\.flavour
 
 
