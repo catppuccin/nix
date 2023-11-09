@@ -32,7 +32,8 @@ jobs:
           echo "rev=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Build doc
-        run: nix build .#${{ matrix.package }}-doc
+        run: |
+          nix build ./dev#${{ matrix.package }}-doc
 
       - name: Update doc
         run: cat result > docs/${{ matrix.package }}-options.md

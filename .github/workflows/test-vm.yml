@@ -19,10 +19,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - uses: cachix/install-nix-action@v23
         with:
           extra_nix_config: "system-features = benchmark big-parallel kvm nixos-test uid-range"
+
       - uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Run VM
-        run: nix build -Lv .#checks.x86_64-linux.module-vm-test
+        run: |
+          nix build -Lv ./dev#checks.x86_64-linux.module-vm-test

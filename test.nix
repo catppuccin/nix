@@ -1,4 +1,4 @@
-{ self
+{ ctp
 , inputs
 , ...
 }:
@@ -21,7 +21,7 @@ in
 
   nodes.machine = { lib, ... }: {
     imports = [
-      self.nixosModules.catppuccin
+      ctp.nixosModules.catppuccin
       inputs.home-manager.nixosModules.default
       common
     ];
@@ -37,7 +37,7 @@ in
 
     home-manager.users.test = {
       imports = [
-        self.homeManagerModules.catppuccin
+        ctp.homeManagerModules.catppuccin
       ];
 
       inherit (common) catppuccin;
