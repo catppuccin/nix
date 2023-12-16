@@ -11,10 +11,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - uses: cachix/install-nix-action@v23
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Run formatter
-        run: nix fmt
+        run: |
+          pushd dev/
+          nix fmt
+          popd
+
       - name: Check for changes
         run: git diff --color=always --exit-code

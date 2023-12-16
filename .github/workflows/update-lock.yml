@@ -21,8 +21,10 @@ jobs:
 
       - name: Update flake inputs
         run: |
+          pushd dev
           nix flake update \
-            --commit-lock-file --commit-lockfile-summary "chore: update flake inputs"
+            --commit-lock-file --commit-lockfile-summary "chore: update dev flake inputs"
+          popd
 
       - name: Update upstream sources
         run: |
