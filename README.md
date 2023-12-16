@@ -64,7 +64,8 @@
         home-manager.nixosModules.home-manager
         {
           home-manager.users.user = {
-            modules = [
+            imports = [
+              ./home.nix
               catppuccin.homeManagerModules.catppuccin
             ];
           };
@@ -97,14 +98,14 @@ sudo nix-channel --update
 For [NixOS module installations](https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module):
 
 ```nix
-_: {
+{
   imports = [
     <home-manager/nixos>
     <catppuccin/modules/nixos>
   ];
 
   home-manager.users.user = {
-    modules = [
+    imports = [
       <catppuccin/modules/home-manager>
     ];
   };
@@ -115,7 +116,7 @@ _: {
 For [standalone installations](https://nix-community.github.io/home-manager/index.html#sec-install-standalone)
 
 ```nix
-_: {
+{
   imports = [
     <catppuccin/modules/home-manager>
   ];
@@ -131,7 +132,7 @@ _: {
 2. Choose your desired flavour with `catppuccin.flavour`
 
 ```nix
-_: {
+{
   catppuccin.flavour = "mocha";
 }
 ```
@@ -139,7 +140,7 @@ _: {
 3. Enable for supported programs with `catppucin.enable = true;`
 
 ```nix
-_: {
+{
   programs.starship = {
     enable = true;
     catppuccin.enable = true;
