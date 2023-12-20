@@ -6,7 +6,7 @@
 let
   cfg = config.programs.bat.catppuccin;
   enable = cfg.enable && config.programs.bat.enable;
-  themeName = "Catppuccin-${cfg.flavour}";
+  themeName = "catppuccin-${cfg.flavour}";
 in
 {
   options.programs.bat.catppuccin =
