@@ -181,6 +181,18 @@
     };
     date = "2023-11-01";
   };
+  palette = {
+    pname = "palette";
+    version = "7f103c3e11f7f705ee1fb8ac430d90a798bbdfcb";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "palette";
+      rev = "7f103c3e11f7f705ee1fb8ac430d90a798bbdfcb";
+      fetchSubmodules = false;
+      sha256 = "sha256-W1Bj/407i2XT7CmCBoFe2PCe10MB8lmnEQsWXSrJ6zg=";
+    };
+    date = "2024-01-02";
+  };
   polybar = {
     pname = "polybar";
     version = "9ee66f83335404186ce979bac32fcf3cd047396a";

@@ -299,6 +299,26 @@
         },
         "version": "40dc9f0621c55bd40da4ad0731fac44d15bb393a"
     },
+    "palette": {
+        "cargoLocks": null,
+        "date": "2024-01-02",
+        "extract": null,
+        "name": "palette",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "palette",
+            "rev": "7f103c3e11f7f705ee1fb8ac430d90a798bbdfcb",
+            "sha256": "sha256-W1Bj/407i2XT7CmCBoFe2PCe10MB8lmnEQsWXSrJ6zg=",
+            "type": "github"
+        },
+        "version": "7f103c3e11f7f705ee1fb8ac430d90a798bbdfcb"
+    },
     "polybar": {
         "cargoLocks": null,
         "date": "2022-10-05",
