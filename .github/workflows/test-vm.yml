@@ -3,14 +3,18 @@ name: Test modules
 on:
   push:
     paths:
+      - '_sources/**'
       - 'modules/**'
       - 'test.nix'
       - 'flake.*'
+      - 'dev/flake.*'
   pull_request:
     paths:
+      - '_sources/**'
       - 'modules/**'
       - 'test.nix'
       - 'flake.*'
+      - 'dev/flake.*'
   workflow_dispatch:
 
 jobs:
