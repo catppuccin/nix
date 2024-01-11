@@ -12,9 +12,7 @@ in
   options.programs.alacritty.catppuccin =
     ctp.mkCatppuccinOpt "alacritty";
 
-  config.programs.alacritty.settings =
-    let
-      file = "${sources.alacritty}/catppuccin-${cfg.flavour}.yml";
-    in
-    lib.mkIf enable (ctp.fromYaml file);
+  config = lib.mkIf enable {
+    programs.alacritty.settings = lib.importTOML "${sources.alacritty}/catppuccin-${cfg.flavour}.toml";
+  };
 }
