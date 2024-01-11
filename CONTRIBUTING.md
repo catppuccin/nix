@@ -2,15 +2,14 @@
 
 ## Adding a port
 
-Create a file in `modules/<module>/` with the name of the port. Add the file to the
-`imports` declaration in `modules/<module>/default.nix`. All ports should have the
-`catppuccin.enable` and `catppuccin.flavour` options, and optionally the
+Create a file in `modules/<module>/` with the name of the port. All ports should have 
+the `catppuccin.enable` and `catppuccin.flavour` options, and optionally the
 `catppuccin.accent` option. `catppuccin.flavour` and `catppuccin.accent` should
 default to `config.catppuccin.flavour` and `config.catppuccin.accent`, respectively.
 
 [nvfetcher](https://github.com/berberman/nvfetcher) is used to track our upstream
-sources to use in modules. This allows us to reduce [IFD](https://nixos.wiki/wiki/Import_From_Derivation)
-and auto-update all themes. Most repositories can be specified like so:
+sources to use in modules. This allows us to easily access and auto-update all themes.
+Most repositories can be specified like so:
 
 ```toml
 [program_name]
@@ -22,7 +21,7 @@ After creating your module, add the options to enable it in `test.nix` under the
 `nodes.machine` attrset. This will allow for your configuration to be tested along
 with the other modules in a VM automatically.
 
-<!-- This loooks the best with the changelog generator. -->
+<!-- This looks the best with the changelog generator. -->
 Commits that add ports should be of the format
 
 ```
