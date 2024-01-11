@@ -21,9 +21,13 @@ jobs:
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Create new branch
+        id: branch
         run: |
           # try not to conflict with other branches
-          git switch -c update-lock/${{ github.run_id }}
+          branch="update-lock/${{ github.run_id }}"
+
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          git switch -c "$branch"
 
       - name: Update flake inputs
         run: |
@@ -49,5 +53,6 @@ jobs:
         run: |
           gh pr create \
             --base main \
+            --head ${{ steps.branch.outputs.branch }} \
             --title "chore: update lockfiles" \
             --fill
