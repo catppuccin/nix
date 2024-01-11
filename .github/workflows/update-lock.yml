@@ -47,13 +47,16 @@ jobs:
             git commit -am "chore: update nvfetch sources"
           fi
 
-      - name: Create PR
+      - name: Make PR if needed
         env:
           GH_TOKEN: ${{ github.token }}
-          HEAD_BRANCH: ${{ github.repository_owner }}:${{ steps.branch.outputs.branch }}
         run: |
-          gh pr create \
-            --base main \
-            --head "${{ env.HEAD_BRANCH }}" \
-            --title "chore: update lockfiles" \
-            --fill
+          if ! git diff --color=always --exit-code origin/main; then
+            git push -u origin ${{ steps.branch.outputs.branch }}
+
+            gh pr create \
+              --base main \
+              --head "${{ steps.branch.outputs.branch }}" \
+              --title "chore: update lockfiles" \
+              --fill
+          fi
