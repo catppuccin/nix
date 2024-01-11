@@ -50,9 +50,10 @@ jobs:
       - name: Create PR
         env:
           GH_TOKEN: ${{ github.token }}
+          HEAD_BRANCH: ${{ github.repository_owner }}:${{ steps.branch.outputs.branch }}
         run: |
           gh pr create \
             --base main \
-            --head ${{ steps.branch.outputs.branch }} \
+            --head "${{ env.HEAD_BRANCH }}" \
             --title "chore: update lockfiles" \
             --fill
