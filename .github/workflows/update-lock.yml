@@ -7,7 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-locks:
+  update:
+    name: Run update
     runs-on: ubuntu-latest
 
     steps:
@@ -19,25 +20,34 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
+      - name: Create new branch
+        run: |
+          # try not to conflict with other branches
+          git switch -c update-lock/${{ github.run_id }}
+
       - name: Update flake inputs
         run: |
           pushd dev
+
           nix flake update \
-            --commit-lock-file --commit-lockfile-summary "chore: update dev flake inputs"
+            --commit-lock-file \
+            --commit-lockfile-summary "chore: update dev flake inputs"
+
           popd
 
       - name: Update upstream sources
         run: |
-          nix run nixpkgs#nvfetcher
+          nix run --inputs-from . nixpkgs#nvfetcher
+
+          if ! git diff --color=always --exit-code; then
+            git commit -am "chore: update nvfetch sources"
+          fi
 
       - name: Create PR
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.LOCKFILE_TOKEN }}
-          base: "main"
-          branch: "update-lock"
-          delete-branch: true
-          committer: github-actions[bot] github-actions[bot]@users.noreply.github.com
-          commit-message: "chore: update nvfetcher sources"
-          title: "chore: update lockfiles"
-          body: "Automated pull request updating flake inputs and nvfetcher sources"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create \
+            --base main \
+            --title "chore: update lockfiles" \
+            --fill
