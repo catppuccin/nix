@@ -2,44 +2,50 @@ name: Update docs
 
 on:
   push:
+    branches: [main]
     paths:
       - "modules/home-manager/**"
       - "modules/nixos/**"
   workflow_dispatch:
 
 jobs:
-  update-docs:
+  update:
+    name: Run update
     runs-on: ubuntu-latest
 
     permissions:
       contents: write
 
-    strategy:
-      max-parallel: 1
-      matrix:
-        package: ["nixos", "home-manager"]
-
-    # we only want this running on our repo, on the `main` branch
-    if: github.repository == 'Stonks3141/ctp-nix' && github.ref_name == 'main'
+    # we only want this running on our repo
+    if: github.repository == 'Stonks3141/ctp-nix'
 
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v24
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v24
+
+      - name: Set Git user info
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Get short revision
         id: rev
         run:
           echo "rev=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
-      - name: Build doc
+      - name: Build & update docs
         run: |
-          nix build ./dev#${{ matrix.package }}-doc
-
-      - name: Update doc
-        run: cat result > docs/${{ matrix.package }}-options.md
+          for module in "nixos" "home-manager"; do
+            nix build -L --show-trace ./dev#"$module"-doc
+            cat result > docs/"$module"-options.md
+            rm result
+          done
 
       - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          default_author: github_actions
-          message: "docs: update docs for ${{ steps.rev.outputs.rev }}"
+        run: |
+          if ! git diff --color=always --exit-code; then
+            git commit -am "docs: update for ${{ steps.rev.outputs.rev }}"
+            git push
+          fi

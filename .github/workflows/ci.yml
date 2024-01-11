@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.lock'
+      - '**.nix'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  format:
+    name: Check formatting
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v24
+
+      - name: Run formatter
+        run: |
+          nix run --inputs-from ./dev nixpkgs#nixpkgs-fmt -- .
+
+      - name: Check for changes
+        run: git diff --color=always --exit-code
+
+  vm:
+    name: Test Modules
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v24
+
+      - name: Setup cache
+        uses: DeterminateSystems/magic-nix-cache-action@v2
+
+      - name: Run VM
+        run: |
+          nix build -L --show-trace ./dev#checks.x86_64-linux.module-vm-test

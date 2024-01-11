@@ -1,4 +1,4 @@
-name: release
+name: Release
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
 
 jobs:
   release-please:
+    name: Make release
     runs-on: ubuntu-latest
 
     permissions:
