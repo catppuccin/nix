@@ -44,7 +44,7 @@ jobs:
           nix run --inputs-from . nixpkgs#nvfetcher
 
           if ! git diff --color=always --exit-code; then
-            git commit -am "chore: update nvfetch sources"
+            git commit -am "chore: update nvfetcher sources"
           fi
 
       - name: Make PR if needed
