@@ -19,6 +19,6 @@ in
 
   config = lib.mkIf enable {
 
-    programs.lazygit.settings = lib.ctp.fromYaml "${sources.lazygit}/themes/${themePath}";
+    programs.lazygit.settings = lib.ctp.fromYaml "${sources.lazygit}/themes-mergable/${themePath}";
   };
 }
