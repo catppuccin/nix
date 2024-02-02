@@ -1,7 +1,7 @@
 {
     "alacritty": {
         "cargoLocks": null,
-        "date": "2023-12-31",
+        "date": "2024-01-16",
         "extract": null,
         "name": "alacritty",
         "passthru": null,
@@ -13,11 +13,11 @@
             "name": null,
             "owner": "catppuccin",
             "repo": "alacritty",
-            "rev": "ce476fb41f307d90f841c1a4fd7f0727c21248b2",
-            "sha256": "sha256-bpHznCqkNMbauDQjh98qj2+r1V8mXQIVmvKTldLcln0=",
+            "rev": "f2da554ee63690712274971dd9ce0217895f5ee0",
+            "sha256": "sha256-ypYaxlsDjI++6YNcE+TxBSnlUXKKuAMmLQ4H74T/eLw=",
             "type": "github"
         },
-        "version": "ce476fb41f307d90f841c1a4fd7f0727c21248b2"
+        "version": "f2da554ee63690712274971dd9ce0217895f5ee0"
     },
     "bat": {
         "cargoLocks": null,
@@ -221,7 +221,7 @@
     },
     "lazygit": {
         "cargoLocks": null,
-        "date": "2023-12-17",
+        "date": "2024-01-24",
         "extract": null,
         "name": "lazygit",
         "passthru": null,
@@ -233,11 +233,11 @@
             "name": null,
             "owner": "catppuccin",
             "repo": "lazygit",
-            "rev": "4ee9533a77d94e8609522fcb6d2beba1e61befbf",
-            "sha256": "sha256-zoESn9RgOMmSioaA7Xs2B4Z98tKzy7/aumh2b75hgVo=",
+            "rev": "9319e49f761ddb154c0b5386afd7441170f6dfd3",
+            "sha256": "sha256-rfrRne5VpxURp8dneC8i3vQt+/qQOJfydQ3BIpiLWaI=",
             "type": "github"
         },
-        "version": "4ee9533a77d94e8609522fcb6d2beba1e61befbf"
+        "version": "9319e49f761ddb154c0b5386afd7441170f6dfd3"
     },
     "mako": {
         "cargoLocks": null,
@@ -281,7 +281,7 @@
     },
     "neovim": {
         "cargoLocks": null,
-        "date": "2023-12-31",
+        "date": "2024-01-31",
         "extract": null,
         "name": "neovim",
         "passthru": null,
@@ -293,11 +293,11 @@
             "name": null,
             "owner": "catppuccin",
             "repo": "nvim",
-            "rev": "5e36ca599f4aa41bdd87fbf2c5aae4397ac55074",
-            "sha256": "sha256-3fe+Tc1rl1FSFdMyRKfDv7+/piIpj5RgWYgKeN1jx6s=",
+            "rev": "c2034f7b549152e5cc757820426341ea5000bc7a",
+            "sha256": "sha256-qeakoy8iFMqm10rOG62b8se9Ix+6xUD18hBvXhkrMdY=",
             "type": "github"
         },
-        "version": "5e36ca599f4aa41bdd87fbf2c5aae4397ac55074"
+        "version": "c2034f7b549152e5cc757820426341ea5000bc7a"
     },
     "polybar": {
         "cargoLocks": null,
@@ -361,7 +361,7 @@
     },
     "tmux": {
         "cargoLocks": null,
-        "date": "2023-11-01",
+        "date": "2024-02-01",
         "extract": null,
         "name": "tmux",
         "passthru": null,
@@ -373,11 +373,11 @@
             "name": null,
             "owner": "catppuccin",
             "repo": "tmux",
-            "rev": "47e33044b4b47b1c1faca1e42508fc92be12131a",
-            "sha256": "sha256-kn3kf7eiiwXj57tgA7fs5N2+B2r441OtBlM8IBBLl4I=",
+            "rev": "a0119d25283ba2b18287447c1f86720a255fb652",
+            "sha256": "sha256-SGJjDrTrNNxnurYV1o1KbHRIHFyfmbXDX/t4KN8VCao=",
             "type": "github"
         },
-        "version": "47e33044b4b47b1c1faca1e42508fc92be12131a"
+        "version": "a0119d25283ba2b18287447c1f86720a255fb652"
     },
     "zathura": {
         "cargoLocks": null,
