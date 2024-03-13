@@ -57,7 +57,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           if ! git diff --color=always --exit-code origin/main; then
-            git fetch origin foo || true
+            git fetch origin "$PR_BRANCH" || true
             git push --force-with-lease -u origin "$PR_BRANCH"
 
             open_prs="$(gh pr list --base main --head "$PR_BRANCH" | wc -l)"
