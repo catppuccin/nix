@@ -28,6 +28,8 @@ in
 
     boot.loader.grub = ctpEnable;
 
+    console = ctpEnable;
+
     programs.dconf.enable = true; # required for gtk
 
     virtualisation = {

@@ -58,6 +58,10 @@ fetch.github = "catppuccin/micro"
 src.git = "https://github.com/catppuccin/nvim.git"
 fetch.github = "catppuccin/nvim"
 
+[palette]
+src.git = "https://github.com/catppuccin/palette"
+fetch.github = "catppuccin/palette"
+
 [polybar]
 src.git = "https://github.com/catppuccin/polybar.git"
 fetch.github = "catppuccin/polybar"
