@@ -54,3 +54,44 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "latte" `
 
 
+
+## console\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## console\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for console
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
