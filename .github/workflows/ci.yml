@@ -44,7 +44,7 @@ jobs:
         uses: cachix/install-nix-action@v25
 
       - name: Setup cache
-        uses: DeterminateSystems/magic-nix-cache-action@v2
+        uses: DeterminateSystems/magic-nix-cache-action@v3
 
       - name: Run VM
         run: |
