@@ -11,6 +11,13 @@ jobs:
     name: Run update
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      pull-requests: write
+
+    env:
+      PR_BRANCH: "update-lockfiles"
+
     steps:
       - uses: actions/checkout@v4
 
@@ -25,11 +32,7 @@ jobs:
       - name: Create new branch
         id: branch
         run: |
-          # try not to conflict with other branches
-          branch="update-lock/${{ github.run_id }}"
-
-          echo "branch=$branch" >> "$GITHUB_OUTPUT"
-          git switch -c "$branch"
+          git switch -c "$PR_BRANCH"
 
       - name: Update flake inputs
         run: |
@@ -54,11 +57,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           if ! git diff --color=always --exit-code origin/main; then
-            git push -u origin ${{ steps.branch.outputs.branch }}
+            git fetch origin foo || true
+            git push --force-with-lease -u origin "$PR_BRANCH"
 
-            gh pr create \
-              --base main \
-              --head "${{ steps.branch.outputs.branch }}" \
-              --title "chore: update lockfiles" \
-              --fill
+            open_prs="$(gh pr list --base main --head "$PR_BRANCH" | wc -l)"
+            if [ "$open_prs" -eq 0 ]; then
+              gh pr create \
+                --base main \
+                --head "$PR_BRANCH" \
+                --title "chore: update lockfiles" \
+                --fill
+            fi
           fi
