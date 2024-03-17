@@ -6,7 +6,7 @@
 let
   cfg = config.programs.bat.catppuccin;
   enable = cfg.enable && config.programs.bat.enable;
-  themeName = "Catppuccin-${cfg.flavour}";
+  themeName = "Catppuccin ${lib.ctp.mkUpper cfg.flavour}";
 in
 {
   options.programs.bat.catppuccin =
@@ -18,7 +18,7 @@ in
 
       themes.${themeName} = {
         src = sources.bat;
-        file = "${themeName}.tmTheme";
+        file = "themes/${themeName}.tmTheme";
       };
     };
   };
