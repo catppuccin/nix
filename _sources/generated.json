@@ -279,6 +279,26 @@
         },
         "version": "ed8ef015f97c357575b5013e18042c9faa6c068a"
     },
+    "mpv": {
+        "cargoLocks": null,
+        "date": "2024-04-09",
+        "extract": null,
+        "name": "mpv",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "mpv",
+            "rev": "db31f00b5107320f8882eb8c727060d5eab702c9",
+            "sha256": "sha256-QxPUjd2Y4FpvEg2aYrKkJVkLNfYtESryY+w5NNMUMZc=",
+            "type": "github"
+        },
+        "version": "db31f00b5107320f8882eb8c727060d5eab702c9"
+    },
     "neovim": {
         "cargoLocks": null,
         "date": "2024-03-05",

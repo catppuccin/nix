@@ -65,6 +65,7 @@ in
         kitty = ctpEnable;
         lazygit = ctpEnable;
         micro = ctpEnable;
+        mpv = ctpEnable;
         neovim = ctpEnable;
         starship = ctpEnable;
         tmux = ctpEnable;

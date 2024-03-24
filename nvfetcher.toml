@@ -54,6 +54,10 @@ fetch.github = "catppuccin/mako"
 src.git = "https://github.com/catppuccin/micro.git"
 fetch.github = "catppuccin/micro"
 
+[mpv]
+src.git = "https://github.com/catppuccin/mpv.git"
+fetch.github = "catppuccin/mpv"
+
 [neovim]
 src.git = "https://github.com/catppuccin/nvim.git"
 fetch.github = "catppuccin/nvim"
