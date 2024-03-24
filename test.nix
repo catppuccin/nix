@@ -62,6 +62,7 @@ in
         glamour.catppuccin.enable = true;
         helix = ctpEnable;
         home-manager.enable = false;
+        imv = ctpEnable;
         kitty = ctpEnable;
         lazygit = ctpEnable;
         micro = ctpEnable;

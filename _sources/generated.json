@@ -199,6 +199,26 @@
         },
         "version": "fc228737d3d0c12e34a7fa155a0fc3192e5e4017"
     },
+    "imv": {
+        "cargoLocks": null,
+        "date": "2024-01-17",
+        "extract": null,
+        "name": "imv",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "imv",
+            "rev": "0317a097b6ec8122b1da6d02f61d0c5158019f6e",
+            "sha256": "sha256-n6obxM5iVSOdlGdI8ZEmYuxudarLoZHqGETrpTcdrok=",
+            "type": "github"
+        },
+        "version": "0317a097b6ec8122b1da6d02f61d0c5158019f6e"
+    },
     "kitty": {
         "cargoLocks": null,
         "date": "2024-01-10",
