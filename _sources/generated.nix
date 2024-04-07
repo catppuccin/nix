@@ -49,6 +49,18 @@
     };
     date = "2023-10-07";
   };
+  delta = {
+    pname = "delta";
+    version = "765eb17d0268bf07c20ca439771153f8bc79444f";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "delta";
+      rev = "765eb17d0268bf07c20ca439771153f8bc79444f";
+      fetchSubmodules = false;
+      sha256 = "sha256-GA0n9obZlD0Y2rAbGMjcdJ5I0ij1NEPBFC7rv7J49QI=";
+    };
+    date = "2024-03-23";
+  };
   fish = {
     pname = "fish";
     version = "0ce27b518e8ead555dec34dd8be3df5bd75cff8e";

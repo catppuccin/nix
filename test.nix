@@ -59,6 +59,8 @@ in
         bottom = ctpEnable;
         btop = ctpEnable;
         fish = ctpEnable;
+        git.enable = true; # Required for delta
+        git.delta = ctpEnable;
         glamour.catppuccin.enable = true;
         helix = ctpEnable;
         home-manager.enable = false;

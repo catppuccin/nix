@@ -14,6 +14,10 @@ fetch.github = "catppuccin/bottom"
 src.git = "https://github.com/catppuccin/btop.git"
 fetch.github = "catppuccin/btop"
 
+[delta]
+src.git = "https://github.com/catppuccin/delta.git"
+fetch.github = "catppuccin/delta"
+
 [fish]
 src.git = "https://github.com/catppuccin/fish.git"
 fetch.github = "catppuccin/fish"
