@@ -78,6 +78,10 @@ fetch.github = "catppuccin/starship"
 src.git = "https://github.com/catppuccin/sway.git"
 fetch.github = "catppuccin/sway"
 
+[swaylock]
+src.git = "https://github.com/catppuccin/swaylock.git"
+fetch.github = "catppuccin/swaylock"
+
 [tmux]
 src.git = "https://github.com/catppuccin/tmux.git"
 fetch.github = "catppuccin/tmux"

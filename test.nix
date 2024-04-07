@@ -69,6 +69,7 @@ in
         micro = ctpEnable;
         neovim = ctpEnable;
         starship = ctpEnable;
+        swaylock = ctpEnable;
         tmux = ctpEnable;
         zathura = ctpEnable;
       };

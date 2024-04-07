@@ -241,6 +241,18 @@
     };
     date = "2023-12-20";
   };
+  swaylock = {
+    pname = "swaylock";
+    version = "ac089b8b8ae7852816fa709f6d97659221b75e18";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "swaylock";
+      rev = "ac089b8b8ae7852816fa709f6d97659221b75e18";
+      fetchSubmodules = false;
+      sha256 = "sha256-e17JVWyj+ES9qII8Ukj6JxZh4bWUK+gOKsTvUIu3Qq4=";
+    };
+    date = "2024-01-17";
+  };
   tmux = {
     pname = "tmux";
     version = "cece0c36772483d1343bcace2b1cedb007057c2e";
