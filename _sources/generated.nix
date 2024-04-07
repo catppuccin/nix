@@ -133,6 +133,18 @@
     };
     date = "2024-04-03";
   };
+  imv = {
+    pname = "imv";
+    version = "0317a097b6ec8122b1da6d02f61d0c5158019f6e";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "imv";
+      rev = "0317a097b6ec8122b1da6d02f61d0c5158019f6e";
+      fetchSubmodules = false;
+      sha256 = "sha256-n6obxM5iVSOdlGdI8ZEmYuxudarLoZHqGETrpTcdrok=";
+    };
+    date = "2024-01-17";
+  };
   kitty = {
     pname = "kitty";
     version = "d7d61716a83cd135344cbb353af9d197c5d7cec1";
