@@ -9,11 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # https://github.com/divnix/call-flake/issues/4
-    call-flake.url = "github:divnix/call-flake/a9bc85f5bd939734655327a824b4e7ceb4ccaba9";
+    get-flake.url = "github:ursi/get-flake";
   };
 
-  outputs = { self, nixpkgs, call-flake, ... }@inputs:
+  outputs = { self, nixpkgs, get-flake, ... }@inputs:
     let
       systems = [
         "x86_64-linux"
@@ -25,7 +24,7 @@
       inherit (nixpkgs) lib;
 
       forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
-      ctp = call-flake ../.;
+      ctp = get-flake ../.;
     in
     {
       checks = forAllSystems (pkgs: lib.optionalAttrs pkgs.stdenv.isLinux {
