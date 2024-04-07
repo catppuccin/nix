@@ -765,6 +765,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.swaylock\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.swaylock\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for swaylock
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.tmux\.catppuccin\.enable
 
 
