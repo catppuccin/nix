@@ -542,6 +542,47 @@ boolean
 
 
 
+## programs\.imv\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.imv\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for imv
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.kitty\.catppuccin\.enable
 
 
