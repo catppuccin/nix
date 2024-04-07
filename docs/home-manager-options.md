@@ -396,6 +396,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.git\.delta\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.git\.delta\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for catppuccin
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.glamour\.catppuccin\.enable
 
 
