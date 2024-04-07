@@ -46,11 +46,8 @@ jobs:
 
       - name: Update upstream sources
         run: |
-          nix run --inputs-from ./dev nixpkgs#nvfetcher
-
-          if ! git diff --color=always --exit-code; then
-            git commit -am "chore: update nvfetcher sources"
-          fi
+          nix run --inputs-from ./dev \
+            nixpkgs#nvfetcher -- --commit-changes
 
       - name: Make PR if needed
         env:
