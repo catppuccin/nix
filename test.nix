@@ -61,6 +61,7 @@ in
         fish = ctpEnable;
         git.enable = true; # Required for delta
         git.delta = ctpEnable;
+        gitui = ctpEnable;
         glamour.catppuccin.enable = true;
         helix = ctpEnable;
         home-manager.enable = false;
