@@ -72,6 +72,7 @@ in
         starship = ctpEnable;
         swaylock = ctpEnable;
         tmux = ctpEnable;
+        yazi = ctpEnable;
         zathura = ctpEnable;
       };
 

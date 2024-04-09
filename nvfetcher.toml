@@ -90,6 +90,10 @@ fetch.github = "catppuccin/swaylock"
 src.git = "https://github.com/catppuccin/tmux.git"
 fetch.github = "catppuccin/tmux"
 
+[yazi]
+src.git = "https://github.com/catppuccin/yazi.git"
+fetch.github = "catppuccin/yazi"
+
 [zathura]
 src.git = "https://github.com/catppuccin/zathura.git"
 fetch.github = "catppuccin/zathura"
