@@ -17,7 +17,7 @@ jobs:
       contents: write
 
     # we only want this running on our repo
-    if: github.repository == 'Stonks3141/ctp-nix'
+    if: github.repository == 'catppuccin/nix'
 
     steps:
       - uses: actions/checkout@v4
