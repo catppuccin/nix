@@ -73,6 +73,18 @@
     };
     date = "2023-11-02";
   };
+  gitui = {
+    pname = "gitui";
+    version = "39978362b2c88b636cacd55b65d2f05c45a47eb9";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "gitui";
+      rev = "39978362b2c88b636cacd55b65d2f05c45a47eb9";
+      fetchSubmodules = false;
+      sha256 = "sha256-kWaHQ1+uoasT8zXxOxkur+QgZu1wLsOOrP/TL+6cfII=";
+    };
+    date = "2023-11-13";
+  };
   glamour = {
     pname = "glamour";
     version = "66d7b09325af67b1c5cdb063343e829c04ad7d5f";

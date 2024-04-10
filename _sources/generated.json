@@ -119,6 +119,26 @@
         },
         "version": "0ce27b518e8ead555dec34dd8be3df5bd75cff8e"
     },
+    "gitui": {
+        "cargoLocks": null,
+        "date": "2023-11-13",
+        "extract": null,
+        "name": "gitui",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "gitui",
+            "rev": "39978362b2c88b636cacd55b65d2f05c45a47eb9",
+            "sha256": "sha256-kWaHQ1+uoasT8zXxOxkur+QgZu1wLsOOrP/TL+6cfII=",
+            "type": "github"
+        },
+        "version": "39978362b2c88b636cacd55b65d2f05c45a47eb9"
+    },
     "glamour": {
         "cargoLocks": null,
         "date": "2024-04-02",
