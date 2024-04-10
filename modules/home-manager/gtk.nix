@@ -58,7 +58,7 @@ in
         accentUpper = ctp.mkUpper cfg.cursor.accent;
       in
       lib.mkIf cfg.cursor.enable {
-        name = "Catppuccin-${flavourUpper}-${accentUpper}";
+        name = "Catppuccin-${flavourUpper}-${accentUpper}-Cursors";
         package = pkgs.catppuccin-cursors.${cfg.cursor.flavour + accentUpper};
       };
   };
