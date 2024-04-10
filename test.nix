@@ -59,6 +59,7 @@ in
         bottom = ctpEnable;
         btop = ctpEnable;
         fish = ctpEnable;
+        fzf = ctpEnable;
         git.enable = true; # Required for delta
         git.delta = ctpEnable;
         gitui = ctpEnable;
