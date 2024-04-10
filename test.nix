@@ -84,6 +84,7 @@ in
         };
 
       services = {
+        dunst = ctpEnable;
         mako = ctpEnable;
         polybar =
           ctpEnable
