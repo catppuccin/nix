@@ -1,9 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.programs.imv.catppuccin;
   enable = cfg.enable && config.programs.imv.enable;
 in

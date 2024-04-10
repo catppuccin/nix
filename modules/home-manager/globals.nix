@@ -13,5 +13,11 @@
       default = "mauve";
       description = "Global Catppuccin accent";
     };
+
+    sources = lib.mkOption {
+      type = lib.types.lazyAttrsOf lib.types.raw;
+      default = { };
+      description = "Port sources used across all options";
+    };
   };
 }

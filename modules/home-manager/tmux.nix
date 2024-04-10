@@ -1,11 +1,11 @@
 { config
 , lib
 , pkgs
-, sources
 , ...
 }:
 let
   inherit (lib) ctp mkOption types concatStrings;
+  inherit (config.catppuccin) sources;
   cfg = config.programs.tmux.catppuccin;
   enable = cfg.enable && config.programs.tmux.enable;
 

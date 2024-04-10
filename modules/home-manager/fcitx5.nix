@@ -1,10 +1,11 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
   inherit (lib) ctp;
+  inherit (config.catppuccin) sources;
+
   cfg = config.i18n.inputMethod.fcitx5.catppuccin;
   enable = cfg.enable && config.i18n.inputMethod.enabled == "fcitx5";
 in
