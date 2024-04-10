@@ -71,6 +71,7 @@ in
         lazygit = ctpEnable;
         micro = ctpEnable;
         neovim = ctpEnable;
+        rofi = ctpEnable;
         starship = ctpEnable;
         swaylock = ctpEnable;
         tmux = ctpEnable;

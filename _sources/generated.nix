@@ -241,6 +241,18 @@
     };
     date = "2024-02-03";
   };
+  rofi = {
+    pname = "rofi";
+    version = "5350da41a11814f950c3354f090b90d4674a95ce";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "rofi";
+      rev = "5350da41a11814f950c3354f090b90d4674a95ce";
+      fetchSubmodules = false;
+      sha256 = "sha256-DNorfyl3C4RBclF2KDgwvQQwixpTwSRu7fIvihPN8JY=";
+    };
+    date = "2022-12-31";
+  };
   starship = {
     pname = "starship";
     version = "5629d2356f62a9f2f8efad3ff37476c19969bd4f";

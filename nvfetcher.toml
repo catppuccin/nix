@@ -78,6 +78,10 @@ fetch.github = "catppuccin/palette"
 src.git = "https://github.com/catppuccin/polybar.git"
 fetch.github = "catppuccin/polybar"
 
+[rofi]
+src.git = "https://github.com/catppuccin/rofi.git"
+fetch.github = "catppuccin/rofi"
+
 [starship]
 src.git = "https://github.com/catppuccin/starship.git"
 fetch.github = "catppuccin/starship"
