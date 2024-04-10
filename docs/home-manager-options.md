@@ -396,6 +396,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.fzf\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.fzf\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for fzf
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.git\.delta\.catppuccin\.enable
 
 
@@ -424,6 +465,47 @@ boolean
 
 
 Catppuccin flavour for catppuccin
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
+## programs\.gitui\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.gitui\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for gitui
 
 
 
