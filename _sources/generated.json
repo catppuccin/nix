@@ -519,6 +519,26 @@
         },
         "version": "5ed4e8a6a20c928688da268dfcdf460ac9c3cb49"
     },
+    "yazi": {
+        "cargoLocks": null,
+        "date": "2024-02-21",
+        "extract": null,
+        "name": "yazi",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "yazi",
+            "rev": "0846aed69b2a62d29c98e100af0cf55ca729723d",
+            "sha256": "sha256-2T41qWMe++3Qxl9veRNHMeRI3eU4+LAueKTss02gYNk=",
+            "type": "github"
+        },
+        "version": "0846aed69b2a62d29c98e100af0cf55ca729723d"
+    },
     "zathura": {
         "cargoLocks": null,
         "date": "2024-04-04",

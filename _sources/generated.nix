@@ -313,6 +313,18 @@
     };
     date = "2024-03-30";
   };
+  yazi = {
+    pname = "yazi";
+    version = "0846aed69b2a62d29c98e100af0cf55ca729723d";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "yazi";
+      rev = "0846aed69b2a62d29c98e100af0cf55ca729723d";
+      fetchSubmodules = false;
+      sha256 = "sha256-2T41qWMe++3Qxl9veRNHMeRI3eU4+LAueKTss02gYNk=";
+    };
+    date = "2024-02-21";
+  };
   zathura = {
     pname = "zathura";
     version = "0adc53028d81bf047461bc61c43a484d11b15220";
