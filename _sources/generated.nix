@@ -169,6 +169,18 @@
     };
     date = "2024-01-17";
   };
+  k9s = {
+    pname = "k9s";
+    version = "82eba6feb442932e28facedfb18dfbe79234f180";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "k9s";
+      rev = "82eba6feb442932e28facedfb18dfbe79234f180";
+      fetchSubmodules = false;
+      sha256 = "sha256-VLi7G6Rjmbr6feSOg8aLYJmOb+GyJUKi3k9qod6ut9k=";
+    };
+    date = "2024-03-22";
+  };
   kitty = {
     pname = "kitty";
     version = "d7d61716a83cd135344cbb353af9d197c5d7cec1";
