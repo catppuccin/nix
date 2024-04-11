@@ -399,6 +399,26 @@
         },
         "version": "989420b24e1f651b176c9d6083ad7c3b90a27f8b"
     },
+    "rofi": {
+        "cargoLocks": null,
+        "date": "2022-12-31",
+        "extract": null,
+        "name": "rofi",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "rofi",
+            "rev": "5350da41a11814f950c3354f090b90d4674a95ce",
+            "sha256": "sha256-DNorfyl3C4RBclF2KDgwvQQwixpTwSRu7fIvihPN8JY=",
+            "type": "github"
+        },
+        "version": "5350da41a11814f950c3354f090b90d4674a95ce"
+    },
     "starship": {
         "cargoLocks": null,
         "date": "2023-07-13",
