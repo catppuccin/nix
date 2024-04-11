@@ -1052,6 +1052,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## services\.dunst\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## services\.dunst\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for dunst
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## services\.mako\.catppuccin\.enable
 
 
