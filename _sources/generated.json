@@ -99,6 +99,26 @@
         },
         "version": "765eb17d0268bf07c20ca439771153f8bc79444f"
     },
+    "dunst": {
+        "cargoLocks": null,
+        "date": "2024-04-07",
+        "extract": null,
+        "name": "dunst",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "dunst",
+            "rev": "bfec91a5d0ab02a73a4615243feb5499d376831c",
+            "sha256": "sha256-xy99DpBrOKlP7DgKyPgbl4QGC+dnXnvkGlkIG0cmd2A=",
+            "type": "github"
+        },
+        "version": "bfec91a5d0ab02a73a4615243feb5499d376831c"
+    },
     "fish": {
         "cargoLocks": null,
         "date": "2023-11-02",

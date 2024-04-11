@@ -61,6 +61,18 @@
     };
     date = "2024-03-23";
   };
+  dunst = {
+    pname = "dunst";
+    version = "bfec91a5d0ab02a73a4615243feb5499d376831c";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "dunst";
+      rev = "bfec91a5d0ab02a73a4615243feb5499d376831c";
+      fetchSubmodules = false;
+      sha256 = "sha256-xy99DpBrOKlP7DgKyPgbl4QGC+dnXnvkGlkIG0cmd2A=";
+    };
+    date = "2024-04-07";
+  };
   fish = {
     pname = "fish";
     version = "0ce27b518e8ead555dec34dd8be3df5bd75cff8e";
