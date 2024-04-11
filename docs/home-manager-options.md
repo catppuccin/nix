@@ -1011,6 +1011,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.yazi\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.yazi\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for yazi
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.zathura\.catppuccin\.enable
 
 
