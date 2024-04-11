@@ -847,6 +847,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.rofi\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.rofi\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for rofi
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.starship\.catppuccin\.enable
 
 
