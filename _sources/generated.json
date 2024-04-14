@@ -279,6 +279,26 @@
         },
         "version": "0317a097b6ec8122b1da6d02f61d0c5158019f6e"
     },
+    "k9s": {
+        "cargoLocks": null,
+        "date": "2024-03-22",
+        "extract": null,
+        "name": "k9s",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "k9s",
+            "rev": "82eba6feb442932e28facedfb18dfbe79234f180",
+            "sha256": "sha256-VLi7G6Rjmbr6feSOg8aLYJmOb+GyJUKi3k9qod6ut9k=",
+            "type": "github"
+        },
+        "version": "82eba6feb442932e28facedfb18dfbe79234f180"
+    },
     "kitty": {
         "cargoLocks": null,
         "date": "2024-01-10",

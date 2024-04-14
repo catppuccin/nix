@@ -67,6 +67,7 @@ in
         helix = ctpEnable;
         home-manager.enable = false;
         imv = ctpEnable;
+        k9s = ctpEnable;
         kitty = ctpEnable;
         lazygit = ctpEnable;
         micro = ctpEnable;
