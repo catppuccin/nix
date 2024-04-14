@@ -665,6 +665,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.k9s\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.k9s\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for k9s
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.kitty\.catppuccin\.enable
 
 
