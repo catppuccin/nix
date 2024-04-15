@@ -79,6 +79,26 @@
         },
         "version": "c6469190f2ecf25f017d6120bf4e050e6b1d17af"
     },
+    "cava": {
+        "cargoLocks": null,
+        "date": "2024-04-01",
+        "extract": null,
+        "name": "cava",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "cava",
+            "rev": "56c1e69318856a853b28e3ccce500c00099dc051",
+            "sha256": "sha256-FNNEYFurT6Y6rkKrvyAGt+3a+7GO4UE5el2sJ2ZKX2k=",
+            "type": "github"
+        },
+        "version": "56c1e69318856a853b28e3ccce500c00099dc051"
+    },
     "delta": {
         "cargoLocks": null,
         "date": "2024-03-23",
