@@ -85,6 +85,18 @@
     };
     date = "2023-11-02";
   };
+  foot = {
+    pname = "foot";
+    version = "ee5549af72ab78520ac2aa1c671bf5c2d347c8ca";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "foot";
+      rev = "ee5549af72ab78520ac2aa1c671bf5c2d347c8ca";
+      fetchSubmodules = false;
+      sha256 = "sha256-3hK9klXwdHhprG2wUMt7nBfbL1mb/gl+k/MtJUuY000=";
+    };
+    date = "2024-01-18";
+  };
   gitui = {
     pname = "gitui";
     version = "39978362b2c88b636cacd55b65d2f05c45a47eb9";
