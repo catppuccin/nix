@@ -1,4 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 let
   # string -> type -> string -> a -> a
   # this is an internal function and shouldn't be
@@ -76,6 +80,21 @@ in
       json = with pkgs;
         runCommand "converted.json" { } ''
           ${jc}/bin/jc --ini < ${file} > $out
+        '';
+    in
+    fromJSON (readFile json);
+
+  # a -> path -> a
+  # fromJSON but for raw ini (and without readFile)
+  # a should be the local pkgs attrset
+  fromINIRaw = file:
+    let
+      inherit (builtins) fromJSON readFile;
+
+      # convert to json
+      json = with pkgs;
+        runCommand "converted.json" { } ''
+          ${jc}/bin/jc --ini -r < ${file} > $out
         '';
     in
     fromJSON (readFile json);

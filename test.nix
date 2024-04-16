@@ -58,6 +58,7 @@ in
         bat = ctpEnable;
         bottom = ctpEnable;
         btop = ctpEnable;
+        cava = ctpEnable;
         fish = ctpEnable;
         fzf = ctpEnable;
         git.enable = true; # Required for delta

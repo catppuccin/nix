@@ -49,6 +49,18 @@
     };
     date = "2023-10-07";
   };
+  cava = {
+    pname = "cava";
+    version = "56c1e69318856a853b28e3ccce500c00099dc051";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "cava";
+      rev = "56c1e69318856a853b28e3ccce500c00099dc051";
+      fetchSubmodules = false;
+      sha256 = "sha256-FNNEYFurT6Y6rkKrvyAGt+3a+7GO4UE5el2sJ2ZKX2k=";
+    };
+    date = "2024-04-01";
+  };
   delta = {
     pname = "delta";
     version = "765eb17d0268bf07c20ca439771153f8bc79444f";
