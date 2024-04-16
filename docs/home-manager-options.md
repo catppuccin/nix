@@ -888,6 +888,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.rio\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.rio\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for rio
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.rofi\.catppuccin\.enable
 
 
