@@ -265,6 +265,18 @@
     };
     date = "2024-02-03";
   };
+  rio = {
+    pname = "rio";
+    version = "a8d3d3c61f828da5f3d6d02d7d489108f6428178";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "rio";
+      rev = "a8d3d3c61f828da5f3d6d02d7d489108f6428178";
+      fetchSubmodules = false;
+      sha256 = "sha256-bT789sEDJl3wQh/yfbmjD/J7XNr2ejOd0UsASguyCQo=";
+    };
+    date = "2023-12-05";
+  };
   rofi = {
     pname = "rofi";
     version = "5350da41a11814f950c3354f090b90d4674a95ce";
