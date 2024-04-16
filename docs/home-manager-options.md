@@ -355,6 +355,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.cava\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.cava\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for cava
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.fish\.catppuccin\.enable
 
 
