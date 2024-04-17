@@ -31,6 +31,10 @@ in
     };
 
   config = lib.mkIf enable {
+    assertions = [
+      (lib.ctp.assertXdgEnabled "gtk")
+    ];
+
     gtk = {
       theme =
         let
@@ -64,14 +68,14 @@ in
         };
     };
 
-    assertions = [
-      (lib.ctp.assertXdgEnabled "gtk")
-    ];
-
-    xdg.configFile = {
-      "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-      "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-      "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+    xdg.configFile =
+      let
+        gtk4Dir = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0";
+      in
+      {
+      "gtk-4.0/assets".source = "${gtk4Dir}/assets";
+      "gtk-4.0/gtk.css".source = "${gtk4Dir}/gtk.css";
+      "gtk-4.0/gtk-dark.css".source = "${gtk4Dir}/gtk-dark.css";
     };
   };
 }
