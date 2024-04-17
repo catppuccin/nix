@@ -30,6 +30,10 @@ fetch.github = "catppuccin/dunst"
 src.git = "https://github.com/catppuccin/fish.git"
 fetch.github = "catppuccin/fish"
 
+[foot]
+src.git = "https://github.com/catppuccin/foot.git"
+fetch.github = "catppuccin/foot"
+
 [gitui]
 src.git = "https://github.com/catppuccin/gitui.git"
 fetch.github = "catppuccin/gitui"

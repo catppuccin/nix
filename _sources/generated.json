@@ -159,6 +159,26 @@
         },
         "version": "0ce27b518e8ead555dec34dd8be3df5bd75cff8e"
     },
+    "foot": {
+        "cargoLocks": null,
+        "date": "2024-01-18",
+        "extract": null,
+        "name": "foot",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "foot",
+            "rev": "ee5549af72ab78520ac2aa1c671bf5c2d347c8ca",
+            "sha256": "sha256-3hK9klXwdHhprG2wUMt7nBfbL1mb/gl+k/MtJUuY000=",
+            "type": "github"
+        },
+        "version": "ee5549af72ab78520ac2aa1c671bf5c2d347c8ca"
+    },
     "gitui": {
         "cargoLocks": null,
         "date": "2023-11-13",
