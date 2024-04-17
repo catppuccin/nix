@@ -73,9 +73,9 @@ in
         gtk4Dir = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0";
       in
       {
-      "gtk-4.0/assets".source = "${gtk4Dir}/assets";
-      "gtk-4.0/gtk.css".source = "${gtk4Dir}/gtk.css";
-      "gtk-4.0/gtk-dark.css".source = "${gtk4Dir}/gtk-dark.css";
-    };
+        "gtk-4.0/assets".source = "${gtk4Dir}/assets";
+        "gtk-4.0/gtk.css".source = "${gtk4Dir}/gtk.css";
+        "gtk-4.0/gtk-dark.css".source = "${gtk4Dir}/gtk-dark.css";
+      };
   };
 }
