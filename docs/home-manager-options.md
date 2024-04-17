@@ -437,6 +437,47 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.foot\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.foot\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for foot
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.fzf\.catppuccin\.enable
 
 
