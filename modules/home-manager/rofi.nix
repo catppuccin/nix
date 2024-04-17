@@ -13,9 +13,11 @@ in
     lib.ctp.mkCatppuccinOpt "rofi";
 
   config.programs.rofi = lib.mkIf enable {
-    theme = builtins.path {
-      name = "catppuccin-${cfg.flavour}.rasi";
-      path = "${sources.rofi}/basic/.local/share/rofi/themes/catppuccin-${cfg.flavour}.rasi";
+    theme = {
+      "@theme" = builtins.path {
+        name = "catppuccin-${cfg.flavour}.rasi";
+        path = "${sources.rofi}/basic/.local/share/rofi/themes/catppuccin-${cfg.flavour}.rasi";
+      };
     };
   };
 }
