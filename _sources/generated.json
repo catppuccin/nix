@@ -139,6 +139,26 @@
         },
         "version": "bfec91a5d0ab02a73a4615243feb5499d376831c"
     },
+    "fcitx5": {
+        "cargoLocks": null,
+        "date": "2022-10-05",
+        "extract": null,
+        "name": "fcitx5",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "fcitx5",
+            "rev": "ce244cfdf43a648d984719fdfd1d60aab09f5c97",
+            "sha256": "sha256-uFaCbyrEjv4oiKUzLVFzw+UY54/h7wh2cntqeyYwGps=",
+            "type": "github"
+        },
+        "version": "ce244cfdf43a648d984719fdfd1d60aab09f5c97"
+    },
     "fish": {
         "cargoLocks": null,
         "date": "2023-11-02",
