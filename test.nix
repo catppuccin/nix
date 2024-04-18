@@ -53,6 +53,11 @@ in
 
       manual.manpages.enable = lib.mkDefault false;
 
+      i18n.inputMethod = {
+        enabled = "fcitx5";
+        fcitx5.catppuccin.enable = true;
+      };
+
       programs = {
         alacritty = ctpEnable;
         bat = ctpEnable;

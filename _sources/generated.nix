@@ -85,6 +85,18 @@
     };
     date = "2024-04-07";
   };
+  fcitx5 = {
+    pname = "fcitx5";
+    version = "ce244cfdf43a648d984719fdfd1d60aab09f5c97";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "fcitx5";
+      rev = "ce244cfdf43a648d984719fdfd1d60aab09f5c97";
+      fetchSubmodules = false;
+      sha256 = "sha256-uFaCbyrEjv4oiKUzLVFzw+UY54/h7wh2cntqeyYwGps=";
+    };
+    date = "2022-10-05";
+  };
   fish = {
     pname = "fish";
     version = "0ce27b518e8ead555dec34dd8be3df5bd75cff8e";
