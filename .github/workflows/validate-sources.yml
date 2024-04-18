@@ -5,13 +5,10 @@ name: Validate sources
 on:
   push:
     paths:
-      - '_sources/**'
-      - 'nvfetcher.toml'
-    branches: [main]
+      - '.sources/**'
   pull_request:
     paths:
-      - '_sources/**'
-      - 'nvfetcher.toml'
+      - '.sources/**'
   workflow_dispatch:
 
 jobs:

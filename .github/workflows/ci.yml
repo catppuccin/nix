@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - '.sources/**'
       - '**.lock'
       - '**.nix'
   pull_request:

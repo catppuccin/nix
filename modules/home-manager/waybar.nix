@@ -1,10 +1,9 @@
 { config
-, options
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.programs.waybar.catppuccin;
   enable = cfg.enable && config.programs.waybar.enable;
   styleFile = "${sources.waybar}/themes/${cfg.flavour}.css";

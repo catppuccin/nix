@@ -9,6 +9,8 @@ let
     lib = lib.extend (final: _: {
       ctp = import ./. (args // { lib = final; });
     });
+
+    defaultSources = import ../../.sources;
   });
 in
 lib.pipe dir [

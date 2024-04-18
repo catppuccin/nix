@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ lib, defaultSources, ... }: {
   options.catppuccin = {
     enable = lib.mkEnableOption "Catppuccin globally";
 
@@ -16,7 +16,7 @@
 
     sources = lib.mkOption {
       type = lib.types.lazyAttrsOf lib.types.raw;
-      default = { };
+      default = defaultSources;
       description = "Port sources used across all options";
     };
   };

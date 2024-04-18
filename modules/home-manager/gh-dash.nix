@@ -1,9 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.programs.gh-dash.catppuccin;
   enable = cfg.enable && config.programs.gh-dash.enable;
   theme = "${sources.gh-dash}/themes/${cfg.flavour}/catppuccin-${cfg.flavour}-${cfg.accent}.yml";

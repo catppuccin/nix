@@ -13,7 +13,7 @@ let
     # TODO @getchoo: upstream this in nixpkgs
     pkgs.tmuxPlugins.mkTmuxPlugin {
       pluginName = "catppuccin";
-      version = builtins.substring 0 7 sources.tmux.rev;
+      version = builtins.substring 0 7 sources.tmux.revision;
       src = sources.tmux;
     };
 in
