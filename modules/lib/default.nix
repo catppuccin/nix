@@ -105,7 +105,9 @@ in
   # be the name of the module, followed by the local config
   # attrset
   mkCatppuccinOpt = name: {
-    enable = lib.mkEnableOption "Catppuccin theme";
+    enable = lib.mkEnableOption "Catppuccin theme" // {
+      default = config.catppuccin.enable;
+    };
     flavour = mkFlavourOpt name;
   };
 
