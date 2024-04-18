@@ -970,6 +970,65 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 
+## programs\.mpv\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## programs\.mpv\.catppuccin\.accent
+
+
+
+Catppuccin accent for mpv
+
+
+
+*Type:*
+one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, “mauve”, “peach”, “pink”, “red”, “rosewater”, “sapphire”, “sky”, “teal”, “yellow”
+
+
+
+*Default:*
+` "teal" `
+
+
+
+## programs\.mpv\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for mpv
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.neovim\.catppuccin\.enable
 
 
