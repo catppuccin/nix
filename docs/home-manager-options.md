@@ -191,6 +191,47 @@ list of (one of “black”, “rimless”, “normal”)
 
 
 
+## i18n\.inputMethod\.fcitx5\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+
+
+## i18n\.inputMethod\.fcitx5\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for Fcitx5
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "latte" `
+
+
+
 ## programs\.alacritty\.catppuccin\.enable
 
 
