@@ -78,6 +78,7 @@ in
         kitty = ctpEnable;
         lazygit = ctpEnable;
         micro = ctpEnable;
+        mpv = ctpEnable;
         neovim = ctpEnable;
         rio = ctpEnable;
         rofi = ctpEnable;

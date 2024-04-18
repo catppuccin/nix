@@ -265,6 +265,18 @@
     };
     date = "2022-09-27";
   };
+  mpv = {
+    pname = "mpv";
+    version = "db31f00b5107320f8882eb8c727060d5eab702c9";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "mpv";
+      rev = "db31f00b5107320f8882eb8c727060d5eab702c9";
+      fetchSubmodules = false;
+      sha256 = "sha256-QxPUjd2Y4FpvEg2aYrKkJVkLNfYtESryY+w5NNMUMZc=";
+    };
+    date = "2024-04-09";
+  };
   neovim = {
     pname = "neovim";
     version = "aebe43db9cb26e1c70fc5b2fd4158169c405e720";
