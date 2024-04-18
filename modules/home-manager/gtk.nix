@@ -7,6 +7,8 @@ let
   inherit (lib) ctp mkOption types;
   cfg = config.gtk.catppuccin;
   enable = cfg.enable && config.gtk.enable;
+  # "dark" and "light" can be used alongside the regular accents
+  cursorAccentType = ctp.mergeEnums (ctp.types.accentOption) (lib.types.enum [ "dark" "light" ]);
 in
 {
   options.gtk.catppuccin =
@@ -26,7 +28,7 @@ in
 
       cursor = ctp.mkCatppuccinOpt "gtk cursors"
       // {
-        accent = ctp.mkAccentOpt "gtk cursors";
+        accent = ctp.mkBasicOpt "accent" cursorAccentType "gtk cursors";
       };
     };
 
