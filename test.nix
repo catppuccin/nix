@@ -89,11 +89,7 @@ in
         zathura = ctpEnable;
       };
 
-      gtk =
-        ctpEnable
-        // {
-          catppuccin.cursor.enable = true;
-        };
+      gtk = lib.recursiveUpdate ctpEnable { catppuccin.cursor.enable = true; };
 
       services = {
         dunst = ctpEnable;
