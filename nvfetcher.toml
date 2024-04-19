@@ -134,6 +134,10 @@ fetch.github = "catppuccin/tmux"
 src.git = "https://github.com/catppuccin/tofi.git"
 fetch.github = "catppuccin/tofi"
 
+[waybar]
+src.git = "https://github.com/catppuccin/waybar.git"
+fetch.github = "catppuccin/waybar"
+
 [yazi]
 src.git = "https://github.com/catppuccin/yazi.git"
 fetch.github = "catppuccin/yazi"

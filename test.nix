@@ -87,6 +87,7 @@ in
         swaylock = enable;
         tmux = enable;
         tofi = enable;
+        waybar = enable;
         yazi = enable;
         zathura = enable;
         zellij = enable;
