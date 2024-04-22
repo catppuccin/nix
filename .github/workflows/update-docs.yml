@@ -12,10 +12,6 @@ jobs:
   update:
     name: Run update
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
     # we only want this running on our repo
     if: github.repository == 'catppuccin/nix'
 
