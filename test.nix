@@ -79,6 +79,7 @@ in
         neovim = enable;
         rio = enable;
         rofi = enable;
+        skim = enable;
         starship = enable;
         swaylock = enable;
         tmux = enable;
