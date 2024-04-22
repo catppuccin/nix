@@ -12,15 +12,13 @@ jobs:
   update:
     name: Run update
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
     # we only want this running on our repo
     if: github.repository == 'catppuccin/nix'
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PUSH_TOKEN }}
 
       - name: Install Nix
         uses: cachix/install-nix-action@v26
