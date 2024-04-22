@@ -87,6 +87,7 @@ in
         tmux = ctpEnable;
         yazi = ctpEnable;
         zathura = ctpEnable;
+        zellij = ctpEnable;
       };
 
       gtk = lib.recursiveUpdate ctpEnable { catppuccin.cursor.enable = true; };
