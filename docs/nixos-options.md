@@ -17,6 +17,9 @@ boolean
 *Example:*
 ` true `
 
+*Declared by:*
+ - [/nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos](file:///nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos)
+
 
 
 ## boot\.loader\.grub\.catppuccin\.flavour
@@ -35,6 +38,35 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 *Default:*
 ` "latte" `
 
+*Declared by:*
+ - [/nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos](file:///nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos)
+
+
+
+## catppuccin\.enable
+
+
+
+Whether to enable Catppuccin globally\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+*Declared by:*
+ - [/nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos](file:///nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos)
+
 
 
 ## catppuccin\.flavour
@@ -52,6 +84,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 *Default:*
 ` "latte" `
+
+*Declared by:*
+ - [/nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos](file:///nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos)
 
 
 
@@ -76,6 +111,9 @@ boolean
 *Example:*
 ` true `
 
+*Declared by:*
+ - [/nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos](file:///nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos)
+
 
 
 ## console\.catppuccin\.flavour
@@ -93,5 +131,8 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 *Default:*
 ` "latte" `
+
+*Declared by:*
+ - [/nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos](file:///nix/store/zi9rhpy3p2giiz22xyz2waa3f13b9nns-source/modules/nixos)
 
 
