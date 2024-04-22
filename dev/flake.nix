@@ -8,11 +8,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    get-flake.url = "github:ursi/get-flake";
   };
 
-  outputs = { self, nixpkgs, get-flake, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       systems = [
         "x86_64-linux"
@@ -24,11 +22,10 @@
       inherit (nixpkgs) lib;
 
       forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
-      ctp = get-flake ../.;
     in
     {
       checks = forAllSystems (pkgs: lib.optionalAttrs pkgs.stdenv.isLinux {
-        module-vm-test = pkgs.nixosTest (import ../test.nix { inherit ctp inputs; });
+        module-vm-test = pkgs.nixosTest (import ../test.nix inputs);
       });
 
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
@@ -57,8 +54,8 @@
             '';
         in
         {
-          nixos-doc = mkDoc "nixos" ctp.nixosModules.catppuccin;
-          home-manager-doc = mkDoc "home-manager" ctp.homeManagerModules.catppuccin;
+          nixos-doc = mkDoc "nixos" ../modules/nixos;
+          home-manager-doc = mkDoc "home-manager" ../modules/home-manager;
 
           default = self.packages.${pkgs.system}.home-manager-doc;
         });
