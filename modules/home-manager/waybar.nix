@@ -1,4 +1,5 @@
 { config
+, options
 , lib
 , sources
 , ...
@@ -24,6 +25,14 @@ in
       styleFile = "${sources.waybar}/themes/${cfg.flavour}.css";
     in
     {
+      warnings =
+        lib.optional
+          (
+            cfg.mode == "prependImport"
+            && options.programs.waybar.style.highestPrio < lib.modules.defaultOverridePriority
+          )
+          "`programs.waybar.style` is set to a string with a lower priority value than the default ${toString lib.modules.defaultOverridePriority}. `programs.waybar.catppucccin.mode = \"prependImport\"` will have no effect.";
+
       programs.waybar.style = lib.mkIf (cfg.mode == "prependImport") (
         lib.mkBefore ''
           @import "${styleFile}";
