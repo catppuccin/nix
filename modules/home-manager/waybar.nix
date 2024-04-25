@@ -7,6 +7,7 @@
 let
   cfg = config.programs.waybar.catppuccin;
   enable = cfg.enable && config.programs.waybar.enable;
+  styleFile = "${sources.waybar}/themes/${cfg.flavour}.css";
 in
 {
   options.programs.waybar.catppuccin = (lib.ctp.mkCatppuccinOpt "waybar") // {
@@ -21,27 +22,19 @@ in
   };
 
   config = lib.mkIf enable (
-    let
-      styleFile = "${sources.waybar}/themes/${cfg.flavour}.css";
-    in
-    {
-      warnings =
-        lib.optional
-          (
-            cfg.mode == "prependImport"
-            && options.programs.waybar.style.highestPrio < lib.modules.defaultOverridePriority
-          )
-          "`programs.waybar.style` is set to a string with a lower priority value than the default ${toString lib.modules.defaultOverridePriority}. `programs.waybar.catppucccin.mode = \"prependImport\"` will have no effect.";
+    lib.mkMerge [
+      (lib.mkIf (cfg.mode == "prependImport") {
+        warnings =
+          lib.optional (options.programs.waybar.style.highestPrio < lib.modules.defaultOverridePriority)
+            "`programs.waybar.style` is set to a string with a lower priority value than the default ${toString lib.modules.defaultOverridePriority}. `programs.waybar.catppucccin.mode = \"prependImport\"` will have no effect.";
 
-      programs.waybar.style = lib.mkIf (cfg.mode == "prependImport") (
-        lib.mkBefore ''
+        programs.waybar.style = lib.mkBefore ''
           @import "${styleFile}";
-        ''
-      );
-
-      xdg.configFile."waybar/catppuccin.css" = lib.mkIf (cfg.mode == "createLink") {
-        source = styleFile;
-      };
-    }
+        '';
+      })
+      (lib.mkIf (cfg.mode == "createLink") {
+        xdg.configFile."waybar/catppuccin.css".source = styleFile;
+      })
+    ]
   );
 }
