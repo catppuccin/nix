@@ -17,7 +17,12 @@ in
         "createLink"
       ];
       default = "prependImport";
-      description = "Whether to prepend an `@import` (requires that `programs.waybar.style` is set to a string) or to create a symlink `~/.config/waybar/catppuccin.css` (requires you to import manually).";
+      description = ''
+        Defines how to include the catppuccin theme css file:
+
+        - `prependImport`: Prepends the import statement, if `programs.waybar.style` is a string (with default override priority).
+        - `createLink`: Creates a symbolic link `~/.config/waybar/catppuccin.css`, which needs to be included in the waybar stylesheet.
+      '';
     };
   };
 
