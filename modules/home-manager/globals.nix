@@ -4,13 +4,13 @@
 
     flavour = lib.mkOption {
       type = lib.ctp.types.flavourOption;
-      default = "latte";
+      default = "mocha";
       description = "Global Catppuccin flavour";
     };
 
     accent = lib.mkOption {
       type = lib.ctp.types.accentOption;
-      default = "teal";
+      default = "mauve";
       description = "Global Catppuccin accent";
     };
   };
