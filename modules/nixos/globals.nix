@@ -4,7 +4,7 @@
 
     flavour = lib.mkOption {
       type = lib.ctp.types.flavourOption;
-      default = "latte";
+      default = "mocha";
       description = "Global Catppuccin flavour";
     };
   };
