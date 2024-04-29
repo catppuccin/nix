@@ -44,6 +44,7 @@
   ./starship.nix
   ./swaylock.nix
   ./sway.nix
+  ./swaync.nix
   ./thunderbird.nix
   ./tmux.nix
   ./tofi.nix

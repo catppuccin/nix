@@ -96,6 +96,7 @@
         polybar top &
       '';
     };
+    swaync.enable = true;
   };
 
   wayland.windowManager.sway.enable = true;
