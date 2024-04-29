@@ -14,9 +14,6 @@ jobs:
     name: Check formatting
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-
     steps:
       - uses: actions/checkout@v4
 
@@ -34,9 +31,6 @@ jobs:
     name: Test Modules
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-
     steps:
       - uses: actions/checkout@v4
 
@@ -48,4 +42,4 @@ jobs:
 
       - name: Run VM
         run: |
-          nix build -L --show-trace ./dev#checks.x86_64-linux.module-vm-test
+          nix build --print-build-logs --show-trace ./dev#checks.x86_64-linux.module-vm-test
