@@ -397,6 +397,18 @@
     };
     date = "2024-04-21";
   };
+  tofi = {
+    pname = "tofi";
+    version = "2e74ddba0c582b2ca2d9d06f67f5a902c3a093fb";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "tofi";
+      rev = "2e74ddba0c582b2ca2d9d06f67f5a902c3a093fb";
+      fetchSubmodules = false;
+      sha256 = "sha256-XUwixvy2WyfaSRHM8cTnOn8lKv+vbhheDA1Z47ap+Mc=";
+    };
+    date = "2023-09-30";
+  };
   yazi = {
     pname = "yazi";
     version = "0846aed69b2a62d29c98e100af0cf55ca729723d";

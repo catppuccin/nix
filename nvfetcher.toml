@@ -130,6 +130,10 @@ fetch.github = "catppuccin/swaylock"
 src.git = "https://github.com/catppuccin/tmux.git"
 fetch.github = "catppuccin/tmux"
 
+[tofi]
+src.git = "https://github.com/catppuccin/tofi.git"
+fetch.github = "catppuccin/tofi"
+
 [yazi]
 src.git = "https://github.com/catppuccin/yazi.git"
 fetch.github = "catppuccin/yazi"

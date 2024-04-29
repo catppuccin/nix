@@ -18,7 +18,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos](file:///nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos)
 
 
 
@@ -39,7 +39,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "latte" `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos](file:///nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos)
 
 
 
@@ -65,7 +65,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos](file:///nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos)
 
 
 
@@ -86,7 +86,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "latte" `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos](file:///nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos)
 
 
 
@@ -112,7 +112,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos](file:///nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos)
 
 
 
@@ -133,6 +133,6 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "latte" `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos](file:///nix/store/fg9qdy5zp8cbbq9yncwppsf96c2741dj-source/modules/nixos)
 
 

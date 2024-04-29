@@ -63,9 +63,11 @@ in
         foot = enable;
         fzf = enable;
         gh-dash = enable;
-        git = enable // {
-          delta = enable;
-        };
+        git =
+          enable
+          // {
+            delta = enable;
+          };
         gitui = enable;
         # this is enabled by default already, but still
         # listing explicitly so we know it's tested
@@ -84,6 +86,7 @@ in
         starship = enable;
         swaylock = enable;
         tmux = enable;
+        tofi = enable;
         yazi = enable;
         zathura = enable;
         zellij = enable;

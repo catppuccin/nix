@@ -659,6 +659,26 @@
         },
         "version": "a556353d60833367b13739e660d4057a96f2f4fe"
     },
+    "tofi": {
+        "cargoLocks": null,
+        "date": "2023-09-30",
+        "extract": null,
+        "name": "tofi",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "tofi",
+            "rev": "2e74ddba0c582b2ca2d9d06f67f5a902c3a093fb",
+            "sha256": "sha256-XUwixvy2WyfaSRHM8cTnOn8lKv+vbhheDA1Z47ap+Mc=",
+            "type": "github"
+        },
+        "version": "2e74ddba0c582b2ca2d9d06f67f5a902c3a093fb"
+    },
     "yazi": {
         "cargoLocks": null,
         "date": "2024-02-21",
