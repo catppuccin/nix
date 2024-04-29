@@ -279,26 +279,6 @@
         },
         "version": "88f6124757331fd3a37c8a69473021389b7663ad"
     },
-    "gtk": {
-        "cargoLocks": null,
-        "date": "2024-04-20",
-        "extract": null,
-        "name": "gtk",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "catppuccin",
-            "repo": "gtk",
-            "rev": "9da440ced621d1bff58676efdcec9f64284c52a6",
-            "sha256": "sha256-pGL8vaE63ss2ZT2FoNDfDkeuCxjcbl02RmwwfHC/Vxg=",
-            "type": "github"
-        },
-        "version": "9da440ced621d1bff58676efdcec9f64284c52a6"
-    },
     "helix": {
         "cargoLocks": null,
         "date": "2024-03-30",

@@ -54,10 +54,6 @@ fetch.github = "catppuccin/glamour"
 src.git = "https://github.com/catppuccin/grub.git"
 fetch.github = "catppuccin/grub"
 
-[gtk]
-src.git = "https://github.com/catppuccin/gtk.git"
-fetch.github = "catppuccin/gtk"
-
 [helix]
 src.git = "https://github.com/catppuccin/helix.git"
 fetch.github = "catppuccin/helix"
