@@ -169,18 +169,6 @@
     };
     date = "2024-03-07";
   };
-  gtk = {
-    pname = "gtk";
-    version = "9da440ced621d1bff58676efdcec9f64284c52a6";
-    src = fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "gtk";
-      rev = "9da440ced621d1bff58676efdcec9f64284c52a6";
-      fetchSubmodules = false;
-      sha256 = "sha256-pGL8vaE63ss2ZT2FoNDfDkeuCxjcbl02RmwwfHC/Vxg=";
-    };
-    date = "2024-04-20";
-  };
   helix = {
     pname = "helix";
     version = "0164c4ca888084df4f511da22c6a0a664b5061d2";
