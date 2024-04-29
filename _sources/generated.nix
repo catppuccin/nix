@@ -15,15 +15,15 @@
   };
   bat = {
     pname = "bat";
-    version = "b8134f01b0ac176f1cf2a7043a5abf5a1a29457b";
+    version = "d714cc1d358ea51bfc02550dabab693f70cccea0";
     src = fetchFromGitHub {
       owner = "catppuccin";
       repo = "bat";
-      rev = "b8134f01b0ac176f1cf2a7043a5abf5a1a29457b";
+      rev = "d714cc1d358ea51bfc02550dabab693f70cccea0";
       fetchSubmodules = false;
-      sha256 = "sha256-gzf0/Ltw8mGMsEFBTUuN33MSFtUP4xhdxfoZFntaycQ=";
+      sha256 = "sha256-Q5B4NDrfCIK3UAMs94vdXnR42k4AXCqZz6sRn8bzmf4=";
     };
-    date = "2024-04-09";
+    date = "2024-04-25";
   };
   bottom = {
     pname = "bottom";
@@ -111,15 +111,15 @@
   };
   foot = {
     pname = "foot";
-    version = "ee5549af72ab78520ac2aa1c671bf5c2d347c8ca";
+    version = "64ca6fb7a3e1e6867d76d6c0763e0b2d83fc4f01";
     src = fetchFromGitHub {
       owner = "catppuccin";
       repo = "foot";
-      rev = "ee5549af72ab78520ac2aa1c671bf5c2d347c8ca";
+      rev = "64ca6fb7a3e1e6867d76d6c0763e0b2d83fc4f01";
       fetchSubmodules = false;
-      sha256 = "sha256-3hK9klXwdHhprG2wUMt7nBfbL1mb/gl+k/MtJUuY000=";
+      sha256 = "sha256-Sg9R8EKYwK1RYWpeuCYraTk+BoyubHTIUk7IeMLuCw8=";
     };
-    date = "2024-01-18";
+    date = "2024-04-25";
   };
   gh-dash = {
     pname = "gh-dash";
