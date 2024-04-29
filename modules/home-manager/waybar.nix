@@ -29,10 +29,6 @@ in
   config = lib.mkIf enable (
     lib.mkMerge [
       (lib.mkIf (cfg.mode == "prependImport") {
-        warnings =
-          lib.optional (options.programs.waybar.style.highestPrio < lib.modules.defaultOverridePriority)
-            "`programs.waybar.style` is set to a string with a lower priority value than the default ${toString lib.modules.defaultOverridePriority}. `programs.waybar.catppucccin.mode = \"prependImport\"` will have no effect.";
-
         programs.waybar.style = lib.mkBefore ''
           @import "${styleFile}";
         '';
