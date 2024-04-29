@@ -36,7 +36,7 @@ jobs:
       - name: Build & update docs
         run: |
           for module in "nixos" "home-manager"; do
-            nix build -L --show-trace ./dev#"$module"-doc
+            nix build --print-build-logs --show-trace ./dev#"$module"-doc
             cat result > docs/"$module"-options.md
             rm result
           done

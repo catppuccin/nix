@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager }:
     let
       systems = [
         "x86_64-linux"
@@ -19,43 +19,28 @@
         "aarch64-darwin"
       ];
 
-      inherit (nixpkgs) lib;
-
-      forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
+      forAllSystems = fn: nixpkgs.lib.genAttrs systems (system: fn nixpkgs.legacyPackages.${system});
     in
     {
-      checks = forAllSystems (pkgs: lib.optionalAttrs pkgs.stdenv.isLinux {
-        module-vm-test = pkgs.nixosTest (import ../test.nix inputs);
+      checks = forAllSystems ({ lib, pkgs, ... }: lib.optionalAttrs pkgs.stdenv.isLinux {
+        module-vm-test = pkgs.callPackage ../test.nix { inherit home-manager; };
       });
 
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
 
       packages = forAllSystems (pkgs:
         let
-          eval = module: lib.evalModules {
-            modules = [
-              module
-              {
-                _module.check = false;
-              }
-            ];
-          };
-
-          mkDoc = name: module:
-            let
-              doc = pkgs.nixosOptionsDoc {
-                options = lib.filterAttrs (n: _: n != "_module") (eval module).options;
-                documentType = "none";
-                revision = builtins.substring 0 8 self.rev or "dirty";
-              };
-            in
-            pkgs.runCommand "${name}-module-doc.md" { } ''
-              cat ${doc.optionsCommonMark} > $out
-            '';
+          version = self.shortRev or self.dirtyShortRev or "unknown";
+          mkOptionDoc = args: (pkgs.callPackage ./option-doc.nix { }) args // { inherit version; };
         in
         {
-          nixos-doc = mkDoc "nixos" ../modules/nixos;
-          home-manager-doc = mkDoc "home-manager" ../modules/home-manager;
+          nixos-doc = mkOptionDoc {
+            modules = [ ../modules/nixos ];
+          };
+
+          home-manager-doc = mkOptionDoc {
+            modules = [ ../modules/home-manager ];
+          };
 
           default = self.packages.${pkgs.system}.home-manager-doc;
         });

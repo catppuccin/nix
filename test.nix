@@ -1,21 +1,18 @@
-inputs:
+{ testers, home-manager }:
 let
   common = {
-    catppuccin = {
-      enable = true;
-      flavour = "mocha";
-    };
+    catppuccin.enable = true;
   };
 
-  # shorthand enable
+  # shorthand for enabling a module
   enable = { enable = true; };
 in
-{
+testers.runNixOSTest {
   name = "module-test";
 
   nodes.machine = { lib, ... }: {
     imports = [
-      inputs.home-manager.nixosModules.default
+      home-manager.nixosModules.default
       ./modules/nixos
       common
     ];
