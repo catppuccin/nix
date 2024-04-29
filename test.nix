@@ -62,6 +62,7 @@ in
         fish = enable;
         foot = enable;
         fzf = enable;
+        gh-dash = enable;
         git =
           enable
           // {

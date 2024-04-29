@@ -199,6 +199,26 @@
         },
         "version": "ee5549af72ab78520ac2aa1c671bf5c2d347c8ca"
     },
+    "gh-dash": {
+        "cargoLocks": null,
+        "date": "2024-04-27",
+        "extract": null,
+        "name": "gh-dash",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "gh-dash",
+            "rev": "cb9fea0b86c300b26f1211079d656d02a7eb2c62",
+            "sha256": "sha256-IpEkLKXCs7H0SH4UDZy9JMcNQPEg/50f/5SlezdnL80=",
+            "type": "github"
+        },
+        "version": "cb9fea0b86c300b26f1211079d656d02a7eb2c62"
+    },
     "gitui": {
         "cargoLocks": null,
         "date": "2023-11-13",

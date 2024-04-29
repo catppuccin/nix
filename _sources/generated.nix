@@ -121,6 +121,18 @@
     };
     date = "2024-01-18";
   };
+  gh-dash = {
+    pname = "gh-dash";
+    version = "cb9fea0b86c300b26f1211079d656d02a7eb2c62";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "gh-dash";
+      rev = "cb9fea0b86c300b26f1211079d656d02a7eb2c62";
+      fetchSubmodules = false;
+      sha256 = "sha256-IpEkLKXCs7H0SH4UDZy9JMcNQPEg/50f/5SlezdnL80=";
+    };
+    date = "2024-04-27";
+  };
   gitui = {
     pname = "gitui";
     version = "39978362b2c88b636cacd55b65d2f05c45a47eb9";
