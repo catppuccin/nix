@@ -87,6 +87,9 @@ testers.runNixOSTest {
         yazi = enable;
         zathura = enable;
         zellij = enable;
+        zsh = enable // {
+          syntaxHighlighting = enable;
+        };
       };
 
       gtk = lib.recursiveUpdate enable { catppuccin.cursor.enable = true; };
