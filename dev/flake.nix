@@ -31,7 +31,7 @@
       packages = forAllSystems (pkgs:
         let
           version = self.shortRev or self.dirtyShortRev or "unknown";
-          mkOptionDoc = args: (pkgs.callPackage ./option-doc.nix { }) args // { inherit version; };
+          mkOptionDoc = args: (pkgs.callPackage ./option-doc.nix { }) (args // { inherit version; });
         in
         {
           nixos-doc = mkOptionDoc {
