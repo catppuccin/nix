@@ -659,6 +659,26 @@
         },
         "version": "2e74ddba0c582b2ca2d9d06f67f5a902c3a093fb"
     },
+    "waybar": {
+        "cargoLocks": null,
+        "date": "2024-03-31",
+        "extract": null,
+        "name": "waybar",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "waybar",
+            "rev": "0830796af6aa64ce8bc7453d42876a628777ac68",
+            "sha256": "sha256-9lY+v1CTbpw2lREG/h65mLLw5KuT8OJdEPOb+NNC6Fo=",
+            "type": "github"
+        },
+        "version": "0830796af6aa64ce8bc7453d42876a628777ac68"
+    },
     "yazi": {
         "cargoLocks": null,
         "date": "2024-02-21",

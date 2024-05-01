@@ -397,6 +397,18 @@
     };
     date = "2023-09-30";
   };
+  waybar = {
+    pname = "waybar";
+    version = "0830796af6aa64ce8bc7453d42876a628777ac68";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "waybar";
+      rev = "0830796af6aa64ce8bc7453d42876a628777ac68";
+      fetchSubmodules = false;
+      sha256 = "sha256-9lY+v1CTbpw2lREG/h65mLLw5KuT8OJdEPOb+NNC6Fo=";
+    };
+    date = "2024-03-31";
+  };
   yazi = {
     pname = "yazi";
     version = "0846aed69b2a62d29c98e100af0cf55ca729723d";
