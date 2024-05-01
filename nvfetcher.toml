@@ -141,3 +141,7 @@ fetch.github = "catppuccin/yazi"
 [zathura]
 src.git = "https://github.com/catppuccin/zathura.git"
 fetch.github = "catppuccin/zathura"
+
+[zsh-syntax-highlighting]
+src.git = "https://github.com/catppuccin/zsh-syntax-highlighting.git"
+fetch.github = "catppuccin/zsh-syntax-highlighting"
