@@ -21,7 +21,7 @@
     },
     "bat": {
         "cargoLocks": null,
-        "date": "2024-04-09",
+        "date": "2024-04-25",
         "extract": null,
         "name": "bat",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "catppuccin",
             "repo": "bat",
-            "rev": "b8134f01b0ac176f1cf2a7043a5abf5a1a29457b",
-            "sha256": "sha256-gzf0/Ltw8mGMsEFBTUuN33MSFtUP4xhdxfoZFntaycQ=",
+            "rev": "d714cc1d358ea51bfc02550dabab693f70cccea0",
+            "sha256": "sha256-Q5B4NDrfCIK3UAMs94vdXnR42k4AXCqZz6sRn8bzmf4=",
             "type": "github"
         },
-        "version": "b8134f01b0ac176f1cf2a7043a5abf5a1a29457b"
+        "version": "d714cc1d358ea51bfc02550dabab693f70cccea0"
     },
     "bottom": {
         "cargoLocks": null,
@@ -181,7 +181,7 @@
     },
     "foot": {
         "cargoLocks": null,
-        "date": "2024-01-18",
+        "date": "2024-04-25",
         "extract": null,
         "name": "foot",
         "passthru": null,
@@ -193,11 +193,31 @@
             "name": null,
             "owner": "catppuccin",
             "repo": "foot",
-            "rev": "ee5549af72ab78520ac2aa1c671bf5c2d347c8ca",
-            "sha256": "sha256-3hK9klXwdHhprG2wUMt7nBfbL1mb/gl+k/MtJUuY000=",
+            "rev": "64ca6fb7a3e1e6867d76d6c0763e0b2d83fc4f01",
+            "sha256": "sha256-Sg9R8EKYwK1RYWpeuCYraTk+BoyubHTIUk7IeMLuCw8=",
             "type": "github"
         },
-        "version": "ee5549af72ab78520ac2aa1c671bf5c2d347c8ca"
+        "version": "64ca6fb7a3e1e6867d76d6c0763e0b2d83fc4f01"
+    },
+    "gh-dash": {
+        "cargoLocks": null,
+        "date": "2024-04-27",
+        "extract": null,
+        "name": "gh-dash",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "gh-dash",
+            "rev": "cb9fea0b86c300b26f1211079d656d02a7eb2c62",
+            "sha256": "sha256-IpEkLKXCs7H0SH4UDZy9JMcNQPEg/50f/5SlezdnL80=",
+            "type": "github"
+        },
+        "version": "cb9fea0b86c300b26f1211079d656d02a7eb2c62"
     },
     "gitui": {
         "cargoLocks": null,
@@ -258,26 +278,6 @@
             "type": "github"
         },
         "version": "88f6124757331fd3a37c8a69473021389b7663ad"
-    },
-    "gtk": {
-        "cargoLocks": null,
-        "date": "2024-04-20",
-        "extract": null,
-        "name": "gtk",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "catppuccin",
-            "repo": "gtk",
-            "rev": "9da440ced621d1bff58676efdcec9f64284c52a6",
-            "sha256": "sha256-pGL8vaE63ss2ZT2FoNDfDkeuCxjcbl02RmwwfHC/Vxg=",
-            "type": "github"
-        },
-        "version": "9da440ced621d1bff58676efdcec9f64284c52a6"
     },
     "helix": {
         "cargoLocks": null,
@@ -639,6 +639,46 @@
         },
         "version": "a556353d60833367b13739e660d4057a96f2f4fe"
     },
+    "tofi": {
+        "cargoLocks": null,
+        "date": "2023-09-30",
+        "extract": null,
+        "name": "tofi",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "tofi",
+            "rev": "2e74ddba0c582b2ca2d9d06f67f5a902c3a093fb",
+            "sha256": "sha256-XUwixvy2WyfaSRHM8cTnOn8lKv+vbhheDA1Z47ap+Mc=",
+            "type": "github"
+        },
+        "version": "2e74ddba0c582b2ca2d9d06f67f5a902c3a093fb"
+    },
+    "waybar": {
+        "cargoLocks": null,
+        "date": "2024-03-31",
+        "extract": null,
+        "name": "waybar",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "waybar",
+            "rev": "0830796af6aa64ce8bc7453d42876a628777ac68",
+            "sha256": "sha256-9lY+v1CTbpw2lREG/h65mLLw5KuT8OJdEPOb+NNC6Fo=",
+            "type": "github"
+        },
+        "version": "0830796af6aa64ce8bc7453d42876a628777ac68"
+    },
     "yazi": {
         "cargoLocks": null,
         "date": "2024-02-21",
@@ -678,5 +718,25 @@
             "type": "github"
         },
         "version": "0adc53028d81bf047461bc61c43a484d11b15220"
+    },
+    "zsh-syntax-highlighting": {
+        "cargoLocks": null,
+        "date": "2022-10-12",
+        "extract": null,
+        "name": "zsh-syntax-highlighting",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "zsh-syntax-highlighting",
+            "rev": "06d519c20798f0ebe275fc3a8101841faaeee8ea",
+            "sha256": "sha256-Q7KmwUd9fblprL55W0Sf4g7lRcemnhjh4/v+TacJSfo=",
+            "type": "github"
+        },
+        "version": "06d519c20798f0ebe275fc3a8101841faaeee8ea"
     }
 }

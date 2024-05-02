@@ -18,7 +18,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
 
 
 
@@ -36,10 +36,10 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 *Default:*
-` "latte" `
+` "mocha" `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
 
 
 
@@ -65,7 +65,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
 
 
 
@@ -83,10 +83,10 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 *Default:*
-` "latte" `
+` "mocha" `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
 
 
 
@@ -112,7 +112,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
 
 
 
@@ -130,9 +130,9 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 
 
 *Default:*
-` "latte" `
+` "mocha" `
 
 *Declared by:*
- - [/nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos](file:///nix/store/cdfjcqzbzhwgdb54mzlzxwc0wf8p9p3g-source/modules/nixos)
+ - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
 
 

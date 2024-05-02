@@ -18,7 +18,7 @@ in
           path = "${sources.delta}/catppuccin.gitconfig";
         }
       ];
-      delta.options.features = "catppuccin-${config.catppuccin.flavour}";
+      delta.options.features = "catppuccin-${cfg.flavour}";
     };
   };
 }

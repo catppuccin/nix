@@ -38,6 +38,10 @@ fetch.github = "catppuccin/fish"
 src.git = "https://github.com/catppuccin/foot.git"
 fetch.github = "catppuccin/foot"
 
+[gh-dash]
+src.git = "https://github.com/catppuccin/gh-dash.git"
+fetch.github = "catppuccin/gh-dash"
+
 [gitui]
 src.git = "https://github.com/catppuccin/gitui.git"
 fetch.github = "catppuccin/gitui"
@@ -49,10 +53,6 @@ fetch.github = "catppuccin/glamour"
 [grub]
 src.git = "https://github.com/catppuccin/grub.git"
 fetch.github = "catppuccin/grub"
-
-[gtk]
-src.git = "https://github.com/catppuccin/gtk.git"
-fetch.github = "catppuccin/gtk"
 
 [helix]
 src.git = "https://github.com/catppuccin/helix.git"
@@ -126,6 +126,14 @@ fetch.github = "catppuccin/swaylock"
 src.git = "https://github.com/catppuccin/tmux.git"
 fetch.github = "catppuccin/tmux"
 
+[tofi]
+src.git = "https://github.com/catppuccin/tofi.git"
+fetch.github = "catppuccin/tofi"
+
+[waybar]
+src.git = "https://github.com/catppuccin/waybar.git"
+fetch.github = "catppuccin/waybar"
+
 [yazi]
 src.git = "https://github.com/catppuccin/yazi.git"
 fetch.github = "catppuccin/yazi"
@@ -133,3 +141,7 @@ fetch.github = "catppuccin/yazi"
 [zathura]
 src.git = "https://github.com/catppuccin/zathura.git"
 fetch.github = "catppuccin/zathura"
+
+[zsh-syntax-highlighting]
+src.git = "https://github.com/catppuccin/zsh-syntax-highlighting.git"
+fetch.github = "catppuccin/zsh-syntax-highlighting"

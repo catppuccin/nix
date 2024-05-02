@@ -7,6 +7,7 @@ on:
     paths:
       - '_sources/**'
       - 'nvfetcher.toml'
+    branches: [main]
   pull_request:
     paths:
       - '_sources/**'

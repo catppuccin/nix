@@ -1,21 +1,18 @@
-inputs:
+{ testers, home-manager }:
 let
   common = {
-    catppuccin = {
-      enable = true;
-      flavour = "mocha";
-    };
+    catppuccin.enable = true;
   };
 
-  # shorthand enable
+  # shorthand for enabling a module
   enable = { enable = true; };
 in
-{
+testers.runNixOSTest {
   name = "module-test";
 
   nodes.machine = { lib, ... }: {
     imports = [
-      inputs.home-manager.nixosModules.default
+      home-manager.nixosModules.default
       ./modules/nixos
       common
     ];
@@ -62,9 +59,12 @@ in
         fish = enable;
         foot = enable;
         fzf = enable;
-        git = enable // {
-          delta = enable;
-        };
+        gh-dash = enable;
+        git =
+          enable
+          // {
+            delta = enable;
+          };
         gitui = enable;
         # this is enabled by default already, but still
         # listing explicitly so we know it's tested
@@ -83,9 +83,14 @@ in
         starship = enable;
         swaylock = enable;
         tmux = enable;
+        tofi = enable;
+        waybar = enable;
         yazi = enable;
         zathura = enable;
         zellij = enable;
+        zsh = enable // {
+          syntaxHighlighting = enable;
+        };
       };
 
       gtk = lib.recursiveUpdate enable { catppuccin.cursor.enable = true; };
