@@ -25,6 +25,11 @@ in
         default = [ "normal" ];
         description = "Catppuccin tweaks for gtk";
       };
+      gnome = mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Wether to use the gtk theme as gnome shell's theme";
+      };
 
       cursor = ctp.mkCatppuccinOpt "gtk cursors"
       // {
@@ -79,5 +84,25 @@ in
         "gtk-4.0/gtk.css".source = "${gtk4Dir}/gtk.css";
         "gtk-4.0/gtk-dark.css".source = "${gtk4Dir}/gtk-dark.css";
       };
+
+    home.packages = lib.mkIf cfg.gnome [pkgs.gnomeExtensions.user-themes];
+
+    dconf.settings = lib.mkIf cfg.gnome {
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+        enabled-extensions = [
+          "user-theme@gnome-shell-extensions.gcampax.github.com"
+        ];
+      };
+      "org/gnome/shell/extensions/user-theme" = {
+        name = config.gtk.theme.name;
+      };
+      "org/gnome/desktop/interface" = {
+        color-scheme =
+          if cfg.flavour == "latte"
+          then "default"
+          else "prefer-dark";
+      };
+    };
   };
 }
