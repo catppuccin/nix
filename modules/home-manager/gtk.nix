@@ -47,8 +47,8 @@ in
           # use the light gtk theme for latte
           gtkTheme =
             if cfg.flavour == "latte"
-            then "light"
-            else "dark";
+            then "Light"
+            else "Dark";
         in
         {
           name = "Catppuccin-${flavourUpper}-${sizeUpper}-${accentUpper}-${gtkTheme}";
