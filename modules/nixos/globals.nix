@@ -7,5 +7,11 @@
       default = "mocha";
       description = "Global Catppuccin flavour";
     };
+
+    accent = lib.mkOption {
+      type = lib.ctp.types.accentOption;
+      default = "mauve";
+      description = "Global Catppuccin accent";
+    };
   };
 }
