@@ -17,7 +17,10 @@ testers.runNixOSTest {
       common
     ];
 
-    boot.loader.grub = enable;
+    boot = {
+      loader.grub = enable;
+      plymouth = enable;
+    };
 
     console = enable;
 
