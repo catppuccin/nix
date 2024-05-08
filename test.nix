@@ -1,36 +1,32 @@
-{ ctp
-, inputs
-, ...
-}:
+{ testers, home-manager }:
 let
   common = {
-    catppuccin.flavour = "mocha";
-    users.users.test = {
-      isNormalUser = true;
-      home = "/home/test";
-    };
-  };
-
-  ctpEnable = {
-    enable = true;
     catppuccin.enable = true;
   };
+
+  # shorthand for enabling a module
+  enable = { enable = true; };
 in
-{
+testers.runNixOSTest {
   name = "module-test";
 
   nodes.machine = { lib, ... }: {
     imports = [
-      ctp.nixosModules.catppuccin
-      inputs.home-manager.nixosModules.default
+      home-manager.nixosModules.default
+      ./modules/nixos
       common
     ];
 
-    boot.loader.grub = ctpEnable;
+    boot.loader.grub = enable;
 
-    console = ctpEnable;
+    console = enable;
 
-    programs.dconf.enable = true; # required for gtk
+    programs.dconf = enable; # required for gtk
+
+    users.users.test = {
+      isNormalUser = true;
+      home = "/home/test";
+    };
 
     virtualisation = {
       memorySize = 4096;
@@ -39,10 +35,9 @@ in
 
     home-manager.users.test = {
       imports = [
-        ctp.homeManagerModules.catppuccin
+        ./modules/home-manager
+        common
       ];
-
-      inherit (common) catppuccin;
 
       xdg.enable = true;
 
@@ -53,40 +48,58 @@ in
 
       manual.manpages.enable = lib.mkDefault false;
 
+      i18n.inputMethod.enabled = "fcitx5";
+
       programs = {
-        alacritty = ctpEnable;
-        bat = ctpEnable;
-        bottom = ctpEnable;
-        btop = ctpEnable;
-        fish = ctpEnable;
-        fzf = ctpEnable;
-        git.enable = true; # Required for delta
-        git.delta = ctpEnable;
-        gitui = ctpEnable;
+        alacritty = enable;
+        bat = enable;
+        bottom = enable;
+        btop = enable;
+        cava = enable;
+        fish = enable;
+        foot = enable;
+        fzf = enable;
+        gh-dash = enable;
+        git =
+          enable
+          // {
+            delta = enable;
+          };
+        gitui = enable;
+        # this is enabled by default already, but still
+        # listing explicitly so we know it's tested
         glamour.catppuccin.enable = true;
-        helix = ctpEnable;
-        home-manager.enable = false;
-        imv = ctpEnable;
-        kitty = ctpEnable;
-        lazygit = ctpEnable;
-        micro = ctpEnable;
-        neovim = ctpEnable;
-        starship = ctpEnable;
-        swaylock = ctpEnable;
-        tmux = ctpEnable;
-        zathura = ctpEnable;
+        helix = enable;
+        imv = enable;
+        k9s = enable;
+        kitty = enable;
+        lazygit = enable;
+        micro = enable;
+        mpv = enable;
+        neovim = enable;
+        rio = enable;
+        rofi = enable;
+        skim = enable;
+        starship = enable;
+        swaylock = enable;
+        tmux = enable;
+        tofi = enable;
+        waybar = enable;
+        yazi = enable;
+        zathura = enable;
+        zellij = enable;
+        zsh = enable // {
+          syntaxHighlighting = enable;
+        };
       };
 
-      gtk =
-        ctpEnable
-        // {
-          catppuccin.cursor.enable = true;
-        };
+      gtk = lib.recursiveUpdate enable { catppuccin.cursor.enable = true; };
 
       services = {
-        mako = ctpEnable;
+        dunst = enable;
+        mako = enable;
         polybar =
-          ctpEnable
+          enable
           // {
             script = ''
               polybar top &
@@ -94,8 +107,8 @@ in
           };
       };
 
-      wayland.windowManager.sway = ctpEnable;
-      wayland.windowManager.hyprland = ctpEnable;
+      wayland.windowManager.sway = enable;
+      wayland.windowManager.hyprland = enable;
     };
   };
 

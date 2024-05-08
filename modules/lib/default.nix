@@ -1,4 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 let
   # string -> type -> string -> a -> a
   # this is an internal function and shouldn't be
@@ -80,13 +84,30 @@ in
     in
     fromJSON (readFile json);
 
+  # a -> path -> a
+  # fromJSON but for raw ini (and without readFile)
+  # a should be the local pkgs attrset
+  fromINIRaw = file:
+    let
+      inherit (builtins) fromJSON readFile;
+
+      # convert to json
+      json = with pkgs;
+        runCommand "converted.json" { } ''
+          ${jc}/bin/jc --ini -r < ${file} > $out
+        '';
+    in
+    fromJSON (readFile json);
+
   # string -> a -> a
   # this creates a basic attrset only containing an
   # enable and flavour option. the fist string should
   # be the name of the module, followed by the local config
   # attrset
   mkCatppuccinOpt = name: {
-    enable = lib.mkEnableOption "Catppuccin theme";
+    enable = lib.mkEnableOption "Catppuccin theme" // {
+      default = config.catppuccin.enable;
+    };
     flavour = mkFlavourOpt name;
   };
 
@@ -100,4 +121,9 @@ in
     assertion = config.xdg.enable;
     message = "Option xdg.enable must be enabled to apply Catppuccin theming for ${name}";
   };
+
+  # see https://nlewo.github.io/nixos-manual-sphinx/development/option-types.xml.html
+  # by default enums cannot be merged, but they keep their passed value in `functor.payload`.
+  # `functor.binOp` can merge those values
+  mergeEnums = a: b: lib.types.enum (a.functor.binOp a.functor.payload b.functor.payload);
 }

@@ -1,0 +1,33 @@
+name: Validate sources
+# Per CONTRIBUTING.md, we do not accept unofficial ports. This enforces
+# that policy and ensures all sources are only from the official GitHub org
+
+on:
+  push:
+    paths:
+      - '_sources/**'
+      - 'nvfetcher.toml'
+    branches: [main]
+  pull_request:
+    paths:
+      - '_sources/**'
+      - 'nvfetcher.toml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Check for external repositories
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v26
+
+      - name: Run check
+        run: |
+          set -e
+          nix eval --file ./.github/checkSources.nix
