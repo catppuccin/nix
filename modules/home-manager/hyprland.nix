@@ -1,8 +1,7 @@
-{
-  config,
-  lib,
-  sources,
-  ...
+{ config
+, lib
+, sources
+, ...
 }:
 let
   cfg = config.wayland.windowManager.hyprland.catppuccin;
