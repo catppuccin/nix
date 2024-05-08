@@ -4,7 +4,7 @@
 , ...
 }:
 let
-  inherit (lib) ctp mkOption types;
+  inherit (lib) ctp mkOption mkEnableOption types;
   cfg = config.gtk.catppuccin;
   enable = cfg.enable && config.gtk.enable;
   # "dark" and "light" can be used alongside the regular accents
@@ -25,11 +25,7 @@ in
         default = [ "normal" ];
         description = "Catppuccin tweaks for gtk";
       };
-      gnome = mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Wether to use the gtk theme as gnome shell's theme";
-      };
+      gnomeShellTheme = mkEnableOption "Catppuccin gtk theme for GNOME Shell";
 
       cursor = ctp.mkCatppuccinOpt "gtk cursors"
       // {
@@ -39,7 +35,7 @@ in
 
   config = lib.mkIf enable {
     assertions = [
-      (lib.ctp.assertXdgEnabled "gtk")
+      (ctp.assertXdgEnabled "gtk")
     ];
 
     gtk = {
@@ -85,9 +81,9 @@ in
         "gtk-4.0/gtk-dark.css".source = "${gtk4Dir}/gtk-dark.css";
       };
 
-    home.packages = lib.mkIf cfg.gnome [pkgs.gnomeExtensions.user-themes];
+    home.packages = lib.mkIf cfg.gnomeShellTheme [pkgs.gnomeExtensions.user-themes];
 
-    dconf.settings = lib.mkIf cfg.gnome {
+    dconf.settings = lib.mkIf cfg.gnomeShellTheme {
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = [
