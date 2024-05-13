@@ -81,7 +81,7 @@ in
         "gtk-4.0/gtk-dark.css".source = "${gtk4Dir}/gtk-dark.css";
       };
 
-    home.packages = lib.mkIf cfg.gnomeShellTheme [pkgs.gnomeExtensions.user-themes];
+    home.packages = lib.mkIf cfg.gnomeShellTheme [ pkgs.gnomeExtensions.user-themes ];
 
     dconf.settings = lib.mkIf cfg.gnomeShellTheme {
       "org/gnome/shell" = {
