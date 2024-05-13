@@ -14,9 +14,14 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+
+    mdbook = {
+      url = "github:catppuccin/mdbook";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, home-manager-stable }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, home-manager-stable, mdbook }:
     let
       systems = [
         "x86_64-linux"
@@ -33,7 +38,7 @@
       forAllSystems = fn: nixpkgs.lib.genAttrs systems (system: fn nixpkgsFor.${system}.unstable);
     in
     {
-      apps = forAllSystems ({ lib, pkgs, ... }: {
+      apps = forAllSystems ({ lib, pkgs, system, ... }: {
         add-source = {
           type = "app";
           program = lib.getExe (
@@ -49,6 +54,11 @@
             ''
           );
         };
+
+        serve = {
+          type = "app";
+          program = lib.getExe self.packages.${system}.site.serve;
+        };
       });
 
       checks = forAllSystems ({ lib, pkgs, system, ... }: lib.optionalAttrs pkgs.stdenv.isLinux {
@@ -60,21 +70,41 @@
 
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
 
-      packages = forAllSystems (pkgs:
+      packages = forAllSystems ({ lib, pkgs, system, ... }:
         let
           version = self.shortRev or self.dirtyShortRev or "unknown";
-          mkOptionDoc = args: (pkgs.callPackage ./option-doc.nix { }) (args // { inherit version; });
+          mkOptionDoc = pkgs.callPackage ../docs/options-doc.nix { };
+          mkSite = pkgs.callPackage ../docs/mk-site.nix { inherit (mdbook.packages.${system}) mdbook-catppuccin; };
+          packages' = self.packages.${system};
         in
         {
           nixos-doc = mkOptionDoc {
+            inherit version;
             modules = [ ../modules/nixos ];
           };
 
           home-manager-doc = mkOptionDoc {
+            inherit version;
             modules = [ ../modules/home-manager ];
           };
 
-          default = self.packages.${pkgs.system}.home-manager-doc;
+          site = mkSite {
+            pname = "catppuccin-nix-website";
+            inherit version;
+
+            src = lib.fileset.toSource {
+              root = ../docs;
+              fileset = lib.fileset.unions [
+                ../docs/src
+                ../docs/book.toml
+              ];
+            };
+
+            nixosDoc = packages'.nixos-doc;
+            homeManagerDoc = packages'.home-manager-doc;
+          };
+
+          default = packages'.site;
         });
     };
 }

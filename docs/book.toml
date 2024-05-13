@@ -1,0 +1,15 @@
+[book]
+title = "catppuccin/nix"
+authors = ["getchoo"]
+description = "Soothing pastel theme for Nix"
+language = "en"
+multilingual = false
+src = "src"
+
+[output.html]
+default-theme = "mocha"
+preferred-dark-theme = "mocha"
+no-section-label = true
+git-repository-url = "https://github.com/catppuccin/nix"
+git-repository-icon = "fa-github"
+cname = "nix.catppuccin.com"

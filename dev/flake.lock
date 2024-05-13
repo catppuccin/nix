@@ -41,6 +41,26 @@
         "type": "github"
       }
     },
+    "mdbook": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1707626069,
+        "narHash": "sha256-4K7a5qdvSKBtNnp+7Ya+G63aQQGpFdNSRWXQeCvlU98=",
+        "owner": "catppuccin",
+        "repo": "mdbook",
+        "rev": "9b436bf09bec634bf797a0b363249c718b6fa332",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "mdbook",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1715787315,
@@ -75,6 +95,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "home-manager-stable": "home-manager-stable",
+        "mdbook": "mdbook",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable"
       }
