@@ -18,7 +18,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
+ - [/nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos](file:///nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos)
 
 
 
@@ -39,7 +39,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
+ - [/nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos](file:///nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos)
 
 
 
@@ -65,7 +65,28 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
+ - [/nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos](file:///nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos)
+
+
+
+## catppuccin\.accent
+
+
+
+Global Catppuccin accent
+
+
+
+*Type:*
+one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, “mauve”, “peach”, “pink”, “red”, “rosewater”, “sapphire”, “sky”, “teal”, “yellow”
+
+
+
+*Default:*
+` "mauve" `
+
+*Declared by:*
+ - [/nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos](file:///nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos)
 
 
 
@@ -86,7 +107,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
+ - [/nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos](file:///nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos)
 
 
 
@@ -112,7 +133,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
+ - [/nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos](file:///nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos)
 
 
 
@@ -133,6 +154,6 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos](file:///nix/store/y3w2xipasb4bvcl9rwlv8k3g4fjyafzy-source/modules/nixos)
+ - [/nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos](file:///nix/store/i2s606nd54lwh9y6zan7ma3v0smd33m7-source/modules/nixos)
 
 
