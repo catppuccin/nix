@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ lib, defaultSources, ... }: {
   options.catppuccin = {
     enable = lib.mkEnableOption "Catppuccin globally";
 
@@ -12,6 +12,15 @@
       type = lib.ctp.types.accentOption;
       default = "mauve";
       description = "Global Catppuccin accent";
+    };
+
+    sources = lib.mkOption {
+      type = lib.types.lazyAttrsOf lib.types.raw;
+      default = defaultSources;
+      # HACK!
+      # without this, overriding one source will delete all others. -@getchoo
+      apply = lib.recursiveUpdate defaultSources;
+      description = "Port sources used across all options";
     };
   };
 }

@@ -1,9 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.wayland.windowManager.sway.catppuccin;
   enable = cfg.enable && config.wayland.windowManager.sway.enable;
   theme = "${sources.sway}/themes/catppuccin-${cfg.flavour}";

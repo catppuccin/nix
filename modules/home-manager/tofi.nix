@@ -1,10 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
-  inherit (lib) ctp;
+  inherit (config.catppuccin) sources;
   cfg = config.programs.tofi.catppuccin;
   enable = cfg.enable && config.programs.tofi.enable;
 in

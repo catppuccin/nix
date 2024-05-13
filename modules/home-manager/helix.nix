@@ -1,9 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.programs.helix.catppuccin;
   enable = cfg.enable && config.programs.helix.enable;
 in

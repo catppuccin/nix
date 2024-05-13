@@ -1,9 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.services.polybar.catppuccin;
   enable = cfg.enable && config.services.polybar.enable;
 in

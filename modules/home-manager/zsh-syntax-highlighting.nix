@@ -1,9 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   inherit (lib) ctp;
   cfg = config.programs.zsh.syntaxHighlighting.catppuccin;
   enable = cfg.enable && config.programs.zsh.syntaxHighlighting.enable;
