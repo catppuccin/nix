@@ -20,7 +20,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -39,7 +39,7 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 ` "mauve" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -60,7 +60,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -86,7 +86,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -107,7 +107,7 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 ` "mauve" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -133,7 +133,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -154,7 +154,7 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 ` "mauve" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -175,7 +175,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -196,7 +196,33 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
+
+
+
+## gtk\.catppuccin\.gnomeShellTheme
+
+
+
+Whether to enable Catppuccin gtk theme for GNOME Shell\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+*Declared by:*
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -217,7 +243,7 @@ one of “standard”, “compact”
 ` "standard" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -243,7 +269,7 @@ list of (one of “black”, “rimless”, “normal”)
 ```
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -269,7 +295,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -290,7 +316,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -316,7 +342,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -337,7 +363,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -363,7 +389,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -384,7 +410,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -410,7 +436,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -431,7 +457,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -457,7 +483,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -478,7 +504,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -504,7 +530,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -525,7 +551,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -551,7 +577,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -572,7 +598,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -598,7 +624,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -619,7 +645,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -645,7 +671,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -666,7 +692,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -692,7 +718,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -713,7 +739,7 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 ` "mauve" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -734,7 +760,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -760,7 +786,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -781,7 +807,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -807,7 +833,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -828,7 +854,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -854,7 +880,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -875,7 +901,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -901,7 +927,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -922,7 +948,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -948,7 +974,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -974,7 +1000,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -995,7 +1021,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1021,7 +1047,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1042,7 +1068,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1068,7 +1094,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1094,7 +1120,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1115,7 +1141,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1141,7 +1167,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1162,7 +1188,7 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 ` "mauve" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1183,7 +1209,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1209,7 +1235,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1230,7 +1256,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1256,7 +1282,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1277,7 +1303,7 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 ` "mauve" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1298,7 +1324,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1324,7 +1350,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1345,7 +1371,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1371,7 +1397,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1392,7 +1418,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1418,7 +1444,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1439,7 +1465,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1465,7 +1491,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1486,7 +1512,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1512,7 +1538,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1533,7 +1559,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1559,7 +1585,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1580,7 +1606,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1606,7 +1632,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1637,7 +1663,7 @@ strings concatenated with “\\n”
 ```
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1658,7 +1684,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1684,7 +1710,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1705,7 +1731,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1731,7 +1757,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1752,7 +1778,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1776,7 +1802,7 @@ one of “prependImport”, “createLink”
 ` "prependImport" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1802,7 +1828,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1823,7 +1849,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1849,7 +1875,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1870,7 +1896,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1896,7 +1922,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1917,7 +1943,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1943,7 +1969,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1964,7 +1990,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -1990,7 +2016,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -2011,7 +2037,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -2037,7 +2063,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -2058,7 +2084,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -2084,7 +2110,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -2105,7 +2131,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -2131,7 +2157,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -2152,7 +2178,7 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 ` "mauve" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -2173,7 +2199,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -2199,7 +2225,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
 
@@ -2220,6 +2246,6 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager](file:///nix/store/sz6kb4xmqhbcbbndjiar19vnxq9jzlfl-source/modules/home-manager)
+ - [/nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager](file:///nix/store/krcpdc6pcskvq9ljaxwziysamcanp8pz-source/modules/home-manager)
 
 
