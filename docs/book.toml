@@ -9,6 +9,7 @@ src = "src"
 [output.html]
 default-theme = "mocha"
 preferred-dark-theme = "mocha"
+additional-css = ["./theme/catppuccin.css"]
 no-section-label = true
 git-repository-url = "https://github.com/catppuccin/nix"
 git-repository-icon = "fa-github"

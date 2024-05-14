@@ -36,6 +36,8 @@
 
 ## Usage
 
+You will probably want to see our [Getting started guide](http://nix.catppuccin.com/getting-started/index.html), but as a TLDR:
+
 1. Import the [NixOS](https://nixos.org) and [home-manager](https://github.com/nix-community/home-manager) modules
 
 <details>
@@ -44,7 +46,7 @@
 ```nix
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-22.11";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -52,18 +54,18 @@
     };
   };
 
-  outputs = { nixpkgs, catppuccin, home-manager }: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {inherit system;};
-  in {
+  outputs = { nixpkgs, catppuccin, home-manager }: {
     # for nixos module home-manager installations
-    nixosConfigurations.host = pkgs.lib.nixosSystem {
-      inherit system;
+    nixosConfigurations.pepperjacksComputer = pkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       modules = [
         catppuccin.nixosModules.catppuccin
+        # if you use home-manager
         home-manager.nixosModules.home-manager
+
         {
-          home-manager.users.user = {
+          # if you use home-manager
+          home-manager.users.pepperjack = {
             imports = [
               ./home.nix
               catppuccin.homeManagerModules.catppuccin
@@ -74,9 +76,10 @@
     };
 
     # for standalone home-manager installations
-    homeConfigurations.user = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+    homeConfigurations.pepperjack = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
+        ./home.nix
         catppuccin.homeManagerModules.catppuccin
       ];
     };
@@ -100,11 +103,13 @@ For [NixOS module installations](https://nix-community.github.io/home-manager/in
 ```nix
 {
   imports = [
-    <home-manager/nixos>
     <catppuccin/modules/nixos>
+    # if you use home-manager
+    <home-manager/nixos>
   ];
 
-  home-manager.users.user = {
+  # if you use home-manager
+  home-manager.users.pepperjack = {
     imports = [
       <catppuccin/modules/home-manager>
     ];
@@ -121,8 +126,7 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
     <catppuccin/modules/home-manager>
   ];
 
-  home.username = "user";
-  home.homeDirectory = "user";
+  home.username = "pepperjack";
   programs.home-manager.enable = true;
 }
 ```
@@ -148,11 +152,22 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
 }
 ```
 
+4. Enable for all available programs you're using!
+
+```nix
+{
+  catppuccin.enable = true;
+}
+```
+
 ## 🙋 FAQ
 
 - Q: **"How do I know what programs are supported?"**\
-  A: You can find programs supported through home-manager [here](https://github.com/catppuccin/nix/tree/main/modules/home-manager),
-  and NixOS modules [here](https://github.com/catppuccin/nix/tree/main/modules/nixos)
+  A: You can find programs supported through home-manager [here](https://nix.catppuccin.com/options/home-manager-options.html),
+  and NixOS modules [here](https://nix.catppuccin.com/options/nixos-options.html)
+
+- Q: **"How do I set `catppuccin.enable` for everything I use?"**\
+  A: You can set `catppuccin.enable` [globally](options/nixos-options.md#catppuccinenable)
 
 - Q: **"What versions of NixOS and home-manager are supported?"**\
   A: We primarily support the `unstable` branch, but try our best to support the current stable release.

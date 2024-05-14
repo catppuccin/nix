@@ -2,8 +2,7 @@
 , stdenvNoCC
 , writeShellApplication
 , mdbook
-, mdbook-catppuccin
-, simple-http-server
+, python3
 }: { nixosDoc
    , homeManagerDoc
    , ...
@@ -11,19 +10,11 @@
 stdenvNoCC.mkDerivation (finalAttrs: args // {
   nativeBuildInputs = [
     mdbook
-    mdbook-catppuccin
   ];
 
   dontPatch = true;
+  dontConfigure = true;
   doCheck = false;
-
-  configurePhase = ''
-    runHook preConfigure
-
-    mdbook-catppuccin install
-
-    runHook postConfigure
-  '';
 
   buildPhase = ''
     runHook preBuild
@@ -47,10 +38,10 @@ stdenvNoCC.mkDerivation (finalAttrs: args // {
     serve = writeShellApplication {
       name = "serve";
 
-      runtimeInputs = [ simple-http-server ];
+      runtimeInputs = [ python3 ];
 
       text = ''
-        simple-http-server --index --ip 127.0.0.1 ${finalAttrs.finalPackage}
+        python -m http.server --bind 127.0.0.1 --directory ${finalAttrs.finalPackage}
       '';
     };
   };

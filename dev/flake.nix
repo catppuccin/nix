@@ -14,14 +14,9 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-
-    mdbook = {
-      url = "github:catppuccin/mdbook";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, home-manager-stable, mdbook }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, home-manager-stable }:
     let
       systems = [
         "x86_64-linux"
@@ -74,7 +69,7 @@
         let
           version = self.shortRev or self.dirtyShortRev or "unknown";
           mkOptionDoc = pkgs.callPackage ../docs/options-doc.nix { };
-          mkSite = pkgs.callPackage ../docs/mk-site.nix { inherit (mdbook.packages.${system}) mdbook-catppuccin; };
+          mkSite = pkgs.callPackage ../docs/mk-site.nix { };
           packages' = self.packages.${system};
         in
         {
@@ -97,6 +92,7 @@
               fileset = lib.fileset.unions [
                 ../docs/src
                 ../docs/book.toml
+                ../docs/theme
               ];
             };
 
