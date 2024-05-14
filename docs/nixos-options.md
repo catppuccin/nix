@@ -18,7 +18,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -39,7 +39,54 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
+
+
+
+## boot\.plymouth\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+*Declared by:*
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
+
+
+
+## boot\.plymouth\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for plymouth
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "mocha" `
+
+*Declared by:*
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -65,7 +112,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -86,7 +133,7 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 ` "mauve" `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -107,7 +154,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -639,7 +686,7 @@ lazy attribute set of raw value
 ```
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -665,7 +712,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -686,7 +733,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -712,7 +759,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -733,7 +780,7 @@ path or string
 ` "" `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -754,7 +801,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -775,7 +822,7 @@ string
 ` "Noto Sans" `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -796,7 +843,7 @@ string
 ` "9" `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
 
@@ -817,6 +864,6 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
+ - [/nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos](file:///nix/store/irm4pkl4fdma9ad1sc0m782j1vdpirrf-source/modules/nixos)
 
 
