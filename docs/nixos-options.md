@@ -18,7 +18,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos](file:///nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos)
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
 
 
 
@@ -39,7 +39,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos](file:///nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos)
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
 
 
 
@@ -65,7 +65,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos](file:///nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos)
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
 
 
 
@@ -86,7 +86,7 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 ` "mauve" `
 
 *Declared by:*
- - [/nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos](file:///nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos)
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
 
 
 
@@ -107,7 +107,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos](file:///nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos)
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
 
 
 
@@ -639,7 +639,7 @@ lazy attribute set of raw value
 ```
 
 *Declared by:*
- - [/nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos](file:///nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos)
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
 
 
 
@@ -665,7 +665,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos](file:///nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos)
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
 
 
 
@@ -686,6 +686,137 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos](file:///nix/store/wcq4l7x8amw1g1q4n4p28sws8qm1r3sd-source/modules/nixos)
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+
+
+
+## services\.displayManager\.sddm\.catppuccin\.enable
+
+
+
+Whether to enable Catppuccin theme\.
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` false `
+
+
+
+*Example:*
+` true `
+
+*Declared by:*
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+
+
+
+## services\.displayManager\.sddm\.catppuccin\.background
+
+
+
+Background image to use for the login screen
+
+
+
+*Type:*
+path or string
+
+
+
+*Default:*
+` "" `
+
+*Declared by:*
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+
+
+
+## services\.displayManager\.sddm\.catppuccin\.flavour
+
+
+
+Catppuccin flavour for sddm
+
+
+
+*Type:*
+one of “latte”, “frappe”, “macchiato”, “mocha”
+
+
+
+*Default:*
+` "mocha" `
+
+*Declared by:*
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+
+
+
+## services\.displayManager\.sddm\.catppuccin\.font
+
+
+
+Font to use for the login screen
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "Noto Sans" `
+
+*Declared by:*
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+
+
+
+## services\.displayManager\.sddm\.catppuccin\.fontSize
+
+
+
+Font size to use for the login screen
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "9" `
+
+*Declared by:*
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+
+
+
+## services\.displayManager\.sddm\.catppuccin\.loginBackground
+
+
+
+Add an additonal background layer to the login panel
+
+
+
+*Type:*
+boolean
+
+
+
+*Default:*
+` true `
+
+*Declared by:*
+ - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
 
 
