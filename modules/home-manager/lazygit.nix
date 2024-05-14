@@ -1,10 +1,10 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
   inherit (lib) ctp;
+  inherit (config.catppuccin) sources;
   cfg = config.programs.lazygit.catppuccin;
   enable = cfg.enable && config.programs.lazygit.enable;
 

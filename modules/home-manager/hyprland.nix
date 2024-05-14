@@ -1,9 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.wayland.windowManager.hyprland.catppuccin;
   enable = cfg.enable && config.wayland.windowManager.hyprland.enable;
 in

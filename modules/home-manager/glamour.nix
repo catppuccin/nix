@@ -1,9 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.programs.glamour.catppuccin;
   inherit (cfg) enable;
 in

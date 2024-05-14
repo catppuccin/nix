@@ -7,15 +7,14 @@ the `catppuccin.enable` and `catppuccin.flavour` options, and optionally the
 `catppuccin.accent` option. `catppuccin.flavour` and `catppuccin.accent` should
 default to `config.catppuccin.flavour` and `config.catppuccin.accent`, respectively.
 
-[nvfetcher](https://github.com/berberman/nvfetcher) is used to track our upstream
+[npins](https://github.com/andir/npins) is used to track our upstream
 sources to use in modules. This allows us to easily access and auto-update all themes.
-Most repositories can be specified like so:
+You can add a new repository using a script in our subflake
 
-```toml
-[program_name]
-src.git = "https://github.com/catppuccin/program_name.git"
-fetch.github = "catppuccin/program_name"
+```bash
+nix run ./dev#add-source -- port_name branch_if_not_main
 ```
+Alternatively, you can run `npins add github --directory .sources` manually
 
 After creating your module, add the options to enable it in `test.nix` under the
 `nodes.machine` attrset. This will allow for your configuration to be tested along

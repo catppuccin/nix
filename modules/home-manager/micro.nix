@@ -1,9 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.programs.micro.catppuccin;
   enable = cfg.enable && config.programs.micro.enable;
 

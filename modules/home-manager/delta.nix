@@ -1,9 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.programs.git.delta.catppuccin;
   enable = cfg.enable && config.programs.git.delta.enable;
 in
