@@ -1,9 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.programs.btop.catppuccin;
   enable = cfg.enable && config.programs.btop.enable;
 

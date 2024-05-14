@@ -1,10 +1,10 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
   inherit (lib) ctp;
+  inherit (config.catppuccin) sources;
   cfg = config.programs.alacritty.catppuccin;
   enable = cfg.enable && config.programs.alacritty.enable;
 in

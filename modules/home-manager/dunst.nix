@@ -1,10 +1,10 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
-  inherit (lib) ctp;
+  inherit (config.catppuccin) sources;
+
   cfg = config.services.dunst.catppuccin;
   enable = cfg.enable && config.services.dunst.enable;
 in

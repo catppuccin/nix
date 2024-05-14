@@ -1,9 +1,10 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
+
   cfg = config.programs.gitui.catppuccin;
   enable = cfg.enable && config.programs.gitui.enable;
 in

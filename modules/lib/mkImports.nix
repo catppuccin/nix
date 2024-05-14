@@ -3,20 +3,19 @@
 { lib, pkgs, ... }@args:
 dir:
 let
-  generated = pkgs.callPackage ../../_sources/generated.nix { };
+  # instead of letting `evalModules` pass arguments to each file
+  # in our list, we import them directly
+  applyImports = file: _: import "${dir}/${file}" (args // {
+    lib = lib.extend (final: _: {
+      ctp = import ./. (args // { lib = final; });
+    });
+
+    defaultSources = import ../../.sources;
+  });
 in
 lib.pipe dir [
   builtins.readDir
   builtins.attrNames
-
-  (builtins.filter (
-    n: !(builtins.elem n [ "default.nix" ])
-  ))
-
-  (map (
-    f: _: import "${dir}/${f}" (args // {
-      sources = builtins.mapAttrs (_: p: p.src) generated;
-      lib = lib.extend (_: _: { ctp = import ./. args; });
-    })
-  ))
+  (lib.remove "default.nix")
+  (map applyImports)
 ]

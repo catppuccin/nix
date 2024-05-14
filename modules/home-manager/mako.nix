@@ -1,12 +1,10 @@
 { config
 , pkgs
 , lib
-, sources
 , ...
 }:
 let
-  inherit (builtins) readFile;
-
+  inherit (config.catppuccin) sources;
   cfg = config.services.mako.catppuccin;
   enable = cfg.enable && config.services.mako.enable;
   theme = lib.ctp.fromINI (sources.mako + /src/${cfg.flavour});
@@ -24,6 +22,6 @@ in
     textColor = theme.text-color;
     borderColor = theme.border-color;
     progressColor = theme.progress-color;
-    extraConfig = readFile ((pkgs.formats.ini { }).generate "mako-extra-config" extraConfigAttrs);
+    extraConfig = builtins.readFile ((pkgs.formats.ini { }).generate "mako-extra-config" extraConfigAttrs);
   };
 }

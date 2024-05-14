@@ -1,19 +1,24 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.wayland.windowManager.hyprland.catppuccin;
   enable = cfg.enable && config.wayland.windowManager.hyprland.enable;
 in
 {
-  options.wayland.windowManager.hyprland.catppuccin =
-    lib.ctp.mkCatppuccinOpt "hyprland";
+  options.wayland.windowManager.hyprland.catppuccin = lib.ctp.mkCatppuccinOpt "hyprland" // {
+    accent = lib.ctp.mkAccentOpt "hyprland";
+  };
 
-  # Because of how nix merges options and hyprland interprets options, sourcing
-  # the file does not work. instead, parse the theme and put it in settings so
-  # the variables appear early enough in the file to be applied properly.
-  config.wayland.windowManager.hyprland.settings = lib.mkIf enable
-    (lib.ctp.fromINI (sources.hyprland + /themes/${cfg.flavour}.conf));
+  config.wayland.windowManager.hyprland.settings = lib.mkIf enable {
+    source = [
+      "${sources.hyprland}/themes/${cfg.flavour}.conf"
+      (builtins.toFile "hyprland-${cfg.accent}-accent.conf" ''
+        $accent=''$${cfg.accent}
+        $accentAlpha=''$${cfg.accent}Alpha
+      '')
+    ];
+  };
 }

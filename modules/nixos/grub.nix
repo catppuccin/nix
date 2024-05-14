@@ -1,10 +1,10 @@
 { config
 , lib
 , pkgs
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.boot.loader.grub.catppuccin;
   enable = cfg.enable && config.boot.loader.grub.enable;
 

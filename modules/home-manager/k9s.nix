@@ -1,9 +1,10 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
+
   cfg = config.programs.k9s.catppuccin;
   enable = cfg.enable && config.programs.k9s.enable;
 

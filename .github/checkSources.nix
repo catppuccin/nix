@@ -1,11 +1,14 @@
 let
-  sourceFile = ../_sources/generated.json;
-  sources = builtins.fromJSON (builtins.readFile sourceFile);
-  isFromOrg = v: v.src.owner == "catppuccin";
-  badSources = builtins.filter (src: !(isFromOrg src)) (builtins.attrValues sources);
+  sources = (builtins.fromJSON (builtins.readFile ../.sources/sources.json)).pins;
+
+  isGithubSource = source: source.repository.type or "" == "GitHub";
+  isInOrg = source: source.repository.owner or "" == "catppuccin";
+
+  # all github sources should be from the org
+  isGoodSource = source: isGithubSource source -> isInOrg source;
+  # find the ones that aren't
+  badSources = builtins.filter (source: !(isGoodSource source)) (builtins.attrValues sources);
 in
-  # error if any sources are found that don't originate
-  # from the catppuccin org
   if ((builtins.length badSources) == 0)
-  then "GOOD"
-  else builtins.throw "BAD"
+  then "OK"
+  else throw "BAD"

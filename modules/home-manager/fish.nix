@@ -1,10 +1,10 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
   inherit (lib) ctp mkIf;
+  inherit (config.catppuccin) sources;
   cfg = config.programs.fish.catppuccin;
   enable = cfg.enable && config.programs.fish.enable;
 

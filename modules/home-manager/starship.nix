@@ -1,10 +1,9 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
-  inherit (builtins) fromTOML readFile;
+  inherit (config.catppuccin) sources;
   cfg = config.programs.starship.catppuccin;
   enable = cfg.enable && config.programs.starship.enable;
 in
@@ -18,5 +17,5 @@ in
         format = lib.mkDefault "$all";
         palette = "catppuccin_${cfg.flavour}";
       }
-      // fromTOML (readFile "${sources.starship}/palettes/${cfg.flavour}.toml"));
+      // builtins.fromTOML (builtins.readFile "${sources.starship}/palettes/${cfg.flavour}.toml"));
 }

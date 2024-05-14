@@ -1,10 +1,10 @@
 { config
 , pkgs
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
   cfg = config.programs.zathura.catppuccin;
   enable = cfg.enable && config.programs.zathura.enable;
   themeFile = sources.zathura + /src/catppuccin-${cfg.flavour};

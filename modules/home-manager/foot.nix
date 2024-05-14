@@ -1,9 +1,10 @@
 { config
 , lib
-, sources
 , ...
 }:
 let
+  inherit (config.catppuccin) sources;
+
   cfg = config.programs.foot.catppuccin;
   enable = cfg.enable && config.programs.foot.enable;
   theme = lib.ctp.fromINI (sources.foot + "/themes/catppuccin-${cfg.flavour}.ini");
