@@ -18,7 +18,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -39,7 +39,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -65,7 +65,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -86,7 +86,7 @@ one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, �
 ` "mauve" `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -107,7 +107,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -639,7 +639,7 @@ lazy attribute set of raw value
 ```
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -665,7 +665,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -686,7 +686,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -712,7 +712,7 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -733,7 +733,7 @@ path or string
 ` "" `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -754,7 +754,7 @@ one of “latte”, “frappe”, “macchiato”, “mocha”
 ` "mocha" `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -775,7 +775,7 @@ string
 ` "Noto Sans" `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -796,7 +796,7 @@ string
 ` "9" `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
 
@@ -817,6 +817,6 @@ boolean
 ` true `
 
 *Declared by:*
- - [/nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos](file:///nix/store/mx4w4yldq8g5vvjiprzf2y0m6dn35xx9-source/modules/nixos)
+ - [/nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos](file:///nix/store/s2gnx09wbbi3vac3zklbmy3ypc9crc3x-source/modules/nixos)
 
 
