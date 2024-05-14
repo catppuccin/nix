@@ -31,6 +31,11 @@ in
       // {
         accent = ctp.mkBasicOpt "accent" cursorAccentType "gtk cursors";
       };
+
+      icon = ctp.mkCatppuccinOpt "gtk modified Papirus icon theme"
+      // {
+        accent = ctp.mkAccentOpt "gtk modified Papirus icon theme";
+      };
     };
 
   config = lib.mkIf enable {
@@ -68,6 +73,22 @@ in
         lib.mkIf cfg.cursor.enable {
           name = "Catppuccin-${flavourUpper}-${accentUpper}-Cursors";
           package = pkgs.catppuccin-cursors.${cfg.cursor.flavour + accentUpper};
+        };
+
+      iconTheme =
+        let
+          # use the light icon theme for latte
+          polarity =
+            if cfg.icon.flavour == "latte"
+            then "Light"
+            else "Dark";
+        in
+        lib.mkIf cfg.icon.enable {
+          name = "Papirus-${polarity}";
+          package = pkgs.catppuccin-papirus-folders.override {
+            flavor = cfg.icon.flavour;
+            accent = cfg.icon.accent;
+          };
         };
     };
 
