@@ -29,7 +29,10 @@ testers.runNixOSTest {
       common
     ];
 
-    boot.loader.grub = enable;
+    boot = {
+      loader.grub = enable;
+      plymouth = enable;
+    };
 
     services = {
       displayManager.sddm = enable;
