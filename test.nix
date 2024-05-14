@@ -13,7 +13,6 @@ let
           hash = "sha256-qZjMlZFTzJotOYjURRQMsiOdR2XGGba8XzXwx4+v9tk=";
         };
       };
-
     };
   };
 
@@ -31,6 +30,11 @@ testers.runNixOSTest {
     ];
 
     boot.loader.grub = enable;
+
+    services = {
+      displayManager.sddm = enable;
+      xserver.enable = true; # required for sddm
+    };
 
     console = enable;
 
