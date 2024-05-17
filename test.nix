@@ -121,6 +121,10 @@ testers.runNixOSTest {
 
         gtk = lib.recursiveUpdate enable { catppuccin.cursor.enable = true; };
 
+        qt = enable // {
+          style.name = "kvantum";
+        };
+
         services = {
           dunst = enable;
           mako = enable;
