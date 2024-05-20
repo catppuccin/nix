@@ -31,6 +31,8 @@ testers.runNixOSTest {
           enable = true;
           package = pkgs.kdePackages.sddm; # our module/the upstream port requires the qt6 version
         };
+        forgejo.enable = true;
+        gitea.enable = true;
         xserver.enable = true; # required for sddm
       };
 
