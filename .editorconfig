@@ -32,3 +32,7 @@ trim_trailing_whitespace = false
 # windows shell scripts
 [*.{cmd,bat,ps1}]
 end_of_line = crlf
+
+# npins
+[.sources/sources.json]
+trim_trailing_whitespace = false

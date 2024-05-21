@@ -1,0 +1,61 @@
+name: Build & deploy website
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build site
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v26
+
+      - name: Setup cache
+        uses: DeterminateSystems/magic-nix-cache-action@v6
+
+      - name: Run build
+        run: |
+          nix build \
+            --print-build-logs \
+            --show-trace \
+            './dev#site'
+
+      - name: Get artifact directory
+        id: find-path
+        run: |
+          # exit if no `result` from `nix build`
+          [ ! -L result ] && exit 1
+          echo "path=$(readlink -f result)" >> "$GITHUB_OUTPUT"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ steps.find-path.outputs.path }}
+
+  deploy:
+    name: Deploy website
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    permissions:
+      id-token: write
+      pages: write
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
