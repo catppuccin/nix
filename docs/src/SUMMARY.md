@@ -12,4 +12,6 @@
 
 - [FAQ](faq.md)
 
+- [Changelog](NEWS.md)
+
 - [Contributing](CONTRIBUTING.md)
