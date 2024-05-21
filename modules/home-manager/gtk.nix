@@ -8,7 +8,7 @@ let
   cfg = config.gtk.catppuccin;
   enable = cfg.enable && config.gtk.enable;
   # "dark" and "light" can be used alongside the regular accents
-  cursorAccentType = ctp.mergeEnums (ctp.types.accentOption) (lib.types.enum [ "dark" "light" ]);
+  cursorAccentType = ctp.mergeEnums ctp.types.accentOption (lib.types.enum [ "dark" "light" ]);
 in
 {
   options.gtk.catppuccin =
@@ -39,10 +39,6 @@ in
     };
 
   config = lib.mkIf enable {
-    assertions = [
-      (ctp.assertXdgEnabled "gtk")
-    ];
-
     gtk = {
       theme =
         let
@@ -87,7 +83,7 @@ in
           name = "Papirus-${polarity}";
           package = pkgs.catppuccin-papirus-folders.override {
             flavor = cfg.icon.flavour;
-            accent = cfg.icon.accent;
+            inherit (cfg.icon) accent;
           };
         };
     };
@@ -112,7 +108,7 @@ in
         ];
       };
       "org/gnome/shell/extensions/user-theme" = {
-        name = config.gtk.theme.name;
+        inherit (config.gtk.theme) name;
       };
       "org/gnome/desktop/interface" = {
         color-scheme =

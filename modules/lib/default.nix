@@ -111,11 +111,6 @@ in
   # followed by the local config attrset
   mkAccentOpt = ctp.mkBasicOpt "accent" ctp.types.accentOption;
 
-  assertXdgEnabled = name: {
-    assertion = config.xdg.enable;
-    message = "Option xdg.enable must be enabled to apply Catppuccin theming for ${name}";
-  };
-
   # a -> a -> a
   # see https://nlewo.github.io/nixos-manual-sphinx/development/option-types.xml.html
   # by default enums cannot be merged, but they keep their passed value in `functor.payload`.

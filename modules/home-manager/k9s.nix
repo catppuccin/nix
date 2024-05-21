@@ -23,10 +23,6 @@ in
   config =
     lib.mkIf enable
       {
-        assertions = [
-          (lib.ctp.assertXdgEnabled "k9s")
-        ];
-
         xdg.configFile."k9s${themePath}".source = theme;
 
         programs.k9s.settings.k9s.ui.skin = themeName;
