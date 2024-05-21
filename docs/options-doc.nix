@@ -25,6 +25,8 @@
           }
         ).options [ "_module" "system" ];
 
+    transformOptions = opt: builtins.removeAttrs opt [ "declarations" ];
+
     documentType = "none";
     revision = version;
   }
