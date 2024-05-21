@@ -17,10 +17,6 @@ in
 
   config = lib.mkIf enable
     {
-      assertions = [
-        (lib.ctp.assertXdgEnabled "btop")
-      ];
-
       xdg.configFile."btop${themePath}".source = theme;
 
       programs.btop.settings.color_theme = themeFile;

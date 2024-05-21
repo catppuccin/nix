@@ -14,10 +14,6 @@ in
     lib.ctp.mkCatppuccinOpt "micro";
 
   config = lib.mkIf enable {
-    assertions = [
-      (lib.ctp.assertXdgEnabled "micro")
-    ];
-
     programs.micro.settings.colorscheme = lib.removeSuffix ".micro" themePath;
 
     xdg.configFile."micro/colorschemes/${themePath}".source = "${sources.micro}/src/${themePath}";
