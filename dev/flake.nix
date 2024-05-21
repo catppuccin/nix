@@ -3,14 +3,20 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/release-23.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    home-manager-stable = {
+      url = "github:nix-community/home-manager/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, home-manager-stable }:
     let
       systems = [
         "x86_64-linux"
@@ -19,7 +25,12 @@
         "aarch64-darwin"
       ];
 
-      forAllSystems = fn: nixpkgs.lib.genAttrs systems (system: fn nixpkgs.legacyPackages.${system});
+      nixpkgsFor = nixpkgs.lib.genAttrs systems (system: {
+        unstable = nixpkgs.legacyPackages.${system};
+        stable = nixpkgs-stable.legacyPackages.${system};
+      });
+
+      forAllSystems = fn: nixpkgs.lib.genAttrs systems (system: fn nixpkgsFor.${system}.unstable);
     in
     {
       apps = forAllSystems ({ lib, pkgs, ... }: {
@@ -40,8 +51,11 @@
         };
       });
 
-      checks = forAllSystems ({ lib, pkgs, ... }: lib.optionalAttrs pkgs.stdenv.isLinux {
-        module-vm-test = pkgs.callPackage ../test.nix { inherit home-manager; };
+      checks = forAllSystems ({ lib, pkgs, system, ... }: lib.optionalAttrs pkgs.stdenv.isLinux {
+        module-test-unstable = pkgs.callPackage ../test.nix { inherit home-manager; };
+        module-test-stable = nixpkgsFor.${system}.stable.callPackage ../test.nix {
+          home-manager = home-manager-stable;
+        };
       });
 
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
