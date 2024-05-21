@@ -13,7 +13,7 @@ in
   options.boot.plymouth.catppuccin = ctp.mkCatppuccinOpt "plymouth";
 
   config.boot.plymouth = mkIf enable {
-    theme = "catppuccin-${cfg.flavour}";
-    themePackages = [ (pkgs.catppuccin-plymouth.override { variant = cfg.flavour; }) ];
+    theme = "catppuccin-${cfg.flavor}";
+    themePackages = [ (pkgs.catppuccin-plymouth.override { variant = cfg.flavor; }) ];
   };
 }

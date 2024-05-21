@@ -10,8 +10,8 @@ in
 
   config = lib.mkIf enable {
     programs.gitui.theme = builtins.path {
-      name = "${cfg.flavour}.ron";
-      path = "${sources.gitui}/theme/${cfg.flavour}.ron";
+      name = "${cfg.flavor}.ron";
+      path = "${sources.gitui}/theme/${cfg.flavor}.ron";
     };
   };
 }

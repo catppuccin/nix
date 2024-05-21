@@ -5,14 +5,14 @@ let
   cfg = config.programs.k9s.catppuccin;
   enable = cfg.enable && config.programs.k9s.enable;
 
-  themeName = "catppuccin-${cfg.flavour}" + lib.optionalString cfg.transparent "-transparent";
+  themeName = "catppuccin-${cfg.flavor}" + lib.optionalString cfg.transparent "-transparent";
   themeFile = "${themeName}.yaml";
   themePath = "/skins/${themeFile}";
   theme = sources.k9s + "/dist/${themeFile}";
 in
 {
   options.programs.k9s.catppuccin = lib.ctp.mkCatppuccinOpt "k9s" // {
-    transparent = lib.mkEnableOption "transparent version of flavour";
+    transparent = lib.mkEnableOption "transparent version of flavor";
   };
 
   config = lib.mkIf enable {

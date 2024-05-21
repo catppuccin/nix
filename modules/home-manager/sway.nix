@@ -3,12 +3,14 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.wayland.windowManager.sway.catppuccin;
   enable = cfg.enable && config.wayland.windowManager.sway.enable;
-  theme = "${sources.sway}/themes/catppuccin-${cfg.flavour}";
+  theme = "${sources.sway}/themes/catppuccin-${cfg.flavor}";
 in
 {
   options.wayland.windowManager.sway.catppuccin = lib.ctp.mkCatppuccinOpt "sway";
 
-  config.wayland.windowManager.sway.extraConfigEarly = lib.mkIf enable ''
-    include ${theme}
-  '';
+  config = lib.mkIf enable {
+    wayland.windowManager.sway.extraConfigEarly = ''
+      include ${theme}
+    '';
+  };
 }

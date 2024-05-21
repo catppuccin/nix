@@ -10,8 +10,8 @@ in
   config.programs.starship.settings = lib.mkIf enable (
     {
       format = lib.mkDefault "$all";
-      palette = "catppuccin_${cfg.flavour}";
+      palette = "catppuccin_${cfg.flavor}";
     }
-    // builtins.fromTOML (builtins.readFile "${sources.starship}/palettes/${cfg.flavour}.toml")
+    // lib.importTOML "${sources.starship}/palettes/${cfg.flavor}.toml"
   );
 }

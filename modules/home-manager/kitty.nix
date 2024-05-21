@@ -7,5 +7,5 @@ in
 {
   options.programs.kitty.catppuccin = ctp.mkCatppuccinOpt "kitty";
 
-  config.programs.kitty = lib.mkIf enable { theme = "Catppuccin-${ctp.mkUpper cfg.flavour}"; };
+  config.programs.kitty = lib.mkIf enable { theme = "Catppuccin-${ctp.mkUpper cfg.flavor}"; };
 }

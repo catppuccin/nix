@@ -11,7 +11,7 @@ in
 
   config.wayland.windowManager.hyprland.settings = lib.mkIf enable {
     source = [
-      "${sources.hyprland}/themes/${cfg.flavour}.conf"
+      "${sources.hyprland}/themes/${cfg.flavor}.conf"
       (builtins.toFile "hyprland-${cfg.accent}-accent.conf" ''
         $accent=''$${cfg.accent}
         $accentAlpha=''$${cfg.accent}Alpha

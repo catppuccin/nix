@@ -58,43 +58,40 @@ in
     gtk = {
       theme =
         let
-          flavourUpper = ctp.mkUpper cfg.flavour;
+          flavorUpper = ctp.mkUpper cfg.flavor;
           accentUpper = ctp.mkUpper cfg.accent;
           sizeUpper = ctp.mkUpper cfg.size;
 
           # use the light gtk theme for latte
-          gtkTheme = if cfg.flavour == "latte" then "Light" else "Dark";
+          gtkTheme = if cfg.flavor == "latte" then "Light" else "Dark";
         in
         {
-          name = "Catppuccin-${flavourUpper}-${sizeUpper}-${accentUpper}-${gtkTheme}";
+          name = "Catppuccin-${flavorUpper}-${sizeUpper}-${accentUpper}-${gtkTheme}";
           package = pkgs.catppuccin-gtk.override {
             inherit (cfg) size tweaks;
             accents = [ cfg.accent ];
-            variant = cfg.flavour;
+            variant = cfg.flavor;
           };
         };
 
       cursorTheme =
         let
-          flavourUpper = ctp.mkUpper cfg.cursor.flavour;
+          flavorUpper = ctp.mkUpper cfg.cursor.flavor;
           accentUpper = ctp.mkUpper cfg.cursor.accent;
         in
         lib.mkIf cfg.cursor.enable {
-          name = "Catppuccin-${flavourUpper}-${accentUpper}-Cursors";
-          package = pkgs.catppuccin-cursors.${cfg.cursor.flavour + accentUpper};
+          name = "Catppuccin-${flavorUpper}-${accentUpper}-Cursors";
+          package = pkgs.catppuccin-cursors.${cfg.cursor.flavor + accentUpper};
         };
 
       iconTheme =
         let
           # use the light icon theme for latte
-          polarity = if cfg.icon.flavour == "latte" then "Light" else "Dark";
+          polarity = if cfg.icon.flavor == "latte" then "Light" else "Dark";
         in
         lib.mkIf cfg.icon.enable {
           name = "Papirus-${polarity}";
-          package = pkgs.catppuccin-papirus-folders.override {
-            flavor = cfg.icon.flavour;
-            inherit (cfg.icon) accent;
-          };
+          package = pkgs.catppuccin-papirus-folders.override { inherit (cfg.icon) accent flavor; };
         };
     };
 
@@ -119,7 +116,7 @@ in
         inherit (config.gtk.theme) name;
       };
       "org/gnome/desktop/interface" = {
-        color-scheme = if cfg.flavour == "latte" then "default" else "prefer-dark";
+        color-scheme = if cfg.flavor == "latte" then "default" else "prefer-dark";
       };
     };
   };

@@ -4,7 +4,7 @@ let
   cfg = config.programs.btop.catppuccin;
   enable = cfg.enable && config.programs.btop.enable;
 
-  themeFile = "catppuccin_${cfg.flavour}.theme";
+  themeFile = "catppuccin_${cfg.flavor}.theme";
   themePath = "/themes/${themeFile}";
   theme = sources.btop + themePath;
 in

@@ -8,7 +8,7 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.programs.zathura.catppuccin;
   enable = cfg.enable && config.programs.zathura.enable;
-  themeFile = sources.zathura + /src/catppuccin-${cfg.flavour};
+  themeFile = sources.zathura + "/src/catppuccin-${cfg.flavor}";
 in
 {
   options.programs.zathura.catppuccin = lib.ctp.mkCatppuccinOpt "zathura";

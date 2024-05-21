@@ -4,7 +4,7 @@ let
   cfg = config.programs.fish.catppuccin;
   enable = cfg.enable && config.programs.fish.enable;
 
-  themeName = "Catppuccin ${lib.ctp.mkUpper cfg.flavour}";
+  themeName = "Catppuccin ${lib.ctp.mkUpper cfg.flavor}";
   themePath = "/themes/${themeName}.theme";
 in
 {

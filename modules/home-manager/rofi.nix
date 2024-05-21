@@ -11,8 +11,8 @@ in
   config.programs.rofi = lib.mkIf enable {
     theme = {
       "@theme" = builtins.path {
-        name = "catppuccin-${cfg.flavour}.rasi";
-        path = "${sources.rofi}/basic/.local/share/rofi/themes/catppuccin-${cfg.flavour}.rasi";
+        name = "catppuccin-${cfg.flavor}.rasi";
+        path = "${sources.rofi}/basic/.local/share/rofi/themes/catppuccin-${cfg.flavor}.rasi";
       };
     };
   };

@@ -3,10 +3,10 @@
   options.catppuccin = {
     enable = lib.mkEnableOption "Catppuccin globally";
 
-    flavour = lib.mkOption {
-      type = lib.ctp.types.flavourOption;
+    flavor = lib.mkOption {
+      type = lib.ctp.types.flavorOption;
       default = "mocha";
-      description = "Global Catppuccin flavour";
+      description = "Global Catppuccin flavor";
     };
 
     accent = lib.mkOption {

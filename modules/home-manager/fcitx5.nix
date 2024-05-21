@@ -17,14 +17,14 @@ in
   };
 
   config = lib.mkIf enable {
-    xdg.dataFile."fcitx5/themes/catppuccin-${cfg.flavour}" = {
-      source = "${sources.fcitx5}/src/catppuccin-${cfg.flavour}";
+    xdg.dataFile."fcitx5/themes/catppuccin-${cfg.flavor}" = {
+      source = "${sources.fcitx5}/src/catppuccin-${cfg.flavor}";
       recursive = true;
     };
 
     xdg.configFile."fcitx5/conf/classicui.conf" = lib.mkIf cfg.apply {
       text = lib.generators.toINIWithGlobalSection { } {
-        globalSection.Theme = "catppuccin-${cfg.flavour}";
+        globalSection.Theme = "catppuccin-${cfg.flavor}";
       };
     };
   };

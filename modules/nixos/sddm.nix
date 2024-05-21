@@ -52,8 +52,8 @@ in
     mkIf enable {
       environment.systemPackages = [
         (pkgs.catppuccin-sddm.override {
-          flavor = cfg.flavour;
           inherit (cfg)
+            flavor
             font
             fontSize
             background
@@ -63,6 +63,6 @@ in
       ];
     }
     // mkIf (enable && versionAtLeast ctp.getModuleRelease minVersion) {
-      services.displayManager.sddm.theme = "catppuccin-${cfg.flavour}";
+      services.displayManager.sddm.theme = "catppuccin-${cfg.flavor}";
     };
 }

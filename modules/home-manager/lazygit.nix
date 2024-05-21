@@ -5,7 +5,7 @@ let
   cfg = config.programs.lazygit.catppuccin;
   enable = cfg.enable && config.programs.lazygit.enable;
 
-  themePath = "/${cfg.flavour}/${cfg.accent}.yml";
+  themePath = "/${cfg.flavor}/${cfg.accent}.yml";
 in
 {
   options.programs.lazygit.catppuccin = lib.ctp.mkCatppuccinOpt "lazygit" // {
