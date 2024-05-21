@@ -49,6 +49,23 @@ jobs:
           repo: "${{ github.repository }}"
           branch: "${{ github.head_ref || github.ref_name }}"
 
+  validate-sources:
+    name: Validate sources
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@V27
+
+      - name: Check for external repositories
+        run: |
+          set -e
+          nix eval --file ./.github/checkSources.nix
+
   vm:
     name: Test Modules
 
