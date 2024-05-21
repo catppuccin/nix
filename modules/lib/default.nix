@@ -116,4 +116,15 @@ in
   # by default enums cannot be merged, but they keep their passed value in `functor.payload`.
   # `functor.binOp` can merge those values
   mergeEnums = a: b: lib.types.enum (a.functor.binOp a.functor.payload b.functor.payload);
+
+  # string
+  # returns the current release version of nixos or home-manager. throws an evaluation error if neither are
+  # found
+  getModuleRelease = config.home.version.release or config.system.nixos.release or (throw "Couldn't determine release version!");
+
+  # string -> a -> a
+  # if the current module release is less than `minVersion`, all options are made no-ops with
+  # `lib.mkSinkUndeclaredOptions`
+  mkVersionedOpts = minVersion: option:
+    if lib.versionAtLeast ctp.getModuleRelease minVersion then option else lib.mkSinkUndeclaredOptions { };
 }
