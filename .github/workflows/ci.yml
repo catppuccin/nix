@@ -8,6 +8,10 @@ on:
       - '**.lock'
       - '**.nix'
   pull_request:
+    paths:
+      - '.sources/**'
+      - '**.lock'
+      - '**.nix'
   workflow_dispatch:
 
 jobs:
