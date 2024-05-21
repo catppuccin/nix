@@ -36,6 +36,10 @@ jobs:
     name: Test Modules
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        test: [unstable, stable]
+
     steps:
       - uses: actions/checkout@v4
 
@@ -46,5 +50,10 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@v6
 
       - name: Run VM
+        env:
+          TEST: ${{ matrix.test }}
         run: |
-          nix build --print-build-logs --show-trace ./dev#checks.x86_64-linux.module-vm-test
+          nix build \
+            --print-build-logs \
+            --show-trace \
+            "./dev#checks.x86_64-linux.module-test-$TEST"
