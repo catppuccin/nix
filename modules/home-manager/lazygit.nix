@@ -1,7 +1,4 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (lib) ctp;
   inherit (config.catppuccin) sources;
@@ -11,11 +8,9 @@ let
   themePath = "/${cfg.flavour}/${cfg.accent}.yml";
 in
 {
-  options.programs.lazygit.catppuccin =
-    lib.ctp.mkCatppuccinOpt "lazygit" // {
-      accent = ctp.mkAccentOpt "lazygit";
-
-    };
+  options.programs.lazygit.catppuccin = lib.ctp.mkCatppuccinOpt "lazygit" // {
+    accent = ctp.mkAccentOpt "lazygit";
+  };
 
   config = lib.mkIf enable {
 

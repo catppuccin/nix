@@ -1,10 +1,16 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
-  inherit (lib) ctp mkOption types concatStrings;
+  inherit (lib)
+    ctp
+    mkOption
+    types
+    concatStrings
+    ;
   inherit (config.catppuccin) sources;
   cfg = config.programs.tmux.catppuccin;
   enable = cfg.enable && config.programs.tmux.enable;
@@ -18,18 +24,16 @@ let
     };
 in
 {
-  options.programs.tmux.catppuccin =
-    ctp.mkCatppuccinOpt "tmux"
-    // {
-      extraConfig = mkOption {
-        type = types.lines;
-        description = "Additional configuration for the catppuccin plugin.";
-        default = "";
-        example = ''
-          set -g @catppuccin_status_modules_right "application session user host date_time"
-        '';
-      };
+  options.programs.tmux.catppuccin = ctp.mkCatppuccinOpt "tmux" // {
+    extraConfig = mkOption {
+      type = types.lines;
+      description = "Additional configuration for the catppuccin plugin.";
+      default = "";
+      example = ''
+        set -g @catppuccin_status_modules_right "application session user host date_time"
+      '';
     };
+  };
 
   config.programs.tmux.plugins = lib.mkIf enable [
     {

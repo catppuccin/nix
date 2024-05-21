@@ -1,7 +1,4 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
   cfg = config.programs.fish.catppuccin;

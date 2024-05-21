@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   # this is a recursive attribute with all the functions below
@@ -14,7 +15,8 @@ in
   # a string (the name of the property, i.e., flavour
   # or accent), the type of the property, the name of
   # the module, followed by local config attrset
-  mkBasicOpt = attr: type: name:
+  mkBasicOpt =
+    attr: type: name:
     lib.mkOption {
       inherit type;
       default = config.catppuccin.${attr};
@@ -28,7 +30,12 @@ in
   mkFlavourOpt = ctp.mkBasicOpt "flavour" ctp.types.flavourOption;
 
   types = {
-    flavourOption = lib.types.enum [ "latte" "frappe" "macchiato" "mocha" ];
+    flavourOption = lib.types.enum [
+      "latte"
+      "frappe"
+      "macchiato"
+      "mocha"
+    ];
     accentOption = lib.types.enum [
       "blue"
       "flamingo"
@@ -51,13 +58,15 @@ in
   # this capitalizes the first letter in a string,
   # which is sometimes needed in order to format
   # the names of themes correctly
-  mkUpper = str:
+  mkUpper =
+    str:
     (lib.toUpper (builtins.substring 0 1 str)) + (builtins.substring 1 (builtins.stringLength str) str);
 
   # a -> path -> a
   # fromJSON but for yaml (and without readFile)
   # a should be the local pkgs attrset
-  fromYaml = file:
+  fromYaml =
+    file:
     let
       # convert to json
       json = pkgs.runCommand "converted.json" { } ''
@@ -69,7 +78,8 @@ in
   # a -> path -> a
   # fromJSON but for ini (and without readFile)
   # a should be the local pkgs attrset
-  fromINI = file:
+  fromINI =
+    file:
     let
       # convert to json
       json = pkgs.runCommand "converted.json" { } ''
@@ -81,12 +91,14 @@ in
   # a -> path -> a
   # fromJSON but for raw ini (and without readFile)
   # a should be the local pkgs attrset
-  fromINIRaw = file:
+  fromINIRaw =
+    file:
     let
       inherit (builtins) fromJSON readFile;
 
       # convert to json
-      json = with pkgs;
+      json =
+        with pkgs;
         runCommand "converted.json" { } ''
           ${jc}/bin/jc --ini -r < ${file} > $out
         '';
@@ -120,11 +132,17 @@ in
   # string
   # returns the current release version of nixos or home-manager. throws an evaluation error if neither are
   # found
-  getModuleRelease = config.home.version.release or config.system.nixos.release or (throw "Couldn't determine release version!");
+  getModuleRelease =
+    config.home.version.release or config.system.nixos.release
+      or (throw "Couldn't determine release version!");
 
   # string -> a -> a
   # if the current module release is less than `minVersion`, all options are made no-ops with
   # `lib.mkSinkUndeclaredOptions`
-  mkVersionedOpts = minVersion: option:
-    if lib.versionAtLeast ctp.getModuleRelease minVersion then option else lib.mkSinkUndeclaredOptions { };
+  mkVersionedOpts =
+    minVersion: option:
+    if lib.versionAtLeast ctp.getModuleRelease minVersion then
+      option
+    else
+      lib.mkSinkUndeclaredOptions { };
 }

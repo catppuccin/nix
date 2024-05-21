@@ -5,13 +5,16 @@ dir:
 let
   # instead of letting `evalModules` pass arguments to each file
   # in our list, we import them directly
-  applyImports = file: _: import "${dir}/${file}" (args // {
-    lib = lib.extend (final: _: {
-      ctp = import ./. (args // { lib = final; });
-    });
+  applyImports =
+    file: _:
+    import "${dir}/${file}" (
+      args
+      // {
+        lib = lib.extend (final: _: { ctp = import ./. (args // { lib = final; }); });
 
-    defaultSources = import ../../.sources;
-  });
+        defaultSources = import ../../.sources;
+      }
+    );
 in
 lib.pipe dir [
   builtins.readDir

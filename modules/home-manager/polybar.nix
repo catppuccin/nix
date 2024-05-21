@@ -1,16 +1,13 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
   cfg = config.services.polybar.catppuccin;
   enable = cfg.enable && config.services.polybar.enable;
 in
 {
-  options.services.polybar.catppuccin =
-    lib.ctp.mkCatppuccinOpt "polybar";
+  options.services.polybar.catppuccin = lib.ctp.mkCatppuccinOpt "polybar";
 
-  config.services.polybar.extraConfig = lib.mkIf enable
-    (builtins.readFile "${sources.polybar}/themes/${cfg.flavour}.ini");
+  config.services.polybar.extraConfig = lib.mkIf enable (
+    builtins.readFile "${sources.polybar}/themes/${cfg.flavour}.ini"
+  );
 }

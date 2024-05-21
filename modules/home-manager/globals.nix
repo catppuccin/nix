@@ -1,4 +1,5 @@
-{ lib, defaultSources, ... }: {
+{ lib, defaultSources, ... }:
+{
   options.catppuccin = {
     enable = lib.mkEnableOption "Catppuccin globally";
 

@@ -1,15 +1,11 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
   cfg = config.programs.glamour.catppuccin;
   inherit (cfg) enable;
 in
 {
-  options.programs.glamour.catppuccin =
-    lib.ctp.mkCatppuccinOpt "glamour";
+  options.programs.glamour.catppuccin = lib.ctp.mkCatppuccinOpt "glamour";
 
   config = {
     home.sessionVariables = lib.mkIf enable {

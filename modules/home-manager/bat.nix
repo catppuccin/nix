@@ -1,7 +1,4 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
   cfg = config.programs.bat.catppuccin;
@@ -9,8 +6,7 @@ let
   themeName = "Catppuccin ${lib.ctp.mkUpper cfg.flavour}";
 in
 {
-  options.programs.bat.catppuccin =
-    lib.ctp.mkCatppuccinOpt "bat";
+  options.programs.bat.catppuccin = lib.ctp.mkCatppuccinOpt "bat";
 
   config = lib.mkIf enable {
     programs.bat = {

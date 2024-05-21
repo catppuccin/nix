@@ -1,7 +1,4 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
   cfg = config.programs.btop.catppuccin;
@@ -12,13 +9,11 @@ let
   theme = sources.btop + themePath;
 in
 {
-  options.programs.btop.catppuccin =
-    lib.ctp.mkCatppuccinOpt "btop";
+  options.programs.btop.catppuccin = lib.ctp.mkCatppuccinOpt "btop";
 
-  config = lib.mkIf enable
-    {
-      xdg.configFile."btop${themePath}".source = theme;
+  config = lib.mkIf enable {
+    xdg.configFile."btop${themePath}".source = theme;
 
-      programs.btop.settings.color_theme = themeFile;
-    };
+    programs.btop.settings.color_theme = themeFile;
+  };
 }

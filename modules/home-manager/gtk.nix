@@ -1,42 +1,58 @@
-{ config
-, pkgs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 let
-  inherit (lib) ctp mkOption mkEnableOption types;
+  inherit (lib)
+    ctp
+    mkOption
+    mkEnableOption
+    types
+    ;
   cfg = config.gtk.catppuccin;
   enable = cfg.enable && config.gtk.enable;
   # "dark" and "light" can be used alongside the regular accents
-  cursorAccentType = ctp.mergeEnums ctp.types.accentOption (lib.types.enum [ "dark" "light" ]);
+  cursorAccentType = ctp.mergeEnums ctp.types.accentOption (
+    lib.types.enum [
+      "dark"
+      "light"
+    ]
+  );
 in
 {
-  options.gtk.catppuccin =
-    ctp.mkCatppuccinOpt "gtk"
-    // {
-      accent = ctp.mkAccentOpt "gtk";
-      size = mkOption {
-        type = types.enum [ "standard" "compact" ];
-        default = "standard";
-        description = "Catppuccin size variant for gtk";
-      };
-      tweaks = mkOption {
-        type = types.listOf (types.enum [ "black" "rimless" "normal" ]);
-        default = [ "normal" ];
-        description = "Catppuccin tweaks for gtk";
-      };
-      gnomeShellTheme = mkEnableOption "Catppuccin gtk theme for GNOME Shell";
-
-      cursor = ctp.mkCatppuccinOpt "gtk cursors"
-      // {
-        accent = ctp.mkBasicOpt "accent" cursorAccentType "gtk cursors";
-      };
-
-      icon = ctp.mkCatppuccinOpt "gtk modified Papirus icon theme"
-      // {
-        accent = ctp.mkAccentOpt "gtk modified Papirus icon theme";
-      };
+  options.gtk.catppuccin = ctp.mkCatppuccinOpt "gtk" // {
+    accent = ctp.mkAccentOpt "gtk";
+    size = mkOption {
+      type = types.enum [
+        "standard"
+        "compact"
+      ];
+      default = "standard";
+      description = "Catppuccin size variant for gtk";
     };
+    tweaks = mkOption {
+      type = types.listOf (
+        types.enum [
+          "black"
+          "rimless"
+          "normal"
+        ]
+      );
+      default = [ "normal" ];
+      description = "Catppuccin tweaks for gtk";
+    };
+    gnomeShellTheme = mkEnableOption "Catppuccin gtk theme for GNOME Shell";
+
+    cursor = ctp.mkCatppuccinOpt "gtk cursors" // {
+      accent = ctp.mkBasicOpt "accent" cursorAccentType "gtk cursors";
+    };
+
+    icon = ctp.mkCatppuccinOpt "gtk modified Papirus icon theme" // {
+      accent = ctp.mkAccentOpt "gtk modified Papirus icon theme";
+    };
+  };
 
   config = lib.mkIf enable {
     gtk = {
@@ -47,10 +63,7 @@ in
           sizeUpper = ctp.mkUpper cfg.size;
 
           # use the light gtk theme for latte
-          gtkTheme =
-            if cfg.flavour == "latte"
-            then "Light"
-            else "Dark";
+          gtkTheme = if cfg.flavour == "latte" then "Light" else "Dark";
         in
         {
           name = "Catppuccin-${flavourUpper}-${sizeUpper}-${accentUpper}-${gtkTheme}";
@@ -74,10 +87,7 @@ in
       iconTheme =
         let
           # use the light icon theme for latte
-          polarity =
-            if cfg.icon.flavour == "latte"
-            then "Light"
-            else "Dark";
+          polarity = if cfg.icon.flavour == "latte" then "Light" else "Dark";
         in
         lib.mkIf cfg.icon.enable {
           name = "Papirus-${polarity}";
@@ -103,18 +113,13 @@ in
     dconf.settings = lib.mkIf cfg.gnomeShellTheme {
       "org/gnome/shell" = {
         disable-user-extensions = false;
-        enabled-extensions = [
-          "user-theme@gnome-shell-extensions.gcampax.github.com"
-        ];
+        enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" ];
       };
       "org/gnome/shell/extensions/user-theme" = {
         inherit (config.gtk.theme) name;
       };
       "org/gnome/desktop/interface" = {
-        color-scheme =
-          if cfg.flavour == "latte"
-          then "default"
-          else "prefer-dark";
+        color-scheme = if cfg.flavour == "latte" then "default" else "prefer-dark";
       };
     };
   };

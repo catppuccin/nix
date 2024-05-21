@@ -9,6 +9,4 @@ let
   # find the ones that aren't
   badSources = builtins.filter (source: !(isGoodSource source)) (builtins.attrValues sources);
 in
-  if ((builtins.length badSources) == 0)
-  then "OK"
-  else throw "BAD"
+if ((builtins.length badSources) == 0) then "OK" else throw "BAD"

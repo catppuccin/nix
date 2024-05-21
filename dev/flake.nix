@@ -16,7 +16,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, home-manager-stable }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      home-manager,
+      home-manager-stable,
+    }:
     let
       systems = [
         "x86_64-linux"
@@ -33,39 +40,62 @@
       forAllSystems = fn: nixpkgs.lib.genAttrs systems (system: fn nixpkgsFor.${system}.unstable);
     in
     {
-      apps = forAllSystems ({ lib, pkgs, system, ... }: {
-        add-source = {
-          type = "app";
-          program = lib.getExe (
-            pkgs.runCommand "add-source"
-              {
-                nativeBuildInputs = [ pkgs.makeWrapper ];
-                meta.mainProgram = "add-source";
-              } ''
-              mkdir -p $out/bin
-              install -Dm755 ${./add_source.sh} $out/bin/add-source
-              wrapProgram $out/bin/add-source \
-                --prefix PATH : ${ lib.makeBinPath [ pkgs.npins ]}
-            ''
-          );
-        };
+      apps = forAllSystems (
+        {
+          lib,
+          pkgs,
+          system,
+          ...
+        }:
+        {
+          add-source = {
+            type = "app";
+            program = lib.getExe (
+              pkgs.runCommand "add-source"
+                {
+                  nativeBuildInputs = [ pkgs.makeWrapper ];
+                  meta.mainProgram = "add-source";
+                }
+                ''
+                  mkdir -p $out/bin
+                  install -Dm755 ${./add_source.sh} $out/bin/add-source
+                  wrapProgram $out/bin/add-source \
+                    --prefix PATH : ${lib.makeBinPath [ pkgs.npins ]}
+                ''
+            );
+          };
 
-        serve = {
-          type = "app";
-          program = lib.getExe self.packages.${system}.site.serve;
-        };
-      });
+          serve = {
+            type = "app";
+            program = lib.getExe self.packages.${system}.site.serve;
+          };
+        }
+      );
 
-      checks = forAllSystems ({ lib, pkgs, system, ... }: lib.optionalAttrs pkgs.stdenv.isLinux {
-        module-test-unstable = pkgs.callPackage ../test.nix { inherit home-manager; };
-        module-test-stable = nixpkgsFor.${system}.stable.callPackage ../test.nix {
-          home-manager = home-manager-stable;
-        };
-      });
+      checks = forAllSystems (
+        {
+          lib,
+          pkgs,
+          system,
+          ...
+        }:
+        lib.optionalAttrs pkgs.stdenv.isLinux {
+          module-test-unstable = pkgs.callPackage ../test.nix { inherit home-manager; };
+          module-test-stable = nixpkgsFor.${system}.stable.callPackage ../test.nix {
+            home-manager = home-manager-stable;
+          };
+        }
+      );
 
       formatter = forAllSystems (pkgs: pkgs.nixfmt-rfc-style);
 
-      packages = forAllSystems ({ lib, pkgs, system, ... }:
+      packages = forAllSystems (
+        {
+          lib,
+          pkgs,
+          system,
+          ...
+        }:
         let
           version = self.shortRev or self.dirtyShortRev or "unknown";
           mkOptionDoc = pkgs.callPackage ../docs/options-doc.nix { };
@@ -101,6 +131,7 @@
           };
 
           default = packages'.site;
-        });
+        }
+      );
     };
 }

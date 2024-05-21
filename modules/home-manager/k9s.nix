@@ -1,7 +1,4 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
 
@@ -14,17 +11,13 @@ let
   theme = sources.k9s + "/dist/${themeFile}";
 in
 {
-  options.programs.k9s.catppuccin =
-    lib.ctp.mkCatppuccinOpt "k9s"
-    // {
-      transparent = lib.mkEnableOption "transparent version of flavour";
-    };
+  options.programs.k9s.catppuccin = lib.ctp.mkCatppuccinOpt "k9s" // {
+    transparent = lib.mkEnableOption "transparent version of flavour";
+  };
 
-  config =
-    lib.mkIf enable
-      {
-        xdg.configFile."k9s${themePath}".source = theme;
+  config = lib.mkIf enable {
+    xdg.configFile."k9s${themePath}".source = theme;
 
-        programs.k9s.settings.k9s.ui.skin = themeName;
-      };
+    programs.k9s.settings.k9s.ui.skin = themeName;
+  };
 }

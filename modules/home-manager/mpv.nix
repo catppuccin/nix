@@ -1,7 +1,4 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
   cfg = config.programs.mpv.catppuccin;
@@ -9,10 +6,9 @@ let
   themeDir = sources.mpv + /themes/${cfg.flavour}/${cfg.accent};
 in
 {
-  options.programs.mpv.catppuccin =
-    lib.ctp.mkCatppuccinOpt "mpv" // {
-      accent = lib.ctp.mkAccentOpt "mpv";
-    };
+  options.programs.mpv.catppuccin = lib.ctp.mkCatppuccinOpt "mpv" // {
+    accent = lib.ctp.mkAccentOpt "mpv";
+  };
 
   # Note that the theme is defined across multiple files
   config.programs.mpv = lib.mkIf enable {

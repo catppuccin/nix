@@ -1,7 +1,4 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
   cfg = config.programs.waybar.catppuccin;
@@ -32,9 +29,7 @@ in
           @import "${styleFile}";
         '';
       })
-      (lib.mkIf (cfg.mode == "createLink") {
-        xdg.configFile."waybar/catppuccin.css".source = styleFile;
-      })
+      (lib.mkIf (cfg.mode == "createLink") { xdg.configFile."waybar/catppuccin.css".source = styleFile; })
     ]
   );
 }

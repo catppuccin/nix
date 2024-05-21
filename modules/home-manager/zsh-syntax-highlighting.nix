@@ -1,7 +1,4 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
   inherit (lib) ctp;
@@ -9,8 +6,7 @@ let
   enable = cfg.enable && config.programs.zsh.syntaxHighlighting.enable;
 in
 {
-  options.programs.zsh.syntaxHighlighting.catppuccin =
-    ctp.mkCatppuccinOpt "zsh syntax highlighting";
+  options.programs.zsh.syntaxHighlighting.catppuccin = ctp.mkCatppuccinOpt "zsh syntax highlighting";
 
   config.programs.zsh = lib.mkIf enable {
     initExtra = lib.mkBefore ''

@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 let
   inherit (config.catppuccin) sources;
@@ -13,8 +14,7 @@ let
   extraConfigAttrs = lib.attrsets.getAttrs [ "urgency=high" ] theme;
 in
 {
-  options.services.mako.catppuccin =
-    lib.ctp.mkCatppuccinOpt "mako";
+  options.services.mako.catppuccin = lib.ctp.mkCatppuccinOpt "mako";
 
   # Will cause infinite recursion if config.services.mako is directly set as a whole
   config.services.mako = lib.mkIf enable {
@@ -22,6 +22,8 @@ in
     textColor = theme.text-color;
     borderColor = theme.border-color;
     progressColor = theme.progress-color;
-    extraConfig = builtins.readFile ((pkgs.formats.ini { }).generate "mako-extra-config" extraConfigAttrs);
+    extraConfig = builtins.readFile (
+      (pkgs.formats.ini { }).generate "mako-extra-config" extraConfigAttrs
+    );
   };
 }

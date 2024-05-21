@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 let
   inherit (config.catppuccin) sources;
@@ -10,12 +11,13 @@ let
   themeFile = sources.zathura + /src/catppuccin-${cfg.flavour};
 in
 {
-  options.programs.zathura.catppuccin =
-    lib.ctp.mkCatppuccinOpt "zathura";
+  options.programs.zathura.catppuccin = lib.ctp.mkCatppuccinOpt "zathura";
 
-  config.programs.zathura.options = lib.mkIf enable
-    (lib.ctp.fromINI
-      (pkgs.runCommand "catppuccin-zathura-theme" { } ''
+  config.programs.zathura.options = lib.mkIf enable (
+    lib.ctp.fromINI (
+      pkgs.runCommand "catppuccin-zathura-theme" { } ''
         ${pkgs.gawk}/bin/awk '/.+/ { printf "%s=%s\n", $2, $3 }' ${themeFile} > $out
-      ''));
+      ''
+    )
+  );
 }

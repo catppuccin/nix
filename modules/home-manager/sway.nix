@@ -1,7 +1,4 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
   cfg = config.wayland.windowManager.sway.catppuccin;
@@ -9,11 +6,9 @@ let
   theme = "${sources.sway}/themes/catppuccin-${cfg.flavour}";
 in
 {
-  options.wayland.windowManager.sway.catppuccin =
-    lib.ctp.mkCatppuccinOpt "sway";
+  options.wayland.windowManager.sway.catppuccin = lib.ctp.mkCatppuccinOpt "sway";
 
-  config.wayland.windowManager.sway.extraConfigEarly =
-    lib.mkIf enable ''
-      include ${theme}
-    '';
+  config.wayland.windowManager.sway.extraConfigEarly = lib.mkIf enable ''
+    include ${theme}
+  '';
 }

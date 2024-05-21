@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   inherit (config.catppuccin) sources;
@@ -15,8 +16,7 @@ let
   '';
 in
 {
-  options.boot.loader.grub.catppuccin =
-    lib.ctp.mkCatppuccinOpt "grub";
+  options.boot.loader.grub.catppuccin = lib.ctp.mkCatppuccinOpt "grub";
 
   config.boot.loader.grub = lib.mkIf enable {
     font = "${theme}/font.pf2";

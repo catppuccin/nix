@@ -1,16 +1,13 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
   cfg = config.programs.imv.catppuccin;
   enable = cfg.enable && config.programs.imv.enable;
 in
 {
-  options.programs.imv.catppuccin =
-    lib.ctp.mkCatppuccinOpt "imv";
+  options.programs.imv.catppuccin = lib.ctp.mkCatppuccinOpt "imv";
 
-  config.programs.imv.settings = lib.mkIf enable
-    (lib.ctp.fromINI (sources.imv + /themes/${cfg.flavour}.config));
+  config.programs.imv.settings = lib.mkIf enable (
+    lib.ctp.fromINI (sources.imv + /themes/${cfg.flavour}.config)
+  );
 }
