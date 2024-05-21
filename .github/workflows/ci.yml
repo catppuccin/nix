@@ -25,6 +25,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PUSH_TOKEN }}
+
+      - name: Set Git user info
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Get short revision
         id: rev
@@ -41,13 +48,11 @@ jobs:
             'nixpkgs#nixfmt-rfc-style' -- .
 
       - name: Commit changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
-        uses: planetscale/ghcommit-action@v0.1.39
-        with:
-          commit_message: "style: format ${{ steps.rev.outputs.rev }}"
-          repo: "${{ github.repository }}"
-          branch: "${{ github.head_ref || github.ref_name }}"
+        run: |
+          if ! git diff --color=always --exit-code; then
+            git commit -am "style: format ${{ steps.rev.outputs.rev }}"
+            git push
+          fi
 
   validate-sources:
     name: Validate sources

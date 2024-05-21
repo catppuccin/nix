@@ -17,12 +17,12 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      nixpkgs-stable,
-      home-manager,
-      home-manager-stable,
+    { self
+    , nixpkgs
+    , nixpkgs-stable
+    , home-manager
+    , home-manager-stable
+    ,
     }:
     let
       systems = [
@@ -41,11 +41,10 @@
     in
     {
       apps = forAllSystems (
-        {
-          lib,
-          pkgs,
-          system,
-          ...
+        { lib
+        , pkgs
+        , system
+        , ...
         }:
         {
           add-source = {
@@ -73,11 +72,10 @@
       );
 
       checks = forAllSystems (
-        {
-          lib,
-          pkgs,
-          system,
-          ...
+        { lib
+        , pkgs
+        , system
+        , ...
         }:
         lib.optionalAttrs pkgs.stdenv.isLinux {
           module-test-unstable = pkgs.callPackage ../test.nix { inherit home-manager; };
@@ -90,11 +88,10 @@
       formatter = forAllSystems (pkgs: pkgs.nixfmt-rfc-style);
 
       packages = forAllSystems (
-        {
-          lib,
-          pkgs,
-          system,
-          ...
+        { lib
+        , pkgs
+        , system
+        , ...
         }:
         let
           version = self.shortRev or self.dirtyShortRev or "unknown";
