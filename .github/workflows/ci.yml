@@ -16,24 +16,42 @@ on:
 
 jobs:
   format:
-    name: Check formatting
+    name: Format Nix files
+
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get short revision
+        id: rev
+        run:
+          echo "rev=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Install Nix
-        uses: cachix/install-nix-action@V27
+        uses: cachix/install-nix-action@v27
 
-      - name: Run formatter
+      - name: Format changes
         run: |
-          nix run --inputs-from ./dev nixpkgs#nixpkgs-fmt -- .
+          nix run \
+            --inputs-from ./dev \
+            'nixpkgs#nixfmt-rfc-style' -- .
 
-      - name: Check for changes
-        run: git diff --color=always --exit-code
+      - name: Commit changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
+        uses: planetscale/ghcommit-action@v0.1.39
+        with:
+          commit_message: "style: format ${{ steps.rev.outputs.rev }}"
+          repo: "${{ github.repository }}"
+          branch: "${{ github.head_ref || github.ref_name }}"
 
   vm:
     name: Test Modules
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -41,7 +59,8 @@ jobs:
         test: [unstable, stable]
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Install Nix
         uses: cachix/install-nix-action@V27
