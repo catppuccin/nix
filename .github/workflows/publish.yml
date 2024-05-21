@@ -1,0 +1,49 @@
+name: Publish flake
+
+on:
+  push:
+    tags: ["v*.*.*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "The tag to publish"
+        type: string
+        required: true
+
+jobs:
+  flakehub:
+    name: FlakeHub
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@V27
+
+      - name: Push to FlakeHub
+        uses: DeterminateSystems/flakehub-push@v3
+        with:
+          tag: ${{ inputs.tag || github.ref_name }}
+          visibility: "public"
+
+  flakestry:
+    name: Flakestry
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Publish on Flakestry
+        uses: flakestry/flakestry-publish@main
+        with:
+          version: ${{ inputs.tag || github.ref_name }}
