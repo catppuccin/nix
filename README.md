@@ -154,6 +154,10 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
   A: You can find programs supported through home-manager [here](https://github.com/catppuccin/nix/tree/main/modules/home-manager),
   and NixOS modules [here](https://github.com/catppuccin/nix/tree/main/modules/nixos)
 
+- Q: **"What versions of NixOS and home-manager are supported?"**\
+  A: We primarily support the `unstable` branch, but try our best to support the current stable release.
+  You can check if your stable release is currently supported at [status.nixos.org](https://status.nixos.org/)
+
 ## 💝 Thanks to
 
 - [Stonks3141](https://github.com/Stonks3141)
