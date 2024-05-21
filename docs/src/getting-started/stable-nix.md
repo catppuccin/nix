@@ -9,7 +9,7 @@ When using stable Nix, we have a couple options for installing `catppuccin/nix`
 Assuming you have followed [their getting started guide](https://github.com/andir/npins#getting-started), you can run the following:
 
 ```sh
-npins add --name catppuccin github catppuccin nix --name
+npins add --name catppuccin github catppuccin nix
 ```
 
 And in your system configuration:
