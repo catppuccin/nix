@@ -12,7 +12,7 @@ let
   # TODO @getchoo: upstream this in nixpkgs maybe? idk if they have grub themes
   theme = pkgs.runCommand "catppuccin-grub-theme" { } ''
     mkdir -p "$out"
-    cp -r ${sources.grub}/src/catppuccin-${cfg.flavour}-grub-theme/* "$out"/
+    cp -r ${sources.grub}/src/catppuccin-${cfg.flavor}-grub-theme/* "$out"/
   '';
 in
 {

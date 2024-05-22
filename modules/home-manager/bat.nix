@@ -3,7 +3,7 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.programs.bat.catppuccin;
   enable = cfg.enable && config.programs.bat.enable;
-  themeName = "Catppuccin ${lib.ctp.mkUpper cfg.flavour}";
+  themeName = "Catppuccin ${lib.ctp.mkUpper cfg.flavor}";
 in
 {
   options.programs.bat.catppuccin = lib.ctp.mkCatppuccinOpt "bat";

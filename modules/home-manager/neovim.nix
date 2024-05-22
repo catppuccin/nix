@@ -23,7 +23,7 @@ in
 
             require("catppuccin").setup({
             	compile_path = compile_path,
-            	flavour = "${cfg.flavour}",
+            	flavour = "${cfg.flavor}",
             })
 
             vim.api.nvim_command("colorscheme catppuccin")

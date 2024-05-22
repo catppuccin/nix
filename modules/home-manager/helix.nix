@@ -5,25 +5,22 @@ let
   enable = cfg.enable && config.programs.helix.enable;
 in
 {
-  options.programs.helix.catppuccin =
-    with lib;
-    ctp.mkCatppuccinOpt "helix"
-    // {
-      useItalics = mkEnableOption "Italics in Catppuccin theme for Helix";
-    };
+  options.programs.helix.catppuccin = lib.ctp.mkCatppuccinOpt "helix" // {
+    useItalics = lib.mkEnableOption "Italics in Catppuccin theme for Helix";
+  };
 
-  config.programs.helix =
-    let
-      subdir = if cfg.useItalics then "default" else "no_italics";
-    in
-    lib.mkIf enable {
-      settings = {
-        theme = "catppuccin-${cfg.flavour}";
-        editor.color-modes = lib.mkDefault true;
+  config = lib.mkIf enable {
+    programs.helix =
+      let
+        subdir = if cfg.useItalics then "default" else "no_italics";
+      in
+      {
+        settings = {
+          theme = "catppuccin-${cfg.flavor}";
+          editor.color-modes = lib.mkDefault true;
+        };
+
+        themes."catppuccin-${cfg.flavor}" = lib.importTOML "${sources.helix}/themes/${subdir}/catppuccin_${cfg.flavor}.toml";
       };
-
-      themes."catppuccin-${cfg.flavour}" = builtins.fromTOML (
-        builtins.readFile "${sources.helix}/themes/${subdir}/catppuccin_${cfg.flavour}.toml"
-      );
-    };
+  };
 }

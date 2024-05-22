@@ -12,7 +12,7 @@ in
   # string -> type -> string -> a -> a
   # this is an internal function and shouldn't be
   # used unless you know what you're doing. it takes
-  # a string (the name of the property, i.e., flavour
+  # a string (the name of the property, i.e., flavor
   # or accent), the type of the property, the name of
   # the module, followed by local config attrset
   mkBasicOpt =
@@ -24,13 +24,13 @@ in
     };
 
   # string -> a -> a
-  # this creates a flavour option for modules
+  # this creates a flavor option for modules
   # the first string should be the name of the module,
   # followed by the local config attrset
-  mkFlavourOpt = ctp.mkBasicOpt "flavour" ctp.types.flavourOption;
+  mkFlavourOpt = ctp.mkBasicOpt "flavor" ctp.types.flavorOption;
 
   types = {
-    flavourOption = lib.types.enum [
+    flavorOption = lib.types.enum [
       "latte"
       "frappe"
       "macchiato"
@@ -107,14 +107,14 @@ in
 
   # string -> a -> a
   # this creates a basic attrset only containing an
-  # enable and flavour option. the fist string should
+  # enable and flavor option. the fist string should
   # be the name of the module, followed by the local config
   # attrset
   mkCatppuccinOpt = name: {
     enable = lib.mkEnableOption "Catppuccin theme" // {
       default = config.catppuccin.enable;
     };
-    flavour = ctp.mkFlavourOpt name;
+    flavor = ctp.mkFlavourOpt name;
   };
 
   # string -> a -> a

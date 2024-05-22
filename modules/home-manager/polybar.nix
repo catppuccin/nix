@@ -8,6 +8,6 @@ in
   options.services.polybar.catppuccin = lib.ctp.mkCatppuccinOpt "polybar";
 
   config.services.polybar.extraConfig = lib.mkIf enable (
-    builtins.readFile "${sources.polybar}/themes/${cfg.flavour}.ini"
+    builtins.readFile "${sources.polybar}/themes/${cfg.flavor}.ini"
   );
 }

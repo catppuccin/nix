@@ -3,9 +3,9 @@
 ## Adding a port
 
 Create a file in `modules/<module>/` with the name of the port. All ports should have 
-the `catppuccin.enable` and `catppuccin.flavour` options, and optionally the
-`catppuccin.accent` option. `catppuccin.flavour` and `catppuccin.accent` should
-default to `config.catppuccin.flavour` and `config.catppuccin.accent`, respectively.
+the `catppuccin.enable` and `catppuccin.flavor` options, and optionally the
+`catppuccin.accent` option. `catppuccin.flavor` and `catppuccin.accent` should
+default to `config.catppuccin.flavor` and `config.catppuccin.accent`, respectively.
 
 [npins](https://github.com/andir/npins) is used to track our upstream
 sources to use in modules. This allows us to easily access and auto-update all themes.

@@ -9,7 +9,7 @@ in
 
   config = {
     home.sessionVariables = lib.mkIf enable {
-      GLAMOUR_STYLE = "${sources.glamour}/themes/catppuccin-${cfg.flavour}.json";
+      GLAMOUR_STYLE = "${sources.glamour}/themes/catppuccin-${cfg.flavor}.json";
     };
   };
 }

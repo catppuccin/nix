@@ -4,7 +4,7 @@ let
   cfg = config.programs.micro.catppuccin;
   enable = cfg.enable && config.programs.micro.enable;
 
-  themePath = "catppuccin-${cfg.flavour}.micro";
+  themePath = "catppuccin-${cfg.flavor}.micro";
 in
 {
   options.programs.micro.catppuccin = lib.ctp.mkCatppuccinOpt "micro";

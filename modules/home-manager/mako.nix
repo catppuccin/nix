@@ -8,7 +8,7 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.services.mako.catppuccin;
   enable = cfg.enable && config.services.mako.enable;
-  theme = lib.ctp.fromINI (sources.mako + /src/${cfg.flavour});
+  theme = lib.ctp.fromINI (sources.mako + "/src/${cfg.flavor}");
 
   # Settings that need to be extracted and put in extraConfig
   extraConfigAttrs = lib.attrsets.getAttrs [ "urgency=high" ] theme;

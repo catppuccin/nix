@@ -3,7 +3,7 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.programs.mpv.catppuccin;
   enable = cfg.enable && config.programs.mpv.enable;
-  themeDir = sources.mpv + /themes/${cfg.flavour}/${cfg.accent};
+  themeDir = sources.mpv + "/themes/${cfg.flavor}/${cfg.accent}";
 in
 {
   options.programs.mpv.catppuccin = lib.ctp.mkCatppuccinOpt "mpv" // {

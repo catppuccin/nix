@@ -2,7 +2,7 @@
 let
   cfg = config.programs.zellij.catppuccin;
   enable = cfg.enable && config.programs.zellij.enable;
-  themeName = "catppuccin-${cfg.flavour}";
+  themeName = "catppuccin-${cfg.flavor}";
 in
 {
   options.programs.zellij.catppuccin = lib.ctp.mkCatppuccinOpt "zellij";

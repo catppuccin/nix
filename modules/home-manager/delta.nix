@@ -10,7 +10,7 @@ in
   config = lib.mkIf enable {
     programs.git = {
       includes = [ { path = "${sources.delta}/catppuccin.gitconfig"; } ];
-      delta.options.features = "catppuccin-${cfg.flavour}";
+      delta.options.features = "catppuccin-${cfg.flavor}";
     };
   };
 }

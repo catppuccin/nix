@@ -14,6 +14,6 @@ in
   };
 
   config.programs.tofi = lib.mkIf enable {
-    settings = lib.ctp.fromINI (sources.tofi + /catppuccin-${cfg.flavour});
+    settings = lib.ctp.fromINI (sources.tofi + "/catppuccin-${cfg.flavor}");
   };
 }

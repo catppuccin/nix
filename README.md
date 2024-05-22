@@ -133,11 +133,11 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
 
 </details>
 
-2. Choose your desired flavour with `catppuccin.flavour`
+2. Choose your desired flavor with `catppuccin.flavor`
 
 ```nix
 {
-  catppuccin.flavour = "mocha";
+  catppuccin.flavor = "mocha";
 }
 ```
 
