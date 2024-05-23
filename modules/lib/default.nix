@@ -27,7 +27,7 @@ in
   # this creates a flavor option for modules
   # the first string should be the name of the module,
   # followed by the local config attrset
-  mkFlavourOpt = ctp.mkBasicOpt "flavor" ctp.types.flavorOption;
+  mkFlavorOpt = ctp.mkBasicOpt "flavor" ctp.types.flavorOption;
 
   types = {
     flavorOption = lib.types.enum [
@@ -114,7 +114,7 @@ in
     enable = lib.mkEnableOption "Catppuccin theme" // {
       default = config.catppuccin.enable;
     };
-    flavor = ctp.mkFlavourOpt name;
+    flavor = ctp.mkFlavorOpt name;
   };
 
   # string -> a -> a
