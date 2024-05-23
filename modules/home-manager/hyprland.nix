@@ -3,7 +3,7 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.wayland.windowManager.hyprland.catppuccin;
   enable = cfg.enable && config.wayland.windowManager.hyprland.enable;
-  inherit (config.gtk.catppuccin) cursor;
+  inherit (config.catppuccin) pointerCursor;
 in
 {
   options.wayland.windowManager.hyprland.catppuccin = lib.ctp.mkCatppuccinOpt "hyprland" // {
@@ -11,9 +11,9 @@ in
   };
 
   config = lib.mkIf enable {
-    home.sessionVariables = lib.mkIf cursor.enable {
+    home.sessionVariables = lib.mkIf pointerCursor.enable {
       HYPRCURSOR_SIZE = "24";
-      HYPRCURSOR_THEME = "catppuccin-${cursor.flavor}-${cursor.accent}-cursors";
+      HYPRCURSOR_THEME = "catppuccin-${pointerCursor.flavor}-${pointerCursor.accent}-cursors";
     };
 
     wayland.windowManager.hyprland.settings = {
@@ -25,7 +25,7 @@ in
             $accentAlpha=''$${cfg.accent}Alpha
           '')
         ]
-        ++ lib.optionals cursor.enable [
+        ++ lib.optionals pointerCursor.enable [
           (builtins.toFile "hyprland-cursors.conf" ''
             env = HYPRCURSOR_THEME,MyCursor
             env = HYPRCURSOR_SIZE,24
