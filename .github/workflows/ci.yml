@@ -39,7 +39,7 @@ jobs:
           echo "rev=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v27
+        uses: cachix/install-nix-action@V27
 
       - name: Format changes
         run: |
