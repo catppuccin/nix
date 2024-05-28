@@ -105,12 +105,12 @@
         {
           nixos-doc = mkOptionDoc {
             inherit version;
-            modules = [ ../modules/nixos ];
+            moduleRoot = ../modules/nixos;
           };
 
           home-manager-doc = mkOptionDoc {
             inherit version;
-            modules = [ ../modules/home-manager ];
+            moduleRoot = ../modules/home-manager;
           };
 
           site = mkSite {
