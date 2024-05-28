@@ -13,12 +13,16 @@ let
     versionAtLeast
     ;
   cfg = config.services.displayManager.sddm.catppuccin;
-  enable = cfg.enable && config.services.displayManager.sddm.enable;
+  enable =
+    versionAtLeast ctp.getModuleRelease minVersion
+    && cfg.enable
+    && config.services.displayManager.sddm.enable;
 
   # versions >= 24.05 renamed `services.xserver.displayManager` to `services.displayManager`
   # TODO: remove when 24.05 is stable
   minVersion = "24.05";
 in
+
 {
   options.services.displayManager = ctp.mkVersionedOpts minVersion {
     sddm.catppuccin = ctp.mkCatppuccinOpt "sddm" // {
@@ -48,21 +52,18 @@ in
     };
   };
 
-  config =
-    mkIf enable {
-      environment.systemPackages = [
-        (pkgs.catppuccin-sddm.override {
-          inherit (cfg)
-            flavor
-            font
-            fontSize
-            background
-            loginBackground
-            ;
-        })
-      ];
-    }
-    // mkIf (enable && versionAtLeast ctp.getModuleRelease minVersion) {
-      services.displayManager.sddm.theme = "catppuccin-${cfg.flavor}";
-    };
+  config = mkIf enable {
+    services.displayManager.sddm.theme = "catppuccin-${cfg.flavor}";
+    environment.systemPackages = [
+      (pkgs.catppuccin-sddm.override {
+        inherit (cfg)
+          flavor
+          font
+          fontSize
+          background
+          loginBackground
+          ;
+      })
+    ];
+  };
 }
