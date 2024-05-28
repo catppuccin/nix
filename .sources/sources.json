@@ -56,9 +56,9 @@
         "repo": "cava"
       },
       "branch": "main",
-      "revision": "56c1e69318856a853b28e3ccce500c00099dc051",
-      "url": "https://github.com/catppuccin/cava/archive/56c1e69318856a853b28e3ccce500c00099dc051.tar.gz",
-      "hash": "0saz99k2gb2xg8wl3qcfn7xxmvdp0qhbzas2mqxackxbbdh49lql"
+      "revision": "6ec25ba688e30f3e5d6004ef6a295e6ba90c64d4",
+      "url": "https://github.com/catppuccin/cava/archive/6ec25ba688e30f3e5d6004ef6a295e6ba90c64d4.tar.gz",
+      "hash": "0nqpddlff1x5igipn9wc2ipagj53s0b63vp1zm3z6lzwlx8q5q6p"
     },
     "delta": {
       "type": "Git",
