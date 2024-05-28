@@ -1,4 +1,12 @@
-{ lib, pkgs, ... }@args:
 {
-  imports = import ../lib/mkImports.nix args ./.;
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  imports = import ../lib/import-modules.nix {
+    inherit config lib pkgs;
+    modules = import ./all-modules.nix;
+  };
 }
