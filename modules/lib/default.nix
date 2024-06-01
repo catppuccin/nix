@@ -145,4 +145,11 @@ in
       option
     else
       lib.mkSinkUndeclaredOptions { };
+
+  # string -> a
+  # this is to ensure users are running a supported version of nixos/home-manager
+  assertMinimumVersion = version: {
+    assertion = lib.versionAtLeast ctp.getModuleRelease version;
+    message = "`catppuccin/nix` requires at least version ${version} of NixOS/home-manager";
+  };
 }
