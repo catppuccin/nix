@@ -1,0 +1,31 @@
+name: Update ports
+
+on:
+  schedule:
+    # run every other weekday
+    - cron: "0 0 * * 1,3,5"
+  workflow_dispatch:
+
+jobs:
+  update:
+    name: Run update & create PR
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@V27
+
+      - uses: getchoo/update-npins@v0.1.1
+        with:
+          npins-directory: "./.sources"
+          commit-message: "chore: update ports"
+          pr-title: "chore: update ports"
+          token: ${{ github.token }}
