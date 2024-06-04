@@ -1,5 +1,9 @@
 { lib, ... }:
 {
+  config = {
+    assertions = [ (lib.ctp.assertMinimumVersion "24.05") ];
+  };
+
   options.catppuccin = {
     enable = lib.mkEnableOption "Catppuccin globally";
 
