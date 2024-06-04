@@ -23,6 +23,9 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@V27
 
+      - name: Install npins
+        run: nix profile install 'nixpkgs#npins'
+
       - uses: getchoo/update-npins@v0.1.1
         with:
           npins-directory: "./.sources"
