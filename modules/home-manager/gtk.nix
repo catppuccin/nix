@@ -76,11 +76,10 @@ in
 
       cursorTheme =
         let
-          flavorUpper = ctp.mkUpper cfg.cursor.flavor;
           accentUpper = ctp.mkUpper cfg.cursor.accent;
         in
         lib.mkIf cfg.cursor.enable {
-          name = "Catppuccin-${flavorUpper}-${accentUpper}-Cursors";
+          name = "catppuccin-${cfg.cursor.flavor}-${cfg.cursor.accent}-cursors";
           package = pkgs.catppuccin-cursors.${cfg.cursor.flavor + accentUpper};
         };
 
