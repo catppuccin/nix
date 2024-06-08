@@ -103,6 +103,7 @@ testers.runNixOSTest {
           micro = enable;
           mpv = enable;
           neovim = enable;
+          newsboat = enable;
           rio = enable;
           rofi = enable;
           skim = enable;
