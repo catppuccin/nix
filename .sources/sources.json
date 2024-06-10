@@ -264,6 +264,18 @@
       "url": "https://github.com/catppuccin/mpv/archive/6cbc49a38f23a4c3f3dc816e1d43389ca9675c1b.tar.gz",
       "hash": "0kmwd1lqk3sa2ixh69k3qnvns998jp3hpbbb5pfq8k9qr9yp3rlv"
     },
+    "newsboat": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "newsboat"
+      },
+      "branch": "main",
+      "revision": "be3d0ee1ba0fc26baf7a47c2aa7032b7541deb0f",
+      "url": "https://github.com/catppuccin/newsboat/archive/be3d0ee1ba0fc26baf7a47c2aa7032b7541deb0f.tar.gz",
+      "hash": "04ib4lvma5959n943f7myzbc2blmb8n2dd7bkb0xgl2rnpfx2fvk"
+    },
     "nvim": {
       "type": "Git",
       "repository": {
