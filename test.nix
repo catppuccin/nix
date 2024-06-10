@@ -49,8 +49,6 @@ testers.runNixOSTest {
 
       console = enable;
 
-      programs.dconf = enable; # required for gtk
-
       users.users.test = {
         isNormalUser = true;
         home = "/home/test";
@@ -118,8 +116,6 @@ testers.runNixOSTest {
             syntaxHighlighting = enable;
           };
         };
-
-        gtk = lib.recursiveUpdate enable { catppuccin.cursor.enable = true; };
 
         qt = enable // {
           style.name = "kvantum";

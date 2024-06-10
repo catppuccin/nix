@@ -23,6 +23,11 @@ let
 in
 {
   options.gtk.catppuccin = ctp.mkCatppuccinOpt "gtk" // {
+    # NOTE: we are overriding the previous declaration of `enable` here
+    # as this module is deprecated and we do not want it to apply with
+    # the global `catppuccin.enable`
+    enable = lib.mkEnableOption "Catppuccin theme";
+
     accent = ctp.mkAccentOpt "gtk";
     size = mkOption {
       type = types.enum [
@@ -55,6 +60,15 @@ in
   };
 
   config = lib.mkIf enable {
+    warnings = [
+      ''
+        `gtk.catppuccin` is deprecated and will be removed in a future release.
+
+        The upstream port has been archived and support will no longer be provided.
+        Please see https://github.com/catppuccin/gtk/issues/262
+      ''
+    ];
+
     gtk = {
       theme =
         let
