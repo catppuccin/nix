@@ -8,6 +8,6 @@ in
   options.programs.tofi.catppuccin = lib.ctp.mkCatppuccinOpt "tofi";
 
   config.programs.tofi = lib.mkIf enable {
-    settings = lib.ctp.fromINI (sources.tofi + "/catppuccin-${cfg.flavor}");
+    settings = lib.ctp.fromINI (sources.tofi + "/themes/catppuccin-${cfg.flavor}");
   };
 }

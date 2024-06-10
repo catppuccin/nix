@@ -168,18 +168,6 @@
       "url": "https://github.com/catppuccin/grub/archive/88f6124757331fd3a37c8a69473021389b7663ad.tar.gz",
       "hash": "0rih0ra7jw48zpxrqwwrw1v0xay7h9727445wfbnrz6xwrcwbibv"
     },
-    "gtk": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "catppuccin",
-        "repo": "gtk"
-      },
-      "branch": "main",
-      "revision": "23b52b5b9cde1e11c07315e79a55804d2ac77e3a",
-      "url": "https://github.com/catppuccin/gtk/archive/23b52b5b9cde1e11c07315e79a55804d2ac77e3a.tar.gz",
-      "hash": "0pj25mjn0r4bkwmwcbn0kk1199m9imljsa1rlsva0svbwhvldl72"
-    },
     "helix": {
       "type": "Git",
       "repository": {
@@ -227,18 +215,6 @@
       "revision": "e08b9302aee2b7193d6fcc3a9ffd2f24d2957dbf",
       "url": "https://github.com/catppuccin/k9s/archive/e08b9302aee2b7193d6fcc3a9ffd2f24d2957dbf.tar.gz",
       "hash": "0ww2a271bydwhay7y018idb9jl7x5cx5qnrzf22lbhpxv0ab23xn"
-    },
-    "kitty": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "catppuccin",
-        "repo": "kitty"
-      },
-      "branch": "main",
-      "revision": "1f99e6682d84fe4d8e3177d3add8d0591607a2ac",
-      "url": "https://github.com/catppuccin/kitty/archive/1f99e6682d84fe4d8e3177d3add8d0591607a2ac.tar.gz",
-      "hash": "1sfjwvn6xwc882mzv9nhb8wsw3q4kapypq7gh1dkq3jqcjc717b3"
     },
     "lazygit": {
       "type": "Git",
