@@ -14,8 +14,8 @@ in
     text = palette."${cfg.text}".hex + "ff";
     match = palette."${cfg.red}".hex + "ff";
     selection = palette."${cfg.surface2}".hex + "ff";
-    selection-match = match;
-    selection-text = text;
+    selection-match = palette."${cfg.red}".hex + "ff";
+    selection-text = palette."${cfg.text}".hex + "ff";
     border = palette."${cfg.accent}".hex + "ff";
   };
 }
