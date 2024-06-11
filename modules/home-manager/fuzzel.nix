@@ -7,7 +7,9 @@ let
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
 {
-  options.programs.fuzzel.catppuccin = lib.ctp.mkCatppuccinOpt "fuzzel";
+  options.programs.fuzzel.catppuccin = lib.ctp.mkCatppuccinOpt "fuzzel" // {
+    accent = lib.ctp.mkAccentOpt "fuzzel";
+  };
 
   config.programs.fuzzel.settings.colors = lib.mkIf enable {
     background = palette.base.hex + "dd";
@@ -16,6 +18,6 @@ in
     selection = palette.surface2.hex + "ff";
     selection-match = palette.red.hex + "ff";
     selection-text = palette.text.hex + "ff";
-    border = palette."${cfg.accent}".hex + "ff";
+    border = palette.${cfg.accent}.hex + "ff";
   };
 }
