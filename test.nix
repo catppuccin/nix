@@ -84,6 +84,7 @@ testers.runNixOSTest {
           cava = enable;
           fish = enable;
           foot = enable;
+          fuzzel = enable;
           fzf = enable;
           gh-dash = enable;
           git = enable // {
