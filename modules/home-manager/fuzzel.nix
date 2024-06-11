@@ -4,11 +4,18 @@ let
 
   cfg = config.programs.fuzzel.catppuccin;
   enable = cfg.enable && config.programs.fuzzel.enable;
+  palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
 {
   options.programs.fuzzel.catppuccin = lib.ctp.mkCatppuccinOpt "fuzzel";
 
-  config = lib.mkIf enable {
-    xdg.configFile."fuzzel/fuzzel.ini".source = "${sources.fuzzel}/themes/${cfg.flavor}.ini";
+  config.programs.fuzzel.settings.colors = lib.mkIf enable {
+    background = palette."${cfg.base}".hex + "dd";
+    text = palette."${cfg.text}".hex + "ff";
+    match = palette."${cfg.red}".hex + "ff";
+    selection = palette."${cfg.surface2}".hex + "ff";
+    selection-match = match;
+    selection-text = text;
+    border = palette."${cfg.accent}".hex + "ff";
   };
 }
