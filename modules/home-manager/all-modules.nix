@@ -9,6 +9,7 @@
   ./fcitx5.nix
   ./fish.nix
   ./foot.nix
+  ./fuzzel.nix
   ./fzf.nix
   ./gh-dash.nix
   ./gitui.nix
