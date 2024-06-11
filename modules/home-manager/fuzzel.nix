@@ -11,11 +11,11 @@ in
 
   config.programs.fuzzel.settings.colors = lib.mkIf enable {
     background = palette.base.hex + "dd";
-    text = palette.cfg.text.hex + "ff";
+    text = palette.text.hex + "ff";
     match = palette.red.hex + "ff";
-    selection = palette.cfg.surface2.hex + "ff";
+    selection = palette.surface2.hex + "ff";
     selection-match = palette.red.hex + "ff";
     selection-text = palette.text.hex + "ff";
-    border = palette.${cfg.accent}.hex + "ff";
+    border = palette."${cfg.accent}".hex + "ff";
   };
 }
