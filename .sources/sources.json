@@ -260,9 +260,9 @@
         "repo": "micro"
       },
       "branch": "main",
-      "revision": "ed8ef015f97c357575b5013e18042c9faa6c068a",
-      "url": "https://github.com/catppuccin/micro/archive/ed8ef015f97c357575b5013e18042c9faa6c068a.tar.gz",
-      "hash": "0vqhzd35gfv6r28mlyl9picrbfk8kmniyvsyf5b3cqnbjvxik77w"
+      "revision": "a67be21b9d2cf9f57911bb2cd9a6d8fb2c8d8e5a",
+      "url": "https://github.com/catppuccin/micro/archive/a67be21b9d2cf9f57911bb2cd9a6d8fb2c8d8e5a.tar.gz",
+      "hash": "1g6a4rji5fd03xjlyj2v1qj46d1rwf5kjpd27rmp4lxxgfkxqp0w"
     },
     "mpv": {
       "type": "Git",
@@ -296,9 +296,9 @@
         "repo": "nvim"
       },
       "branch": "main",
-      "revision": "5215ea59df6d0a7e27da9a5cd1165e06d1b04cbe",
-      "url": "https://github.com/catppuccin/nvim/archive/5215ea59df6d0a7e27da9a5cd1165e06d1b04cbe.tar.gz",
-      "hash": "13kghcr5krv7hbd8p11rjpd0im8cz1jy11m8gsj0259wbbxx4csh"
+      "revision": "cc8e290d4c0d572171243087f8541e49be2c8764",
+      "url": "https://github.com/catppuccin/nvim/archive/cc8e290d4c0d572171243087f8541e49be2c8764.tar.gz",
+      "hash": "0h8kkn27siyifhynw81h8ah2jsvpz3h7xvxzzwms7zgxhsj94k0r"
     },
     "palette": {
       "type": "Git",
