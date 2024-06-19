@@ -308,9 +308,9 @@
         "repo": "palette"
       },
       "branch": "main",
-      "revision": "f36dfe2d92fd51f685117a684250405ca1c2a899",
-      "url": "https://github.com/catppuccin/palette/archive/f36dfe2d92fd51f685117a684250405ca1c2a899.tar.gz",
-      "hash": "1vxgf43lhrf1z78az2qnfk0id75x0k5g8pjdf81zlgzjyzyj2i20"
+      "revision": "7f17f46c5d3d86f4c8d17fef07d97459744e1157",
+      "url": "https://github.com/catppuccin/palette/archive/7f17f46c5d3d86f4c8d17fef07d97459744e1157.tar.gz",
+      "hash": "07ahjznk2hlg49mkjfvb8ws1wn5bni3rc1ra9m7j2gw16qqgn5fy"
     },
     "polybar": {
       "type": "Git",
