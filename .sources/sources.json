@@ -188,9 +188,9 @@
         "repo": "hyprland"
       },
       "branch": "main",
-      "revision": "249e262af51022e6c4acaf2da48fc3c7bdac8d76",
-      "url": "https://github.com/catppuccin/hyprland/archive/249e262af51022e6c4acaf2da48fc3c7bdac8d76.tar.gz",
-      "hash": "18r1d03wqiipcy2f76wga5fzdf8nkps0b0m48jz23kf6fncj729h"
+      "revision": "c388ac55563ddeea0afe9df79d4bfff0096b146b",
+      "url": "https://github.com/catppuccin/hyprland/archive/c388ac55563ddeea0afe9df79d4bfff0096b146b.tar.gz",
+      "hash": "0cxzxfgbqnkdnvn8nch4z4s7izzlm2jgciq1s8cjmypf8g7vy9n5"
     },
     "imv": {
       "type": "Git",
@@ -284,9 +284,9 @@
         "repo": "nvim"
       },
       "branch": "main",
-      "revision": "cc8e290d4c0d572171243087f8541e49be2c8764",
-      "url": "https://github.com/catppuccin/nvim/archive/cc8e290d4c0d572171243087f8541e49be2c8764.tar.gz",
-      "hash": "0h8kkn27siyifhynw81h8ah2jsvpz3h7xvxzzwms7zgxhsj94k0r"
+      "revision": "67565cd353fa543fa30cb738570c2e4c87da3e9c",
+      "url": "https://github.com/catppuccin/nvim/archive/67565cd353fa543fa30cb738570c2e4c87da3e9c.tar.gz",
+      "hash": "0asxzppvvlywnknsmg3igzka1d6k14r0vr8nrmbac8j802r5bhcp"
     },
     "palette": {
       "type": "Git",
@@ -332,9 +332,9 @@
         "repo": "rofi"
       },
       "branch": "main",
-      "revision": "5350da41a11814f950c3354f090b90d4674a95ce",
-      "url": "https://github.com/catppuccin/rofi/archive/5350da41a11814f950c3354f090b90d4674a95ce.tar.gz",
-      "hash": "15phrl9qlbzjxmp29hak3a5k015x60w2hxjif90q82vp55zjpnhc"
+      "revision": "b636a00fd40a7899a8206195464ae8b7f0450a6d",
+      "url": "https://github.com/catppuccin/rofi/archive/b636a00fd40a7899a8206195464ae8b7f0450a6d.tar.gz",
+      "hash": "1a1sr451nsfii70j2f5qf8wq4jns0d4477a2kzh3993xdnx1j3yc"
     },
     "skim": {
       "type": "Git",
@@ -428,9 +428,9 @@
         "repo": "yazi"
       },
       "branch": "main",
-      "revision": "4599abe20f243f07d31020824c053cceb524cdad",
-      "url": "https://github.com/catppuccin/yazi/archive/4599abe20f243f07d31020824c053cceb524cdad.tar.gz",
-      "hash": "1dg41cxr90hszf88wfg0ax8paq5x6v4jbpqasv1xvad6fy1wsfxw"
+      "revision": "9bfdccc2b78d7493fa5c5983bc176a0bc5fef164",
+      "url": "https://github.com/catppuccin/yazi/archive/9bfdccc2b78d7493fa5c5983bc176a0bc5fef164.tar.gz",
+      "hash": "0pkq5pw8ji40jv8xhxmpvwys4pg783gshmbnsi1wp68r79czsrbb"
     },
     "zathura": {
       "type": "Git",
