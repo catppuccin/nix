@@ -29,7 +29,7 @@ testers.runNixOSTest {
   name = "module-test";
 
   nodes.machine =
-    { lib, ... }:
+    { lib, pkgs, ... }:
     {
       imports = [
         home-manager.nixosModules.default
@@ -43,7 +43,9 @@ testers.runNixOSTest {
       };
 
       services = {
-        displayManager.sddm = enable;
+        displayManager.sddm = enable // {
+          package = pkgs.kdePackages.sddm; # our module/the upstream port requires the qt6 version
+        };
         xserver.enable = true; # required for sddm
       };
 
