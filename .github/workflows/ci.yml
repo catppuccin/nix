@@ -88,7 +88,7 @@ jobs:
         uses: cachix/install-nix-action@V27
 
       - name: Setup cache
-        uses: DeterminateSystems/magic-nix-cache-action@v6
+        uses: DeterminateSystems/magic-nix-cache-action@v7
 
       - name: Run VM
         env:

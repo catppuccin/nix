@@ -72,15 +72,10 @@ in
     gtk = {
       theme =
         let
-          flavorUpper = ctp.mkUpper cfg.flavor;
-          accentUpper = ctp.mkUpper cfg.accent;
-          sizeUpper = ctp.mkUpper cfg.size;
-
-          # use the light gtk theme for latte
-          gtkTheme = if cfg.flavor == "latte" then "Light" else "Dark";
+          gtkTweaks = lib.concatStringsSep "," cfg.tweaks;
         in
         {
-          name = "Catppuccin-${flavorUpper}-${sizeUpper}-${accentUpper}-${gtkTheme}";
+          name = "catppuccin-${cfg.flavor}-${cfg.accent}-${cfg.size}+${gtkTweaks}";
           package = pkgs.catppuccin-gtk.override {
             inherit (cfg) size tweaks;
             accents = [ cfg.accent ];
