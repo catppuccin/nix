@@ -1,5 +1,4 @@
 {
-  lib,
   stdenvNoCC,
   writeShellApplication,
   mdbook,
