@@ -6,27 +6,24 @@
 }:
 let
   inherit (lib)
+    concatStringsSep
     ctp
-    mkOption
+    mkIf
     mkEnableOption
+    mkMerge
+    mkOption
+    mkRenamedOptionModule
     types
     ;
   cfg = config.gtk.catppuccin;
   enable = cfg.enable && config.gtk.enable;
-  # "dark" and "light" can be used alongside the regular accents
-  cursorAccentType = ctp.mergeEnums ctp.types.accentOption (
-    lib.types.enum [
-      "dark"
-      "light"
-    ]
-  );
 in
 {
   options.gtk.catppuccin = ctp.mkCatppuccinOpt "gtk" // {
     # NOTE: we are overriding the previous declaration of `enable` here
     # as this module is deprecated and we do not want it to apply with
     # the global `catppuccin.enable`
-    enable = lib.mkEnableOption "Catppuccin theme";
+    enable = mkEnableOption "Catppuccin theme";
 
     accent = ctp.mkAccentOpt "gtk";
     size = mkOption {
@@ -48,31 +45,74 @@ in
       default = [ "normal" ];
       description = "Catppuccin tweaks for gtk";
     };
-    gnomeShellTheme = mkEnableOption "Catppuccin gtk theme for GNOME Shell";
 
-    cursor = ctp.mkCatppuccinOpt "gtk cursors" // {
-      accent = ctp.mkBasicOpt "accent" cursorAccentType "gtk cursors";
-    };
+    gnomeShellTheme = mkEnableOption "Catppuccin gtk theme for GNOME Shell";
 
     icon = ctp.mkCatppuccinOpt "gtk modified Papirus icon theme" // {
       accent = ctp.mkAccentOpt "gtk modified Papirus icon theme";
     };
   };
 
-  config = lib.mkIf enable {
-    warnings = [
-      ''
-        `gtk.catppuccin` is deprecated and will be removed in a future release.
+  imports = [
+    (mkRenamedOptionModule
+      [
+        "gtk"
+        "catppuccin"
+        "cursor"
+        "enable"
+      ]
+      [
+        "catppuccin"
+        "pointerCursor"
+        "enable"
+      ]
+    )
 
-        The upstream port has been archived and support will no longer be provided.
-        Please see https://github.com/catppuccin/gtk/issues/262
-      ''
-    ];
+    (mkRenamedOptionModule
+      [
+        "gtk"
+        "catppuccin"
+        "cursor"
+        "flavor"
+      ]
+      [
+        "catppuccin"
+        "pointerCursor"
+        "flavor"
+      ]
+    )
 
-    gtk = {
-      theme =
+    (mkRenamedOptionModule
+      [
+        "gtk"
+        "catppuccin"
+        "cursor"
+        "accent"
+      ]
+      [
+        "catppuccin"
+        "pointerCursor"
+        "accent"
+      ]
+    )
+  ];
+
+  config = mkMerge [
+    (mkIf (enable || cfg.gnomeShellTheme) {
+      warnings = [
+        ''
+          `gtk.catppuccin.enable` and `gtk.catppuccin.gnomeShellTheme` are deprecated and will be removed in a future release.
+
+          The upstream port has been archived and support will no longer be provided.
+          Please see https://github.com/catppuccin/gtk/issues/262
+        ''
+      ];
+    })
+
+    (mkIf enable {
+      gtk.theme =
         let
-          gtkTweaks = lib.concatStringsSep "," cfg.tweaks;
+          gtkTweaks = concatStringsSep "," cfg.tweaks;
         in
         {
           name = "catppuccin-${cfg.flavor}-${cfg.accent}-${cfg.size}+${gtkTweaks}";
@@ -83,49 +123,51 @@ in
           };
         };
 
-      cursorTheme =
+      xdg.configFile =
         let
-          accentUpper = ctp.mkUpper cfg.cursor.accent;
+          gtk4Dir = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0";
         in
-        lib.mkIf cfg.cursor.enable {
-          name = "catppuccin-${cfg.cursor.flavor}-${cfg.cursor.accent}-cursors";
-          package = pkgs.catppuccin-cursors.${cfg.cursor.flavor + accentUpper};
+        {
+          "gtk-4.0/assets".source = "${gtk4Dir}/assets";
+          "gtk-4.0/gtk.css".source = "${gtk4Dir}/gtk.css";
+          "gtk-4.0/gtk-dark.css".source = "${gtk4Dir}/gtk-dark.css";
         };
+    })
 
-      iconTheme =
+    (mkIf cfg.icon.enable {
+      gtk.iconTheme =
         let
           # use the light icon theme for latte
           polarity = if cfg.icon.flavor == "latte" then "Light" else "Dark";
         in
-        lib.mkIf cfg.icon.enable {
+        {
           name = "Papirus-${polarity}";
           package = pkgs.catppuccin-papirus-folders.override { inherit (cfg.icon) accent flavor; };
         };
-    };
+    })
 
-    xdg.configFile =
-      let
-        gtk4Dir = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0";
-      in
-      {
-        "gtk-4.0/assets".source = "${gtk4Dir}/assets";
-        "gtk-4.0/gtk.css".source = "${gtk4Dir}/gtk.css";
-        "gtk-4.0/gtk-dark.css".source = "${gtk4Dir}/gtk-dark.css";
-      };
+    (mkIf cfg.gnomeShellTheme {
+      assertions = [
+        {
+          assertion = enable;
+          message = "`gtk.enable` and `gtk.catppuccin.enable` must be `true` to use the GNOME shell theme";
+        }
+      ];
 
-    home.packages = lib.mkIf cfg.gnomeShellTheme [ pkgs.gnomeExtensions.user-themes ];
+      home.packages = [ pkgs.gnomeExtensions.user-themes ];
 
-    dconf.settings = lib.mkIf cfg.gnomeShellTheme {
-      "org/gnome/shell" = {
-        disable-user-extensions = false;
-        enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" ];
+      dconf.settings = {
+        "org/gnome/shell" = {
+          disable-user-extensions = false;
+          enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" ];
+        };
+        "org/gnome/shell/extensions/user-theme" = {
+          inherit (config.gtk.theme) name;
+        };
+        "org/gnome/desktop/interface" = {
+          color-scheme = if cfg.flavor == "latte" then "default" else "prefer-dark";
+        };
       };
-      "org/gnome/shell/extensions/user-theme" = {
-        inherit (config.gtk.theme) name;
-      };
-      "org/gnome/desktop/interface" = {
-        color-scheme = if cfg.flavor == "latte" then "default" else "prefer-dark";
-      };
-    };
-  };
+    })
+  ];
 }
