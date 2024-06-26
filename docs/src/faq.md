@@ -13,7 +13,7 @@
 
 - Q: **"How do I fix the error: ... during evaluation because the option 'allow-import-from-derivation' is disabled"**\
   A: Some ports require extra steps to configure the theme resulting in an [IFD](https://wiki.nixos.org/wiki/Import_From_Derivation).
-  You can manually disable that port (when using `catppuccin.enable`).
+  You can manually disable those ports (when using `catppuccin.enable`).
   <details>
   <summary>All IFD's</summary>
 
