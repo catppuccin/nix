@@ -54,6 +54,34 @@ jobs:
             git push
           fi
 
+  test:
+    name: Test Modules
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@V27
+
+      - name: Setup cache
+        uses: DeterminateSystems/magic-nix-cache-action@v7
+
+      - name: Run tests
+        run: |
+          nix run \
+            --inputs-from ./dev \
+            github:Mic92/nix-fast-build -- \
+            --no-nom \
+            --flake "./dev#checks.$(nix eval --raw --impure --expr builtins.currentSystem)"
+
   validate-sources:
     name: Validate sources
 
@@ -70,31 +98,3 @@ jobs:
         run: |
           set -e
           nix eval --file ./.github/checkSources.nix
-
-  vm:
-    name: Test Modules
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        test: [unstable, stable]
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: cachix/install-nix-action@V27
-
-      - name: Setup cache
-        uses: DeterminateSystems/magic-nix-cache-action@v7
-
-      - name: Run VM
-        env:
-          TEST: ${{ matrix.test }}
-        run: |
-          nix build \
-            --print-build-logs \
-            --show-trace \
-            "./dev#checks.x86_64-linux.module-test-$TEST"
