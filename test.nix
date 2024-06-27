@@ -121,6 +121,7 @@ testers.runNixOSTest {
         };
 
         qt = enable // {
+          platformTheme.name = "kvantum";
           style.name = "kvantum";
         };
 
