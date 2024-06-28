@@ -17,9 +17,14 @@ let
   );
 in
 {
-  options.catppuccin.pointerCursor = ctp.mkCatppuccinOpt { name = "pointer cursors"; } // {
-    accent = ctp.mkBasicOpt "accent" cursorAccentType "cursors";
-  };
+  options.catppuccin.pointerCursor =
+    ctp.mkCatppuccinOpt {
+      name = "pointer cursors";
+      enableDefault = config.catppuccin.enable && pkgs.stdenv.hostPlatform.isLinux;
+    }
+    // {
+      accent = ctp.mkBasicOpt "accent" cursorAccentType "cursors";
+    };
 
   config.home.pointerCursor = mkIf cfg.enable {
     name = "catppuccin-${cfg.flavor}-${cfg.accent}-cursors";
