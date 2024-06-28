@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.programs.helix.enable;
 in
 {
-  options.programs.helix.catppuccin = lib.ctp.mkCatppuccinOpt "helix" // {
+  options.programs.helix.catppuccin = lib.ctp.mkCatppuccinOpt { name = "helix"; } // {
     useItalics = lib.mkEnableOption "Italics in Catppuccin theme for Helix";
   };
 

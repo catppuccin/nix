@@ -10,7 +10,7 @@ let
   enable = cfg.enable && config.boot.plymouth.enable;
 in
 {
-  options.boot.plymouth.catppuccin = ctp.mkCatppuccinOpt "plymouth";
+  options.boot.plymouth.catppuccin = ctp.mkCatppuccinOpt { name = "plymouth"; };
 
   config.boot.plymouth = mkIf enable {
     theme = "catppuccin-${cfg.flavor}";

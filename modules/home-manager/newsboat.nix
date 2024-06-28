@@ -7,7 +7,7 @@ let
   theme = if cfg.flavor == "latte" then "latte" else "dark";
 in
 {
-  options.programs.newsboat.catppuccin = lib.ctp.mkCatppuccinOpt "newsboat";
+  options.programs.newsboat.catppuccin = lib.ctp.mkCatppuccinOpt { name = "newsboat"; };
 
   config = lib.mkIf enable {
     programs.newsboat.extraConfig = builtins.readFile "${sources.newsboat}/themes/${theme}";

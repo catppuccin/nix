@@ -6,7 +6,7 @@ let
   themeDir = sources.mpv + "/themes/${cfg.flavor}/${cfg.accent}";
 in
 {
-  options.programs.mpv.catppuccin = lib.ctp.mkCatppuccinOpt "mpv" // {
+  options.programs.mpv.catppuccin = lib.ctp.mkCatppuccinOpt { name = "mpv"; } // {
     accent = lib.ctp.mkAccentOpt "mpv";
   };
 

@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.programs.kitty.enable;
 in
 {
-  options.programs.kitty.catppuccin = ctp.mkCatppuccinOpt "kitty";
+  options.programs.kitty.catppuccin = ctp.mkCatppuccinOpt { name = "kitty"; };
 
   config.programs.kitty = lib.mkIf enable { theme = "Catppuccin-${ctp.mkUpper cfg.flavor}"; };
 }

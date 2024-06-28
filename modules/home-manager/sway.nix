@@ -6,7 +6,7 @@ let
   theme = "${sources.sway}/themes/catppuccin-${cfg.flavor}";
 in
 {
-  options.wayland.windowManager.sway.catppuccin = lib.ctp.mkCatppuccinOpt "sway";
+  options.wayland.windowManager.sway.catppuccin = lib.ctp.mkCatppuccinOpt { name = "sway"; };
 
   config = lib.mkIf enable {
     wayland.windowManager.sway.extraConfigEarly = ''

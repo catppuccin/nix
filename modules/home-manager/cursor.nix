@@ -17,7 +17,7 @@ let
   );
 in
 {
-  options.catppuccin.pointerCursor = ctp.mkCatppuccinOpt "cursors" // {
+  options.catppuccin.pointerCursor = ctp.mkCatppuccinOpt { name = "pointer cursors"; } // {
     accent = ctp.mkBasicOpt "accent" cursorAccentType "cursors";
   };
 

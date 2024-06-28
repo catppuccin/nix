@@ -6,7 +6,7 @@ let
   flavor = "${cfg.flavor}" + lib.optionalString cfg.transparent "-transparent";
 in
 {
-  options.programs.cava.catppuccin = lib.ctp.mkCatppuccinOpt "cava" // {
+  options.programs.cava.catppuccin = lib.ctp.mkCatppuccinOpt { name = "cava"; } // {
     transparent = lib.mkEnableOption "transparent version of flavor";
   };
 

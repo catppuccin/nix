@@ -19,7 +19,7 @@ let
   enable = cfg.enable && config.gtk.enable;
 in
 {
-  options.gtk.catppuccin = ctp.mkCatppuccinOpt "gtk" // {
+  options.gtk.catppuccin = ctp.mkCatppuccinOpt { name = "gtk"; } // {
     # NOTE: we are overriding the previous declaration of `enable` here
     # as this module is deprecated and we do not want it to apply with
     # the global `catppuccin.enable`
@@ -48,8 +48,8 @@ in
 
     gnomeShellTheme = mkEnableOption "Catppuccin gtk theme for GNOME Shell";
 
-    icon = ctp.mkCatppuccinOpt "gtk modified Papirus icon theme" // {
-      accent = ctp.mkAccentOpt "gtk modified Papirus icon theme";
+    icon = ctp.mkCatppuccinOpt { name = "GTK modified Papirus icon theme"; } // {
+      accent = ctp.mkAccentOpt "GTK modified Papirus icon theme";
     };
   };
 

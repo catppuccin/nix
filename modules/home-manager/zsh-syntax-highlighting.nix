@@ -6,7 +6,9 @@ let
   enable = cfg.enable && config.programs.zsh.syntaxHighlighting.enable;
 in
 {
-  options.programs.zsh.syntaxHighlighting.catppuccin = ctp.mkCatppuccinOpt "zsh syntax highlighting";
+  options.programs.zsh.syntaxHighlighting.catppuccin = ctp.mkCatppuccinOpt {
+    name = "Zsh Syntax Highlighting";
+  };
 
   config.programs.zsh = lib.mkIf enable {
     initExtra = lib.mkBefore ''

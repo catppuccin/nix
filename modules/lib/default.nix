@@ -107,15 +107,22 @@ in
 
   # string -> a
   # this creates a basic attrset only containing an
-  # enable and flavor option. the fist string should
-  # be the name of the module, followed by the local config
-  # attrset
-  mkCatppuccinOpt = name: {
-    enable = lib.mkEnableOption "Catppuccin theme" // {
-      default = config.catppuccin.enable;
+  # enable and flavor option. `name` should be the name
+  # of the module, while `enableDefault` is a boolean
+  # representing the default of the created `enable`
+  # option
+  mkCatppuccinOpt =
+    {
+      name,
+      enableDefault ? config.catppuccin.enable,
+    }:
+    {
+      enable = lib.mkEnableOption "Catppuccin theme for ${name}" // {
+        default = enableDefault;
+      };
+
+      flavor = ctp.mkFlavorOpt name;
     };
-    flavor = ctp.mkFlavorOpt name;
-  };
 
   # string -> a
   # this creates an accent option for modules

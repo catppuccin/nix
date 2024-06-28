@@ -24,7 +24,7 @@ let
     };
 in
 {
-  options.programs.tmux.catppuccin = ctp.mkCatppuccinOpt "tmux" // {
+  options.programs.tmux.catppuccin = ctp.mkCatppuccinOpt { name = "tmux"; } // {
     extraConfig = mkOption {
       type = types.lines;
       description = "Additional configuration for the catppuccin plugin.";

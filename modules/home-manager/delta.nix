@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.programs.git.delta.enable;
 in
 {
-  options.programs.git.delta.catppuccin = lib.ctp.mkCatppuccinOpt "catppuccin";
+  options.programs.git.delta.catppuccin = lib.ctp.mkCatppuccinOpt { name = "delta"; };
 
   config = lib.mkIf enable {
     programs.git = {

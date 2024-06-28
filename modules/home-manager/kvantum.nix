@@ -17,7 +17,7 @@ let
   themeName = "Catppuccin-${flavorCapitalized}-${accentCapitalized}";
 in
 {
-  options.qt.style.catppuccin = lib.ctp.mkCatppuccinOpt "Kvantum" // {
+  options.qt.style.catppuccin = lib.ctp.mkCatppuccinOpt { name = "Kvantum"; } // {
     accent = lib.ctp.mkAccentOpt "Kvantum";
 
     apply = lib.mkOption {

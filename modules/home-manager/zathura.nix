@@ -11,7 +11,7 @@ let
   themeFile = sources.zathura + "/src/catppuccin-${cfg.flavor}";
 in
 {
-  options.programs.zathura.catppuccin = lib.ctp.mkCatppuccinOpt "zathura";
+  options.programs.zathura.catppuccin = lib.ctp.mkCatppuccinOpt { name = "zathura"; };
 
   config.programs.zathura.options = lib.mkIf enable (
     lib.ctp.fromINI (
