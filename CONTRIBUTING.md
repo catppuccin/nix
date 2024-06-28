@@ -54,8 +54,8 @@ describes the motivation and content of the commit.
 
 ### Commit scopes
 
-Available commit scopes are port names, `nixos`, `home-manager`, and `modules`. If
-none of these apply, omit the scope.
+Available commit scopes are port names, `nixos`, `home-manager`, `modules`, and
+`tests`. If none of these apply, omit the scope.
 
 ### Breaking changes
 
