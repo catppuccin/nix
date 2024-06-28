@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.i18n.inputMethod.enabled == "fcitx5";
 in
 {
-  options.i18n.inputMethod.fcitx5.catppuccin = lib.ctp.mkCatppuccinOpt "Fcitx5" // {
+  options.i18n.inputMethod.fcitx5.catppuccin = lib.ctp.mkCatppuccinOpt { name = "Fcitx5"; } // {
     apply = lib.mkOption {
       type = lib.types.bool;
       default = true;

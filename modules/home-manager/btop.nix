@@ -9,7 +9,7 @@ let
   theme = sources.btop + themePath;
 in
 {
-  options.programs.btop.catppuccin = lib.ctp.mkCatppuccinOpt "btop";
+  options.programs.btop.catppuccin = lib.ctp.mkCatppuccinOpt { name = "btop"; };
 
   config = lib.mkIf enable {
     xdg.configFile."btop${themePath}".source = theme;

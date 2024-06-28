@@ -8,7 +8,7 @@ let
   themePath = "${cfg.flavor}/${cfg.accent}.yml";
 in
 {
-  options.programs.lazygit.catppuccin = lib.ctp.mkCatppuccinOpt "lazygit" // {
+  options.programs.lazygit.catppuccin = lib.ctp.mkCatppuccinOpt { name = "lazygit"; } // {
     accent = ctp.mkAccentOpt "lazygit";
   };
 

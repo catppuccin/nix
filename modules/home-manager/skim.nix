@@ -6,7 +6,7 @@ let
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
 {
-  options.programs.skim.catppuccin = lib.ctp.mkCatppuccinOpt "skim";
+  options.programs.skim.catppuccin = lib.ctp.mkCatppuccinOpt { name = "skim"; };
 
   config.programs.skim = lib.mkIf enable {
     defaultOptions = [

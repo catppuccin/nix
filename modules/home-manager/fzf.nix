@@ -7,7 +7,7 @@ let
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
 {
-  options.programs.fzf.catppuccin = lib.ctp.mkCatppuccinOpt "fzf";
+  options.programs.fzf.catppuccin = lib.ctp.mkCatppuccinOpt { name = "fzf"; };
 
   config.programs.fzf.colors =
     lib.mkIf enable

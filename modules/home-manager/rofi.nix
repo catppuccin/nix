@@ -6,7 +6,7 @@ let
   enable = cfg.enable && config.programs.rofi.enable;
 in
 {
-  options.programs.rofi.catppuccin = lib.ctp.mkCatppuccinOpt "rofi";
+  options.programs.rofi.catppuccin = lib.ctp.mkCatppuccinOpt { name = "rofi"; };
 
   config.programs.rofi = lib.mkIf enable {
     theme = {

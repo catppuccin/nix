@@ -5,7 +5,7 @@ let
   inherit (cfg) enable;
 in
 {
-  options.programs.glamour.catppuccin = lib.ctp.mkCatppuccinOpt "glamour";
+  options.programs.glamour.catppuccin = lib.ctp.mkCatppuccinOpt { name = "glamour"; };
 
   config = {
     home.sessionVariables = lib.mkIf enable {
