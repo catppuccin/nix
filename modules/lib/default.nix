@@ -9,7 +9,7 @@ let
   inherit (lib) ctp;
 in
 {
-  # string -> type -> string -> a -> a
+  # string -> type -> string -> a
   # this is an internal function and shouldn't be
   # used unless you know what you're doing. it takes
   # a string (the name of the property, i.e., flavor
@@ -23,7 +23,7 @@ in
       description = "Catppuccin ${attr} for ${name}";
     };
 
-  # string -> a -> a
+  # string -> a
   # this creates a flavor option for modules
   # the first string should be the name of the module,
   # followed by the local config attrset
@@ -105,7 +105,7 @@ in
     in
     fromJSON (readFile json);
 
-  # string -> a -> a
+  # string -> a
   # this creates a basic attrset only containing an
   # enable and flavor option. the fist string should
   # be the name of the module, followed by the local config
@@ -117,7 +117,7 @@ in
     flavor = ctp.mkFlavorOpt name;
   };
 
-  # string -> a -> a
+  # string -> a
   # this creates an accent option for modules
   # the first string should be the name of the module,
   # followed by the local config attrset

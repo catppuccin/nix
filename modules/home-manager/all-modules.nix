@@ -4,6 +4,7 @@
   ./bottom.nix
   ./btop.nix
   ./cava.nix
+  ./cursor.nix
   ./delta.nix
   ./dunst.nix
   ./fcitx5.nix
