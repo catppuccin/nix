@@ -3,7 +3,7 @@
   pkgs,
   home-manager,
 }:
-home-manager.lib.homeManagerConfiguration {
+(home-manager.lib.homeManagerConfiguration {
   inherit pkgs;
   modules = [
     ./home.nix
@@ -40,4 +40,4 @@ home-manager.lib.homeManagerConfiguration {
       };
     }
   ];
-}
+}).activationPackage
