@@ -79,11 +79,10 @@
           system,
           ...
         }:
-        lib.optionalAttrs pkgs.stdenv.isLinux {
-          module-test-unstable = pkgs.callPackage ../test.nix { inherit home-manager; };
-          module-test-stable = nixpkgsFor.${system}.stable.callPackage ../test.nix {
-            home-manager = home-manager-stable;
-          };
+        import ../tests {
+          inherit lib home-manager home-manager-stable;
+          nixpkgs = pkgs;
+          nixpkgs-stable = nixpkgsFor.${system}.stable;
         }
       );
 
