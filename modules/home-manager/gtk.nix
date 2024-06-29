@@ -19,39 +19,48 @@ let
   enable = cfg.enable && config.gtk.enable;
 in
 {
-  options.gtk.catppuccin = ctp.mkCatppuccinOpt { name = "gtk"; } // {
-    # NOTE: we are overriding the previous declaration of `enable` here
-    # as this module is deprecated and we do not want it to apply with
-    # the global `catppuccin.enable`
-    enable = mkEnableOption "Catppuccin theme";
+  options.gtk.catppuccin =
+    ctp.mkCatppuccinOpt {
+      name = "gtk";
+      enableDefault = false;
+    }
+    // {
+      accent = ctp.mkAccentOpt "gtk";
 
-    accent = ctp.mkAccentOpt "gtk";
-    size = mkOption {
-      type = types.enum [
-        "standard"
-        "compact"
-      ];
-      default = "standard";
-      description = "Catppuccin size variant for gtk";
-    };
-    tweaks = mkOption {
-      type = types.listOf (
-        types.enum [
-          "black"
-          "rimless"
-          "normal"
-        ]
-      );
-      default = [ "normal" ];
-      description = "Catppuccin tweaks for gtk";
-    };
+      size = mkOption {
+        type = types.enum [
+          "standard"
+          "compact"
+        ];
+        default = "standard";
+        description = "Catppuccin size variant for gtk";
+      };
 
-    gnomeShellTheme = mkEnableOption "Catppuccin gtk theme for GNOME Shell";
+      tweaks = mkOption {
+        type = types.listOf (
+          types.enum [
+            "black"
+            "rimless"
+            "normal"
+          ]
+        );
+        default = [ "normal" ];
+        description = "Catppuccin tweaks for gtk";
+      };
 
-    icon = ctp.mkCatppuccinOpt { name = "GTK modified Papirus icon theme"; } // {
-      accent = ctp.mkAccentOpt "GTK modified Papirus icon theme";
+      gnomeShellTheme = mkEnableOption "Catppuccin gtk theme for GNOME Shell";
+
+      icon =
+        ctp.mkCatppuccinOpt {
+          name = "GTK modified Papirus icon theme";
+          # NOTE: we exclude this from the global `catppuccin.enable` as there is no
+          # `enable` option in the upstream module to guard it
+          enableDefault = false;
+        }
+        // {
+          accent = ctp.mkAccentOpt "GTK modified Papirus icon theme";
+        };
     };
-  };
 
   imports = [
     (mkRenamedOptionModule
