@@ -112,18 +112,20 @@
             moduleRoot = ../modules/home-manager;
           };
 
-          site = mkSite {
+          site = mkSite rec {
             pname = "catppuccin-nix-website";
             inherit version;
 
             src = lib.fileset.toSource {
-              root = ../docs;
+              root = ../.;
               fileset = lib.fileset.unions [
+                ../CHANGELOG.md
                 ../docs/src
                 ../docs/book.toml
                 ../docs/theme
               ];
             };
+            sourceRoot = "${src.name}/docs";
 
             nixosDoc = packages'.nixos-doc;
             homeManagerDoc = packages'.home-manager-doc;
