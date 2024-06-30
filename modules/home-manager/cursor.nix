@@ -20,7 +20,9 @@ in
   options.catppuccin.pointerCursor =
     ctp.mkCatppuccinOpt {
       name = "pointer cursors";
-      enableDefault = config.catppuccin.enable && pkgs.stdenv.hostPlatform.isLinux;
+      # NOTE: we exclude this from the global `catppuccin.enable` as there is no
+      # `enable` option in the upstream module to guard it
+      enableDefault = false;
     }
     // {
       accent = ctp.mkBasicOpt "accent" cursorAccentType "cursors";
