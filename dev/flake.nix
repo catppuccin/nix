@@ -37,16 +37,15 @@
         stable = nixpkgs-stable.legacyPackages.${system};
       });
 
-      forAllSystems = fn: nixpkgs.lib.genAttrs systems (system: fn nixpkgsFor.${system}.unstable);
+      forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
       apps = forAllSystems (
-        {
-          lib,
-          pkgs,
-          system,
-          ...
-        }:
+        system:
+        let
+          pkgs = nixpkgsFor.${system}.unstable;
+          inherit (pkgs) lib;
+        in
         {
           add-source = {
             type = "app";
@@ -73,29 +72,23 @@
       );
 
       checks = forAllSystems (
-        {
-          lib,
-          pkgs,
-          system,
-          ...
-        }:
-        import ../tests {
-          inherit lib home-manager home-manager-stable;
-          nixpkgs = pkgs;
+        system:
+        import ../tests rec {
+          inherit home-manager home-manager-stable;
+          inherit (nixpkgs) lib;
+          nixpkgs = nixpkgsFor.${system}.unstable;
           nixpkgs-stable = nixpkgsFor.${system}.stable;
         }
       );
 
-      formatter = forAllSystems (pkgs: pkgs.nixfmt-rfc-style);
+      formatter = forAllSystems (system: nixpkgsFor.${system}.unstable.nixfmt-rfc-style);
 
       packages = forAllSystems (
-        {
-          lib,
-          pkgs,
-          system,
-          ...
-        }:
+        system:
         let
+          pkgs = nixpkgsFor.${system}.unstable;
+          inherit (pkgs) lib;
+
           version = self.shortRev or self.dirtyShortRev or "unknown";
           mkOptionDoc = pkgs.callPackage ../docs/options-doc.nix { };
           mkSite = pkgs.callPackage ../docs/mk-site.nix { };
