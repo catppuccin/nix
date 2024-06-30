@@ -24,6 +24,7 @@
     cava.enable = true;
     fish.enable = true;
     foot.enable = true;
+    fuzzel.enable = true;
     fzf.enable = true;
     gh-dash.enable = true;
     git = {

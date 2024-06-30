@@ -120,6 +120,18 @@
       "url": "https://github.com/catppuccin/foot/archive/80756a4d63ea4fae4d0fdd793017370f8b8b12ac.tar.gz",
       "hash": "12a3znfdjpiqrylpv009cvi4w4dgw4i6kxk5gm959y72gybbpbw7"
     },
+    "fuzzel": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "fuzzel"
+      },
+      "branch": "main",
+      "revision": "eeb4c8d159187ef7eb59a4a99baec67c2e797e9f",
+      "url": "https://github.com/catppuccin/fuzzel/archive/eeb4c8d159187ef7eb59a4a99baec67c2e797e9f.tar.gz",
+      "hash": "0h0vd1l0hq7bgnga0lbx2564fwlh9riwahx1fr2dr09gi9ry36y8"
+    },
     "gh-dash": {
       "type": "Git",
       "repository": {
