@@ -18,7 +18,7 @@ jobs:
   format:
     name: Format Nix files
 
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    if: github.repository_owner == 'Catppuccin' && github.event_name == 'push' || github.event_name == 'workflow_dispatch'
 
     runs-on: ubuntu-latest
 
