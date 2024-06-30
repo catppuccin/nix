@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/catppuccin/nix/compare/v1.0.0...v1.0.1) (2024-06-30)
+
+
+### Bug Fixes
+
+* **home-manager/gtk:** replace `normal` tweak with `default` ([#261](https://github.com/catppuccin/nix/issues/261)) ([92e2d7a](https://github.com/catppuccin/nix/commit/92e2d7ae880cd77677be66af2e77b2bc6b74f4fa))
+
 ## 1.0.0 (2024-06-29)
 
 
