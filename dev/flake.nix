@@ -47,23 +47,6 @@
           inherit (pkgs) lib;
         in
         {
-          add-source = {
-            type = "app";
-            program = lib.getExe (
-              pkgs.runCommand "add-source"
-                {
-                  nativeBuildInputs = [ pkgs.makeWrapper ];
-                  meta.mainProgram = "add-source";
-                }
-                ''
-                  mkdir -p $out/bin
-                  install -Dm755 ${./add_source.sh} $out/bin/add-source
-                  wrapProgram $out/bin/add-source \
-                    --prefix PATH : ${lib.makeBinPath [ pkgs.npins ]}
-                ''
-            );
-          };
-
           serve = {
             type = "app";
             program = lib.getExe self.packages.${system}.site.serve;
@@ -123,6 +106,23 @@
             nixosDoc = packages'.nixos-doc;
             homeManagerDoc = packages'.home-manager-doc;
           };
+
+          add-source =
+            pkgs.runCommand "add-source"
+              {
+                nativeBuildInputs = [ pkgs.patsh ];
+                buildInputs = [ pkgs.npins ];
+                meta.mainProgram = "add-source";
+              }
+              ''
+                mkdir -p $out/bin
+
+                patsh \
+                  --store-dir ${builtins.storeDir} \
+                  ${./add-source.sh} $out/bin/add-source
+
+                chmod 755 $out/bin/add-source
+              '';
 
           default = packages'.site;
         }
