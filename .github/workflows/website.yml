@@ -3,7 +3,17 @@ name: Build & deploy website
 on:
   push:
     branches: [main]
+    paths:
+      - 'docs/**'
+      - 'CHANGELOG.md'
+      - '**.lock'
+      - '**.nix'
   pull_request:
+    paths:
+      - 'docs/**'
+      - 'CHANGELOG.md'
+      - '**.lock'
+      - '**.nix'
   workflow_dispatch:
 
 jobs:
