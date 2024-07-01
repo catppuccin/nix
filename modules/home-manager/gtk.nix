@@ -122,7 +122,7 @@ in
       gtk.theme =
         let
           gtkTweaks = concatStringsSep "," (
-            map (tweak: { normal = "default"; }.${tweak} or tweak) cfg.tweaks
+            map (tweak: { normal = "normal"; }.${tweak} or tweak) cfg.tweaks
           );
         in
         {
