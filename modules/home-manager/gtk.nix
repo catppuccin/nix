@@ -121,9 +121,7 @@ in
     (mkIf enable {
       gtk.theme =
         let
-          gtkTweaks = concatStringsSep "," (
-            map (tweak: { normal = "normal"; }.${tweak} or tweak) cfg.tweaks
-          );
+          gtkTweaks = concatStringsSep "," cfg.tweaks;
         in
         {
           name = "catppuccin-${cfg.flavor}-${cfg.accent}-${cfg.size}+${gtkTweaks}";
