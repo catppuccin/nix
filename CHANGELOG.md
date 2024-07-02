@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.2](https://github.com/catppuccin/nix/compare/v1.0.1...v1.0.2) (2024-07-02)
+
+
+### Bug Fixes
+
+* **home-manager/cursors:** exclude from `catppuccin.enable` ([#263](https://github.com/catppuccin/nix/issues/263)) ([9eb0610](https://github.com/catppuccin/nix/commit/9eb0610d48dd0e1fecf772bbdacf9050d7b82d7c))
+
+
+### Reverts
+
+* **gtk:** don't replace `normal` tweak with `default` ([#271](https://github.com/catppuccin/nix/issues/271)) ([7bfda77](https://github.com/catppuccin/nix/commit/7bfda77cd1c65a221edfc412051fab9c95102123))
+
 ## [1.0.1](https://github.com/catppuccin/nix/compare/v1.0.0...v1.0.1) (2024-06-30)
 
 
