@@ -31,5 +31,8 @@ in
   config.home.pointerCursor = mkIf cfg.enable {
     name = "catppuccin-${cfg.flavor}-${cfg.accent}-cursors";
     package = pkgs.catppuccin-cursors.${cfg.flavor + ctp.mkUpper cfg.accent};
+
+    gtk.enable = true;
+    x11.enable = true;
   };
 }
