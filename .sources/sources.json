@@ -68,9 +68,9 @@
         "repo": "delta"
       },
       "branch": "main",
-      "revision": "765eb17d0268bf07c20ca439771153f8bc79444f",
-      "url": "https://github.com/catppuccin/delta/archive/765eb17d0268bf07c20ca439771153f8bc79444f.tar.gz",
-      "hash": "00pmg2rbzsrf2k0l6d7m5394i7klvk41h6xhv8c3v56rhvv2f38q"
+      "revision": "48273a5e02486d871c6b25268ac6fb849d387eee",
+      "url": "https://github.com/catppuccin/delta/archive/48273a5e02486d871c6b25268ac6fb849d387eee.tar.gz",
+      "hash": "0r843b6nagrp6sjsm4xp3jn1m95c3xzk23l9wh54cwp35va3swf5"
     },
     "dunst": {
       "type": "Git",
@@ -392,9 +392,9 @@
         "repo": "tmux"
       },
       "branch": "main",
-      "revision": "e7cd05facc22c18fbab3f718d8ecd6494538fe38",
-      "url": "https://github.com/catppuccin/tmux/archive/e7cd05facc22c18fbab3f718d8ecd6494538fe38.tar.gz",
-      "hash": "01vmicw2p751dgrnld21nmx9glcxc7hlvc3qi86hcicxnzi6hgjb"
+      "revision": "893917360d667645908753b982edd1624dc57cd6",
+      "url": "https://github.com/catppuccin/tmux/archive/893917360d667645908753b982edd1624dc57cd6.tar.gz",
+      "hash": "14sgjpdhjsir7m1f5rl6lhzd0wz0va0yp2q7w77v7qrb140q2k12"
     },
     "tofi": {
       "type": "Git",
