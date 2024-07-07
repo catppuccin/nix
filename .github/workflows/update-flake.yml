@@ -23,7 +23,7 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@V27
 
-      - uses: DeterminateSystems/update-flake-lock@v22
+      - uses: DeterminateSystems/update-flake-lock@v23
         with:
           path-to-flake-dir: "./dev"
           commit-msg: "chore: update dev flake inputs"
