@@ -1,0 +1,47 @@
+diff --git a/hyprlock.conf b/hyprlock2.conf
+index f976b90..a6f2867 100644
+--- a/hyprlock.conf
++++ b/hyprlock2.conf
+@@ -1,7 +1,3 @@
+-source = $HOME/.config/hypr/mocha.conf
+-
+-$accent = $mauve
+-$accentAlpha = $mauveAlpha
+ $font = JetBrainsMono Nerd Font
+ 
+ # GENERAL
+@@ -13,7 +9,6 @@ general {
+ # BACKGROUND
+ background {
+     monitor =
+-    path = ~/.config/background
+     blur_passes = 0
+     color = $base
+ }
+@@ -42,19 +37,6 @@ label {
+     valign = top
+ }
+ 
+-# USER AVATAR
+-
+-image {
+-    monitor = 
+-    path = ~/.face
+-    size = 100
+-    border_color = $accent
+-
+-    position = 0, 75
+-    halign = center
+-    valign = center
+-}
+-
+ # INPUT FIELD
+ input-field {
+     monitor =
+@@ -76,4 +58,4 @@ input-field {
+     position = 0, -35
+     halign = center
+     valign = center
+-}
+\ No newline at end of file
++}

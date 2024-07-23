@@ -192,6 +192,18 @@
       "url": "https://github.com/catppuccin/hyprland/archive/c388ac55563ddeea0afe9df79d4bfff0096b146b.tar.gz",
       "hash": "0cxzxfgbqnkdnvn8nch4z4s7izzlm2jgciq1s8cjmypf8g7vy9n5"
     },
+    "hyprlock": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "hyprlock"
+      },
+      "branch": "main",
+      "revision": "480c46f1f3fa9dd175f8f9611c0d4378324378a7",
+      "url": "https://github.com/catppuccin/hyprlock/archive/480c46f1f3fa9dd175f8f9611c0d4378324378a7.tar.gz",
+      "hash": "13f02msykf4z3kxc8i7ai8jr94qj8c2scj4pjpfjvr2h1v532aqn"
+    },
     "imv": {
       "type": "Git",
       "repository": {
