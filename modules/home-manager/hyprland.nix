@@ -18,13 +18,9 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      source = [
-        "${sources.hyprland}/themes/${cfg.flavor}.conf"
-        (builtins.toFile "hyprland-${cfg.accent}-accent.conf" ''
-          $accent=''$${cfg.accent}
-          $accentAlpha=''$${cfg.accent}Alpha
-        '')
-      ];
+      source = "${sources.hyprland}/themes/${cfg.flavor}.conf";
+      "$accent" = "\$${cfg.accent}";
+      "$accentAlpha" = "\$${cfg.accent}Alpha";
     };
   };
 }
