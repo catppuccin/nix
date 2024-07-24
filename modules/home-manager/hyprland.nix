@@ -1,9 +1,8 @@
 { config, lib, ... }:
 let
-  inherit (config.catppuccin) sources;
+  inherit (config.catppuccin) sources pointerCursor;
   cfg = config.wayland.windowManager.hyprland.catppuccin;
   enable = cfg.enable && config.wayland.windowManager.hyprland.enable;
-  inherit (config.catppuccin) pointerCursor;
 in
 {
   options.wayland.windowManager.hyprland.catppuccin =
@@ -14,7 +13,7 @@ in
 
   config = lib.mkIf enable {
     home.sessionVariables = lib.mkIf pointerCursor.enable {
-      HYPRCURSOR_SIZE = "24";
+      HYPRCURSOR_SIZE = config.home.pointerCursor.size;
       HYPRCURSOR_THEME = "catppuccin-${pointerCursor.flavor}-${pointerCursor.accent}-cursors";
     };
 
