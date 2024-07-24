@@ -18,20 +18,13 @@ in
     };
 
     wayland.windowManager.hyprland.settings = {
-      source =
-        [
-          "${sources.hyprland}/themes/${cfg.flavor}.conf"
-          (builtins.toFile "hyprland-${cfg.accent}-accent.conf" ''
-            $accent=''$${cfg.accent}
-            $accentAlpha=''$${cfg.accent}Alpha
-          '')
-        ]
-        ++ lib.optionals pointerCursor.enable [
-          (builtins.toFile "hyprland-cursors.conf" ''
-            env = HYPRCURSOR_THEME,MyCursor
-            env = HYPRCURSOR_SIZE,24
-          '')
-        ];
+      source = [
+        "${sources.hyprland}/themes/${cfg.flavor}.conf"
+        (builtins.toFile "hyprland-${cfg.accent}-accent.conf" ''
+          $accent=''$${cfg.accent}
+          $accentAlpha=''$${cfg.accent}Alpha
+        '')
+      ];
     };
   };
 }
