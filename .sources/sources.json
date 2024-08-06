@@ -260,9 +260,9 @@
         "repo": "mpv"
       },
       "branch": "main",
-      "revision": "da9199f55b42f9158371f31a7e34d88d1d7c7145",
-      "url": "https://github.com/catppuccin/mpv/archive/da9199f55b42f9158371f31a7e34d88d1d7c7145.tar.gz",
-      "hash": "1zwzplbn0a043gxl1q239mbb824qm5jl965qyb6rfg66x3ws5wi8"
+      "revision": "7b93fb0febd0490a8ccfe3077ab7741a9b4ef44a",
+      "url": "https://github.com/catppuccin/mpv/archive/7b93fb0febd0490a8ccfe3077ab7741a9b4ef44a.tar.gz",
+      "hash": "1wzahqxqrblalkcxi4ll05vi5rhmsm3z4mk7d96rfka2c38wc5wj"
     },
     "newsboat": {
       "type": "Git",
