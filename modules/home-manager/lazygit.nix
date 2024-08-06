@@ -4,15 +4,14 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.programs.lazygit.catppuccin;
   enable = cfg.enable && config.programs.lazygit.enable;
-
-  themePath = "${cfg.flavor}/${cfg.accent}.yml";
 in
 {
   options.programs.lazygit.catppuccin = lib.ctp.mkCatppuccinOpt { name = "lazygit"; } // {
     accent = ctp.mkAccentOpt "lazygit";
   };
 
-  config = lib.mkIf enable {
-    programs.lazygit.settings = lib.ctp.fromYaml "${sources.lazygit}/themes-mergable/${themePath}";
+  config.home.sessionVariables = lib.mkIf enable {
+    # Ensure that the default config file is still sourced
+    LG_CONFIG_FILE = "${sources.lazygit}/themes-mergable/${cfg.flavor}/${cfg.accent}.yml,${config.xdg.configHome}/lazygit/config.yml";
   };
 }
