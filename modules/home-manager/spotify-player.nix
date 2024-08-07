@@ -10,7 +10,7 @@ in
   config = lib.mkIf enable {
     programs.spotify-player = {
       settings.theme = "Catppuccin-${cfg.flavor}";
-      themes = (lib.importTOML "${sources.spotify-player}/theme.toml").themes;
+      inherit (lib.importTOML "${sources.spotify-player}/theme.toml") themes;
     };
   };
 }
