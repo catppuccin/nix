@@ -21,6 +21,7 @@
         fuzzel.enable = lib.mkForce false;
         imv.enable = lib.mkForce false;
         mpv.enable = lib.mkForce false; # NOTE: same as cava, but `mpv` fails to build currently
+        rio.enable = lib.mkForce false; # marked as broken
         rofi.enable = lib.mkForce false;
         swaylock.enable = lib.mkForce false;
         tofi.enable = lib.mkForce false;
