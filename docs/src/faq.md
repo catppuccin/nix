@@ -24,15 +24,10 @@
   };
   programs = {
     cava.catppuccin.enable = false;
-    foot.catppuccin.enable = false;
     gh-dash.catppuccin.enable = false;
     imv.catppuccin.enable = false;
     kitty.catppuccin.enable = false; # IFD is inside HM
-    lazygit.catppuccin.enable = false;
-    mpv.catppuccin.enable = false;
     swaylock.catppuccin.enable = false;
-    tofi.catppuccin.enable = false;
-    zathura.catppuccin.enable = false;
   };
   ```
   </details>
