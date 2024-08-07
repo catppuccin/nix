@@ -42,9 +42,10 @@ in
             "black"
             "rimless"
             "normal"
+            "float"
           ]
         );
-        default = [ "normal" ];
+        default = [ ];
         description = "Catppuccin tweaks for gtk";
       };
 
@@ -121,10 +122,12 @@ in
     (mkIf enable {
       gtk.theme =
         let
-          gtkTweaks = concatStringsSep "," cfg.tweaks;
+          gtkTweaks = "+" + concatStringsSep "," cfg.tweaks;
         in
         {
-          name = "catppuccin-${cfg.flavor}-${cfg.accent}-${cfg.size}+${gtkTweaks}";
+          name =
+            "catppuccin-${cfg.flavor}-${cfg.accent}-${cfg.size}"
+            + lib.optionalString (cfg.tweaks != [ ]) gtkTweaks;
           package = pkgs.catppuccin-gtk.override {
             inherit (cfg) size tweaks;
             accents = [ cfg.accent ];
