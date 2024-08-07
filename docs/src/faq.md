@@ -10,3 +10,24 @@
 - Q: **"What versions of NixOS and home-manager are supported?"**\
   A: We primarily support the `unstable` branch, but try our best to support the current stable release.
   You can check if your stable release is currently supported at [status.nixos.org](https://status.nixos.org/)
+
+- Q: **"How do I fix the error: ... during evaluation because the option 'allow-import-from-derivation' is disabled"**\
+  A: Some ports require extra steps to configure the theme resulting in an [IFD](https://wiki.nixos.org/wiki/Import_From_Derivation).
+  You can manually disable those ports (when using `catppuccin.enable`).
+  <details>
+  <summary>All IFD's</summary>
+
+  ```nix
+  services = {
+    dunst.catppuccin.enable = false;
+    mako.catppuccin.enable = false;
+  };
+  programs = {
+    cava.catppuccin.enable = false;
+    gh-dash.catppuccin.enable = false;
+    imv.catppuccin.enable = false;
+    kitty.catppuccin.enable = false; # IFD is inside HM
+    swaylock.catppuccin.enable = false;
+  };
+  ```
+  </details>
