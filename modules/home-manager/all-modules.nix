@@ -33,6 +33,7 @@
   ./rio.nix
   ./rofi.nix
   ./skim.nix
+  ./spotify-player.nix
   ./starship.nix
   ./swaylock.nix
   ./sway.nix

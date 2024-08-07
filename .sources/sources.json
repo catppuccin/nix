@@ -360,6 +360,18 @@
       "url": "https://github.com/catppuccin/skim/archive/d39304b5f84721788b19bc40aebcfd7720208d8a.tar.gz",
       "hash": "1b6cd1wfkprrn7imgf1w1f9a6iqy3bql2ansy7l0k44ps1gwrvxq"
     },
+    "spotify-player": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "spotify-player"
+      },
+      "branch": "main",
+      "revision": "1647789ce66e2411b39b2388681a8bee60bd57b0",
+      "url": "https://github.com/catppuccin/spotify-player/archive/1647789ce66e2411b39b2388681a8bee60bd57b0.tar.gz",
+      "hash": "0plryk71vs4kmd7nng3xxai532nr66acvkahph965blwa241xclf"
+    },
     "starship": {
       "type": "Git",
       "repository": {
