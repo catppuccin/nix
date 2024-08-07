@@ -18,6 +18,7 @@
       programs = {
         cava.enable = lib.mkForce false; # NOTE: this may actually work on darwin, but the package is currently not supported
         foot.enable = lib.mkForce false;
+        fuzzel.enable = lib.mkForce false;
         imv.enable = lib.mkForce false;
         mpv.enable = lib.mkForce false; # NOTE: same as cava, but `mpv` fails to build currently
         rofi.enable = lib.mkForce false;
