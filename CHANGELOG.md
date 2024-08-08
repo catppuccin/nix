@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.1.0](https://github.com/catppuccin/nix/compare/v1.0.2...v1.1.0) (2024-08-07)
+
+
+### Features
+
+* **home-manager/mpv:** add support for uosc ([#291](https://github.com/catppuccin/nix/issues/291)) ([8bdb55c](https://github.com/catppuccin/nix/commit/8bdb55cc1c13f572b6e4307a3c0d64f1ae286a4f))
+* **home-manager:** add support for fuzzel ([#75](https://github.com/catppuccin/nix/issues/75)) ([7e23de3](https://github.com/catppuccin/nix/commit/7e23de352f519067ea88db869e9aa14222290a73))
+
+
+### Bug Fixes
+
+* **home-manager/foot:** avoid IFD ([#300](https://github.com/catppuccin/nix/issues/300)) ([38df8bf](https://github.com/catppuccin/nix/commit/38df8bf46f0a88e11490de438100207a48040a9c))
+* **home-manager/hyprland:** inherit cursor size, unset hyprcursor env vars ([#299](https://github.com/catppuccin/nix/issues/299)) ([512306a](https://github.com/catppuccin/nix/commit/512306ae5848d11a9b38afe4680b69e4908648a2))
+* **home-manager/lazygit:** avoid IFD ([#304](https://github.com/catppuccin/nix/issues/304)) ([66f4ea1](https://github.com/catppuccin/nix/commit/66f4ea170093b62f319f41cebd2337a51b225c5a))
+* **home-manager/mpv:** avoid IFD ([#303](https://github.com/catppuccin/nix/issues/303)) ([f1ccaad](https://github.com/catppuccin/nix/commit/f1ccaad444ef97c84c59215e3858ed7a95fa7bff))
+* **home-manager/tofi:** avoid IFD ([#301](https://github.com/catppuccin/nix/issues/301)) ([afe2c4c](https://github.com/catppuccin/nix/commit/afe2c4c8651c137c44ec45c5e01948979cb77bc7))
+* **home-manager/zathura:** avoid IFD ([#298](https://github.com/catppuccin/nix/issues/298)) ([41d51d7](https://github.com/catppuccin/nix/commit/41d51d7f0459f95ab354b81ecbd49cc413a8d49d))
+
 ## [1.0.2](https://github.com/catppuccin/nix/compare/v1.0.1...v1.0.2) (2024-07-02)
 
 
