@@ -26,6 +26,11 @@ testers.runNixOSTest {
 
       console.enable = true;
 
+      i18n.inputMethod = {
+        enable = true;
+        type = "fcitx5";
+      };
+
       users.users.test = {
         isNormalUser = true;
         home = "/home/test";
