@@ -20,9 +20,9 @@
         "repo": "bat"
       },
       "branch": "main",
-      "revision": "82e7ca555f805b53d2b377390e4ab38c20282e83",
-      "url": "https://github.com/catppuccin/bat/archive/82e7ca555f805b53d2b377390e4ab38c20282e83.tar.gz",
-      "hash": "161xfhykjw8n8kc2qjg64v3yw10mn39b6v3r170r133j4n4gvrpw"
+      "revision": "d3feec47b16a8e99eabb34cdfbaa115541d374fc",
+      "url": "https://github.com/catppuccin/bat/archive/d3feec47b16a8e99eabb34cdfbaa115541d374fc.tar.gz",
+      "hash": "1g73x0p8pbzb8d1g1x1fwhwf05sj3nzhbhb65811752p5178fh5k"
     },
     "bottom": {
       "type": "Git",
@@ -296,9 +296,9 @@
         "repo": "nvim"
       },
       "branch": "main",
-      "revision": "10eda02ea4faa7d1f94e77a3410a4ae91c25c5f5",
-      "url": "https://github.com/catppuccin/nvim/archive/10eda02ea4faa7d1f94e77a3410a4ae91c25c5f5.tar.gz",
-      "hash": "1isl44p5z8ynmc7v75154wxc3xkk7i351k4164br6gpm49dwlvp3"
+      "revision": "05206bbb6d500a339cd55a9486532c3871a4455e",
+      "url": "https://github.com/catppuccin/nvim/archive/05206bbb6d500a339cd55a9486532c3871a4455e.tar.gz",
+      "hash": "1pszcs112p30mk2ahl85y38gpri13hics653iqimckmg0rfgj21k"
     },
     "palette": {
       "type": "Git",
@@ -308,9 +308,9 @@
         "repo": "palette"
       },
       "branch": "main",
-      "revision": "7f17f46c5d3d86f4c8d17fef07d97459744e1157",
-      "url": "https://github.com/catppuccin/palette/archive/7f17f46c5d3d86f4c8d17fef07d97459744e1157.tar.gz",
-      "hash": "07ahjznk2hlg49mkjfvb8ws1wn5bni3rc1ra9m7j2gw16qqgn5fy"
+      "revision": "628a04a0ee16cf9727ee9dc53e3efa425dd57e20",
+      "url": "https://github.com/catppuccin/palette/archive/628a04a0ee16cf9727ee9dc53e3efa425dd57e20.tar.gz",
+      "hash": "09la53yhrszpf24pnb7w4r6nqxbrr0pszzrbm82yn6zdx23gwyi3"
     },
     "polybar": {
       "type": "Git",
@@ -404,9 +404,9 @@
         "repo": "tmux"
       },
       "branch": "main",
-      "revision": "408c02ccf44d0a59a7a63ce2b65c5c29982c5c0e",
-      "url": "https://github.com/catppuccin/tmux/archive/408c02ccf44d0a59a7a63ce2b65c5c29982c5c0e.tar.gz",
-      "hash": "1rndl06xqrh75598xqk809j2gl00ddccdzgl7710z92im9mayr3y"
+      "revision": "e2a1043f4223ca591b196fdd0256f2c85dd27143",
+      "url": "https://github.com/catppuccin/tmux/archive/e2a1043f4223ca591b196fdd0256f2c85dd27143.tar.gz",
+      "hash": "0a3n37br6yzk1w34x3glfln1bzd8db2spl1m4pwiagrx71mv3xil"
     },
     "tofi": {
       "type": "Git",
