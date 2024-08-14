@@ -40,7 +40,7 @@ in
       inherit plugin;
       extraConfig = concatStrings [
         ''
-          set -g @catppuccin_flavour '${cfg.flavor}'
+          set -g @catppuccin_flavor '${cfg.flavor}'
         ''
         cfg.extraConfig
       ];
