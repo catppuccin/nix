@@ -181,7 +181,6 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
 
   ```nix
   services = {
-    dunst.catppuccin.enable = false;
     mako.catppuccin.enable = false;
   };
   programs = {

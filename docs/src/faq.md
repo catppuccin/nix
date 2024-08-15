@@ -19,7 +19,6 @@
 
   ```nix
   services = {
-    dunst.catppuccin.enable = false;
     mako.catppuccin.enable = false;
   };
   programs = {
