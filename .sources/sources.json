@@ -368,9 +368,9 @@
         "repo": "spotify-player"
       },
       "branch": "main",
-      "revision": "1647789ce66e2411b39b2388681a8bee60bd57b0",
-      "url": "https://github.com/catppuccin/spotify-player/archive/1647789ce66e2411b39b2388681a8bee60bd57b0.tar.gz",
-      "hash": "0plryk71vs4kmd7nng3xxai532nr66acvkahph965blwa241xclf"
+      "revision": "34b3d23806770185b72466d777853c73454b85a6",
+      "url": "https://github.com/catppuccin/spotify-player/archive/34b3d23806770185b72466d777853c73454b85a6.tar.gz",
+      "hash": "15cz4x432681zwik8dwmjljj628v540c1fz1m4v6nvvw63bdzsbr"
     },
     "starship": {
       "type": "Git",
