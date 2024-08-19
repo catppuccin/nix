@@ -47,6 +47,7 @@
     rio.enable = true;
     rofi.enable = true;
     skim.enable = true;
+    spotify-player.enable = true;
     starship.enable = true;
     swaylock.enable = true;
     tmux.enable = true;
