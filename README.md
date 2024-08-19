@@ -184,6 +184,7 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
     gh-dash.catppuccin.enable = false;
     imv.catppuccin.enable = false;
     kitty.catppuccin.enable = false; # IFD is introduced by home-manager
+    spotify-player.catppuccin.enable = false;
     swaylock.catppuccin.enable = false;
   };
 
