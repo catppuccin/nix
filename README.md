@@ -174,21 +174,21 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
   You can check if your stable release is currently supported at [status.nixos.org](https://status.nixos.org/)
 
 - Q: **"How do I fix the error: ... during evaluation because the option 'allow-import-from-derivation' is disabled"**\
-  A: Some ports require extra steps to configure those ports resulting in an [IFD](https://wiki.nixos.org/wiki/Import_From_Derivation).
-  You can manually disable that port (when using `catppuccin.enable`).
+  A: Some ports need to read and/or manipulate remote resources, resulting in Nix performing [IFD](https://nix.dev/manual/nix/latest/language/import-from-derivation).
   <details>
-  <summary>All IFD's</summary>
+  <summary>Disable modules that use IFD</summary>
 
   ```nix
-  services = {
-    mako.catppuccin.enable = false;
-  };
   programs = {
     cava.catppuccin.enable = false;
     gh-dash.catppuccin.enable = false;
     imv.catppuccin.enable = false;
-    kitty.catppuccin.enable = false; # IFD is inside HM
+    kitty.catppuccin.enable = false; # IFD is introduced by home-manager
     swaylock.catppuccin.enable = false;
+  };
+
+  services = {
+    mako.catppuccin.enable = false;
   };
   ```
   </details>
