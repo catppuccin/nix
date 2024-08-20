@@ -17,9 +17,9 @@ let
 
   configDirectory =
     if enableXdgConfig then
-      "${config.home.homeDirectory}/Library/Application Support"
+      config.xdg.configHome
     else
-      "${config.xdg.configHome}";
+      "${config.home.homeDirectory}/Library/Application Support";
   configFile = "${configDirectory}/lazygit/config.yml";
 in
 {
