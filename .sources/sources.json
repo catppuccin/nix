@@ -296,9 +296,9 @@
         "repo": "nvim"
       },
       "branch": "main",
-      "revision": "18bab5ec4c782cdf7d7525dbe89c60bfa02fc195",
-      "url": "https://github.com/catppuccin/nvim/archive/18bab5ec4c782cdf7d7525dbe89c60bfa02fc195.tar.gz",
-      "hash": "17rpww3i1cznwn1acf4vzxkwwnzpmm2m24x1asshkwzf45n65i3m"
+      "revision": "4fd72a9ab64b393c2c22b168508fd244877fec96",
+      "url": "https://github.com/catppuccin/nvim/archive/4fd72a9ab64b393c2c22b168508fd244877fec96.tar.gz",
+      "hash": "1fznbifj9xayimdjld2zhn9003mgp93sd87lpaky7pr6nsgsgnb8"
     },
     "palette": {
       "type": "Git",
@@ -380,9 +380,9 @@
         "repo": "starship"
       },
       "branch": "main",
-      "revision": "e9e5b1f0921881a8f50a6f9dfb67b8513500573b",
-      "url": "https://github.com/catppuccin/starship/archive/e9e5b1f0921881a8f50a6f9dfb67b8513500573b.tar.gz",
-      "hash": "0779illm1qqgdz8mjr9d5rz2b3ang3bx27iyrz2ry590zdng54nq"
+      "revision": "3c4749512e7d552adf48e75e5182a271392ab176",
+      "url": "https://github.com/catppuccin/starship/archive/3c4749512e7d552adf48e75e5182a271392ab176.tar.gz",
+      "hash": "0w1i9zjngx63khwrdcmw0zzpvp860aznq9dmdh07s1kkcxvydwdp"
     },
     "sway": {
       "type": "Git",
