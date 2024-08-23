@@ -13,21 +13,23 @@
 
 - Q: **"How do I fix the error: ... during evaluation because the option 'allow-import-from-derivation' is disabled"**\
   A: Some ports need to read and/or manipulate remote resources, resulting in Nix performing [IFD](https://nix.dev/manual/nix/latest/language/import-from-derivation).
+
   <details>
   <summary>Disable modules that use IFD</summary>
-
+  
   ```nix
-  programs = {
-    cava.catppuccin.enable = false;
-    gh-dash.catppuccin.enable = false;
-    imv.catppuccin.enable = false;
-    kitty.catppuccin.enable = false; # IFD is introduced by home-manager
-    spotify-player.catppuccin.enable = false;
-    swaylock.catppuccin.enable = false;
-  };
-
-  services = {
-    mako.catppuccin.enable = false;
-  };
+  {
+    programs = {
+      cava.catppuccin.enable = false;
+      gh-dash.catppuccin.enable = false;
+      imv.catppuccin.enable = false;
+      kitty.catppuccin.enable = false; # IFD is introduced by home-manager
+      swaylock.catppuccin.enable = false;
+    };
+  
+    services = {
+      mako.catppuccin.enable = false;
+    };
+  }
   ```
   </details>
