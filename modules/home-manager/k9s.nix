@@ -24,11 +24,13 @@ in
     transparent = lib.mkEnableOption "transparent version of flavor";
   };
 
-  config = lib.mkIf enable (lib.mkMerge [
-    (lib.mkIf (!enableXdgConfig) {
-      home.file."Library/Application Support/${themePath}".source = theme;
-    })
-    (lib.mkIf enableXdgConfig { xdg.configFile.${themePath}.source = theme; })
-    { programs.k9s.settings.k9s.ui.skin = themeName; }
-  ]);
+  config = lib.mkIf enable (
+    lib.mkMerge [
+      (lib.mkIf (!enableXdgConfig) {
+        home.file."Library/Application Support/${themePath}".source = theme;
+      })
+      (lib.mkIf enableXdgConfig { xdg.configFile.${themePath}.source = theme; })
+      { programs.k9s.settings.k9s.ui.skin = themeName; }
+    ]
+  );
 }
