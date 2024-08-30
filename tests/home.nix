@@ -52,6 +52,7 @@
     swaylock.enable = true;
     tmux.enable = true;
     tofi.enable = true;
+    obs-studio.enable = true;
     waybar.enable = true;
     yazi.enable = true;
     zathura.enable = true;
