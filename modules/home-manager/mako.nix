@@ -14,7 +14,9 @@ let
   extraConfigAttrs = lib.attrsets.getAttrs [ "urgency=high" ] theme;
 in
 {
-  options.services.mako.catppuccin = lib.ctp.mkCatppuccinOpt { name = "mako"; };
+  options.services.mako.catppuccin = lib.ctp.mkCatppuccinOpt { name = "mako"; } // {
+    accent = lib.ctp.mkAccentOpt "mako";
+  };
 
   # Will cause infinite recursion if config.services.mako is directly set as a whole
   config.services.mako = lib.mkIf enable {
