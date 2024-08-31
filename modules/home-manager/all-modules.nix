@@ -10,6 +10,7 @@
   ./fcitx5.nix
   ./fish.nix
   ./foot.nix
+  ./freetube.nix
   ./fuzzel.nix
   ./fzf.nix
   ./gh-dash.nix
