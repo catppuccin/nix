@@ -19,6 +19,13 @@
       description = "Global Catppuccin accent";
     };
 
+    lavors = lib.mkOption {
+      description = '''';
+      type = lib.types.attrs;
+      readOnly = true;
+      default = lib.ctp.flavors;
+    };
+
     sources =
       let
         defaultSources = import ../../.sources;

@@ -1,0 +1,6 @@
+---
+whiskers:
+    version: "2.4.0"
+---
+
+{{flavors | json_encode()}}

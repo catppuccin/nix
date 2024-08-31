@@ -8,7 +8,7 @@ let
   # this is a recursive attribute with all the functions below
   inherit (lib) ctp;
 in
-{
+rec {
   # string -> type -> string -> a
   # this is an internal function and shouldn't be
   # used unless you know what you're doing. it takes
@@ -29,29 +29,15 @@ in
   # followed by the local config attrset
   mkFlavorOpt = ctp.mkBasicOpt "flavor" ctp.types.flavorOption;
 
-  types = {
-    flavorOption = lib.types.enum [
-      "latte"
-      "frappe"
-      "macchiato"
-      "mocha"
-    ];
-    accentOption = lib.types.enum [
-      "blue"
-      "flamingo"
-      "green"
-      "lavender"
-      "maroon"
-      "mauve"
-      "peach"
-      "pink"
-      "red"
-      "rosewater"
-      "sapphire"
-      "sky"
-      "teal"
-      "yellow"
-    ];
+  flavors = builtins.fromJSON (builtins.readFile ./flavors.json);
+
+  types = let
+    flavorOptions = builtins.attrNames flavors;
+  in {
+    flavorOption = lib.types.enum flavorOptions;
+    accentOption = lib.types.enum (builtins.attrNames (
+      lib.filterAttrs (_: color: color.accent) flavors.${builtins.elemAt flavorOptions 0}.colors
+    ));
   };
 
   # string -> string
