@@ -19,6 +19,7 @@
   ./gtk.nix
   ./helix.nix
   ./hyprland.nix
+  ./hyprlock.nix
   ./imv.nix
   ./k9s.nix
   ./kitty.nix
