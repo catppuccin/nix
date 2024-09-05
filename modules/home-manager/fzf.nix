@@ -7,7 +7,9 @@ let
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
 {
-  options.programs.fzf.catppuccin = lib.ctp.mkCatppuccinOpt { name = "fzf"; };
+  options.programs.fzf.catppuccin = lib.ctp.mkCatppuccinOpt { name = "fzf"; } // {
+    accent = lib.ctp.mkAccentOpt "fzf";
+  };
 
   config.programs.fzf.colors =
     lib.mkIf enable
@@ -18,15 +20,15 @@ in
           "bg+" = "surface0";
           bg = "base";
           spinner = "rosewater";
-          hl = "red";
+          hl = cfg.accent;
           fg = "text";
-          header = "red";
-          info = "mauve";
-          pointer = "rosewater";
-          marker = "rosewater";
+          header = cfg.accent;
+          info = cfg.accent;
+          pointer = cfg.accent;
+          marker = cfg.accent;
           "fg+" = "text";
-          prompt = "mauve";
-          "hl+" = "red";
+          prompt = cfg.accent;
+          "hl+" = cfg.accent;
         }
       );
 }
