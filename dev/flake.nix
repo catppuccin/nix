@@ -14,6 +14,14 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
   outputs =
@@ -23,6 +31,7 @@
       nixpkgs-stable,
       home-manager,
       home-manager-stable,
+      plasma-manager,
     }:
     let
       systems = [
@@ -57,7 +66,7 @@
       checks = forAllSystems (
         system:
         import ../tests rec {
-          inherit home-manager home-manager-stable;
+          inherit home-manager home-manager-stable plasma-manager;
           inherit (nixpkgs) lib;
           nixpkgs = nixpkgsFor.${system}.unstable;
           nixpkgs-stable = nixpkgsFor.${system}.stable;

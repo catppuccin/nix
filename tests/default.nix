@@ -4,9 +4,13 @@
   nixpkgs-stable,
   home-manager,
   home-manager-stable,
+  plasma-manager,
 }:
 lib.optionalAttrs nixpkgs.stdenv.isLinux {
-  nixos-test-unstable = nixpkgs.callPackage ./nixos.nix { inherit home-manager; };
+  nixos-test-unstable = nixpkgs.callPackage ./nixos.nix {
+    inherit home-manager;
+    inherit plasma-manager;
+  };
   nixos-test-stable = nixpkgs-stable.callPackage ./nixos.nix { home-manager = home-manager-stable; };
 }
 // lib.optionalAttrs nixpkgs.stdenv.isDarwin {

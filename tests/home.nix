@@ -39,6 +39,7 @@
     imv.enable = true;
     k9s.enable = true;
     kitty.enable = true;
+    konsole.enable = true;
     lazygit.enable = true;
     micro.enable = true;
     mpv.enable = true;

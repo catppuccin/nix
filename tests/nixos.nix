@@ -1,4 +1,8 @@
-{ testers, home-manager }:
+{
+  testers,
+  home-manager,
+  plasma-manager,
+}:
 testers.runNixOSTest {
   name = "module-test";
 
@@ -37,7 +41,10 @@ testers.runNixOSTest {
       };
 
       home-manager.users.test = {
-        imports = [ ./home.nix ];
+        imports = [
+          ./home.nix
+          plasma-manager.homeManagerModules.plasma-manager
+        ];
       };
     };
 
