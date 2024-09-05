@@ -4,5 +4,6 @@
   outputs = _: {
     homeManagerModules.catppuccin = import ./modules/home-manager;
     nixosModules.catppuccin = import ./modules/nixos;
+    plasmaManagerModules.catppuccin = import ./modules/plasma-manager;
   };
 }

@@ -1,0 +1,3 @@
+[
+  ./konsole.nix
+]

@@ -228,6 +228,18 @@
       "url": "https://github.com/catppuccin/k9s/archive/fdbec82284744a1fc2eb3e2d24cb92ef87ffb8b4.tar.gz",
       "hash": "0cs7j1z0xq66w0700qcrc6ynzmw3bdr422p1rnkl7hxq8g4a67zn"
     },
+    "konsole": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "konsole"
+      },
+      "branch": "main",
+      "revision": "3b64040e3f4ae5afb2347e7be8a38bc3cd8c73a8",
+      "url": "https://github.com/catppuccin/konsole/archive/3b64040e3f4ae5afb2347e7be8a38bc3cd8c73a8.tar.gz",
+      "hash": "05glbl1j0lrczyxbkvzkj7wzmkbp7f2ryhlyqn0nm5yd7a0b57vp"
+    },
     "lazygit": {
       "type": "Git",
       "repository": {
