@@ -2,10 +2,13 @@
   lib,
   pkgs,
   home-manager,
+  plasma-manager,
 }:
 (home-manager.lib.homeManagerConfiguration {
   inherit pkgs;
   modules = [
+    plasma-manager.homeManagerModules.plasma-manager
+
     ./home.nix
 
     {
