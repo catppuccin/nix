@@ -14,7 +14,7 @@
     };
 
     accent = lib.mkOption {
-      type = lib.ctp.types.colorOption;
+      type = lib.ctp.types.accentOption;
       default = "mauve";
       description = "plasma-manager catppuccin accent";
     };
