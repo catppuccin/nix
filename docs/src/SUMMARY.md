@@ -9,6 +9,7 @@
 - [Module options](options/README.md)
   - [NixOS](options/nixos-options.md)
   - [home-manager](options/home-manager-options.md)
+  - [plasma-manager](options/plasma-manager-options.md)
 
 - [FAQ](faq.md)
 
