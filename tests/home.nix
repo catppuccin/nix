@@ -2,6 +2,7 @@
 {
   imports = [
     ../modules/home-manager
+    ../modules/plasma-manager
     ./common.nix
   ];
 
