@@ -10,6 +10,7 @@ You should first check out our [Getting started](getting-started) guide. Once yo
 
 - [For NixOS](options/nixos-options.md)
 - [For home-manager](options/home-manager-options.md)
+- [For plasma-manager](options/plasma-manager-options.md)
 
 ## Find a problem?
 

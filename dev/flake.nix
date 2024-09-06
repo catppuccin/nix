@@ -97,6 +97,11 @@
             moduleRoot = ../modules/home-manager;
           };
 
+          plasma-manager-doc = mkOptionDoc {
+            inherit version;
+            moduleRoot = ../modules/plasma-manager;
+          };
+
           site = mkSite rec {
             pname = "catppuccin-nix-website";
             inherit version;
@@ -114,6 +119,7 @@
 
             nixosDoc = packages'.nixos-doc;
             homeManagerDoc = packages'.home-manager-doc;
+            plasmaManagerDoc = packages'.plasma-manager-doc;
           };
 
           add-source =

@@ -4,7 +4,7 @@
   mdbook,
   python3,
 }:
-{ nixosDoc, homeManagerDoc, ... }@args:
+{ nixosDoc, homeManagerDoc, plasmaManagerDoc, ... }@args:
 stdenvNoCC.mkDerivation (
   finalAttrs:
   args
@@ -20,6 +20,7 @@ stdenvNoCC.mkDerivation (
 
       ln -s ${nixosDoc} src/options/nixos-options.md
       ln -s ${homeManagerDoc} src/options/home-manager-options.md
+      ln -s ${plasmaManagerDoc} src/options/plasma-manager-options.md
       mdbook build
 
       runHook postBuild
