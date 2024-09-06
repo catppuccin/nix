@@ -1,5 +1,4 @@
 [
-  ../home-manager/globals.nix
-
+  ./globals.nix
   ./konsole.nix
 ]
