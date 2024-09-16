@@ -53,7 +53,7 @@ jobs:
           version: ${{ env.TAG_NAME }}
 
       - name: Push to FlakeHub
-        uses: DeterminateSystems/flakehub-push@v4
+        uses: DeterminateSystems/flakehub-push@v5
         with:
           tag: ${{ env.TAG_NAME }}
           visibility: "public"
