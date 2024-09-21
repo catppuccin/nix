@@ -8,7 +8,9 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.services.mako.catppuccin;
   enable = cfg.enable && config.services.mako.enable;
-  theme = lib.ctp.fromINI (sources.mako + "/themes/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}");
+  theme = lib.ctp.fromINI (
+    sources.mako + "/themes/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}"
+  );
 
   # Settings that need to be extracted and put in extraConfig
   extraConfigAttrs = lib.attrsets.getAttrs [ "urgency=high" ] theme;
