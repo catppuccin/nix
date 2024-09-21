@@ -248,9 +248,9 @@
         "repo": "mako"
       },
       "branch": "main",
-      "revision": "33cb59ce8483725e2dd3e818aecbf0bab259bde8",
-      "url": "https://github.com/catppuccin/mako/archive/33cb59ce8483725e2dd3e818aecbf0bab259bde8.tar.gz",
-      "hash": "1hy1k5dm8q75i9bqffmg8z4k0qkg9291k73vhpp0msn7bivb1aba"
+      "revision": "92844f144e72f2dc8727879ec141ffdacf3ff6a1",
+      "url": "https://github.com/catppuccin/mako/archive/92844f144e72f2dc8727879ec141ffdacf3ff6a1.tar.gz",
+      "hash": "0nz5x66bv0nhmgh2slw647j69x7pqcw0cyclkpv3bq6c5bw9j24f"
     },
     "micro": {
       "type": "Git",
