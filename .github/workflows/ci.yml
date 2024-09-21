@@ -72,7 +72,7 @@ jobs:
         uses: cachix/install-nix-action@V27
 
       - name: Setup cache
-        uses: DeterminateSystems/magic-nix-cache-action@v7
+        uses: DeterminateSystems/magic-nix-cache-action@v8
 
       - name: Run tests
         run: |
