@@ -36,6 +36,7 @@
     # listing explicitly so we know it's tested
     glamour.catppuccin.enable = true;
     helix.enable = true;
+    hyprlock.enable = true;
     imv.enable = true;
     k9s.enable = true;
     kitty.enable = true;
