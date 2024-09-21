@@ -1,4 +1,5 @@
 [
+  ./aerc.nix
   ./alacritty.nix
   ./bat.nix
   ./bottom.nix

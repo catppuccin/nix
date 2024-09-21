@@ -17,6 +17,7 @@
   i18n.inputMethod.enabled = "fcitx5";
 
   programs = {
+    aerc.enable = true;
     alacritty.enable = true;
     bat.enable = true;
     bottom.enable = true;

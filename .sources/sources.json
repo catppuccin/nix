@@ -1,5 +1,17 @@
 {
   "pins": {
+    "aerc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "aerc"
+      },
+      "branch": "main",
+      "revision": "ca404a9f2d125ef12db40db663d43c9d94116a05",
+      "url": "https://github.com/catppuccin/aerc/archive/ca404a9f2d125ef12db40db663d43c9d94116a05.tar.gz",
+      "hash": "0q9a818rwsqx5kvln5zzfan54xaw9yqbbm5hjbrwzdl5q8g28qir"
+    },
     "alacritty": {
       "type": "Git",
       "repository": {
