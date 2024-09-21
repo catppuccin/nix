@@ -7,7 +7,7 @@ let
   themeName = "Catppuccin_${lib.ctp.mkUpper cfg.flavor}.ovt";
 in
 {
-  options.programs.obs-studio.catppuccin = lib.ctp.mkCatppuccinOpt {name = "obs-studio";};
+  options.programs.obs-studio.catppuccin = lib.ctp.mkCatppuccinOpt { name = "obs-studio"; };
 
   config = lib.mkIf enable {
     xdg.configFile."obs-studio/themes/Catppuccin.obt".source = "${sources.obs}/themes/Catppuccin.obt";
