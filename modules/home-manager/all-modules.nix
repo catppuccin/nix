@@ -41,6 +41,7 @@
   ./sway.nix
   ./tmux.nix
   ./tofi.nix
+  ./obs-studio.nix
   ./waybar.nix
   ./yazi.nix
   ./zathura.nix

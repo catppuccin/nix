@@ -300,6 +300,18 @@
       "url": "https://github.com/catppuccin/nvim/archive/4fd72a9ab64b393c2c22b168508fd244877fec96.tar.gz",
       "hash": "1fznbifj9xayimdjld2zhn9003mgp93sd87lpaky7pr6nsgsgnb8"
     },
+    "obs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "obs"
+      },
+      "branch": "main",
+      "revision": "b17939991545bdd6232e688ec5004b6dfae46f69",
+      "url": "https://github.com/catppuccin/obs/archive/b17939991545bdd6232e688ec5004b6dfae46f69.tar.gz",
+      "hash": "15ndpcy8a37997vd14z08arlv3zk5ldlmb7s7i63dz15yxqnaaym"
+    },
     "palette": {
       "type": "Git",
       "repository": {
