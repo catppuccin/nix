@@ -185,7 +185,6 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
       cava.catppuccin.enable = false;
       gh-dash.catppuccin.enable = false;
       imv.catppuccin.enable = false;
-      kitty.catppuccin.enable = false; # IFD is introduced by home-manager
       swaylock.catppuccin.enable = false;
     };
   
