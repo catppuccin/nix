@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.1.0](https://github.com/catppuccin/nix/compare/v1.0.2...v1.1.0) (2024-10-08)
+
+
+### Features
+
+* **home-manager/fzf:** add accent support ([#331](https://github.com/catppuccin/nix/issues/331)) ([45745fe](https://github.com/catppuccin/nix/commit/45745fe5960acaefef2b60f3455bcac6a0ca6bc9))
+* **home-manager/mako:** add accent color support ([#323](https://github.com/catppuccin/nix/issues/323)) ([966af28](https://github.com/catppuccin/nix/commit/966af28f2d5b7b5bd3f947d6bab5d7da3bf9fee4))
+* **home-manager/mpv:** add support for uosc ([#291](https://github.com/catppuccin/nix/issues/291)) ([8bdb55c](https://github.com/catppuccin/nix/commit/8bdb55cc1c13f572b6e4307a3c0d64f1ae286a4f))
+* **home-manager:** add support for aerc ([#338](https://github.com/catppuccin/nix/issues/338)) ([96cf8b4](https://github.com/catppuccin/nix/commit/96cf8b4a05fb23a53c027621b1147b5cf9e5439f))
+* **home-manager:** add support for freetube ([#327](https://github.com/catppuccin/nix/issues/327)) ([6effc32](https://github.com/catppuccin/nix/commit/6effc32e614405c05a63a1365fd078a0ab996a0e))
+* **home-manager:** add support for fuzzel ([#75](https://github.com/catppuccin/nix/issues/75)) ([7e23de3](https://github.com/catppuccin/nix/commit/7e23de352f519067ea88db869e9aa14222290a73))
+* **home-manager:** add support for hyprlock ([#330](https://github.com/catppuccin/nix/issues/330)) ([faea883](https://github.com/catppuccin/nix/commit/faea8838116f5e5fa2ab4b00d97d8d1e0e382bae))
+* **home-manager:** add support for obs-studio ([#324](https://github.com/catppuccin/nix/issues/324)) ([76dd2b2](https://github.com/catppuccin/nix/commit/76dd2b2e1f8d1ec7090c30462f8bcc0b7c598389))
+* **home-manager:** add support for spotify-player ([#296](https://github.com/catppuccin/nix/issues/296)) ([ff4128f](https://github.com/catppuccin/nix/commit/ff4128f8ea57879050145cf077a27b9d3a9cbf33))
+
+
+### Bug Fixes
+
+* **home-manager/dunst:** avoid IFD ([#302](https://github.com/catppuccin/nix/issues/302)) ([9fdb8aa](https://github.com/catppuccin/nix/commit/9fdb8aaf65afaa4262ba41bfac1f45c3a7cc36a0))
+* **home-manager/foot:** avoid IFD ([#300](https://github.com/catppuccin/nix/issues/300)) ([38df8bf](https://github.com/catppuccin/nix/commit/38df8bf46f0a88e11490de438100207a48040a9c))
+* **home-manager/gtk:** support all tweaks ([#274](https://github.com/catppuccin/nix/issues/274)) ([5520567](https://github.com/catppuccin/nix/commit/552056779a136092eb6358c573d925630172fc30))
+* **home-manager/hyprland:** allow merging `sources` option ([#309](https://github.com/catppuccin/nix/issues/309)) ([b1e6a8c](https://github.com/catppuccin/nix/commit/b1e6a8cbf12f86f0219a743a1f112ea20c0b2454))
+* **home-manager/hyprland:** import accents from file ([#347](https://github.com/catppuccin/nix/issues/347)) ([65f2a8a](https://github.com/catppuccin/nix/commit/65f2a8a36422e54ae469f3fc6325775ce497724b))
+* **home-manager/hyprland:** inherit cursor size, unset hyprcursor env vars ([#299](https://github.com/catppuccin/nix/issues/299)) ([512306a](https://github.com/catppuccin/nix/commit/512306ae5848d11a9b38afe4680b69e4908648a2))
+* **home-manager/k9s:** support darwin without XDG ([#311](https://github.com/catppuccin/nix/issues/311)) ([0047cf5](https://github.com/catppuccin/nix/commit/0047cf5816313075f5a141daea73532525dbb5df))
+* **home-manager/kitty:** use new `themeFile` option on 24.11 ([#337](https://github.com/catppuccin/nix/issues/337)) ([f91de98](https://github.com/catppuccin/nix/commit/f91de989e9671176ee4cda16c4b297d5a9682a45))
+* **home-manager/lazygit:** avoid IFD ([#304](https://github.com/catppuccin/nix/issues/304)) ([66f4ea1](https://github.com/catppuccin/nix/commit/66f4ea170093b62f319f41cebd2337a51b225c5a))
+* **home-manager/lazygit:** support darwin without XDG ([#313](https://github.com/catppuccin/nix/issues/313)) ([8886a68](https://github.com/catppuccin/nix/commit/8886a68edadb1d93c7101337f995ffce4b410ff2))
+* **home-manager/mpv:** avoid IFD ([#303](https://github.com/catppuccin/nix/issues/303)) ([f1ccaad](https://github.com/catppuccin/nix/commit/f1ccaad444ef97c84c59215e3858ed7a95fa7bff))
+* **home-manager/tofi:** avoid IFD ([#301](https://github.com/catppuccin/nix/issues/301)) ([afe2c4c](https://github.com/catppuccin/nix/commit/afe2c4c8651c137c44ec45c5e01948979cb77bc7))
+* **home-manager/zathura:** avoid IFD ([#298](https://github.com/catppuccin/nix/issues/298)) ([41d51d7](https://github.com/catppuccin/nix/commit/41d51d7f0459f95ab354b81ecbd49cc413a8d49d))
+
 ## [1.0.2](https://github.com/catppuccin/nix/compare/v1.0.1...v1.0.2) (2024-07-02)
 
 
