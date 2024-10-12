@@ -7,6 +7,6 @@
 {
   imports = import ../lib/import-modules.nix {
     inherit config lib pkgs;
-    modules = import ./globals.nix;
+    modules = import [ ./globals.nix ];
   };
 }
