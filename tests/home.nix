@@ -59,6 +59,7 @@
     waybar.enable = true;
     yazi.enable = true;
     zathura.enable = true;
+    zed-editor.enable = true;
     zellij.enable = true;
     zsh = {
       enable = true;
