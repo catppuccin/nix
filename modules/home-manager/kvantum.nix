@@ -11,21 +11,23 @@ let
   flavorCapitalized = lib.ctp.mkUpper cfg.flavor;
   accentCapitalized = lib.ctp.mkUpper cfg.accent;
 
-  theme = if (lib.versionAtLeast lib.ctp.getModuleRelease "24.11") then
-    pkgs.catppuccin-kvantum.override {
-      accent = cfg.accent;
-      variant = cfg.flavor;
-    }
-  else
-    pkgs.catppuccin-kvantum.override {
-      accent = accentCapitalized;
-      variant = flavorCapitalized;
-    };
+  theme =
+    if (lib.versionAtLeast lib.ctp.getModuleRelease "24.11") then
+      pkgs.catppuccin-kvantum.override {
+        accent = cfg.accent;
+        variant = cfg.flavor;
+      }
+    else
+      pkgs.catppuccin-kvantum.override {
+        accent = accentCapitalized;
+        variant = flavorCapitalized;
+      };
 
-  themeName = if (lib.versionAtLeast lib.ctp.getModuleRelease "24.11") then
-    "catppuccin-${cfg.flavor}-${cfg.accent}"
-  else
-    "Catppuccin-${flavorCapitalized}-${accentCapitalized}";
+  themeName =
+    if (lib.versionAtLeast lib.ctp.getModuleRelease "24.11") then
+      "catppuccin-${cfg.flavor}-${cfg.accent}"
+    else
+      "Catppuccin-${flavorCapitalized}-${accentCapitalized}";
 in
 {
   options.qt.style.catppuccin = lib.ctp.mkCatppuccinOpt { name = "Kvantum"; } // {
