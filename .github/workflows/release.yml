@@ -1,39 +1,92 @@
 name: Release
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag name to create and publish
+        required: true
 
 jobs:
-  release-please:
+  make-release:
     name: Make release
 
     runs-on: ubuntu-latest
 
     permissions:
       contents: write
-      pull-requests: write
 
-    outputs:
-      release_created: ${{ steps.release-please-run.outputs.release_created }}
-      tag_name: ${{ steps.release-please-run.outputs.tag_name }}
+    env:
+      TAG_NAME: ${{ inputs.tag }}
 
     steps:
-      - uses: googleapis/release-please-action@v4
-        id: release-please-run
-        with:
-          release-type: simple
-          package-name: catppuccin/nix
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@V27
+
+      - name: Install git-cliff
+        run: |
+          nix profile install \
+            --inputs-from ./dev \
+            'nixpkgs#git-cliff'
+
+      - name: Configure Git
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Generate release changelog
+        env:
+          GIT_CLIFF_CONFIG: cliff.toml
+          GIT_CLIFF_OUTPUT: /tmp/release-changelog
+          GIT_CLIFF_TAG: ${{ env.TAG_NAME }}
+          GITHUB_REPO: ${{ env.GITHUB_REPOSITORY }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          git-cliff --unreleased --strip header --verbose
+
+      - name: Update changelog
+        env:
+          GIT_CLIFF_CONFIG: cliff.toml
+          GIT_CLIFF_OUTPUT: CONTRIBUTING.md
+          GIT_CLIFF_TAG: ${{ env.TAG_NAME }}
+          GITHUB_REPO: ${{ env.GITHUB_REPOSITORY }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          git-cliff --verbose
+
+      - name: Create release commit
+        run: |
+          git add CHANGELOG.md
+          git commit -m "chore: release $TAG_NAME"
+
+      - name: Tag release
+        run: |
+          git tag -a "$TAG_NAME" -m "$TAG_NAME"
+
+      - name: Push tag
+        run: |
+          git push --follow-tags
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create \
+            --draft \
+            --notes-file /tmp/release-changelog \
+            --verify-tag "$TAG_NAME"
 
   publish:
     name: Publish to Flake registries
-    if: ${{ needs.release-please.outputs.release_created }}
-    needs: release-please
+    needs: make-release
 
     runs-on: ubuntu-latest
 
     env:
-      TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
+      TAG_NAME: ${{ inputs.tag }}
 
     permissions:
       id-token: write
