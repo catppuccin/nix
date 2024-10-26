@@ -46,6 +46,7 @@
   ./waybar.nix
   ./yazi.nix
   ./zathura.nix
+  ./zed-editor.nix
   ./zellij.nix
   ./zsh-syntax-highlighting.nix
 ]
