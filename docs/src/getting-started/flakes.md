@@ -40,7 +40,7 @@ After, we can use them in a NixOS configuration like so
 }
 ```
 
-or if you use a [standalone installation](https://nix-community.github.io/home-manager/index.html#sec-install-standalone) of `home-manager`
+or if you use a [standalone installation](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone) of `home-manager`
 
 ```nix
 {
