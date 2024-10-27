@@ -6,6 +6,7 @@ let
 in
 {
   options.i18n.inputMethod.fcitx5.catppuccin = lib.ctp.mkCatppuccinOpt { name = "Fcitx5"; } // {
+    accent = lib.ctp.mkAccentOpt "Fcitx5";
     apply = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -17,14 +18,14 @@ in
   };
 
   config = lib.mkIf enable {
-    xdg.dataFile."fcitx5/themes/catppuccin-${cfg.flavor}" = {
-      source = "${sources.fcitx5}/src/catppuccin-${cfg.flavor}";
+    xdg.dataFile."fcitx5/themes/catppuccin-${cfg.flavor}-${cfg.accent}" = {
+      source = "${sources.fcitx5}/src/catppuccin-${cfg.flavor}-${cfg.accent}";
       recursive = true;
     };
 
     xdg.configFile."fcitx5/conf/classicui.conf" = lib.mkIf cfg.apply {
       text = lib.generators.toINIWithGlobalSection { } {
-        globalSection.Theme = "catppuccin-${cfg.flavor}";
+        globalSection.Theme = "catppuccin-${cfg.flavor}-${cfg.accent}";
       };
     };
   };
