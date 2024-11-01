@@ -9,6 +9,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.fuzzel.settings.main.include = sources.fuzzel + "/themes/${cfg.flavor}/${cfg.accent}.ini";
+    programs.fuzzel.settings.main.include =
+      sources.fuzzel + "/themes/catppuccin-${cfg.flavor}/${cfg.accent}.ini";
   };
 }
