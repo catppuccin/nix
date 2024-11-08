@@ -24,36 +24,3 @@ jobs:
         with:
           release-type: simple
           package-name: catppuccin/nix
-
-  publish:
-    name: Publish to Flake registries
-    if: ${{ needs.release-please.outputs.release_created }}
-    needs: release-please
-
-    runs-on: ubuntu-latest
-
-    env:
-      TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
-
-    permissions:
-      id-token: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ env.TAG_NAME }}
-
-      - name: Install Nix
-        uses: cachix/install-nix-action@V27
-
-      - name: Publish on Flakestry
-        uses: flakestry/flakestry-publish@main
-        with:
-          version: ${{ env.TAG_NAME }}
-
-      - name: Push to FlakeHub
-        uses: DeterminateSystems/flakehub-push@v5
-        with:
-          tag: ${{ env.TAG_NAME }}
-          visibility: "public"
