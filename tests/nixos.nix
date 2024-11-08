@@ -26,6 +26,12 @@ testers.runNixOSTest {
 
       console.enable = true;
 
+      i18n.inputMethod = {
+        # TODO: Use this option after 24.11 is stable
+        # enable = true;
+        enabled = "fcitx5";
+      };
+
       users.users.test = {
         isNormalUser = true;
         home = "/home/test";
