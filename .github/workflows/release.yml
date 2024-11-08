@@ -14,10 +14,6 @@ jobs:
       contents: write
       pull-requests: write
 
-    outputs:
-      release_created: ${{ steps.release-please-run.outputs.release_created }}
-      tag_name: ${{ steps.release-please-run.outputs.tag_name }}
-
     steps:
       - uses: googleapis/release-please-action@v4
         id: release-please-run
