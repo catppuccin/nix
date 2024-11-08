@@ -308,9 +308,9 @@
         "repo": "nvim"
       },
       "branch": "main",
-      "revision": "65bf0b16f57a3db70d6a93ac68882dd9a31d0565",
-      "url": "https://github.com/catppuccin/nvim/archive/65bf0b16f57a3db70d6a93ac68882dd9a31d0565.tar.gz",
-      "hash": "16ngmh7psyc5499bdz4l03gqkjxj67400kj0fd8jxac57dwfq9h7"
+      "revision": "35d8057137af463c9f41f169539e9b190d57d269",
+      "url": "https://github.com/catppuccin/nvim/archive/35d8057137af463c9f41f169539e9b190d57d269.tar.gz",
+      "hash": "1lra18arndkpd8k9pyh3qgykihqnvm8h6v0w0kjpf36ys9xgpz3r"
     },
     "obs": {
       "type": "Git",
@@ -332,9 +332,9 @@
         "repo": "palette"
       },
       "branch": "main",
-      "revision": "d0ee97fd76a69f619f2ec2cf5b98e98c2fb0c693",
-      "url": "https://github.com/catppuccin/palette/archive/d0ee97fd76a69f619f2ec2cf5b98e98c2fb0c693.tar.gz",
-      "hash": "1hpbi3620j5idxp889pg7bd0zq9zjr27sldbmq9mp332bjry7f7v"
+      "revision": "b85d36adec22631684ae64ced0a5cdd15462de3b",
+      "url": "https://github.com/catppuccin/palette/archive/b85d36adec22631684ae64ced0a5cdd15462de3b.tar.gz",
+      "hash": "1kb7v7nlgz9dk0634gcki2kpnw5442n6w1gnfz6acz5rk8n5a1ph"
     },
     "polybar": {
       "type": "Git",
