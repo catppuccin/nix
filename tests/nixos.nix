@@ -27,8 +27,9 @@ testers.runNixOSTest {
       console.enable = true;
 
       i18n.inputMethod = {
-        enable = true;
-        type = "fcitx5";
+        # TODO: Use this option after 24.11 is stable
+        # enable = true;
+        enabled = "fcitx5";
       };
 
       users.users.test = {
