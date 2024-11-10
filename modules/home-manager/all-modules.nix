@@ -5,7 +5,7 @@
   ./bottom.nix
   ./btop.nix
   ./cava.nix
-  ./cursor.nix
+  ./cursors.nix
   ./delta.nix
   ./dunst.nix
   ./fcitx5.nix
@@ -42,7 +42,7 @@
   ./sway.nix
   ./tmux.nix
   ./tofi.nix
-  ./obs-studio.nix
+  ./obs.nix
   ./waybar.nix
   ./yazi.nix
   ./zathura.nix

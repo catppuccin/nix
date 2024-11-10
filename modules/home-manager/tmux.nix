@@ -12,7 +12,7 @@ let
     concatStrings
     ;
   inherit (config.catppuccin) sources;
-  cfg = config.programs.tmux.catppuccin;
+  cfg = config.catppuccin.tmux;
   enable = cfg.enable && config.programs.tmux.enable;
 
   plugin =
@@ -24,7 +24,7 @@ let
     };
 in
 {
-  options.programs.tmux.catppuccin = ctp.mkCatppuccinOpt { name = "tmux"; } // {
+  options.catppuccin.tmux = ctp.mkCatppuccinOpt { name = "tmux"; } // {
     extraConfig = mkOption {
       type = types.lines;
       description = "Additional configuration for the catppuccin plugin.";
@@ -34,6 +34,31 @@ in
       '';
     };
   };
+
+  imports =
+    (lib.ctp.mkRenamedCatppuccinOpts {
+      from = [
+        "programs"
+        "tmux"
+        "catppuccin"
+      ];
+      to = "tmux";
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "programs"
+          "tmux"
+          "catppuccin"
+          "extraConfig"
+        ]
+        [
+          "catppuccin"
+          "tmux"
+          "extraConfig"
+        ]
+      )
+    ];
 
   config.programs.tmux.plugins = lib.mkIf enable [
     {

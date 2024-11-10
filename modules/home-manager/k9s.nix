@@ -7,7 +7,7 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.k9s.catppuccin;
+  cfg = config.catppuccin.k9s;
   enable = cfg.enable && config.programs.k9s.enable;
 
   # NOTE: On MacOS specifically, k9s expects its configuration to be in
@@ -20,9 +20,34 @@ let
   theme = sources.k9s + "/dist/${themeFile}";
 in
 {
-  options.programs.k9s.catppuccin = lib.ctp.mkCatppuccinOpt { name = "k9s"; } // {
+  options.catppuccin.k9s = lib.ctp.mkCatppuccinOpt { name = "k9s"; } // {
     transparent = lib.mkEnableOption "transparent version of flavor";
   };
+
+  imports =
+    (lib.ctp.mkRenamedCatppuccinOpts {
+      from = [
+        "programs"
+        "k9s"
+        "catppuccin"
+      ];
+      to = "k9s";
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "programs"
+          "k9s"
+          "catppuccin"
+          "transparent"
+        ]
+        [
+          "catppuccin"
+          "k9s"
+          "transparent"
+        ]
+      )
+    ];
 
   config = lib.mkIf enable (
     lib.mkMerge [

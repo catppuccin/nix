@@ -6,7 +6,7 @@
 }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.i18n.inputMethod.fcitx5.catppuccin;
+  cfg = config.catppuccin.fcitx5;
   enable =
     cfg.enable
     && (
@@ -20,8 +20,19 @@ let
   '';
 in
 {
-  options.i18n.inputMethod.fcitx5.catppuccin = lib.ctp.mkCatppuccinOpt { name = "Fcitx5"; } // {
+  options.catppuccin.fcitx5 = lib.ctp.mkCatppuccinOpt { name = "Fcitx5"; } // {
     accent = lib.ctp.mkAccentOpt "Fcitx5";
+  };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "i18n"
+      "inputMethod"
+      "fcitx5"
+      "catppuccin"
+    ];
+    to = "fcitx5";
+    accentSupport = true;
   };
 
   config.i18n.inputMethod.fcitx5 = lib.mkIf enable {

@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.qt.style.catppuccin;
+  cfg = config.catppuccin.kvantum;
   enable = cfg.enable && config.qt.enable;
 
   flavorCapitalized = lib.ctp.mkUpper cfg.flavor;
@@ -30,7 +30,7 @@ let
       "Catppuccin-${flavorCapitalized}-${accentCapitalized}";
 in
 {
-  options.qt.style.catppuccin = lib.ctp.mkCatppuccinOpt { name = "Kvantum"; } // {
+  options.catppuccin.kvantum = lib.ctp.mkCatppuccinOpt { name = "Kvantum"; } // {
     accent = lib.ctp.mkAccentOpt "Kvantum";
 
     apply = lib.mkOption {
@@ -42,6 +42,32 @@ in
       '';
     };
   };
+
+  imports =
+    (lib.ctp.mkRenamedCatppuccinOpts {
+      from = [
+        "qt"
+        "style"
+        "catppuccin"
+      ];
+      to = "kvantum";
+      accentSupport = true;
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "qt"
+          "style"
+          "catppuccin"
+          "apply"
+        ]
+        [
+          "catppuccin"
+          "kvantum"
+          "apply"
+        ]
+      )
+    ];
 
   config = lib.mkIf enable {
     assertions = [

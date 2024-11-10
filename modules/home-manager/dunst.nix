@@ -1,17 +1,42 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.services.dunst.catppuccin;
+  cfg = config.catppuccin.dunst;
   enable = cfg.enable && config.services.dunst.enable;
 in
 {
-  options.services.dunst.catppuccin = lib.ctp.mkCatppuccinOpt { name = "dunst"; } // {
+  options.catppuccin.dunst = lib.ctp.mkCatppuccinOpt { name = "dunst"; } // {
     prefix = lib.mkOption {
       type = lib.types.str;
       default = "00";
       description = "Prefix to use for the dunst drop-in file";
     };
   };
+
+  imports =
+    (lib.ctp.mkRenamedCatppuccinOpts {
+      from = [
+        "services"
+        "dunst"
+        "catppuccin"
+      ];
+      to = "dunst";
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "services"
+          "dunst"
+          "catppuccin"
+          "prefix"
+        ]
+        [
+          "catppuccin"
+          "dunst"
+          "prefix"
+        ]
+      )
+    ];
 
   # Dunst currently has no "include" functionality, but has "drop-ins"
   # Unfortunately, this may cause inconvenience as it overrides ~/.config/dunst/dunstrc

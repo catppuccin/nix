@@ -1,12 +1,20 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.console.catppuccin;
+  cfg = config.catppuccin.tty;
   enable = cfg.enable && config.console.enable;
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
 {
-  options.console.catppuccin = lib.ctp.mkCatppuccinOpt { name = "console"; };
+  options.catppuccin.tty = lib.ctp.mkCatppuccinOpt { name = "console"; };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "console"
+      "catppuccin"
+    ];
+    to = "tty";
+  };
 
   config.console.colors = lib.mkIf enable (
     # Manually populate with colors from catppuccin/tty
