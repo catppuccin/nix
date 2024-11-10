@@ -141,7 +141,7 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
 }
 ```
 
-3. Enable for supported programs with `catppucin.enable = true;`
+3. Enable for supported programs with `catppuccin.enable = true;`
 
 ```nix
 {
