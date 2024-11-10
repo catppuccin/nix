@@ -1,12 +1,21 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.programs.aerc.catppuccin;
+  cfg = config.catppuccin.aerc;
   enable = cfg.enable && config.programs.aerc.enable;
   themeName = "catppuccin-${cfg.flavor}";
 in
 {
-  options.programs.aerc.catppuccin = lib.ctp.mkCatppuccinOpt { name = "aerc"; };
+  options.catppuccin.aerc = lib.ctp.mkCatppuccinOpt { name = "aerc"; };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "aerc"
+      "catppuccin"
+    ];
+    to = "aerc";
+  };
 
   config = lib.mkIf enable {
     programs.aerc = {

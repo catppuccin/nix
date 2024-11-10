@@ -1,13 +1,22 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.programs.micro.catppuccin;
+  cfg = config.catppuccin.micro;
   enable = cfg.enable && config.programs.micro.enable;
 
   themePath = "catppuccin-${cfg.flavor}.micro";
 in
 {
-  options.programs.micro.catppuccin = lib.ctp.mkCatppuccinOpt { name = "micro"; };
+  options.catppuccin.micro = lib.ctp.mkCatppuccinOpt { name = "micro"; };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "micro"
+      "catppuccin"
+    ];
+    to = "micro";
+  };
 
   config = lib.mkIf enable {
     programs.micro.settings.colorscheme = lib.removeSuffix ".micro" themePath;

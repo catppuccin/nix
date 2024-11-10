@@ -1,12 +1,12 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.programs.waybar.catppuccin;
+  cfg = config.catppuccin.waybar;
   enable = cfg.enable && config.programs.waybar.enable;
   styleFile = "${sources.waybar}/themes/${cfg.flavor}.css";
 in
 {
-  options.programs.waybar.catppuccin = lib.ctp.mkCatppuccinOpt { name = "waybar"; } // {
+  options.catppuccin.waybar = lib.ctp.mkCatppuccinOpt { name = "waybar"; } // {
     mode = lib.mkOption {
       type = lib.types.enum [
         "prependImport"
@@ -21,6 +21,31 @@ in
       '';
     };
   };
+
+  imports =
+    (lib.ctp.mkRenamedCatppuccinOpts {
+      from = [
+        "programs"
+        "waybar"
+        "catppuccin"
+      ];
+      to = "waybar";
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "programs"
+          "waybar"
+          "catppuccin"
+          "mode"
+        ]
+        [
+          "catppuccin"
+          "waybar"
+          "mode"
+        ]
+      )
+    ];
 
   config = lib.mkIf enable (
     lib.mkMerge [

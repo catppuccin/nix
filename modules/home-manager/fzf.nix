@@ -2,13 +2,23 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.fzf.catppuccin;
+  cfg = config.catppuccin.fzf;
   enable = cfg.enable && config.programs.fzf.enable;
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
 {
-  options.programs.fzf.catppuccin = lib.ctp.mkCatppuccinOpt { name = "fzf"; } // {
+  options.catppuccin.fzf = lib.ctp.mkCatppuccinOpt { name = "fzf"; } // {
     accent = lib.ctp.mkAccentOpt "fzf";
+  };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "fzf"
+      "catppuccin"
+    ];
+    to = "fzf";
+    accentSupport = true;
   };
 
   config.programs.fzf.colors =

@@ -2,12 +2,22 @@
 let
   inherit (config.catppuccin) sources;
   inherit (lib) ctp mkIf;
-  cfg = config.programs.mpv.catppuccin;
+  cfg = config.catppuccin.mpv;
   enable = cfg.enable && config.programs.mpv.enable;
 in
 {
-  options.programs.mpv.catppuccin = ctp.mkCatppuccinOpt { name = "mpv"; } // {
+  options.catppuccin.mpv = ctp.mkCatppuccinOpt { name = "mpv"; } // {
     accent = ctp.mkAccentOpt "mpv";
+  };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "mpv"
+      "catppuccin"
+    ];
+    to = "mpv";
+    accentSupport = true;
   };
 
   config.programs.mpv = mkIf enable {

@@ -1,11 +1,20 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.programs.bottom.catppuccin;
+  cfg = config.catppuccin.bottom;
   enable = cfg.enable && config.programs.bottom.enable;
 in
 {
-  options.programs.bottom.catppuccin = lib.ctp.mkCatppuccinOpt { name = "bottom"; };
+  options.catppuccin.bottom = lib.ctp.mkCatppuccinOpt { name = "bottom"; };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "bottom"
+      "catppuccin"
+    ];
+    to = "bottom";
+  };
 
   config = lib.mkIf enable {
     programs.bottom = {

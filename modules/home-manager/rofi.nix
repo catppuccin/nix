@@ -2,11 +2,20 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.rofi.catppuccin;
+  cfg = config.catppuccin.rofi;
   enable = cfg.enable && config.programs.rofi.enable;
 in
 {
-  options.programs.rofi.catppuccin = lib.ctp.mkCatppuccinOpt { name = "rofi"; };
+  options.catppuccin.rofi = lib.ctp.mkCatppuccinOpt { name = "rofi"; };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "rofi"
+      "catppuccin"
+    ];
+    to = "rofi";
+  };
 
   config.programs.rofi = lib.mkIf enable {
     theme = {

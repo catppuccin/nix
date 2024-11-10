@@ -11,12 +11,11 @@ let
     types
     mkOption
     ;
-  cfg = config.services.displayManager.sddm.catppuccin;
+  cfg = config.catppuccin.sddm;
   enable = cfg.enable && config.services.displayManager.sddm.enable;
 in
-
 {
-  options.services.displayManager.sddm.catppuccin = ctp.mkCatppuccinOpt { name = "sddm"; } // {
+  options.catppuccin.sddm = ctp.mkCatppuccinOpt { name = "sddm"; } // {
     font = mkOption {
       type = types.str;
       default = "Noto Sans";
@@ -51,6 +50,93 @@ in
         default = true;
       };
   };
+
+  imports =
+    (lib.ctp.mkRenamedCatppuccinOpts {
+      from = [
+        "services"
+        "displayManager"
+        "sddm"
+        "catppuccin"
+      ];
+      to = "sddm";
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "services"
+          "displayManager"
+          "sddm"
+          "catppuccin"
+          "font"
+        ]
+        [
+          "catppuccin"
+          "sddm"
+          "font"
+        ]
+      )
+
+      (lib.mkRenamedOptionModule
+        [
+          "services"
+          "displayManager"
+          "sddm"
+          "catppuccin"
+          "fontSize"
+        ]
+        [
+          "catppuccin"
+          "sddm"
+          "fontSize"
+        ]
+      )
+
+      (lib.mkRenamedOptionModule
+        [
+          "services"
+          "displayManager"
+          "sddm"
+          "catppuccin"
+          "background"
+        ]
+        [
+          "catppuccin"
+          "sddm"
+          "background"
+        ]
+      )
+
+      (lib.mkRenamedOptionModule
+        [
+          "services"
+          "displayManager"
+          "sddm"
+          "catppuccin"
+          "loginBackground"
+        ]
+        [
+          "catppuccin"
+          "sddm"
+          "loginBackground"
+        ]
+      )
+
+      (lib.mkRenamedOptionModule
+        [
+          "services"
+          "displayManager"
+          "sddm"
+          "catppuccin"
+          "assertQt6Sddm"
+        ]
+        [
+          "catppuccin"
+          "sddm"
+          "assertQt6Sddm"
+        ]
+      )
+    ];
 
   config = mkIf enable {
     assertions = lib.optional cfg.assertQt6Sddm {
