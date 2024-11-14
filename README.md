@@ -182,14 +182,7 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
   ```nix
   {
     programs = {
-      cava.catppuccin.enable = false;
       gh-dash.catppuccin.enable = false;
-      imv.catppuccin.enable = false;
-      swaylock.catppuccin.enable = false;
-    };
-  
-    services = {
-      mako.catppuccin.enable = false;
     };
   }
   ```

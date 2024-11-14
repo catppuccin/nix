@@ -15,3 +15,6 @@ lib.optionalAttrs nixpkgs.stdenv.isLinux {
     home-manager = home-manager-stable;
   };
 }
+// {
+  from-ini = assert import ./from-ini.nix lib; nixpkgs.hello;
+}

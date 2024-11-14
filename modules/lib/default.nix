@@ -75,35 +75,8 @@ in
     in
     builtins.fromJSON (builtins.readFile json);
 
-  # a -> path -> a
-  # fromJSON but for ini (and without readFile)
-  # a should be the local pkgs attrset
-  fromINI =
-    file:
-    let
-      # convert to json
-      json = pkgs.runCommand "converted.json" { } ''
-        ${lib.getExe pkgs.jc} --ini < ${file} > $out
-      '';
-    in
-    builtins.fromJSON (builtins.readFile json);
-
-  # a -> path -> a
-  # fromJSON but for raw ini (and without readFile)
-  # a should be the local pkgs attrset
-  fromINIRaw =
-    file:
-    let
-      inherit (builtins) fromJSON readFile;
-
-      # convert to json
-      json =
-        with pkgs;
-        runCommand "converted.json" { } ''
-          ${jc}/bin/jc --ini -r < ${file} > $out
-        '';
-    in
-    fromJSON (readFile json);
+  # string -> a
+  fromINI = import ./from-ini.nix lib;
 
   # string -> a
   # this creates a basic attrset only containing an

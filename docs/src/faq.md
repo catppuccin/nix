@@ -20,14 +20,7 @@
   ```nix
   {
     programs = {
-      cava.catppuccin.enable = false;
       gh-dash.catppuccin.enable = false;
-      imv.catppuccin.enable = false;
-      swaylock.catppuccin.enable = false;
-    };
-  
-    services = {
-      mako.catppuccin.enable = false;
     };
   }
   ```
