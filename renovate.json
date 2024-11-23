@@ -3,5 +3,8 @@
   "extends": [
     "config:recommended",
     "schedule:weekly"
-  ]
+  ],
+  "nix": {
+    "enabled": true,
+  }
 }
