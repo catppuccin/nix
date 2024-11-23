@@ -47,6 +47,8 @@
           pkgs = nixpkgs.legacyPackages.${system};
         in
         {
+          formatter = pkgs.nixfmt-rfc-style;
+
           packages =
             let
               catppuccinPackages = (import ./default.nix { inherit pkgs; }).packages;
