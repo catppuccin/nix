@@ -1,0 +1,45 @@
+name: Format
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "**.nix"
+      - ".github/workflows/format.yml"
+  workflow_dispatch:
+
+jobs:
+  nix:
+    name: Nix files
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PUSH_TOKEN }}
+
+      - name: Set Git user info
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Get short revision
+        id: rev
+        run:
+          echo "rev=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@V27
+
+      - name: Format changes
+        run: |
+          nix fmt
+
+      - name: Commit changes
+        run: |
+          if ! git diff --color=always --exit-code; then
+            git commit -am "style: format ${{ steps.rev.outputs.rev }}"
+            git push
+          fi
