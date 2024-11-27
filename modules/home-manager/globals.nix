@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   config = {
-    assertions = [ (lib.ctp.assertMinimumVersion "24.05") ];
+    assertions = [ (lib.ctp.assertMinimumVersion "24.11") ];
   };
 
   options.catppuccin = {
