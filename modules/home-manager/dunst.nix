@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.services.dunst.enable;
 in
 {
-  options.services.dunst.catppuccin = lib.ctp.mkCatppuccinOpt { name = "dunst"; } // {
+  options.services.dunst.catppuccin = lib.ctp.mkCatppuccinOption { name = "dunst"; } // {
     prefix = lib.mkOption {
       type = lib.types.str;
       default = "00";

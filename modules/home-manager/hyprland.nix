@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.wayland.windowManager.hyprland.enable;
 in
 {
-  options.wayland.windowManager.hyprland.catppuccin = lib.ctp.mkCatppuccinOpt {
+  options.wayland.windowManager.hyprland.catppuccin = lib.ctp.mkCatppuccinOption {
     name = "hyprland";
     accentSupport = true;
   };

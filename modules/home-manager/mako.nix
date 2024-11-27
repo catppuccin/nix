@@ -16,7 +16,7 @@ let
   extraConfigAttrs = lib.attrsets.getAttrs [ "urgency=high" ] theme;
 in
 {
-  options.services.mako.catppuccin = lib.ctp.mkCatppuccinOpt {
+  options.services.mako.catppuccin = lib.ctp.mkCatppuccinOption {
     name = "mako";
     accentSupport = true;
   };

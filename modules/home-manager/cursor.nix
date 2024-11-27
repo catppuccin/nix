@@ -18,7 +18,7 @@ let
 in
 {
   options.catppuccin.pointerCursor =
-    ctp.mkCatppuccinOpt {
+    ctp.mkCatppuccinOption {
       name = "pointer cursors";
       # NOTE: we exclude this from the global `catppuccin.enable` as there is no
       # `enable` option in the upstream module to guard it

@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.programs.alacritty.enable;
 in
 {
-  options.programs.alacritty.catppuccin = lib.ctp.mkCatppuccinOpt { name = "alacritty"; };
+  options.programs.alacritty.catppuccin = lib.ctp.mkCatppuccinOption { name = "alacritty"; };
 
   config = lib.mkIf enable {
     programs.alacritty.settings = lib.importTOML "${sources.alacritty}/catppuccin-${cfg.flavor}.toml";

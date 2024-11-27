@@ -5,7 +5,7 @@ let
   themeName = "catppuccin-${cfg.flavor}";
 in
 {
-  options.programs.zellij.catppuccin = lib.ctp.mkCatppuccinOpt { name = "zellij"; };
+  options.programs.zellij.catppuccin = lib.ctp.mkCatppuccinOption { name = "zellij"; };
 
   config = lib.mkIf enable {
     programs.zellij.settings = {

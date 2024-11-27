@@ -6,7 +6,7 @@ let
   themeName = "Catppuccin ${lib.ctp.mkUpper cfg.flavor}";
 in
 {
-  options.programs.bat.catppuccin = lib.ctp.mkCatppuccinOpt { name = "bat"; };
+  options.programs.bat.catppuccin = lib.ctp.mkCatppuccinOption { name = "bat"; };
 
   config = lib.mkIf enable {
     programs.bat = {

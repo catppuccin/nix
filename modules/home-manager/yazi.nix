@@ -6,7 +6,7 @@ let
   enable = cfg.enable && config.programs.yazi.enable;
 in
 {
-  options.programs.yazi.catppuccin = lib.ctp.mkCatppuccinOpt {
+  options.programs.yazi.catppuccin = lib.ctp.mkCatppuccinOption {
     name = "yazi";
     accentSupport = true;
   };

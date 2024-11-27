@@ -6,7 +6,7 @@ let
   enable = cfg.enable && config.programs.foot.enable;
 in
 {
-  options.programs.foot.catppuccin = lib.ctp.mkCatppuccinOpt { name = "foot"; };
+  options.programs.foot.catppuccin = lib.ctp.mkCatppuccinOption { name = "foot"; };
 
   config.programs.foot = lib.mkIf enable {
     settings.main.include = sources.foot + "/themes/catppuccin-${cfg.flavor}.ini";

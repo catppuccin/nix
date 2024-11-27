@@ -6,7 +6,7 @@ let
   styleFile = "${sources.waybar}/themes/${cfg.flavor}.css";
 in
 {
-  options.programs.waybar.catppuccin = lib.ctp.mkCatppuccinOpt { name = "waybar"; } // {
+  options.programs.waybar.catppuccin = lib.ctp.mkCatppuccinOption { name = "waybar"; } // {
     mode = lib.mkOption {
       type = lib.types.enum [
         "prependImport"

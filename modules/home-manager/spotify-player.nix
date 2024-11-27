@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.programs.spotify-player.enable;
 in
 {
-  options.programs.spotify-player.catppuccin = lib.ctp.mkCatppuccinOpt { name = "spotify-player"; };
+  options.programs.spotify-player.catppuccin = lib.ctp.mkCatppuccinOption { name = "spotify-player"; };
 
   config = lib.mkIf enable {
     programs.spotify-player = {

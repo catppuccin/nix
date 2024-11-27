@@ -8,7 +8,7 @@ let
   themePath = "/themes/${themeName}.theme";
 in
 {
-  options.programs.fish.catppuccin = lib.ctp.mkCatppuccinOpt { name = "fish"; };
+  options.programs.fish.catppuccin = lib.ctp.mkCatppuccinOption { name = "fish"; };
 
   config = lib.mkIf enable {
     xdg.configFile."fish${themePath}".source = "${sources.fish}${themePath}";

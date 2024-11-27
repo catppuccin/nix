@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.programs.hyprlock.enable;
 in
 {
-  options.programs.hyprlock.catppuccin = lib.ctp.mkCatppuccinOpt {
+  options.programs.hyprlock.catppuccin = lib.ctp.mkCatppuccinOption {
     name = "hyprlock";
     accentSupport = true;
   };

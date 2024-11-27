@@ -16,7 +16,7 @@ let
 in
 
 {
-  options.services.displayManager.sddm.catppuccin = ctp.mkCatppuccinOpt { name = "sddm"; } // {
+  options.services.displayManager.sddm.catppuccin = ctp.mkCatppuccinOption { name = "sddm"; } // {
     font = mkOption {
       type = types.str;
       default = "Noto Sans";

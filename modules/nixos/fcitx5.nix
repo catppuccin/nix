@@ -20,7 +20,7 @@ let
   '';
 in
 {
-  options.i18n.inputMethod.fcitx5.catppuccin = lib.ctp.mkCatppuccinOpt {
+  options.i18n.inputMethod.fcitx5.catppuccin = lib.ctp.mkCatppuccinOption {
     name = "Fcitx5";
     accentSupport = true;
   };
