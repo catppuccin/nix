@@ -14,7 +14,7 @@ in
     // {
       # FreeTube supports two accent colors
       secondaryAccent = lib.mkOption {
-        type = types.accentOption;
+        type = types.accent;
         # Have the secondary accent default to FreeTube's main accent rather than the global Catppuccin accent
         # This assumes most users would prefer both accent colors to be the same when only overriding the main one
         default = cfg.accent;

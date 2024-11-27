@@ -9,13 +9,13 @@
     enable = lib.mkEnableOption "Catppuccin globally";
 
     flavor = lib.mkOption {
-      type = lib.ctp.types.flavorOption;
+      type = lib.ctp.types.flavor;
       default = "mocha";
       description = "Global Catppuccin flavor";
     };
 
     accent = lib.mkOption {
-      type = lib.ctp.types.accentOption;
+      type = lib.ctp.types.accent;
       default = "mauve";
       description = "Global Catppuccin accent";
     };
