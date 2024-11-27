@@ -6,7 +6,7 @@ let
   themeName = "catppuccin-${cfg.flavor}";
 in
 {
-  options.programs.aerc.catppuccin = lib.ctp.mkCatppuccinOpt { name = "aerc"; };
+  options.programs.aerc.catppuccin = lib.ctp.mkCatppuccinOption { name = "aerc"; };
 
   config = lib.mkIf enable {
     programs.aerc = {

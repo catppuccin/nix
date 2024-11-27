@@ -92,7 +92,7 @@ in
   # representing the default of the created `enable`
   # option. `accentSupport` will add an `accent` option for
   # applicable themes
-  mkCatppuccinOpt =
+  mkCatppuccinOption =
     {
       name,
       useGlobalEnable ? true,

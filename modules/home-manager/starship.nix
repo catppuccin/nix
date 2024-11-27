@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.programs.starship.enable;
 in
 {
-  options.programs.starship.catppuccin = lib.ctp.mkCatppuccinOpt { name = "starship"; };
+  options.programs.starship.catppuccin = lib.ctp.mkCatppuccinOption { name = "starship"; };
 
   config.programs.starship.settings = lib.mkIf enable (
     {

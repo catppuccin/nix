@@ -4,7 +4,7 @@ let
   cfg = config.programs.fuzzel.catppuccin;
 in
 {
-  options.programs.fuzzel.catppuccin = lib.ctp.mkCatppuccinOpt {
+  options.programs.fuzzel.catppuccin = lib.ctp.mkCatppuccinOption {
     name = "fuzzel";
     accentSupport = true;
   };

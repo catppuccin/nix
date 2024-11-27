@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.programs.bottom.enable;
 in
 {
-  options.programs.bottom.catppuccin = lib.ctp.mkCatppuccinOpt { name = "bottom"; };
+  options.programs.bottom.catppuccin = lib.ctp.mkCatppuccinOption { name = "bottom"; };
 
   config = lib.mkIf enable {
     programs.bottom = {

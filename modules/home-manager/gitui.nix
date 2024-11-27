@@ -6,7 +6,7 @@ let
   enable = cfg.enable && config.programs.gitui.enable;
 in
 {
-  options.programs.gitui.catppuccin = lib.ctp.mkCatppuccinOpt { name = "gitui"; };
+  options.programs.gitui.catppuccin = lib.ctp.mkCatppuccinOption { name = "gitui"; };
 
   config = lib.mkIf enable {
     programs.gitui.theme = builtins.path {

@@ -7,7 +7,7 @@ let
   themePath = "catppuccin-${cfg.flavor}.micro";
 in
 {
-  options.programs.micro.catppuccin = lib.ctp.mkCatppuccinOpt { name = "micro"; };
+  options.programs.micro.catppuccin = lib.ctp.mkCatppuccinOption { name = "micro"; };
 
   config = lib.mkIf enable {
     programs.micro.settings.colorscheme = lib.removeSuffix ".micro" themePath;

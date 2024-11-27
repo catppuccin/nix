@@ -6,7 +6,7 @@ let
   theme = "${sources.gh-dash}/themes/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.yml";
 in
 {
-  options.programs.gh-dash.catppuccin = lib.ctp.mkCatppuccinOpt {
+  options.programs.gh-dash.catppuccin = lib.ctp.mkCatppuccinOption {
     name = "gh-dash";
     accentSupport = true;
   };

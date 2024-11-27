@@ -7,7 +7,7 @@ let
 in
 {
   options.programs.freetube.catppuccin =
-    lib.ctp.mkCatppuccinOpt {
+    lib.ctp.mkCatppuccinOption {
       name = "freetube";
       accentSupport = true;
     }

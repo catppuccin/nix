@@ -20,7 +20,7 @@ let
   theme = sources.k9s + "/dist/${themeFile}";
 in
 {
-  options.programs.k9s.catppuccin = lib.ctp.mkCatppuccinOpt { name = "k9s"; } // {
+  options.programs.k9s.catppuccin = lib.ctp.mkCatppuccinOption { name = "k9s"; } // {
     transparent = lib.mkEnableOption "transparent version of flavor";
   };
 

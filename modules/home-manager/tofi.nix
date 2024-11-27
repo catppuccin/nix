@@ -5,7 +5,7 @@ let
   enable = cfg.enable && config.programs.tofi.enable;
 in
 {
-  options.programs.tofi.catppuccin = lib.ctp.mkCatppuccinOpt { name = "tofi"; };
+  options.programs.tofi.catppuccin = lib.ctp.mkCatppuccinOption { name = "tofi"; };
 
   config.programs.tofi = lib.mkIf enable {
     settings.include = sources.tofi + "/themes/catppuccin-${cfg.flavor}";

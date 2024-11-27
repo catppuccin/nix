@@ -4,7 +4,7 @@ let
   cfg = config.programs.swaylock.catppuccin;
 in
 {
-  options.programs.swaylock.catppuccin = lib.ctp.mkCatppuccinOpt {
+  options.programs.swaylock.catppuccin = lib.ctp.mkCatppuccinOption {
     name = "swaylock";
 
     /*

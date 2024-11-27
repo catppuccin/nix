@@ -6,7 +6,7 @@ let
   enable = cfg.enable && config.programs.zsh.syntaxHighlighting.enable;
 in
 {
-  options.programs.zsh.syntaxHighlighting.catppuccin = ctp.mkCatppuccinOpt {
+  options.programs.zsh.syntaxHighlighting.catppuccin = ctp.mkCatppuccinOption {
     name = "Zsh Syntax Highlighting";
   };
 
