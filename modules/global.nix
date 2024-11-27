@@ -7,7 +7,7 @@
 }:
 
 let
-  catppuccinLib = (import ./lib/mk-ext-lib.nix { inherit config lib pkgs; }).ctp;
+  catppuccinLib = import ./lib { inherit config lib pkgs; };
 in
 
 {
