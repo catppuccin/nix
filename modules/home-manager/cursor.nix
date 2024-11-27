@@ -9,7 +9,7 @@ let
   cfg = config.catppuccin.pointerCursor;
 
   # "dark" and "light" can be used alongside the regular accents
-  cursorAccentType = ctp.mergeEnums ctp.types.accentOption (
+  cursorAccentType = ctp.mergeEnums ctp.types.accent (
     lib.types.enum [
       "dark"
       "light"

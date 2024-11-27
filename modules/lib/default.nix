@@ -10,13 +10,14 @@ let
 in
 {
   types = {
-    flavorOption = lib.types.enum [
+    flavor = lib.types.enum [
       "latte"
       "frappe"
       "macchiato"
       "mocha"
     ];
-    accentOption = lib.types.enum [
+
+    accent = lib.types.enum [
       "blue"
       "flamingo"
       "green"
@@ -112,14 +113,14 @@ in
         );
 
       flavor = lib.mkOption {
-        type = ctp.types.flavorOption;
+        type = ctp.types.flavor;
         default = config.catppuccin.flavor;
         description = "Catppuccin flavor for ${name}";
       };
     }
     // lib.optionalAttrs accentSupport {
       accent = lib.mkOption {
-        type = ctp.types.accentOption;
+        type = ctp.types.accent;
         default = config.catppuccin.accent;
         description = "Catppuccin accent for ${name}";
       };
