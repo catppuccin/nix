@@ -4,11 +4,8 @@
   pkgs,
   ...
 }:
-let
-  # this is a recursive attribute with all the functions below
-  inherit (lib) ctp;
-in
-{
+
+lib.makeExtensible (ctp: {
   types = {
     flavor = lib.types.enum [
       "latte"
@@ -157,4 +154,4 @@ in
   # [ module ] -> [ module ]
   # Imports a list of modules with the current library
   applyToModules = map (lib.flip lib.modules.importApply { catppuccinLib = ctp; });
-}
+})
