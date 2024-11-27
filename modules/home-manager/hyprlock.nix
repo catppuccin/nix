@@ -5,8 +5,9 @@ let
   enable = cfg.enable && config.programs.hyprlock.enable;
 in
 {
-  options.programs.hyprlock.catppuccin = lib.ctp.mkCatppuccinOpt { name = "hyprlock"; } // {
-    accent = lib.ctp.mkAccentOpt "hyprlock";
+  options.programs.hyprlock.catppuccin = lib.ctp.mkCatppuccinOpt {
+    name = "hyprlock";
+    accentSupport = true;
   };
 
   config = lib.mkIf enable {

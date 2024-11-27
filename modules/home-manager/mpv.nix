@@ -6,8 +6,9 @@ let
   enable = cfg.enable && config.programs.mpv.enable;
 in
 {
-  options.programs.mpv.catppuccin = ctp.mkCatppuccinOpt { name = "mpv"; } // {
-    accent = ctp.mkAccentOpt "mpv";
+  options.programs.mpv.catppuccin = ctp.mkCatppuccinOpt {
+    name = "mpv";
+    accentSupport = true;
   };
 
   config.programs.mpv = mkIf enable {
