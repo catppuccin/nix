@@ -1,4 +1,5 @@
 { lib, ... }:
+
 {
   config = {
     assertions = [ (lib.ctp.assertMinimumVersion "24.11") ];
@@ -21,7 +22,7 @@
 
     sources =
       let
-        defaultSources = import ../../.sources;
+        defaultSources = import ../.sources;
       in
       lib.mkOption {
         type = lib.types.lazyAttrsOf lib.types.raw;
