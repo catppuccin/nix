@@ -25,6 +25,7 @@
         obs-studio.enable = lib.mkForce false;
         rio.enable = lib.mkForce false; # marked as broken
         rofi.enable = lib.mkForce false;
+        spotify-player.enable = lib.mkForce false; # NOTE: same as mpv
         swaylock.enable = lib.mkForce false;
         tofi.enable = lib.mkForce false;
         waybar.enable = lib.mkForce false;
