@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -5,7 +6,7 @@ let
   enable = cfg.enable && config.programs.helix.enable;
 in
 {
-  options.programs.helix.catppuccin = lib.ctp.mkCatppuccinOption { name = "helix"; } // {
+  options.programs.helix.catppuccin = catppuccinLib.mkCatppuccinOption { name = "helix"; } // {
     useItalics = lib.mkEnableOption "Italics in Catppuccin theme for Helix";
   };
 

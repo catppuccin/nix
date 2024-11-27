@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -9,7 +10,7 @@ let
   theme = sources.btop + themePath;
 in
 {
-  options.programs.btop.catppuccin = lib.ctp.mkCatppuccinOption { name = "btop"; };
+  options.programs.btop.catppuccin = catppuccinLib.mkCatppuccinOption { name = "btop"; };
 
   config = lib.mkIf enable {
     xdg.configFile."btop${themePath}".source = theme;

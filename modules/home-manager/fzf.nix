@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -7,7 +8,7 @@ let
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
 {
-  options.programs.fzf.catppuccin = lib.ctp.mkCatppuccinOption {
+  options.programs.fzf.catppuccin = catppuccinLib.mkCatppuccinOption {
     name = "fzf";
     accentSupport = true;
   };

@@ -1,3 +1,4 @@
+{ catppuccinLib }:
 {
   config,
   lib,
@@ -6,7 +7,6 @@
 }:
 let
   inherit (lib)
-    ctp
     mkOption
     types
     concatStrings
@@ -24,7 +24,7 @@ let
     };
 in
 {
-  options.programs.tmux.catppuccin = ctp.mkCatppuccinOption { name = "tmux"; } // {
+  options.programs.tmux.catppuccin = catppuccinLib.mkCatppuccinOption { name = "tmux"; } // {
     extraConfig = mkOption {
       type = types.lines;
       description = "Additional configuration for the catppuccin plugin.";

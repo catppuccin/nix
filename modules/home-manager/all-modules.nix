@@ -1,5 +1,4 @@
 [
-  ../global.nix
   ./aerc.nix
   ./alacritty.nix
   ./bat.nix

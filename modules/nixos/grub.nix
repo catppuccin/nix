@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 {
   config,
   lib,
@@ -16,7 +17,7 @@ let
   '';
 in
 {
-  options.boot.loader.grub.catppuccin = lib.ctp.mkCatppuccinOption { name = "grub"; };
+  options.boot.loader.grub.catppuccin = catppuccinLib.mkCatppuccinOption { name = "grub"; };
 
   config.boot.loader.grub = lib.mkIf enable {
     font = "${theme}/font.pf2";

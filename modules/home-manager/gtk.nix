@@ -1,3 +1,4 @@
+{ catppuccinLib }:
 {
   config,
   pkgs,
@@ -7,7 +8,6 @@
 let
   inherit (lib)
     concatStringsSep
-    ctp
     mkIf
     mkEnableOption
     mkMerge
@@ -20,7 +20,7 @@ let
 in
 {
   options.gtk.catppuccin =
-    ctp.mkCatppuccinOption {
+    catppuccinLib.mkCatppuccinOption {
       name = "gtk";
       useGlobalEnable = false;
 
@@ -51,7 +51,7 @@ in
 
       gnomeShellTheme = mkEnableOption "Catppuccin gtk theme for GNOME Shell";
 
-      icon = ctp.mkCatppuccinOption {
+      icon = catppuccinLib.mkCatppuccinOption {
         name = "GTK modified Papirus icon theme";
         # NOTE: we exclude this from the global `catppuccin.enable` as there is no
         # `enable` option in the upstream module to guard it

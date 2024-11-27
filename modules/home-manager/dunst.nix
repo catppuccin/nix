@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -5,7 +6,7 @@ let
   enable = cfg.enable && config.services.dunst.enable;
 in
 {
-  options.services.dunst.catppuccin = lib.ctp.mkCatppuccinOption { name = "dunst"; } // {
+  options.services.dunst.catppuccin = catppuccinLib.mkCatppuccinOption { name = "dunst"; } // {
     prefix = lib.mkOption {
       type = lib.types.str;
       default = "00";

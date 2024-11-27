@@ -1,3 +1,4 @@
+{ catppuccinLib }:
 {
   config,
   lib,
@@ -17,7 +18,7 @@ let
 in
 {
   options.qt.style.catppuccin =
-    lib.ctp.mkCatppuccinOption {
+    catppuccinLib.mkCatppuccinOption {
       name = "Kvantum";
       accentSupport = true;
     }

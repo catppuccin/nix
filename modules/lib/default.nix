@@ -153,4 +153,8 @@ in
     assertion = lib.versionAtLeast ctp.getModuleRelease version;
     message = "`catppuccin/nix` requires at least version ${version} of NixOS/home-manager";
   };
+
+  # [ module ] -> [ module ]
+  # Imports a list of modules with the current library
+  applyToModules = map (lib.flip lib.modules.importApply { catppuccinLib = ctp; });
 }

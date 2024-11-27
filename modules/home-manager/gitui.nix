@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -6,7 +7,7 @@ let
   enable = cfg.enable && config.programs.gitui.enable;
 in
 {
-  options.programs.gitui.catppuccin = lib.ctp.mkCatppuccinOption { name = "gitui"; };
+  options.programs.gitui.catppuccin = catppuccinLib.mkCatppuccinOption { name = "gitui"; };
 
   config = lib.mkIf enable {
     programs.gitui.theme = builtins.path {

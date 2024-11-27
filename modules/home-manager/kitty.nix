@@ -1,11 +1,13 @@
+{ catppuccinLib }:
 { config, lib, ... }:
 let
-  inherit (lib) ctp;
   cfg = config.programs.kitty.catppuccin;
   enable = cfg.enable && config.programs.kitty.enable;
 in
 {
-  options.programs.kitty.catppuccin = ctp.mkCatppuccinOption { name = "kitty"; };
+  options.programs.kitty.catppuccin = catppuccinLib.mkCatppuccinOption { name = "kitty"; };
 
-  config = lib.mkIf enable { programs.kitty.themeFile = "Catppuccin-${ctp.mkUpper cfg.flavor}"; };
+  config = lib.mkIf enable {
+    programs.kitty.themeFile = "Catppuccin-${catppuccinLib.mkUpper cfg.flavor}";
+  };
 }

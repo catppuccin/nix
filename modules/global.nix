@@ -1,21 +1,33 @@
-{ lib, ... }:
+{ catppuccinModules }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+
+let
+  catppuccinLib = (import ./lib/mk-ext-lib.nix { inherit config lib pkgs; }).ctp;
+in
 
 {
   config = {
-    assertions = [ (lib.ctp.assertMinimumVersion "24.11") ];
+    assertions = [ (catppuccinLib.assertMinimumVersion "24.11") ];
   };
+
+  imports = catppuccinLib.applyToModules catppuccinModules;
 
   options.catppuccin = {
     enable = lib.mkEnableOption "Catppuccin globally";
 
     flavor = lib.mkOption {
-      type = lib.ctp.types.flavor;
+      type = catppuccinLib.types.flavor;
       default = "mocha";
       description = "Global Catppuccin flavor";
     };
 
     accent = lib.mkOption {
-      type = lib.ctp.types.accent;
+      type = catppuccinLib.types.accent;
       default = "mauve";
       description = "Global Catppuccin accent";
     };

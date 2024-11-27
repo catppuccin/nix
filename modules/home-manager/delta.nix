@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -5,7 +6,7 @@ let
   enable = cfg.enable && config.programs.git.delta.enable;
 in
 {
-  options.programs.git.delta.catppuccin = lib.ctp.mkCatppuccinOption { name = "delta"; };
+  options.programs.git.delta.catppuccin = catppuccinLib.mkCatppuccinOption { name = "delta"; };
 
   config = lib.mkIf enable {
     programs.git = {

@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -6,7 +7,7 @@ let
 in
 {
   options.i18n.inputMethod.fcitx5.catppuccin =
-    lib.ctp.mkCatppuccinOption {
+    catppuccinLib.mkCatppuccinOption {
       name = "Fcitx5";
       accentSupport = true;
     }

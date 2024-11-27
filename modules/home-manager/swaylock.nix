@@ -1,10 +1,11 @@
+{ catppuccinLib }:
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
   cfg = config.programs.swaylock.catppuccin;
 in
 {
-  options.programs.swaylock.catppuccin = lib.ctp.mkCatppuccinOption {
+  options.programs.swaylock.catppuccin = catppuccinLib.mkCatppuccinOption {
     name = "swaylock";
 
     /*
@@ -32,6 +33,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.swaylock.settings = lib.ctp.fromINI (sources.swaylock + "/themes/${cfg.flavor}.conf");
+    programs.swaylock.settings = catppuccinLib.fromINI (
+      sources.swaylock + "/themes/${cfg.flavor}.conf"
+    );
   };
 }

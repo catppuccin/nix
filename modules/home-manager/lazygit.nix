@@ -1,3 +1,4 @@
+{ catppuccinLib }:
 {
   config,
   lib,
@@ -5,7 +6,6 @@
   ...
 }:
 let
-  inherit (lib) ctp;
   inherit (config.catppuccin) sources;
 
   cfg = config.programs.lazygit.catppuccin;
@@ -23,7 +23,7 @@ let
   configFile = "${configDirectory}/lazygit/config.yml";
 in
 {
-  options.programs.lazygit.catppuccin = lib.ctp.mkCatppuccinOption {
+  options.programs.lazygit.catppuccin = catppuccinLib.mkCatppuccinOption {
     name = "lazygit";
     accentSupport = true;
   };

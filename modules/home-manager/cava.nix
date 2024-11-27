@@ -1,3 +1,4 @@
+{ catppuccinLib }:
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -6,11 +7,11 @@ let
   flavor = "${cfg.flavor}" + lib.optionalString cfg.transparent "-transparent";
 in
 {
-  options.programs.cava.catppuccin = lib.ctp.mkCatppuccinOption { name = "cava"; } // {
+  options.programs.cava.catppuccin = catppuccinLib.mkCatppuccinOption { name = "cava"; } // {
     transparent = lib.mkEnableOption "transparent version of flavor";
   };
 
   config.programs.cava = lib.mkIf enable {
-    settings = lib.ctp.fromINIRaw (sources.cava + "/themes/${flavor}.cava");
+    settings = catppuccinLib.fromINIRaw (sources.cava + "/themes/${flavor}.cava");
   };
 }
