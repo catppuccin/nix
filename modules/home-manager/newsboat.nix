@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -7,7 +8,7 @@ let
   theme = if cfg.flavor == "latte" then "latte" else "dark";
 in
 {
-  options.programs.newsboat.catppuccin = lib.ctp.mkCatppuccinOption { name = "newsboat"; };
+  options.programs.newsboat.catppuccin = catppuccinLib.mkCatppuccinOption { name = "newsboat"; };
 
   config = lib.mkIf enable {
     programs.newsboat.extraConfig = builtins.readFile "${sources.newsboat}/themes/${theme}";

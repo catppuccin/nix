@@ -1,3 +1,4 @@
+{ catppuccinLib }:
 {
   config,
   pkgs,
@@ -8,7 +9,7 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.services.mako.catppuccin;
   enable = cfg.enable && config.services.mako.enable;
-  theme = lib.ctp.fromINI (
+  theme = catppuccinLib.fromINI (
     sources.mako + "/themes/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}"
   );
 
@@ -16,7 +17,7 @@ let
   extraConfigAttrs = lib.attrsets.getAttrs [ "urgency=high" ] theme;
 in
 {
-  options.services.mako.catppuccin = lib.ctp.mkCatppuccinOption {
+  options.services.mako.catppuccin = catppuccinLib.mkCatppuccinOption {
     name = "mako";
     accentSupport = true;
   };

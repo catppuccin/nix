@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -5,7 +6,7 @@ let
   enable = cfg.enable && config.programs.spotify-player.enable;
 in
 {
-  options.programs.spotify-player.catppuccin = lib.ctp.mkCatppuccinOption { name = "spotify-player"; };
+  options.programs.spotify-player.catppuccin = catppuccinLib.mkCatppuccinOption { name = "spotify-player"; };
 
   config = lib.mkIf enable {
     programs.spotify-player = {

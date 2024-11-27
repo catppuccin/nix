@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 {
   config,
   pkgs,
@@ -20,7 +21,7 @@ let
   '';
 in
 {
-  options.i18n.inputMethod.fcitx5.catppuccin = lib.ctp.mkCatppuccinOption {
+  options.i18n.inputMethod.fcitx5.catppuccin = catppuccinLib.mkCatppuccinOption {
     name = "Fcitx5";
     accentSupport = true;
   };

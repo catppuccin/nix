@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -5,7 +6,7 @@ let
   enable = cfg.enable && config.programs.starship.enable;
 in
 {
-  options.programs.starship.catppuccin = lib.ctp.mkCatppuccinOption { name = "starship"; };
+  options.programs.starship.catppuccin = catppuccinLib.mkCatppuccinOption { name = "starship"; };
 
   config.programs.starship.settings = lib.mkIf enable (
     {

@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -6,7 +7,7 @@ let
   styleFile = "${sources.waybar}/themes/${cfg.flavor}.css";
 in
 {
-  options.programs.waybar.catppuccin = lib.ctp.mkCatppuccinOption { name = "waybar"; } // {
+  options.programs.waybar.catppuccin = catppuccinLib.mkCatppuccinOption { name = "waybar"; } // {
     mode = lib.mkOption {
       type = lib.types.enum [
         "prependImport"

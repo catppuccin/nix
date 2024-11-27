@@ -1,13 +1,14 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.programs.freetube.settings) baseTheme;
-  inherit (lib.ctp) mkUpper types;
+  inherit (catppuccinLib) mkUpper types;
   cfg = config.programs.freetube.catppuccin;
   enable = cfg.enable && config.programs.freetube.enable;
 in
 {
   options.programs.freetube.catppuccin =
-    lib.ctp.mkCatppuccinOption {
+    catppuccinLib.mkCatppuccinOption {
       name = "freetube";
       accentSupport = true;
     }

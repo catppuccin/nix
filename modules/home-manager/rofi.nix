@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -6,7 +7,7 @@ let
   enable = cfg.enable && config.programs.rofi.enable;
 in
 {
-  options.programs.rofi.catppuccin = lib.ctp.mkCatppuccinOption { name = "rofi"; };
+  options.programs.rofi.catppuccin = catppuccinLib.mkCatppuccinOption { name = "rofi"; };
 
   config.programs.rofi = lib.mkIf enable {
     theme = {

@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -5,7 +6,7 @@ let
   enable = cfg.enable && config.programs.alacritty.enable;
 in
 {
-  options.programs.alacritty.catppuccin = lib.ctp.mkCatppuccinOption { name = "alacritty"; };
+  options.programs.alacritty.catppuccin = catppuccinLib.mkCatppuccinOption { name = "alacritty"; };
 
   config = lib.mkIf enable {
     programs.alacritty.settings = lib.importTOML "${sources.alacritty}/catppuccin-${cfg.flavor}.toml";

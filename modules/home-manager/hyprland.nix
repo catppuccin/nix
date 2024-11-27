@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources pointerCursor;
@@ -5,7 +6,7 @@ let
   enable = cfg.enable && config.wayland.windowManager.hyprland.enable;
 in
 {
-  options.wayland.windowManager.hyprland.catppuccin = lib.ctp.mkCatppuccinOption {
+  options.wayland.windowManager.hyprland.catppuccin = catppuccinLib.mkCatppuccinOption {
     name = "hyprland";
     accentSupport = true;
   };
