@@ -56,11 +56,20 @@
 
       checks = forAllSystems (
         system:
-        import ../tests rec {
-          inherit home-manager home-manager-stable;
-          inherit (nixpkgs) lib;
-          nixpkgs = nixpkgsFor.${system}.unstable;
-          nixpkgs-stable = nixpkgsFor.${system}.stable;
+        let
+          pkgs = nixpkgsFor.${system};
+          inherit (pkgs.unstable) lib;
+
+          callUnstable = lib.flip pkgs.unstable.callPackage { inherit home-manager; };
+          callStable = lib.flip pkgs.stable.callPackage { home-manager = home-manager-stable; };
+        in
+        lib.optionalAttrs pkgs.unstable.stdenv.hostPlatform.isDarwin {
+          darwin-test-unstable = callUnstable ../tests/darwin.nix;
+          darwin-test-stable = callStable ../tests/darwin.nix;
+        }
+        // lib.optionalAttrs pkgs.unstable.stdenv.hostPlatform.isLinux {
+          nixos-test-unstable = callUnstable ../tests/nixos.nix;
+          nixos-test-stable = callStable ../tests/nixos.nix;
         }
       );
 
