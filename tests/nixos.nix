@@ -1,4 +1,5 @@
 { testers, home-manager }:
+
 testers.runNixOSTest {
   name = "module-test";
 
