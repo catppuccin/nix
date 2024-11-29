@@ -9,13 +9,31 @@
 }:
 
 let
-  catppuccinPackages = lib.packagesFromDirectoryRecursive {
-    callPackage = lib.callPackageWith (pkgs // catppuccinPackages);
-    directory = ./pkgs;
-  };
+  catppuccinPackages =
+    let
+      generated = lib.foldlAttrs (
+        acc: port:
+        { rev, hash }:
+        lib.recursiveUpdate acc {
+          # Save our sources for each port
+          sources.${port} = catppuccinPackages.fetchCatppuccinPort { inherit port rev hash; };
 
+          # And create a default package for them
+          "${port}" = catppuccinPackages.buildCatppuccinPort { pname = port; };
+        }
+      ) { } (lib.importJSON ./pkgs/sources.json);
+
+      collected = lib.packagesFromDirectoryRecursive {
+        callPackage = lib.callPackageWith (pkgs // catppuccinPackages);
+        directory = ./pkgs;
+      };
+    in
+    generated // collected;
+in
+
+{
   # Filter out derivations not available on/meant for the current system
-  filtered = lib.filterAttrs (lib.const (
+  packages = lib.filterAttrs (lib.const (
     deriv:
     let
       # Only export packages available on the current system, *unless* they are being cross compiled
@@ -28,8 +46,4 @@ let
     in
     isFunction || (!broken) && availableOnHost || isCross
   )) catppuccinPackages;
-in
-
-{
-  packages = filtered;
 }
