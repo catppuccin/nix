@@ -44,6 +44,7 @@
   ./tofi.nix
   ./obs-studio.nix
   ./waybar.nix
+  ./wlogout.nix
   ./yazi.nix
   ./zathura.nix
   ./zellij.nix
