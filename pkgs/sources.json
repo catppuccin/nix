@@ -167,6 +167,10 @@
     "hash": "sha256-za0y6hcN2rvN6Xjf31xLRe4PP0YyHu2i454ZPjr+lWA=",
     "rev": "ee8ed32b4f63e9c417249c109818dcc05a2e25da"
   },
+  "wlogout": {
+    "hash": "sha256-QUSDx5M+BG7YqI4MBsOKFPxvZHQtCa8ibT0Ln4FPQ7I=",
+    "rev": "b690cee13b944890e43a5fb629ccdff86cffbbb3"
+  },
   "yazi": {
     "hash": "sha256-UVcPdQFwgBxR6n3/1zRd9ZEkYADkB5nkuom5SxzPTzk=",
     "rev": "5d3a1eecc304524e995fe5b936b8e25f014953e8"

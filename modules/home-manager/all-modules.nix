@@ -43,6 +43,7 @@
   ./tofi.nix
   ./obs.nix
   ./waybar.nix
+  ./wlogout.nix
   ./yazi.nix
   ./zathura.nix
   ./zed-editor.nix
