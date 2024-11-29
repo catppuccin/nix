@@ -23,6 +23,21 @@
             })) (fn system)
           )
         ) { } systems;
+
+      mkModule =
+        {
+          name ? "catppuccin",
+          type,
+          file,
+        }:
+        { pkgs, ... }:
+        {
+          _file = "${self.outPath}/flake.nix#${type}Modules.${name}";
+
+          imports = [ file ];
+
+          catppuccin.sources = lib.mkDefault self.packages.${pkgs.stdenv.hostPlatform.system};
+        };
     in
 
     lib.mergeAttrsList [
@@ -41,8 +56,15 @@
       ))
 
       {
-        homeManagerModules.catppuccin = import ./modules/home-manager;
-        nixosModules.catppuccin = import ./modules/nixos;
+        homeManagerModules.catppuccin = mkModule {
+          type = "homeManager";
+          file = ./modules/home-manager;
+        };
+
+        nixosModules.catppuccin = mkModule {
+          type = "nixos";
+          file = ./modules/nixos;
+        };
       }
     ];
 }

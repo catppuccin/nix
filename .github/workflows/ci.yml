@@ -4,12 +4,10 @@ on:
   push:
     branches: [main]
     paths:
-      - '.sources/**'
       - '**.lock'
       - '**.nix'
   pull_request:
     paths:
-      - '.sources/**'
       - '**.lock'
       - '**.nix'
   workflow_dispatch:
@@ -81,20 +79,3 @@ jobs:
             github:Mic92/nix-fast-build -- \
             --no-nom \
             --flake "./dev#checks.$(nix eval --raw --impure --expr builtins.currentSystem)"
-
-  validate-sources:
-    name: Validate sources
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: cachix/install-nix-action@V27
-
-      - name: Check for external repositories
-        run: |
-          set -e
-          nix eval --file ./.github/checkSources.nix
