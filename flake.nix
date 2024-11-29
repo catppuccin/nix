@@ -47,6 +47,8 @@
           pkgs = nixpkgs.legacyPackages.${system};
         in
         {
+          devShells.default = import ./shell.nix { inherit pkgs; };
+
           formatter = pkgs.nixfmt-rfc-style;
 
           packages =
