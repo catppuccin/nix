@@ -5,6 +5,7 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.bottom;
 in
+
 {
   options.catppuccin.bottom = catppuccinLib.mkCatppuccinOption { name = "bottom"; };
 
@@ -19,7 +20,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.bottom = {
-      settings = lib.importTOML "${sources.bottom}/themes/${cfg.flavor}.toml";
+      settings = lib.importTOML "${sources.bottom}/${cfg.flavor}.toml";
     };
   };
 }

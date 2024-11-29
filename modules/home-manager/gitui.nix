@@ -6,6 +6,7 @@ let
 
   cfg = config.catppuccin.gitui;
 in
+
 {
   options.catppuccin.gitui = catppuccinLib.mkCatppuccinOption { name = "gitui"; };
 
@@ -21,7 +22,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.gitui.theme = builtins.path {
       name = "${cfg.flavor}.ron";
-      path = "${sources.gitui}/themes/catppuccin-${cfg.flavor}.ron";
+      path = "${sources.gitui}/catppuccin-${cfg.flavor}.ron";
     };
   };
 }
