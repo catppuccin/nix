@@ -11,7 +11,7 @@ in
   config = lib.mkIf enable {
     programs.gitui.theme = builtins.path {
       name = "${cfg.flavor}.ron";
-      path = "${sources.gitui}/themes/catppuccin-${cfg.flavor}.ron";
+      path = "${sources.gitui}/catppuccin-${cfg.flavor}.ron";
     };
   };
 }

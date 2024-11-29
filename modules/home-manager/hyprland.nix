@@ -19,7 +19,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       source = [
-        "${sources.hyprland}/themes/${cfg.flavor}.conf"
+        "${sources.hyprland}/${cfg.flavor}.conf"
         # Define accents in file to ensure they appear before user vars
         (builtins.toFile "hyprland-${cfg.accent}-accent.conf" ''
           $accent = ''$${cfg.accent}

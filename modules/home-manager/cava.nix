@@ -11,6 +11,6 @@ in
   };
 
   config.programs.cava = lib.mkIf enable {
-    settings = lib.ctp.fromINIRaw (sources.cava + "/themes/${flavor}.cava");
+    settings = lib.ctp.fromINIRaw (sources.cava + "/${flavor}.cava");
   };
 }

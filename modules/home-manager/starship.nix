@@ -12,6 +12,6 @@ in
       format = lib.mkDefault "$all";
       palette = "catppuccin_${cfg.flavor}";
     }
-    // lib.importTOML "${sources.starship}/themes/${cfg.flavor}.toml"
+    // lib.importTOML "${sources.starship}/${cfg.flavor}.toml"
   );
 }

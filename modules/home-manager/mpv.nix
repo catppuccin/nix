@@ -11,6 +11,6 @@ in
   };
 
   config.programs.mpv = mkIf enable {
-    config.include = sources.mpv + "/themes/${cfg.flavor}/${cfg.accent}.conf";
+    config.include = sources.mpv + "/${cfg.flavor}/${cfg.accent}.conf";
   };
 }

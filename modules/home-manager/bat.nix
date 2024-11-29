@@ -14,7 +14,7 @@ in
 
       themes.${themeName} = {
         src = sources.bat;
-        file = "themes/${themeName}.tmTheme";
+        file = "${themeName}.tmTheme";
       };
     };
   };

@@ -10,7 +10,7 @@ in
 
   config = lib.mkIf enable {
     programs.aerc = {
-      stylesets.${themeName} = builtins.readFile "${sources.aerc}/dist/${themeName}";
+      stylesets.${themeName} = builtins.readFile "${sources.aerc}/${themeName}";
       extraConfig = {
         ui = {
           styleset-name = themeName;

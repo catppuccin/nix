@@ -116,23 +116,6 @@
             homeManagerDoc = packages'.home-manager-doc;
           };
 
-          add-source =
-            pkgs.runCommand "add-source"
-              {
-                nativeBuildInputs = [ pkgs.patsh ];
-                buildInputs = [ pkgs.npins ];
-                meta.mainProgram = "add-source";
-              }
-              ''
-                mkdir -p $out/bin
-
-                patsh \
-                  --store-dir ${builtins.storeDir} \
-                  ${./add-source.sh} $out/bin/add-source
-
-                chmod 755 $out/bin/add-source
-              '';
-
           default = packages'.site;
         }
       );

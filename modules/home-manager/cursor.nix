@@ -1,11 +1,12 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
 let
   inherit (lib) ctp mkIf;
+  inherit (config.catppuccin) sources;
+
   cfg = config.catppuccin.pointerCursor;
 
   # "dark" and "light" can be used alongside the regular accents
@@ -30,6 +31,6 @@ in
 
   config.home.pointerCursor = mkIf cfg.enable {
     name = "catppuccin-${cfg.flavor}-${cfg.accent}-cursors";
-    package = pkgs.catppuccin-cursors.${cfg.flavor + ctp.mkUpper cfg.accent};
+    package = sources.cursors;
   };
 }

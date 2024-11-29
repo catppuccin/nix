@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -12,9 +11,9 @@ in
   options.programs.neovim.catppuccin = lib.ctp.mkCatppuccinOpt { name = "neovim"; };
 
   config.programs.neovim = lib.mkIf enable {
-    plugins = with pkgs.vimPlugins; [
+    plugins = [
       {
-        plugin = catppuccin-nvim;
+        plugin = config.catppuccin.sources.nvim;
         config = ''
           lua << EOF
             local compile_path = vim.fn.stdpath("cache") .. "/catppuccin-nvim"

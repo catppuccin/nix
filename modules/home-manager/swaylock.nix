@@ -34,6 +34,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.swaylock.settings = lib.ctp.fromINI (sources.swaylock + "/themes/${cfg.flavor}.conf");
+    programs.swaylock.settings = lib.ctp.fromINI (sources.swaylock + "/${cfg.flavor}.conf");
   };
 }

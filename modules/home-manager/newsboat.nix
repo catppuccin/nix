@@ -10,6 +10,6 @@ in
   options.programs.newsboat.catppuccin = lib.ctp.mkCatppuccinOpt { name = "newsboat"; };
 
   config = lib.mkIf enable {
-    programs.newsboat.extraConfig = builtins.readFile "${sources.newsboat}/themes/${theme}";
+    programs.newsboat.extraConfig = builtins.readFile "${sources.newsboat}/${theme}";
   };
 }

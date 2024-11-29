@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -10,10 +9,7 @@ let
   enable = cfg.enable && config.boot.loader.grub.enable;
 
   # TODO @getchoo: upstream this in nixpkgs maybe? idk if they have grub themes
-  theme = pkgs.runCommand "catppuccin-grub-theme" { } ''
-    mkdir -p "$out"
-    cp -r ${sources.grub}/src/catppuccin-${cfg.flavor}-grub-theme/* "$out"/
-  '';
+  theme = sources.grub + "/share/grub/themes/catppuccin-${cfg.flavor}-grub-theme";
 in
 {
   options.boot.loader.grub.catppuccin = lib.ctp.mkCatppuccinOpt { name = "grub"; };

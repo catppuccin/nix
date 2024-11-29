@@ -1,33 +1,13 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
   cfg = config.qt.style.catppuccin;
   enable = cfg.enable && config.qt.enable;
 
-  flavorCapitalized = lib.ctp.mkUpper cfg.flavor;
-  accentCapitalized = lib.ctp.mkUpper cfg.accent;
-
-  theme =
-    if (lib.versionAtLeast lib.ctp.getModuleRelease "24.11") then
-      pkgs.catppuccin-kvantum.override {
-        accent = cfg.accent;
-        variant = cfg.flavor;
-      }
-    else
-      pkgs.catppuccin-kvantum.override {
-        accent = accentCapitalized;
-        variant = flavorCapitalized;
-      };
-
-  themeName =
-    if (lib.versionAtLeast lib.ctp.getModuleRelease "24.11") then
-      "catppuccin-${cfg.flavor}-${cfg.accent}"
-    else
-      "Catppuccin-${flavorCapitalized}-${accentCapitalized}";
+  themeName = "catppuccin-${cfg.flavor}-${cfg.accent}";
 in
 {
   options.qt.style.catppuccin = lib.ctp.mkCatppuccinOpt { name = "Kvantum"; } // {
@@ -59,7 +39,7 @@ in
     ];
 
     xdg.configFile = {
-      "Kvantum/${themeName}".source = "${theme}/share/Kvantum/${themeName}";
+      "Kvantum/${themeName}".source = "${config.catppuccin.sources.kvantum}/share/Kvantum/${themeName}";
       "Kvantum/kvantum.kvconfig" = lib.mkIf cfg.apply {
         text = ''
           [General]

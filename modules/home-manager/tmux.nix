@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -11,17 +10,8 @@ let
     types
     concatStrings
     ;
-  inherit (config.catppuccin) sources;
   cfg = config.programs.tmux.catppuccin;
   enable = cfg.enable && config.programs.tmux.enable;
-
-  plugin =
-    # TODO @getchoo: upstream this in nixpkgs
-    pkgs.tmuxPlugins.mkTmuxPlugin {
-      pluginName = "catppuccin";
-      version = builtins.substring 0 7 sources.tmux.revision;
-      src = sources.tmux;
-    };
 in
 {
   options.programs.tmux.catppuccin = ctp.mkCatppuccinOpt { name = "tmux"; } // {
@@ -37,7 +27,7 @@ in
 
   config.programs.tmux.plugins = lib.mkIf enable [
     {
-      inherit plugin;
+      plugin = config.catppuccin.sources.tmux;
       extraConfig = concatStrings [
         ''
           set -g @catppuccin_flavor '${cfg.flavor}'

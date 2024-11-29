@@ -8,6 +8,6 @@ in
   options.programs.zathura.catppuccin = lib.ctp.mkCatppuccinOpt { name = "zathura"; };
 
   config.programs.zathura.extraConfig = lib.mkIf enable ''
-    include ${sources.zathura + "/src/catppuccin-${cfg.flavor}"}
+    include ${sources.zathura + "/catppuccin-${cfg.flavor}"}
   '';
 }

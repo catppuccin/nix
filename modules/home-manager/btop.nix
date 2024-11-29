@@ -5,14 +5,13 @@ let
   enable = cfg.enable && config.programs.btop.enable;
 
   themeFile = "catppuccin_${cfg.flavor}.theme";
-  themePath = "/themes/${themeFile}";
-  theme = sources.btop + themePath;
+  theme = sources.btop + "/${themeFile}";
 in
 {
   options.programs.btop.catppuccin = lib.ctp.mkCatppuccinOpt { name = "btop"; };
 
   config = lib.mkIf enable {
-    xdg.configFile."btop${themePath}".source = theme;
+    xdg.configFile."btop/themes/${themeFile}".source = theme;
 
     programs.btop.settings.color_theme = themeFile;
   };
