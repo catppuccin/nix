@@ -6,10 +6,7 @@ Built on top of [NixOS](https://nixos.org) and [home-manager](https://github.com
 
 ## What you'll find here
 
-You should first check out our [Getting started](getting-started) guide. Once you're done, you can take a look at all of our available options:
-
-- [For NixOS](options/nixos-options.md)
-- [For home-manager](options/home-manager-options.md)
+You should first check out our [Getting started](getting-started) guide. Once you're done, you can [take a look](options.md) at all of our available options.
 
 ## Find a problem?
 
