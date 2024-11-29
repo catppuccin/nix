@@ -36,7 +36,7 @@
             let
               catppuccinPackages = (import ./default.nix { inherit pkgs; }).packages;
             in
-            catppuccinPackages // { default = pkgs.emptyFile; };
+            catppuccinPackages // { default = catppuccinPackages.whiskers; };
         }
       ))
 
