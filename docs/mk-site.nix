@@ -1,39 +1,35 @@
 {
+  lib,
   stdenvNoCC,
-  writeShellApplication,
   mdbook,
   python3,
+  writeShellApplication,
 }:
-{ nixosDoc, homeManagerDoc, ... }@args:
+
+args:
+
 stdenvNoCC.mkDerivation (
   finalAttrs:
   args
   // {
-    nativeBuildInputs = [ mdbook ];
+    nativeBuildInputs = args.nativeBuildInputs or [ ] ++ [ mdbook ];
 
-    dontPatch = true;
     dontConfigure = true;
     doCheck = false;
 
     buildPhase = ''
       runHook preBuild
-
-      ln -s ${nixosDoc} src/options/nixos-options.md
-      ln -s ${homeManagerDoc} src/options/home-manager-options.md
       mdbook build
-
       runHook postBuild
     '';
 
     installPhase = ''
       runHook preInstall
-
       mv book $out
-
       runHook postInstall
     '';
 
-    passthru = {
+    passthru = lib.recursiveUpdate (args.passthru or { }) {
       serve = writeShellApplication {
         name = "serve";
 
