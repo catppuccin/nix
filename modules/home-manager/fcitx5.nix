@@ -19,7 +19,7 @@ in
 
   config = lib.mkIf enable {
     xdg.dataFile."fcitx5/themes/catppuccin-${cfg.flavor}-${cfg.accent}" = {
-      source = "${sources.fcitx5}/src/catppuccin-${cfg.flavor}-${cfg.accent}";
+      source = "${sources.fcitx5}/usr/share/fcitx5/themes/catppuccin-${cfg.flavor}-${cfg.accent}";
       recursive = true;
     };
 

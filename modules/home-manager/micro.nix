@@ -12,6 +12,6 @@ in
   config = lib.mkIf enable {
     programs.micro.settings.colorscheme = lib.removeSuffix ".micro" themePath;
 
-    xdg.configFile."micro/colorschemes/${themePath}".source = "${sources.micro}/src/${themePath}";
+    xdg.configFile."micro/colorschemes/${themePath}".source = "${sources.micro}/${themePath}";
   };
 }

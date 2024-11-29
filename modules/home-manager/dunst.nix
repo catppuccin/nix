@@ -20,7 +20,6 @@ in
     # Using a prefix like this is necessary because drop-ins' precedence depends on lexical order
     # such that later drop-ins override earlier ones
     # This way, users have better control over precedence
-    "dunst/dunstrc.d/${cfg.prefix}-catppuccin.conf".source =
-      sources.dunst + "/themes/${cfg.flavor}.conf";
+    "dunst/dunstrc.d/${cfg.prefix}-catppuccin.conf".source = sources.dunst + "/${cfg.flavor}.conf";
   };
 }

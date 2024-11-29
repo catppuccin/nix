@@ -67,9 +67,8 @@ in
     services.displayManager.sddm.theme = "catppuccin-${cfg.flavor}";
 
     environment.systemPackages = [
-      (pkgs.catppuccin-sddm.override {
+      (config.catppuccin.sources.sddm.override {
         inherit (cfg)
-          flavor
           font
           fontSize
           background

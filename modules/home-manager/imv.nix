@@ -8,6 +8,6 @@ in
   options.programs.imv.catppuccin = lib.ctp.mkCatppuccinOpt { name = "imv"; };
 
   config.programs.imv.settings = lib.mkIf enable (
-    lib.ctp.fromINI (sources.imv + "/themes/${cfg.flavor}.config")
+    lib.ctp.fromINI (sources.imv + "/${cfg.flavor}.config")
   );
 }

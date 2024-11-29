@@ -9,14 +9,16 @@ default to `config.catppuccin.flavor` and `config.catppuccin.accent`, respective
 When you're done, make sure to add your new file to the list in
 `modules/<module>/all-modules.nix`
 
-[npins](https://github.com/andir/npins) is used to track our upstream
-sources to use in modules. This allows us to easily access and auto-update all themes.
-You can add a new repository using a script in our subflake
+Package can be auto-generated from our our upstream sources to use in modules.
+This allows us to easily access, build, and auto-update all themes reliably
+across systems. You can add a new port to this collection using a script in the
+`pkgs/` folder
 
 ```bash
-nix run ./dev#add-source -- port_name branch_if_not_main
+./pkgs/paws.py port_name
 ```
-Alternatively, you can run `npins add github --directory .sources` manually
+Alternatively -- or if your port requires a build step -- you can make your own
+expression with `buildCatppuccinPort`.
 
 After creating your module, add the options to enable it in `test.nix` under the
 `nodes.machine` attrset. This will allow for your configuration to be tested along
@@ -54,8 +56,8 @@ describes the motivation and content of the commit.
 
 ### Commit scopes
 
-Available commit scopes are port names, `nixos`, `home-manager`, `modules`, and
-`tests`. If none of these apply, omit the scope.
+Available commit scopes are port names, `nixos`, `home-manager`, `modules`,
+`pkgs`, and `tests`. If none of these apply, omit the scope.
 
 ### Breaking changes
 

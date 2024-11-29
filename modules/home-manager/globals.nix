@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   config = {
     assertions = [ (lib.ctp.assertMinimumVersion "24.05") ];
@@ -21,7 +21,7 @@
 
     sources =
       let
-        defaultSources = import ../../.sources;
+        defaultSources = (import ../../default.nix { inherit pkgs; }).packages;
       in
       lib.mkOption {
         type = lib.types.lazyAttrsOf lib.types.raw;

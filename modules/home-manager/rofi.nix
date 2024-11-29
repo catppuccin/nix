@@ -12,7 +12,7 @@ in
     theme = {
       "@theme" = builtins.path {
         name = "catppuccin-${cfg.flavor}.rasi";
-        path = "${sources.rofi}/basic/.local/share/rofi/themes/catppuccin-${cfg.flavor}.rasi";
+        path = "${sources.rofi}/catppuccin-${cfg.flavor}.rasi";
       };
     };
   };

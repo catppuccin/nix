@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -14,6 +13,6 @@ in
 
   config.boot.plymouth = mkIf enable {
     theme = "catppuccin-${cfg.flavor}";
-    themePackages = [ (pkgs.catppuccin-plymouth.override { variant = cfg.flavor; }) ];
+    themePackages = [ config.catppuccin.sources.plymouth ];
   };
 }

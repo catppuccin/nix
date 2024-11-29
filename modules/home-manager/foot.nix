@@ -9,6 +9,6 @@ in
   options.programs.foot.catppuccin = lib.ctp.mkCatppuccinOpt { name = "foot"; };
 
   config.programs.foot = lib.mkIf enable {
-    settings.main.include = sources.foot + "/themes/catppuccin-${cfg.flavor}.ini";
+    settings.main.include = sources.foot + "/catppuccin-${cfg.flavor}.ini";
   };
 }

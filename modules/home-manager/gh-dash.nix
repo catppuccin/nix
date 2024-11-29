@@ -3,7 +3,7 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.programs.gh-dash.catppuccin;
   enable = cfg.enable && config.programs.gh-dash.enable;
-  theme = "${sources.gh-dash}/themes/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.yml";
+  theme = "${sources.gh-dash}/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.yml";
 in
 {
   options.programs.gh-dash.catppuccin = lib.ctp.mkCatppuccinOpt { name = "gh-dash"; } // {

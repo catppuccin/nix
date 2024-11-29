@@ -5,13 +5,12 @@ let
   enable = cfg.enable && config.programs.fish.enable;
 
   themeName = "Catppuccin ${lib.ctp.mkUpper cfg.flavor}";
-  themePath = "/themes/${themeName}.theme";
 in
 {
   options.programs.fish.catppuccin = lib.ctp.mkCatppuccinOpt { name = "fish"; };
 
   config = lib.mkIf enable {
-    xdg.configFile."fish${themePath}".source = "${sources.fish}${themePath}";
+    xdg.configFile."fish/themes/${themeName}.theme".source = "${sources.fish}/${themeName}.theme";
 
     programs.fish.shellInit = ''
       fish_config theme choose "${themeName}"

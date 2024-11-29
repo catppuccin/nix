@@ -9,7 +9,7 @@ in
 
   config = lib.mkIf enable {
     programs.bottom = {
-      settings = lib.importTOML "${sources.bottom}/themes/${cfg.flavor}.toml";
+      settings = lib.importTOML "${sources.bottom}/${cfg.flavor}.toml";
     };
   };
 }
