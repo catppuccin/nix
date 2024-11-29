@@ -65,7 +65,7 @@ in
     (lib.mkIf cfg.enable {
       programs.zsh = {
         initExtra = lib.mkBefore ''
-          source '${sources.zsh-syntax-highlighting}/themes/catppuccin_${cfg.flavor}-zsh-syntax-highlighting.zsh'
+          source '${sources.zsh-syntax-highlighting}/catppuccin_${cfg.flavor}-zsh-syntax-highlighting.zsh'
         '';
       };
     })

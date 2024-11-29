@@ -7,8 +7,7 @@ let
   cfg = config.catppuccin.fish;
   enable = cfg.enable && config.programs.fish.enable;
 
-  themeName = "Catppuccin ${catppuccinLib.mkUpper cfg.flavor}";
-  themePath = "/themes/${themeName}.theme";
+  themeName = "Catppuccin ${lib.ctp.mkUpper cfg.flavor}";
 in
 
 {
@@ -24,7 +23,7 @@ in
   };
 
   config = lib.mkIf enable {
-    xdg.configFile."fish${themePath}".source = "${sources.fish}${themePath}";
+    xdg.configFile."fish/themes/${themeName}.theme".source = "${sources.fish}/${themeName}.theme";
 
     programs.fish.shellInit = ''
       fish_config theme choose "${themeName}"

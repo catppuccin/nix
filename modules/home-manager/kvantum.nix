@@ -2,7 +2,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -10,13 +9,9 @@ let
   cfg = config.catppuccin.kvantum;
   enable = cfg.enable && config.qt.enable;
 
-  theme = pkgs.catppuccin-kvantum.override {
-    inherit (cfg) accent;
-    variant = cfg.flavor;
-  };
-
   themeName = "catppuccin-${cfg.flavor}-${cfg.accent}";
 in
+
 {
   options.catppuccin.kvantum =
     catppuccinLib.mkCatppuccinOption {
@@ -76,7 +71,7 @@ in
     ];
 
     xdg.configFile = {
-      "Kvantum/${themeName}".source = "${theme}/share/Kvantum/${themeName}";
+      "Kvantum/${themeName}".source = "${config.catppuccin.sources.kvantum}/share/Kvantum/${themeName}";
       "Kvantum/kvantum.kvconfig" = lib.mkIf cfg.apply {
         text = ''
           [General]
