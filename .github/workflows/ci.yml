@@ -2,24 +2,49 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
-      - '**.lock'
       - '**.nix'
+      - 'flake.lock'
   pull_request:
     paths:
-      - '**.lock'
       - '**.nix'
+      - 'flake.lock'
   workflow_dispatch:
 
 jobs:
-  test:
-    name: Test Modules
+  packages:
+    name: Build Packages
 
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, ubuntu-latest]
+        os: [ macos-latest, macos-13, ubuntu-latest ]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@V27
+
+      - name: Setup cache
+        uses: DeterminateSystems/magic-nix-cache-action@v8
+
+      - name: Run build
+        run: |
+          nix run .#build-outputs -- 'packages'
+
+  modules:
+    name: Test Modules
+    needs: packages
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ macos-latest, ubuntu-latest ]
 
     runs-on: ${{ matrix.os }}
 
@@ -35,8 +60,15 @@ jobs:
 
       - name: Run tests
         run: |
-          nix run \
-            --inputs-from . \
-            github:Mic92/nix-fast-build -- \
-            --no-nom \
-            --flake ".#checks.$(nix eval --raw --impure --expr builtins.currentSystem)"
+          nix run .#build-outputs -- 'checks'
+
+  release-gate:
+    name: Release Gate
+    needs: [ modules, packages ]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Exit with error
+        if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+        run: exit 1
