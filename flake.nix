@@ -84,6 +84,35 @@
         in
         {
           apps = {
+            build-outputs = {
+              type = "app";
+              program = lib.getExe (
+                pkgs.writeShellApplication {
+                  name = "build-outputs";
+
+                  runtimeInputs = [ pkgs.nix-fast-build ];
+
+                  text = ''
+                    usage="Usage: $0 <flake_attribute>"
+
+                    attribute="''${1:-}"
+                    if [ -z "$attribute" ]; then
+                      echo -n "$usage"
+                      exit 1
+                    fi
+
+                    args=(
+                      "--no-nom"
+                      "--skip-cached"
+                      "--flake" "${self.outPath}#$attribute.${system}"
+                    )
+
+                    nix-fast-build "''${args[@]}"
+                  '';
+                }
+              );
+            };
+
             serve = {
               type = "app";
               program = lib.getExe self.packages.${system}.site.serve;
