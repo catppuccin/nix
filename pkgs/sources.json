@@ -1,1 +1,182 @@
-{}
+{
+  "aerc": {
+    "hash": "sha256-OWIkHsKFts/zkrDUtbBPXHVSrHL/F0v3LB1rnlFAKmE=",
+    "rev": "ca404a9f2d125ef12db40db663d43c9d94116a05"
+  },
+  "alacritty": {
+    "hash": "sha256-H8bouVCS46h0DgQ+oYY8JitahQDj0V9p2cOoD4cQX+Q=",
+    "rev": "f6cb5a5c2b404cdaceaff193b9c52317f62c62f7"
+  },
+  "bat": {
+    "hash": "sha256-x1yqPCWuoBSx/cI94eA+AWwhiSA42cLNUOFJl7qjhmw=",
+    "rev": "d2bbee4f7e7d5bac63c054e4d8eca57954b31471"
+  },
+  "bottom": {
+    "hash": "sha256-Vi438I+YVvoD2xzq2t9hJ9R3a+2TlDdbakjFYFtjtXQ=",
+    "rev": "ed09bd5a5dd78d83acdc8ff5fdec40a6340ed1c2"
+  },
+  "btop": {
+    "hash": "sha256-mEGZwScVPWGu+Vbtddc/sJ+mNdD2kKienGZVUcTSl+c=",
+    "rev": "f437574b600f1c6d932627050b15ff5153b58fa3"
+  },
+  "cava": {
+    "hash": "sha256-5AQcCRGaAxP5KFzkJtkKFYq0Ug2xVIEqr2r/k87uWwY=",
+    "rev": "0746f77974330338ee2e1e4d1ef9872eba57eb26"
+  },
+  "cursors": {
+    "hash": "sha256-Mm0fRh/Shem65E/Cl0yyw+efEHOEt/OJ+MzL+3Mcbwc=",
+    "rev": "190cc3c24bde717f21a5aeb96f0d2e81c2a9b889"
+  },
+  "delta": {
+    "hash": "sha256-JvkTvAe1YltgmYSHeewzwg6xU38oGOIYoehXdHwW1zI=",
+    "rev": "0674ec5114c08393d808e2516d153c7e6df00d41"
+  },
+  "dunst": {
+    "hash": "sha256-EadNqtF1m//blHkV660+d4YjDReVFU2Bzhs0Pb43jh4=",
+    "rev": "f02cd2894411c9b4caa207cfd8ed6345f97c0455"
+  },
+  "fcitx5": {
+    "hash": "sha256-1IqFVTEY6z8yNjpi5C+wahMN1kpt0OJATy5echjPXmc=",
+    "rev": "3471b918d4b5aab2d3c3dd9f2c3b9c18fb470e8e"
+  },
+  "fish": {
+    "hash": "sha256-udiU2TOh0lYL7K7ylbt+BGlSDgCjMpy75vQ98C1kFcc=",
+    "rev": "cc8e4d8fffbdaab07b3979131030b234596f18da"
+  },
+  "foot": {
+    "hash": "sha256-eVH3BY2fZe0/OjqucM/IZthV8PMsM9XeIijOg8cNE1Y=",
+    "rev": "962ff1a5b6387bc5419e9788a773a080eea5f1e1"
+  },
+  "fuzzel": {
+    "hash": "sha256-XpItMGsYq4XvLT+7OJ9YRILfd/9RG1GMuO6J4hSGepg=",
+    "rev": "0af0e26901b60ada4b20522df739f032797b07c3"
+  },
+  "gh-dash": {
+    "hash": "sha256-fOCZxrEyWLi+VYnx3QYOP1R+VBhllhOlnO5/5Wg5aq4=",
+    "rev": "acb1b1c22446e34781731ddbfb5e9bd699eccc74"
+  },
+  "gitui": {
+    "hash": "sha256-CRxpEDShQcCEYtSXwLV5zFB8u0HVcudNcMruPyrnSEk=",
+    "rev": "c7661f043cb6773a1fc96c336738c6399de3e617"
+  },
+  "glamour": {
+    "hash": "sha256-a7yR19KcxIS4UPhuhB+X0B+s8D5eytw0/EB0X4z46kA=",
+    "rev": "f410083af1e9b2418bcd73dbbbc987461d4aa292"
+  },
+  "grub": {
+    "hash": "sha256-bDw+W69jeSiE1VBdQqqaeZf7OqCN7q5XYJ5+94PILXE=",
+    "rev": "ffcceb344e2bc86adc8e64437459c1f38adf5b63"
+  },
+  "helix": {
+    "hash": "sha256-/fZBsX179Yri53amryjq2JmUaEa1us6YynlKiwIOncc=",
+    "rev": "2a98f48d45c1394caf1f4499457549218d5f2041"
+  },
+  "hyprland": {
+    "hash": "sha256-xSa/z0Pu+ioZ0gFH9qSo9P94NPkEMovstm1avJ7rvzM=",
+    "rev": "c388ac55563ddeea0afe9df79d4bfff0096b146b"
+  },
+  "imv": {
+    "hash": "sha256-n6obxM5iVSOdlGdI8ZEmYuxudarLoZHqGETrpTcdrok=",
+    "rev": "0317a097b6ec8122b1da6d02f61d0c5158019f6e"
+  },
+  "k9s": {
+    "hash": "sha256-9h+jyEO4w0OnzeEKQXJbg9dvvWGZYQAO4MbgDn6QRzM=",
+    "rev": "fdbec82284744a1fc2eb3e2d24cb92ef87ffb8b4"
+  },
+  "kvantum": {
+    "hash": "sha256-eQmEeKC+L408ajlNg3oKMnDK6Syy2GV6FrR2TN5ZBCg=",
+    "rev": "a87694e0a3c97644dbb34f8835112d17b54ace68"
+  },
+  "lazygit": {
+    "hash": "sha256-b2SoIeXT1BaoxvEeQ0VaPmnBND+7qUe342kOIkyOcAc=",
+    "rev": "d3c95a67ea3f778f7705d8ef814f87ac5213436d"
+  },
+  "mako": {
+    "hash": "sha256-jgiZ+CrM4DX2nZR5BjjD9/Rk5CGGUy3gq9CCvYzp5Vs=",
+    "rev": "92844f144e72f2dc8727879ec141ffdacf3ff6a1"
+  },
+  "micro": {
+    "hash": "sha256-+Jf32S2CHackdmx+UmEKjx71ZCf4VfnxeA3yzz3MSLQ=",
+    "rev": "2802b32308e5b1a827689c095f11ae604bbc85e6"
+  },
+  "mpv": {
+    "hash": "sha256-l5s9WTxNlI4glAYnbfPZ6K8O3knf5zzgDfOKwFxl/jQ=",
+    "rev": "8d82ef42bde7cc7cc4fad7ce690aa90feab46f34"
+  },
+  "newsboat": {
+    "hash": "sha256-czvR3bVZ0NfBmuu0JixalS7B1vf1uEGSTSUVVTclKxI=",
+    "rev": "be3d0ee1ba0fc26baf7a47c2aa7032b7541deb0f"
+  },
+  "nvim": {
+    "hash": "sha256-Oogw5wmYkx/zsMlPE/r6Kt3cy5sC92rwVzf0P9rzqyw=",
+    "rev": "faf15ab0201b564b6368ffa47b56feefc92ce3f4"
+  },
+  "obs": {
+    "hash": "sha256-rU4WTj+2E/+OblAeK0+nzJhisz2V2/KwHBiJVBRj+LQ=",
+    "rev": "d90002a5315db3a43c39dc52c2a91a99c9330e1f"
+  },
+  "palette": {
+    "hash": "sha256-8AZVLJq5fKbMd/YFbqwgpHB7p4iTPTIMmC39R+3ZZ80=",
+    "rev": "b85d36adec22631684ae64ced0a5cdd15462de3b"
+  },
+  "plymouth": {
+    "hash": "sha256-He6ER1QNrJCUthFoBBGHBINouW/tozxQy3R79F5tsuo=",
+    "rev": "e0f58d6fcf3dbc2d35dfc4fec394217fbfa92666"
+  },
+  "polybar": {
+    "hash": "sha256-jMQ+gH1djp2euERZpVW9muHQFI7xYnEQoNpucRj7Gow=",
+    "rev": "20054f39d3b77bd1afc765981a42c3467bf91204"
+  },
+  "rio": {
+    "hash": "sha256-TMhSufhDB3ZQ8/dIDx33NLzNsfjFwnUdRDOV/jF/EGM=",
+    "rev": "13c2fab4d416625d49b54b9c1b97f12e34e85ca1"
+  },
+  "rofi": {
+    "hash": "sha256-zA8Zum19pDTgn0KdQ0gD2kqCOXK4OCHBidFpGwrJOqg=",
+    "rev": "b636a00fd40a7899a8206195464ae8b7f0450a6d"
+  },
+  "sddm": {
+    "hash": "sha256-SnSrxdDSc09LLYavDdekl2EHFzEoS/JncVd8xtgS2WI=",
+    "rev": "f8fbd8f488553af2282356a89ba58b7cbc92be2e"
+  },
+  "spotify-player": {
+    "hash": "sha256-eenf1jB8b2s2qeG7wAApGwkjJZWVNzQj/wEZMUgnn5U=",
+    "rev": "34b3d23806770185b72466d777853c73454b85a6"
+  },
+  "starship": {
+    "hash": "sha256-1w0TJdQP5lb9jCrCmhPlSexf0PkAlcz8GBDEsRjPRns=",
+    "rev": "e99ba6b210c0739af2a18094024ca0bdf4bb3225"
+  },
+  "sway": {
+    "hash": "sha256-H+ZueiYkCoBfS8JENLKhL/efFK6WFNDsbiMbTpGROUs=",
+    "rev": "c072ada05271eec960dc893affe9ac55af63a745"
+  },
+  "swaylock": {
+    "hash": "sha256-AKiOeV9ggvsreC/lq2qXytUsR+x66Q0kpN2F4/Oh2Ao=",
+    "rev": "77246bbbbf8926bdb8962cffab6616bc2b9e8a06"
+  },
+  "tmux": {
+    "hash": "sha256-vBYBvZrMGLpMU059a+Z4SEekWdQD0GrDqBQyqfkEHPg=",
+    "rev": "2c4cb5a07a3e133ce6d5382db1ab541a0216ddc7"
+  },
+  "tofi": {
+    "hash": "sha256-urvt0ZuCe6iEtHwMUl4K6GDLQat/lV0TqgUOlKs8ykE=",
+    "rev": "d6106461867c077a5e1d25236e02b7be7c83839e"
+  },
+  "waybar": {
+    "hash": "sha256-za0y6hcN2rvN6Xjf31xLRe4PP0YyHu2i454ZPjr+lWA=",
+    "rev": "ee8ed32b4f63e9c417249c109818dcc05a2e25da"
+  },
+  "yazi": {
+    "hash": "sha256-UVcPdQFwgBxR6n3/1zRd9ZEkYADkB5nkuom5SxzPTzk=",
+    "rev": "5d3a1eecc304524e995fe5b936b8e25f014953e8"
+  },
+  "zathura": {
+    "hash": "sha256-/vD/hOi6KcaGyAp6Az7jL5/tQSGRzIrf0oHjAJf4QbI=",
+    "rev": "0adc53028d81bf047461bc61c43a484d11b15220"
+  },
+  "zsh-syntax-highlighting": {
+    "hash": "sha256-l6tztApzYpQ2/CiKuLBf8vI2imM6vPJuFdNDSEi7T/o=",
+    "rev": "7926c3d3e17d26b3779851a2255b95ee650bd928"
+  }
+}
