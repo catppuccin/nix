@@ -3,6 +3,7 @@
   stdenvNoCC,
   catppuccinInstallHook,
   fetchCatppuccinPort,
+  sources,
 }:
 
 args:
@@ -19,7 +20,7 @@ stdenvNoCC.mkDerivation (
     version = args'.version or (builtins.substring 0 7 finalAttrs.src.rev);
 
     src =
-      args'.src or (fetchCatppuccinPort {
+      args'.src or sources.${finalAttrs.pname} or (fetchCatppuccinPort {
         port = finalAttrs.pname;
         inherit (finalAttrs) rev hash;
         fetchSubmodules = finalAttrs.fetchSubmodules or false;
