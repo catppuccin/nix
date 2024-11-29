@@ -41,9 +41,7 @@ jobs:
 
       - name: Format changes
         run: |
-          nix run \
-            --inputs-from ./dev \
-            'nixpkgs#nixfmt-rfc-style' -- .
+          nix fmt
 
       - name: Commit changes
         run: |
@@ -75,7 +73,7 @@ jobs:
       - name: Run tests
         run: |
           nix run \
-            --inputs-from ./dev \
+            --inputs-from . \
             github:Mic92/nix-fast-build -- \
             --no-nom \
-            --flake "./dev#checks.$(nix eval --raw --impure --expr builtins.currentSystem)"
+            --flake ".#checks.$(nix eval --raw --impure --expr builtins.currentSystem)"

@@ -37,7 +37,7 @@ jobs:
           nix build \
             --print-build-logs \
             --show-trace \
-            './dev#site'
+            '.#site'
 
       - name: Get artifact directory
         id: find-path
