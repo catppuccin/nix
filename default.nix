@@ -48,4 +48,6 @@ in
     in
     isFunction || (!broken) && availableOnHost || isCross
   )) catppuccinPackages;
+
+  shell = import ./shell.nix { inherit pkgs; };
 }
