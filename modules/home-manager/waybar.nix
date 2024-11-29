@@ -7,7 +7,7 @@ let
   cfg = config.catppuccin.waybar;
   enable = cfg.enable && config.programs.waybar.enable;
 
-  styleFile = "${sources.waybar}/themes/${cfg.flavor}.css";
+  styleFile = "${sources.waybar}/${cfg.flavor}.css";
 in
 
 {

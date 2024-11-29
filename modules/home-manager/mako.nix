@@ -11,7 +11,7 @@ let
 
   cfg = config.catppuccin.mako;
   theme = catppuccinLib.importINI (
-    sources.mako + "/themes/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}"
+    sources.mako + "/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}"
   );
 
   # Settings that need to be extracted and put in extraConfig

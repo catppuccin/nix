@@ -29,29 +29,3 @@ jobs:
           commit-msg: "chore: update dev flake inputs"
           pr-title: "chore: update dev flake inputs"
           token: ${{ github.token }}
-
-  ports:
-    name: Update port sources
-
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-      pull-requests: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: cachix/install-nix-action@V27
-
-      - name: Install npins
-        run: nix profile install 'nixpkgs#npins'
-
-      - uses: getchoo/update-npins@v0.1.2
-        with:
-          npins-directory: "./.sources"
-          commit-message: "chore(modules): update ports"
-          pr-title: "chore(modules): update ports"
-          token: ${{ github.token }}

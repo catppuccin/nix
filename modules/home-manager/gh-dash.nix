@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.gh-dash;
-  theme = "${sources.gh-dash}/themes/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.yml";
+  theme = "${sources.gh-dash}/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.yml";
 in
 
 {

@@ -1,8 +1,10 @@
 { catppuccinLib }:
 { config, lib, ... }:
+
 let
   cfg = config.catppuccin.kitty;
 in
+
 {
   options.catppuccin.kitty = catppuccinLib.mkCatppuccinOption { name = "kitty"; };
 

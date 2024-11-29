@@ -26,7 +26,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.mpv = {
       config = {
-        include = sources.mpv + "/themes/${cfg.flavor}/${cfg.accent}.conf";
+        include = sources.mpv + "/${cfg.flavor}/${cfg.accent}.conf";
       };
     };
   };

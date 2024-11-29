@@ -34,7 +34,7 @@ in
 
     sources =
       let
-        defaultSources = import ../.sources;
+        defaultSources = (import ../default.nix { inherit pkgs; }).packages;
       in
       lib.mkOption {
         type = lib.types.lazyAttrsOf lib.types.raw;

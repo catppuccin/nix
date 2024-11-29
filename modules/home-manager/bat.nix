@@ -6,6 +6,7 @@ let
   cfg = config.catppuccin.bat;
   themeName = "Catppuccin ${catppuccinLib.mkUpper cfg.flavor}";
 in
+
 {
   options.catppuccin.bat = catppuccinLib.mkCatppuccinOption { name = "bat"; };
 
@@ -24,7 +25,7 @@ in
 
       themes.${themeName} = {
         src = sources.bat;
-        file = "themes/${themeName}.tmTheme";
+        file = "${themeName}.tmTheme";
       };
     };
   };

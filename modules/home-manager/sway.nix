@@ -5,8 +5,9 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.sway;
-  theme = "${sources.sway}/themes/catppuccin-${cfg.flavor}";
+  theme = "${sources.sway}/catppuccin-${cfg.flavor}";
 in
+
 {
   options.catppuccin.sway = catppuccinLib.mkCatppuccinOption { name = "sway"; };
 
