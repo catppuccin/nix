@@ -1,13 +1,22 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.programs.obs-studio.catppuccin;
+  cfg = config.catppuccin.obs;
   enable = cfg.enable && config.programs.obs-studio.enable;
 
   themeName = "Catppuccin_${lib.ctp.mkUpper cfg.flavor}.ovt";
 in
 {
-  options.programs.obs-studio.catppuccin = lib.ctp.mkCatppuccinOpt { name = "obs-studio"; };
+  options.catppuccin.obs = lib.ctp.mkCatppuccinOpt { name = "obs"; };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "obs-studio"
+      "catppuccin"
+    ];
+    to = "obs";
+  };
 
   config = lib.mkIf enable {
     xdg.configFile."obs-studio/themes/Catppuccin.obt".source = "${sources.obs}/themes/Catppuccin.obt";

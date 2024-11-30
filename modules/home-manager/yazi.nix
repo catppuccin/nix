@@ -2,12 +2,22 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.yazi.catppuccin;
+  cfg = config.catppuccin.yazi;
   enable = cfg.enable && config.programs.yazi.enable;
 in
 {
-  options.programs.yazi.catppuccin = lib.ctp.mkCatppuccinOpt { name = "yazi"; } // {
+  options.catppuccin.yazi = lib.ctp.mkCatppuccinOpt { name = "yazi"; } // {
     accent = lib.ctp.mkAccentOpt "yazi";
+  };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "yazi"
+      "catppuccin"
+    ];
+    to = "yazi";
+    accentSupport = true;
   };
 
   config = lib.mkIf enable {

@@ -1,11 +1,11 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.i18n.inputMethod.fcitx5.catppuccin;
+  cfg = config.catppuccin.fcitx5;
   enable = cfg.enable && config.i18n.inputMethod.enabled == "fcitx5";
 in
 {
-  options.i18n.inputMethod.fcitx5.catppuccin = lib.ctp.mkCatppuccinOpt { name = "Fcitx5"; } // {
+  options.catppuccin.fcitx5 = lib.ctp.mkCatppuccinOpt { name = "Fcitx5"; } // {
     accent = lib.ctp.mkAccentOpt "Fcitx5";
     apply = lib.mkOption {
       type = lib.types.bool;
@@ -16,6 +16,34 @@ in
       '';
     };
   };
+
+  imports =
+    (lib.ctp.mkRenamedCatppuccinOpts {
+      from = [
+        "i18n"
+        "inputMethod"
+        "fcitx5"
+        "catppuccin"
+      ];
+      to = "fcitx5";
+      accentSupport = true;
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "i18n"
+          "inputMethod"
+          "fcitx5"
+          "catppuccin"
+          "apply"
+        ]
+        [
+          "catppuccin"
+          "fcitx5"
+          "apply"
+        ]
+      )
+    ];
 
   config = lib.mkIf enable {
     xdg.dataFile."fcitx5/themes/catppuccin-${cfg.flavor}-${cfg.accent}" = {

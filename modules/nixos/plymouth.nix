@@ -6,11 +6,20 @@
 }:
 let
   inherit (lib) ctp mkIf;
-  cfg = config.boot.plymouth.catppuccin;
+  cfg = config.catppuccin.plymouth;
   enable = cfg.enable && config.boot.plymouth.enable;
 in
 {
-  options.boot.plymouth.catppuccin = ctp.mkCatppuccinOpt { name = "plymouth"; };
+  options.catppuccin.plymouth = ctp.mkCatppuccinOpt { name = "plymouth"; };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "boot"
+      "plymouth"
+      "catppuccin"
+    ];
+    to = "plymouth";
+  };
 
   config.boot.plymouth = mkIf enable {
     theme = "catppuccin-${cfg.flavor}";

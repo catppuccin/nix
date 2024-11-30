@@ -1,11 +1,21 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.programs.fuzzel.catppuccin;
+  cfg = config.catppuccin.fuzzel;
 in
 {
-  options.programs.fuzzel.catppuccin = lib.ctp.mkCatppuccinOpt { name = "fuzzel"; } // {
+  options.catppuccin.fuzzel = lib.ctp.mkCatppuccinOpt { name = "fuzzel"; } // {
     accent = lib.ctp.mkAccentOpt "fuzzel";
+  };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "fuzzel"
+      "catppuccin"
+    ];
+    to = "fuzzel";
+    accentSupport = true;
   };
 
   config = lib.mkIf cfg.enable {
