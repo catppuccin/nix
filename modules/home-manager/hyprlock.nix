@@ -1,3 +1,4 @@
+{ catppuccinLib }: 
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
@@ -5,8 +6,9 @@ let
   enable = cfg.enable && config.programs.hyprlock.enable;
 in
 {
-  options.programs.hyprlock.catppuccin = lib.ctp.mkCatppuccinOpt { name = "hyprlock"; } // {
-    accent = lib.ctp.mkAccentOpt "hyprlock";
+  options.programs.hyprlock.catppuccin = catppuccinLib.mkCatppuccinOption {
+    name = "hyprlock";
+    accentSupport = true;
   };
 
   config = lib.mkIf enable {

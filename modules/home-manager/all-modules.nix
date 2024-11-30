@@ -17,7 +17,6 @@
   ./gh-dash.nix
   ./gitui.nix
   ./glamour.nix
-  ./globals.nix
   ./gtk.nix
   ./helix.nix
   ./hyprland.nix
