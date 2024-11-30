@@ -166,12 +166,12 @@
                 pkgs.linkFarm "search-engines" (
                   [
                     {
-                      name = "stable";
-                      path = redirectTo "/search/${latestStableVersion}";
+                      name = "stable.html";
+                      path = redirectTo "/search/${latestStableVersion}/";
                     }
                     {
                       name = "index.html";
-                      path = redirectTo "/search/stable";
+                      path = redirectTo "/search/stable.html";
                     }
                   ]
                   ++ map (
