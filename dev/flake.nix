@@ -76,6 +76,21 @@
             "v1.1"
             "rolling"
           ];
+
+      # And the latest stable from that
+      latestStableVersion =
+        let
+          latest = lib.foldl' (
+            latest:
+            { versionName, ... }:
+            if (versionName != "rolling" && lib.versionOlder latest (lib.removePrefix "v" versionName)) then
+              versionName
+            else
+              latest
+          ) "0" searchVersions;
+        in
+        assert lib.assertMsg (latest != "0") "Unable to determine latest stable version!";
+        latest;
     in
 
     {
@@ -123,11 +138,17 @@
             map (
               { catppuccin, versionName }:
               {
-                name = "search-${versionName}";
+                name = versionName;
                 value = mkSearchInstance { inherit catppuccin versionName; };
               }
             ) searchVersions
           );
+
+          redirectTo =
+            endpoint:
+            pkgs.writeText "index.html" ''
+              <meta http-equiv="refresh" content="0;url=${endpoint}">
+            '';
         in
 
         search-instances
@@ -140,12 +161,29 @@
 
             postPatch = "ln -sf ${inputs.catppuccin-rolling + "/CHANGELOG.md"} src/NEWS.md";
 
-            postInstall = lib.concatLines (
-              [ "mkdir -p $out/search" ]
-              ++ lib.mapAttrsToList (
-                name: value: "ln -s ${value.outPath} $out/${lib.replaceStrings [ "-" ] [ "/" ] name}"
-              ) search-instances
-            );
+            postInstall = ''
+              ln -sf ${
+                pkgs.linkFarm "search-engines" (
+                  [
+                    {
+                      name = "stable";
+                      path = redirectTo "/search/${latestStableVersion}";
+                    }
+                    {
+                      name = "index.html";
+                      path = redirectTo "/search/stable";
+                    }
+                  ]
+                  ++ map (
+                    { versionName, ... }:
+                    {
+                      name = versionName;
+                      path = search-instances.${versionName};
+                    }
+                  ) searchVersions
+                )
+              } $out/search
+            '';
           };
 
           add-source =
