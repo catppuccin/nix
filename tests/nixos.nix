@@ -49,8 +49,6 @@ testers.runNixOSTest {
 
   testScript = _: ''
     machine.start()
-    machine.wait_for_unit("home-manager-test.service")
-    machine.wait_until_succeeds("systemctl status home-manager-test.service")
-    machine.succeed("echo \"system started!\"")
+    machine.wait_for_unit("default.target", "test")
   '';
 }
