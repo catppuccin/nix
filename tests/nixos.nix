@@ -28,9 +28,8 @@ testers.runNixOSTest {
       console.enable = true;
 
       i18n.inputMethod = {
-        # TODO: Use this option after 24.11 is stable
-        # enable = true;
-        enabled = "fcitx5";
+        enable = true;
+        type = "fcitx5";
       };
 
       users.users.test = {
@@ -50,8 +49,6 @@ testers.runNixOSTest {
 
   testScript = _: ''
     machine.start()
-    machine.wait_for_unit("home-manager-test.service")
-    machine.wait_until_succeeds("systemctl status home-manager-test.service")
-    machine.succeed("echo \"system started!\"")
+    machine.wait_for_unit("default.target", "test")
   '';
 }
