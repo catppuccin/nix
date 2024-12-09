@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.programs.swaylock.catppuccin;
+  cfg = config.catppuccin.swaylock;
 in
 {
-  options.programs.swaylock.catppuccin = {
+  options.catppuccin.swaylock = {
     enable = lib.mkEnableOption "Catppuccin theme" // {
       /*
         global `catppuccin.enable` purposefully doesn't work here in configurations with a `home.stateVersion`
@@ -31,6 +31,15 @@ in
     };
 
     flavor = lib.ctp.mkFlavorOpt "swaylock";
+  };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "swaylock"
+      "catppuccin"
+    ];
+    to = "swaylock";
   };
 
   config = lib.mkIf cfg.enable {

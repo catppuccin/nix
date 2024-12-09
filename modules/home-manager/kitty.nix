@@ -1,7 +1,7 @@
 { config, lib, ... }:
 let
   inherit (lib) ctp;
-  cfg = config.programs.kitty.catppuccin;
+  cfg = config.catppuccin.kitty;
   enable = cfg.enable && config.programs.kitty.enable;
 
   # TODO: Remove after 24.11 is stable
@@ -9,7 +9,16 @@ let
   attrName = if (lib.versionAtLeast ctp.getModuleRelease "24.11") then "themeFile" else "theme";
 in
 {
-  options.programs.kitty.catppuccin = ctp.mkCatppuccinOpt { name = "kitty"; };
+  options.catppuccin.kitty = ctp.mkCatppuccinOpt { name = "kitty"; };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "kitty"
+      "catppuccin"
+    ];
+    to = "kitty";
+  };
 
   config = lib.mkIf enable { programs.kitty.${attrName} = "Catppuccin-${ctp.mkUpper cfg.flavor}"; };
 }

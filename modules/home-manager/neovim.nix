@@ -5,11 +5,20 @@
   ...
 }:
 let
-  cfg = config.programs.neovim.catppuccin;
+  cfg = config.catppuccin.nvim;
   enable = cfg.enable && config.programs.neovim.enable;
 in
 {
-  options.programs.neovim.catppuccin = lib.ctp.mkCatppuccinOpt { name = "neovim"; };
+  options.catppuccin.nvim = lib.ctp.mkCatppuccinOpt { name = "nvim"; };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "neovim"
+      "catppuccin"
+    ];
+    to = "nvim";
+  };
 
   config.programs.neovim = lib.mkIf enable {
     plugins = with pkgs.vimPlugins; [

@@ -1,12 +1,21 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.programs.bat.catppuccin;
+  cfg = config.catppuccin.bat;
   enable = cfg.enable && config.programs.bat.enable;
   themeName = "Catppuccin ${lib.ctp.mkUpper cfg.flavor}";
 in
 {
-  options.programs.bat.catppuccin = lib.ctp.mkCatppuccinOpt { name = "bat"; };
+  options.catppuccin.bat = lib.ctp.mkCatppuccinOpt { name = "bat"; };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "bat"
+      "catppuccin"
+    ];
+    to = "bat";
+  };
 
   config = lib.mkIf enable {
     programs.bat = {

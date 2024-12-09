@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) ctp mkIf;
-  cfg = config.catppuccin.pointerCursor;
+  cfg = config.catppuccin.cursors;
 
   # "dark" and "light" can be used alongside the regular accents
   cursorAccentType = ctp.mergeEnums ctp.types.accentOption (
@@ -17,7 +17,7 @@ let
   );
 in
 {
-  options.catppuccin.pointerCursor =
+  options.catppuccin.cursors =
     ctp.mkCatppuccinOpt {
       name = "pointer cursors";
       # NOTE: we exclude this from the global `catppuccin.enable` as there is no
@@ -27,6 +27,15 @@ in
     // {
       accent = ctp.mkBasicOpt "accent" cursorAccentType "cursors";
     };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "catppuccin"
+      "pointerCursor"
+    ];
+    to = "cursors";
+    accentSupport = true;
+  };
 
   config.home.pointerCursor = mkIf cfg.enable {
     name = "catppuccin-${cfg.flavor}-${cfg.accent}-cursors";

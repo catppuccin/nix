@@ -159,4 +159,56 @@ in
     assertion = lib.versionAtLeast ctp.getModuleRelease version;
     message = "`catppuccin/nix` requires at least version ${version} of NixOS/home-manager";
   };
+
+  # a -> list
+  # this is used to make old modules to new modules
+  mkRenamedCatppuccinOpts =
+    {
+      from,
+      to,
+      accentSupport ? false,
+    }:
+    [
+      (lib.mkRenamedOptionModule
+        (
+          from
+          ++ [
+            "enable"
+          ]
+        )
+        [
+          "catppuccin"
+          to
+          "enable"
+        ]
+      )
+
+      (lib.mkRenamedOptionModule
+        (
+          from
+          ++ [
+            "flavor"
+          ]
+        )
+        [
+          "catppuccin"
+          to
+          "flavor"
+        ]
+      )
+    ]
+    ++ lib.optional accentSupport (
+      lib.mkRenamedOptionModule
+        (
+          from
+          ++ [
+            "accent"
+          ]
+        )
+        [
+          "catppuccin"
+          to
+          "accent"
+        ]
+    );
 }

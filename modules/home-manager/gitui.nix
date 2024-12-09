@@ -2,11 +2,20 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.gitui.catppuccin;
+  cfg = config.catppuccin.gitui;
   enable = cfg.enable && config.programs.gitui.enable;
 in
 {
-  options.programs.gitui.catppuccin = lib.ctp.mkCatppuccinOpt { name = "gitui"; };
+  options.catppuccin.gitui = lib.ctp.mkCatppuccinOpt { name = "gitui"; };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "gitui"
+      "catppuccin"
+    ];
+    to = "gitui";
+  };
 
   config = lib.mkIf enable {
     programs.gitui.theme = builtins.path {

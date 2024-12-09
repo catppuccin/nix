@@ -2,11 +2,11 @@
 let
   inherit (config.programs.freetube.settings) baseTheme;
   inherit (lib.ctp) mkAccentOpt mkUpper;
-  cfg = config.programs.freetube.catppuccin;
+  cfg = config.catppuccin.freetube;
   enable = cfg.enable && config.programs.freetube.enable;
 in
 {
-  options.programs.freetube.catppuccin = lib.ctp.mkCatppuccinOpt { name = "freetube"; } // {
+  options.catppuccin.freetube = lib.ctp.mkCatppuccinOpt { name = "freetube"; } // {
     accent = mkAccentOpt "FreeTube";
     # FreeTube supports two accent colors
     secondaryAccent = mkAccentOpt "FreeTube" // {
@@ -15,6 +15,32 @@ in
       default = cfg.accent;
     };
   };
+
+  imports =
+    (lib.ctp.mkRenamedCatppuccinOpts {
+      from = [
+        "programs"
+        "freetube"
+        "catppuccin"
+      ];
+      to = "freetube";
+      accentSupport = true;
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "programs"
+          "freetube"
+          "catppuccin"
+          "secondaryAccent"
+        ]
+        [
+          "catppuccin"
+          "freetube"
+          "secondaryAccent"
+        ]
+      )
+    ];
 
   config.programs.freetube.settings = lib.mkIf enable {
     # NOTE: For some reason, baseTheme does not capitalize first letter, but the other settings do

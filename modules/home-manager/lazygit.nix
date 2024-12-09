@@ -8,7 +8,7 @@ let
   inherit (lib) ctp;
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.lazygit.catppuccin;
+  cfg = config.catppuccin.lazygit;
   enable = cfg.enable && config.programs.lazygit.enable;
 
   # NOTE: On MacOS specifically, k9s expects its configuration to be in
@@ -23,8 +23,18 @@ let
   configFile = "${configDirectory}/lazygit/config.yml";
 in
 {
-  options.programs.lazygit.catppuccin = lib.ctp.mkCatppuccinOpt { name = "lazygit"; } // {
+  options.catppuccin.lazygit = lib.ctp.mkCatppuccinOpt { name = "lazygit"; } // {
     accent = ctp.mkAccentOpt "lazygit";
+  };
+
+  imports = lib.ctp.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "lazygit"
+      "catppuccin"
+    ];
+    to = "lazygit";
+    accentSupport = true;
   };
 
   config.home.sessionVariables = lib.mkIf enable {
