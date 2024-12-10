@@ -132,9 +132,7 @@ in
 
   # a -> a -> a
   # see https://nlewo.github.io/nixos-manual-sphinx/development/option-types.xml.html
-  # by default enums cannot be merged, but they keep their passed value in `functor.payload`.
-  # `functor.binOp` can merge those values
-  mergeEnums = a: b: lib.types.enum (a.functor.binOp a.functor.payload b.functor.payload);
+  mergeEnums = a: b: a.typeMerge b.functor;
 
   # string
   # returns the current release version of nixos or home-manager. throws an evaluation error if neither are
