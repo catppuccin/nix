@@ -35,6 +35,7 @@ testers.runNixOSTest {
       users.users.test = {
         isNormalUser = true;
         home = "/home/test";
+        uid = 1000;
       };
 
       virtualisation = {
@@ -47,10 +48,23 @@ testers.runNixOSTest {
       };
     };
 
-  testScript = _: ''
-    machine.start()
-    machine.wait_for_unit("home-manager-test.service")
-    machine.wait_until_succeeds("systemctl status home-manager-test.service")
-    machine.succeed("echo \"system started!\"")
-  '';
+  testScript =
+    { nodes, ... }:
+    let
+      user = nodes.machine.users.users.test;
+    in
+    ''
+      start_all()
+
+      with subtest("Wait for startup"):
+        machine.wait_for_unit("multi-user.target")
+
+      with subtest("Activate home-manager environment"):
+        # HACK: Re-run home-manager activation
+        #
+        # As of 24.11, home-manager is activated via a oneshot unit
+        # `wait_for_unit()` can't handle this, so we run here again with `systemctl`
+        # https://github.com/NixOS/nixpkgs/issues/62155
+        machine.systemctl("start home-manager-${user.name}.service")
+    '';
 }
