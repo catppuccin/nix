@@ -468,6 +468,18 @@
       "url": "https://github.com/catppuccin/waybar/archive/ee8ed32b4f63e9c417249c109818dcc05a2e25da.tar.gz",
       "hash": "0q4mzqx3w6cywfifs7ij8qzhzvj59dfdzpvqx76vpnhd2zm35bfd"
     },
+    "wlogout": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "wlogout"
+      },
+      "branch": "main",
+      "revision": "b690cee13b944890e43a5fb629ccdff86cffbbb3",
+      "url": "https://github.com/catppuccin/wlogout/archive/b690cee13b944890e43a5fb629ccdff86cffbbb3.tar.gz",
+      "hash": "1cj39y0ry2rxdliay29dfij6zz0lib1hc34fm3c6w11yjg3q6i21"
+    },
     "yazi": {
       "type": "Git",
       "repository": {
