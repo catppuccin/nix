@@ -1,10 +1,19 @@
-{ testers, home-manager }:
+{
+  lib,
+  testers,
+  home-manager,
+}:
+
+let
+  userName = lib.fileContents ./username.txt;
+in
 
 testers.runNixOSTest {
-  name = "module-test";
+  name = "catppuccin-nix";
 
   nodes.machine =
     { lib, pkgs, ... }:
+
     {
       imports = [
         home-manager.nixosModules.default
@@ -32,9 +41,8 @@ testers.runNixOSTest {
         type = "fcitx5";
       };
 
-      users.users.test = {
+      users.users.${userName} = {
         isNormalUser = true;
-        home = "/home/test";
         uid = 1000;
       };
 
@@ -43,16 +51,18 @@ testers.runNixOSTest {
         writableStore = true;
       };
 
-      home-manager.users.test = {
+      home-manager.users.${userName} = {
         imports = [ ./home.nix ];
       };
     };
 
   testScript =
     { nodes, ... }:
+
     let
-      user = nodes.machine.users.users.test;
+      user = nodes.machine.users.users.${userName};
     in
+
     ''
       start_all()
 
