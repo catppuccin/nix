@@ -162,9 +162,8 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
 
 ## 🙋 FAQ
 
-- Q: **"How do I know what programs are supported?"**\
-  A: You can find programs supported through home-manager [here](https://nix.catppuccin.com/options/home-manager-options.html),
-  and NixOS modules [here](https://nix.catppuccin.com/options/nixos-options.html)
+- Q: **"How do I know what ports are supported?"**\
+  A: You can look through all of the options for our supported ports at [nix.catppuccin.com/search](https://nix.catppuccin.com/search)
 
 - Q: **"How do I set `catppuccin.enable` for everything I use?"**\
   A: You can set `catppuccin.enable` [globally](https://nix.catppuccin.com/options/home-manager-options.html#catppuccinenable)
