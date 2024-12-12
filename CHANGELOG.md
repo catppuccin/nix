@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.1](https://github.com/catppuccin/nix/releases/tag/v1.1.1) - 2024-12-12
+
+### 🐛 Bug Fixes
+
+- fix eval on 25.05 by [@PerchunPak](https://github.com/PerchunPak)
+
+### 📚 Documentation
+
+- **README**: fix typo `catppucin` -> `catppuccin` by [@42willow](https://github.com/42willow)
+- use nuscht search for options by [@getchoo](https://github.com/getchoo)
+- add nicer redirects by [@getchoo](https://github.com/getchoo)
+- use git-cliff for release changelogs by [@getchoo](https://github.com/getchoo)
+
 ## [1.1.0](https://github.com/catppuccin/nix/releases/tag/v1.1.0) - 2024-11-08
 
 ### 🚀 Features
