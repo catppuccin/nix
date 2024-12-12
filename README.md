@@ -166,7 +166,7 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
   A: You can look through all of the options for our supported ports at [nix.catppuccin.com/search](https://nix.catppuccin.com/search)
 
 - Q: **"How do I set `catppuccin.enable` for everything I use?"**\
-  A: You can set `catppuccin.enable` [globally](https://nix.catppuccin.com/options/home-manager-options.html#catppuccinenable)
+  A: You can set `catppuccin.enable` [globally](https://nix.catppuccin.com/search/rolling/?option_scope=0&option=catppuccin.enable&scope=NixOS%20modules)
 
 - Q: **"What versions of NixOS and home-manager are supported?"**\
   A: We primarily support the `unstable` branch, but try our best to support the current stable release.
