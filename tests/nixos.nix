@@ -12,7 +12,7 @@ testers.runNixOSTest {
   name = "catppuccin-nix";
 
   nodes.machine =
-    { lib, pkgs, ... }:
+    { pkgs, ... }:
 
     {
       imports = [
