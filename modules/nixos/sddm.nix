@@ -5,12 +5,13 @@
   config,
   ...
 }:
+
 let
   inherit (lib)
-    mkIf
-    types
     mkOption
+    types
     ;
+
   cfg = config.services.displayManager.sddm.catppuccin;
   enable = cfg.enable && config.services.displayManager.sddm.enable;
 in
@@ -54,7 +55,7 @@ in
         };
     };
 
-  config = mkIf enable {
+  config = lib.mkIf enable {
     assertions = lib.optional cfg.assertQt6Sddm {
       assertion = config.services.displayManager.sddm.package == pkgs.kdePackages.sddm;
       message = ''
@@ -66,7 +67,11 @@ in
       '';
     };
 
-    services.displayManager.sddm.theme = "catppuccin-${cfg.flavor}";
+    services.displayManager = {
+      sddm = {
+        theme = "catppuccin-${cfg.flavor}";
+      };
+    };
 
     environment.systemPackages = [
       (pkgs.catppuccin-sddm.override {

@@ -5,15 +5,11 @@
   pkgs,
   ...
 }:
+
 let
-  inherit (lib)
-    mkOption
-    types
-    concatStrings
-    ;
   inherit (config.catppuccin) sources;
+
   cfg = config.programs.tmux.catppuccin;
-  enable = cfg.enable && config.programs.tmux.enable;
 
   plugin =
     # TODO @getchoo: upstream this in nixpkgs
@@ -23,10 +19,11 @@ let
       src = sources.tmux;
     };
 in
+
 {
   options.programs.tmux.catppuccin = catppuccinLib.mkCatppuccinOption { name = "tmux"; } // {
-    extraConfig = mkOption {
-      type = types.lines;
+    extraConfig = lib.mkOption {
+      type = lib.types.lines;
       description = "Additional configuration for the catppuccin plugin.";
       default = "";
       example = ''
@@ -35,15 +32,19 @@ in
     };
   };
 
-  config.programs.tmux.plugins = lib.mkIf enable [
-    {
-      inherit plugin;
-      extraConfig = concatStrings [
-        ''
-          set -g @catppuccin_flavor '${cfg.flavor}'
-        ''
-        cfg.extraConfig
+  config = lib.mkIf cfg.enable {
+    programs.tmux = {
+      plugins = [
+        {
+          inherit plugin;
+          extraConfig = lib.concatStrings [
+            ''
+              set -g @catppuccin_flavor '${cfg.flavor}'
+            ''
+            cfg.extraConfig
+          ];
+        }
       ];
-    }
-  ];
+    };
+  };
 }

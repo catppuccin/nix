@@ -5,6 +5,7 @@
   lib,
   ...
 }:
+
 let
   cfg = config.catppuccin.pointerCursor;
 
@@ -16,6 +17,7 @@ let
     ]
   );
 in
+
 {
   options.catppuccin.pointerCursor =
     catppuccinLib.mkCatppuccinOption {
@@ -32,8 +34,10 @@ in
       };
     };
 
-  config.home.pointerCursor = lib.mkIf cfg.enable {
-    name = "catppuccin-${cfg.flavor}-${cfg.accent}-cursors";
-    package = pkgs.catppuccin-cursors.${cfg.flavor + catppuccinLib.mkUpper cfg.accent};
+  config = lib.mkIf cfg.enable {
+    home.pointerCursor = {
+      name = "catppuccin-${cfg.flavor}-${cfg.accent}-cursors";
+      package = pkgs.catppuccin-cursors.${cfg.flavor + catppuccinLib.mkUpper cfg.accent};
+    };
   };
 }

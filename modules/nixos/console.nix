@@ -1,18 +1,22 @@
-{ catppuccinLib }: 
+{ catppuccinLib }:
 { config, lib, ... }:
+
 let
   inherit (config.catppuccin) sources;
+
   cfg = config.console.catppuccin;
+
   enable = cfg.enable && config.console.enable;
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
+
 {
   options.console.catppuccin = catppuccinLib.mkCatppuccinOption { name = "console"; };
 
-  config.console.colors = lib.mkIf enable (
+  config = lib.mkIf enable {
     # Manually populate with colors from catppuccin/tty
     # Make sure to strip initial # from hex codes
-    map (color: (builtins.substring 1 6 palette.${color}.hex)) [
+    console.colors = map (color: (lib.substring 1 6 palette.${color}.hex)) [
       "base"
       "red"
       "green"
@@ -30,6 +34,6 @@ in
       "pink"
       "teal"
       "subtext0"
-    ]
-  );
+    ];
+  };
 }

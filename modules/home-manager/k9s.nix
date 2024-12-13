@@ -1,10 +1,11 @@
-{ catppuccinLib }: 
+{ catppuccinLib }:
 {
   config,
   lib,
   pkgs,
   ...
 }:
+
 let
   inherit (config.catppuccin) sources;
 
@@ -20,6 +21,7 @@ let
   themePath = "k9s/skins/${themeFile}";
   theme = sources.k9s + "/dist/${themeFile}";
 in
+
 {
   options.programs.k9s.catppuccin = catppuccinLib.mkCatppuccinOption { name = "k9s"; } // {
     transparent = lib.mkEnableOption "transparent version of flavor";
@@ -28,10 +30,20 @@ in
   config = lib.mkIf enable (
     lib.mkMerge [
       (lib.mkIf (!enableXdgConfig) {
-        home.file."Library/Application Support/${themePath}".source = theme;
+        home.file = {
+          "Library/Application Support/${themePath}".source = theme;
+        };
       })
+
       (lib.mkIf enableXdgConfig { xdg.configFile.${themePath}.source = theme; })
-      { programs.k9s.settings.k9s.ui.skin = themeName; }
+
+      {
+        programs.k9s = {
+          settings = {
+            k9s.ui.skin = themeName;
+          };
+        };
+      }
     ]
   );
 }

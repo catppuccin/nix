@@ -1,11 +1,15 @@
-{ catppuccinLib }: 
+{ catppuccinLib }:
 { config, lib, ... }:
+
 let
   inherit (config.catppuccin) sources;
+
   cfg = config.programs.waybar.catppuccin;
   enable = cfg.enable && config.programs.waybar.enable;
+
   styleFile = "${sources.waybar}/themes/${cfg.flavor}.css";
 in
+
 {
   options.programs.waybar.catppuccin = catppuccinLib.mkCatppuccinOption { name = "waybar"; } // {
     mode = lib.mkOption {
@@ -26,11 +30,18 @@ in
   config = lib.mkIf enable (
     lib.mkMerge [
       (lib.mkIf (cfg.mode == "prependImport") {
-        programs.waybar.style = lib.mkBefore ''
-          @import "${styleFile}";
-        '';
+        programs.waybar = {
+          style = lib.mkBefore ''
+            @import "${styleFile}";
+          '';
+        };
       })
-      (lib.mkIf (cfg.mode == "createLink") { xdg.configFile."waybar/catppuccin.css".source = styleFile; })
+
+      (lib.mkIf (cfg.mode == "createLink") {
+        xdg.configFile = {
+          "waybar/catppuccin.css".source = styleFile;
+        };
+      })
     ]
   );
 }

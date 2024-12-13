@@ -5,19 +5,22 @@
   lib,
   ...
 }:
+
 let
   inherit (lib)
     concatStringsSep
-    mkIf
     mkEnableOption
+    mkIf
     mkMerge
     mkOption
     mkRenamedOptionModule
     types
     ;
+
   cfg = config.gtk.catppuccin;
   enable = cfg.enable && config.gtk.enable;
 in
+
 {
   options.gtk.catppuccin =
     catppuccinLib.mkCatppuccinOption {

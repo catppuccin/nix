@@ -5,6 +5,7 @@
   pkgs,
   ...
 }:
+
 let
   cfg = config.qt.style.catppuccin;
   enable = cfg.enable && config.qt.enable;
@@ -16,6 +17,7 @@ let
 
   themeName = "catppuccin-${cfg.flavor}-${cfg.accent}";
 in
+
 {
   options.qt.style.catppuccin =
     catppuccinLib.mkCatppuccinOption {

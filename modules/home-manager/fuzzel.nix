@@ -1,9 +1,12 @@
-{ catppuccinLib }: 
+{ catppuccinLib }:
 { config, lib, ... }:
+
 let
   inherit (config.catppuccin) sources;
+
   cfg = config.programs.fuzzel.catppuccin;
 in
+
 {
   options.programs.fuzzel.catppuccin = catppuccinLib.mkCatppuccinOption {
     name = "fuzzel";
@@ -11,7 +14,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.fuzzel.settings.main.include =
-      sources.fuzzel + "/themes/catppuccin-${cfg.flavor}/${cfg.accent}.ini";
+    programs.fuzzel = {
+      settings = {
+        main.include = sources.fuzzel + "/themes/catppuccin-${cfg.flavor}/${cfg.accent}.ini";
+      };
+    };
   };
 }
