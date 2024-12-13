@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.1](https://github.com/catppuccin/nix/releases/tag/v1.1.1) - 2024-12-12
+
+### 🐛 Bug Fixes
+
+- fix eval on 25.05 by [@PerchunPak](https://github.com/PerchunPak)
+
+### 📚 Documentation
+
+- **README**: fix typo `catppucin` -> `catppuccin` by [@42willow](https://github.com/42willow)
+- use nuscht search for options by [@getchoo](https://github.com/getchoo)
+- add nicer redirects by [@getchoo](https://github.com/getchoo)
+- use git-cliff for release changelogs by [@getchoo](https://github.com/getchoo)
+
 ## [1.1.0](https://github.com/catppuccin/nix/releases/tag/v1.1.0) - 2024-11-08
 
 ### 🚀 Features
@@ -40,15 +53,6 @@
 - remove kitty from README's IFD FAQ by [@vdbe](https://github.com/vdbe)
 - fix invalid link by [@somerand0mcat](https://github.com/somerand0mcat)
 
-### 🔧 CI
-
-- merge and cleanup workflows by [@getchoo](https://github.com/getchoo)
-- remove backport workflow by [@getchoo](https://github.com/getchoo)
-
-### ⚙️  Miscellaneous Tasks
-
-- **home-manager/tmux**: follow upstream spelling change by [@vdbe](https://github.com/vdbe)
-
 ### New Contributors
 
 * [@42willow](https://github.com/42willow) made their first contribution in [#330](https://github.com/catppuccin/nix/issues/330)
@@ -81,10 +85,6 @@
 
 - add v1.0.0 changelog to website by [@getchoo](https://github.com/getchoo)
 - symlink site changelog by [@getchoo](https://github.com/getchoo)
-
-### ⚙️  Miscellaneous Tasks
-
-- simplify dev flake by [@getchoo](https://github.com/getchoo)
 
 ## [1.0.0](https://github.com/catppuccin/nix/releases/tag/v1.0.0) - 2024-06-29
 
@@ -215,65 +215,6 @@
 - correct use of `modules` over `imports` by [@getchoo](https://github.com/getchoo)
 - cleanup CONTRIBUTING.md by [@getchoo](https://github.com/getchoo)
 - update link to `catppuccin.enable` by [@getchoo](https://github.com/getchoo)
-
-### 🚜 Refactor
-
-- **home-manager**: ensure xdg.enable using assertion by [@Scrumplex](https://github.com/Scrumplex)
-- use alternatives to `with` and `rec` by [@getchoo](https://github.com/getchoo)
-
-### 🎨 Styling
-
-- format with nixpkgs-fmt by [@getchoo](https://github.com/getchoo)
-- nixpkgs-fmt -> nixfmt by [@getchoo](https://github.com/getchoo)
-
-### 🔧 CI
-
-- use action from googleapis by [@sgoudham](https://github.com/sgoudham)
-- configure template by [@Stonks3141](https://github.com/Stonks3141)
-- add release-please workflow by [@Stonks3141](https://github.com/Stonks3141)
-- add formatting check by [@Stonks3141](https://github.com/Stonks3141)
-- use nix fmt by [@getchoo](https://github.com/getchoo)
-- fix revision for docs generation & add dependabot by [@getchoo](https://github.com/getchoo)
-- exclude some workflows from forks/branches & better scope permissions by [@getchoo](https://github.com/getchoo)
-- use github.token for updating lockfiles by [@getchoo](https://github.com/getchoo)
-- use --head flag to push lockfile branch by [@getchoo](https://github.com/getchoo)
-- let gh know what remote to push to by [@getchoo](https://github.com/getchoo)
-- push branch manually if needed by [@getchoo](https://github.com/getchoo)
-- cleanup all workflows by [@getchoo](https://github.com/getchoo)
-- don't create multiple lockfile PRs by [@getchoo](https://github.com/getchoo)
-- fix dependabot commit prefix by [@getchoo](https://github.com/getchoo)
-- fix branch name in update-lock by [@getchoo](https://github.com/getchoo)
-- use --commit-changes with nvfetcher by [@getchoo](https://github.com/getchoo)
-- update repository name for doc generation by [@getchoo](https://github.com/getchoo)
-- validate source changes in PRs by [@getchoo](https://github.com/getchoo)
-- allow doc updates without PR by [@sgoudham](https://github.com/sgoudham)
-- only run on prs that change nix files by [@getchoo](https://github.com/getchoo)
-- publish to flake registries on tag by [@getchoo](https://github.com/getchoo)
-- don't use graphql to commit by [@getchoo](https://github.com/getchoo)
-- require website build before deploy by [@getchoo](https://github.com/getchoo)
-- split port & flake input updates by [@getchoo](https://github.com/getchoo)
-- install npins for port updates by [@getchoo](https://github.com/getchoo)
-- getchoo/update-npins@v0.1.1 -> v0.1.2 by [@getchoo](https://github.com/getchoo)
-- add backport action by [@getchoo](https://github.com/getchoo)
-
-### ⚙️  Miscellaneous Tasks
-
-- **home-manager**: add rio to test.nix by [@getchoo](https://github.com/getchoo)
-- **home-manager**: deprecate gtk module by [@getchoo](https://github.com/getchoo)
-- **modules**: remove dangling source for gtk by [@Lichthagel](https://github.com/Lichthagel)
-- **modules**: factor out option doc generation by [@getchoo](https://github.com/getchoo)
-- **modules**: use attrset as argument to `mkCatppuccinOpt` by [@getchoo](https://github.com/getchoo)
-- **modules**: add tests for home-manager on darwin by [@getchoo](https://github.com/getchoo)
-- **nixos**: use mkCatppuccinOpt in grub by [@getchoo](https://github.com/getchoo)
-- **refacotr**: change module names to catppuccin by [@getchoo](https://github.com/getchoo)
-- **refactor**: move modules to their own folder by [@getchoo](https://github.com/getchoo)
-- set formatter to nixpkgs-fmt by [@getchoo](https://github.com/getchoo)
-- add project previews by [@getchoo](https://github.com/getchoo)
-- use relative links for previews by [@Stonks3141](https://github.com/Stonks3141)
-- use relative links for previews again by [@Stonks3141](https://github.com/Stonks3141)
-- remove branch name from relative links by [@Stonks3141](https://github.com/Stonks3141)
-- remove branch from relative links again by [@Stonks3141](https://github.com/Stonks3141)
-- remove unused argument in mk-site.nix by [@olifloof](https://github.com/olifloof)
 
 ### New Contributors
 

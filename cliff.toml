@@ -79,10 +79,6 @@ commit_parsers = [
   { message = "^fix", group = "<!-- 2 -->🐛 Bug Fixes" },
   { message = "^revert", group = "<!-- 3 --> ⏪ Reverted"},
   { message = "^docs", group = "<!-- 4 -->📚 Documentation" },
-  { message = "^refactor", group = "<!-- 5 -->🚜 Refactor" },
-  { message = "^style", group = "<!-- 6 -->🎨 Styling" },
-  { message = "^ci", group = "<!-- 7 -->🔧 CI" },
-  { message = "^chore", group = "<!-- 8 -->⚙️  Miscellaneous Tasks" }
 ]
 
 filter_commits = true
