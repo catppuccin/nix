@@ -1,10 +1,19 @@
-{ testers, home-manager }:
+{
+  lib,
+  testers,
+  home-manager,
+}:
+
+let
+  userName = lib.fileContents ./username.txt;
+in
 
 testers.runNixOSTest {
-  name = "module-test";
+  name = "catppuccin-nix";
 
   nodes.machine =
     { lib, pkgs, ... }:
+
     {
       imports = [
         home-manager.nixosModules.default
@@ -28,14 +37,13 @@ testers.runNixOSTest {
       console.enable = true;
 
       i18n.inputMethod = {
-        # TODO: Use this option after 24.11 is stable
-        # enable = true;
-        enabled = "fcitx5";
+        enable = true;
+        type = "fcitx5";
       };
 
-      users.users.test = {
+      users.users.${userName} = {
         isNormalUser = true;
-        home = "/home/test";
+        uid = 1000;
       };
 
       virtualisation = {
@@ -43,15 +51,30 @@ testers.runNixOSTest {
         writableStore = true;
       };
 
-      home-manager.users.test = {
+      home-manager.users.${userName} = {
         imports = [ ./home.nix ];
       };
     };
 
-  testScript = _: ''
-    machine.start()
-    machine.wait_for_unit("home-manager-test.service")
-    machine.wait_until_succeeds("systemctl status home-manager-test.service")
-    machine.succeed("echo \"system started!\"")
-  '';
+  testScript =
+    { nodes, ... }:
+
+    let
+      user = nodes.machine.users.users.${userName};
+    in
+
+    ''
+      start_all()
+
+      with subtest("Wait for startup"):
+        machine.wait_for_unit("multi-user.target")
+
+      with subtest("Activate home-manager environment"):
+        # HACK: Re-run home-manager activation
+        #
+        # As of 24.11, home-manager is activated via a oneshot unit
+        # `wait_for_unit()` can't handle this, so we run here again with `systemctl`
+        # https://github.com/NixOS/nixpkgs/issues/62155
+        machine.systemctl("start home-manager-${user.name}.service")
+    '';
 }
