@@ -22,11 +22,11 @@ in
   options.gtk.catppuccin =
     ctp.mkCatppuccinOpt {
       name = "gtk";
-      enableDefault = false;
+      useGlobalEnable = false;
+
+      accentSupport = true;
     }
     // {
-      accent = ctp.mkAccentOpt "gtk";
-
       size = mkOption {
         type = types.enum [
           "standard"
@@ -51,16 +51,14 @@ in
 
       gnomeShellTheme = mkEnableOption "Catppuccin gtk theme for GNOME Shell";
 
-      icon =
-        ctp.mkCatppuccinOpt {
-          name = "GTK modified Papirus icon theme";
-          # NOTE: we exclude this from the global `catppuccin.enable` as there is no
-          # `enable` option in the upstream module to guard it
-          enableDefault = false;
-        }
-        // {
-          accent = ctp.mkAccentOpt "GTK modified Papirus icon theme";
-        };
+      icon = ctp.mkCatppuccinOpt {
+        name = "GTK modified Papirus icon theme";
+        # NOTE: we exclude this from the global `catppuccin.enable` as there is no
+        # `enable` option in the upstream module to guard it
+        default = false;
+
+        accentSupport = true;
+      };
     };
 
   imports = [

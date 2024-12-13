@@ -23,8 +23,9 @@ let
   configFile = "${configDirectory}/lazygit/config.yml";
 in
 {
-  options.programs.lazygit.catppuccin = lib.ctp.mkCatppuccinOpt { name = "lazygit"; } // {
-    accent = ctp.mkAccentOpt "lazygit";
+  options.programs.lazygit.catppuccin = lib.ctp.mkCatppuccinOpt {
+    name = "lazygit";
+    accentSupport = true;
   };
 
   config.home.sessionVariables = lib.mkIf enable {

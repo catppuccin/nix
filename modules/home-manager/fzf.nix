@@ -7,8 +7,9 @@ let
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
 {
-  options.programs.fzf.catppuccin = lib.ctp.mkCatppuccinOpt { name = "fzf"; } // {
-    accent = lib.ctp.mkAccentOpt "fzf";
+  options.programs.fzf.catppuccin = lib.ctp.mkCatppuccinOpt {
+    name = "fzf";
+    accentSupport = true;
   };
 
   config.programs.fzf.colors =

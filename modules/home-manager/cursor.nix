@@ -20,12 +20,16 @@ in
   options.catppuccin.pointerCursor =
     ctp.mkCatppuccinOpt {
       name = "pointer cursors";
-      # NOTE: we exclude this from the global `catppuccin.enable` as there is no
-      # `enable` option in the upstream module to guard it
-      enableDefault = false;
+      # NOTE: We exclude this as there is no `enable` option in the upstream
+      # module to guard it
+      useGlobalEnable = false;
     }
     // {
-      accent = ctp.mkBasicOpt "accent" cursorAccentType "cursors";
+      accent = lib.mkOption {
+        type = cursorAccentType;
+        default = config.catppuccin.accent;
+        description = "Catppuccin accent for pointer cursors";
+      };
     };
 
   config.home.pointerCursor = mkIf cfg.enable {

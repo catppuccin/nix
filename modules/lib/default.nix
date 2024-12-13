@@ -9,26 +9,6 @@ let
   inherit (lib) ctp;
 in
 {
-  # string -> type -> string -> a
-  # this is an internal function and shouldn't be
-  # used unless you know what you're doing. it takes
-  # a string (the name of the property, i.e., flavor
-  # or accent), the type of the property, the name of
-  # the module, followed by local config attrset
-  mkBasicOpt =
-    attr: type: name:
-    lib.mkOption {
-      inherit type;
-      default = config.catppuccin.${attr};
-      description = "Catppuccin ${attr} for ${name}";
-    };
-
-  # string -> a
-  # this creates a flavor option for modules
-  # the first string should be the name of the module,
-  # followed by the local config attrset
-  mkFlavorOpt = ctp.mkBasicOpt "flavor" ctp.types.flavorOption;
-
   types = {
     flavorOption = lib.types.enum [
       "latte"
@@ -105,30 +85,45 @@ in
     in
     fromJSON (readFile json);
 
-  # string -> a
+  # a -> a
   # this creates a basic attrset only containing an
   # enable and flavor option. `name` should be the name
   # of the module, while `enableDefault` is a boolean
   # representing the default of the created `enable`
-  # option
+  # option. `accentSupport` will add an `accent` option for
+  # applicable themes
   mkCatppuccinOpt =
     {
       name,
-      enableDefault ? config.catppuccin.enable,
+      useGlobalEnable ? true,
+      default ? if useGlobalEnable then config.catppuccin.enable else false,
+      defaultText ? if useGlobalEnable then "catppuccin.enable" else null,
+      accentSupport ? false,
     }:
+
     {
-      enable = lib.mkEnableOption "Catppuccin theme for ${name}" // {
-        default = enableDefault;
+      enable =
+        lib.mkEnableOption "Catppuccin theme for ${name}"
+        // (
+          {
+            inherit default;
+          }
+          // lib.optionalAttrs (defaultText != null) { inherit defaultText; }
+        );
+
+      flavor = lib.mkOption {
+        type = ctp.types.flavorOption;
+        default = config.catppuccin.flavor;
+        description = "Catppuccin flavor for ${name}";
       };
-
-      flavor = ctp.mkFlavorOpt name;
+    }
+    // lib.optionalAttrs accentSupport {
+      accent = lib.mkOption {
+        type = ctp.types.accentOption;
+        default = config.catppuccin.accent;
+        description = "Catppuccin accent for ${name}";
+      };
     };
-
-  # string -> a
-  # this creates an accent option for modules
-  # the first string should be the name of the module,
-  # followed by the local config attrset
-  mkAccentOpt = ctp.mkBasicOpt "accent" ctp.types.accentOption;
 
   # a -> a -> a
   # see https://nlewo.github.io/nixos-manual-sphinx/development/option-types.xml.html
