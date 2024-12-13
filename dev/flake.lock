@@ -17,12 +17,12 @@
     },
     "catppuccin-v1_1": {
       "locked": {
-        "lastModified": 1731087391,
-        "narHash": "sha256-O4GA8GMA9bGJwBW1U6rahT4wJWC6YweLZeGo0i1TS7U=",
-        "rev": "7c57f5c0a39a4b1557eaade06ba8507cd0ad7537",
-        "revCount": 313,
+        "lastModified": 1734055249,
+        "narHash": "sha256-pCWJgwo77KD7EJpwynwKrWPZ//dwypHq2TfdzZWqK68=",
+        "rev": "7221d6ca17ac36ed20588e1c3a80177ac5843fa7",
+        "revCount": 326,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/catppuccin/nix/1.1.0/01930ce8-240c-7eee-a23c-4c7873bdedc9/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/catppuccin/nix/1.1.1/0193bdc0-b045-7eed-bbec-95611a8ecdf5/source.tar.gz"
       },
       "original": {
         "type": "tarball",
