@@ -1,12 +1,7 @@
+{ lib, ... }:
+
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-{
-  imports = import ../lib/import-modules.nix {
-    inherit config lib pkgs;
-    modules = import ./all-modules.nix;
-  };
+  imports = [
+    (lib.modules.importApply ../global.nix { catppuccinModules = import ./all-modules.nix; })
+  ];
 }

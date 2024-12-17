@@ -1,9 +1,11 @@
+{ catppuccinLib }:
 {
   config,
   lib,
   pkgs,
   ...
 }:
+
 let
   cfg = config.qt.style.catppuccin;
   enable = cfg.enable && config.qt.enable;
@@ -15,19 +17,23 @@ let
 
   themeName = "catppuccin-${cfg.flavor}-${cfg.accent}";
 in
-{
-  options.qt.style.catppuccin = lib.ctp.mkCatppuccinOpt { name = "Kvantum"; } // {
-    accent = lib.ctp.mkAccentOpt "Kvantum";
 
-    apply = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = ''
-        Applies the theme by overwriting `$XDG_CONFIG_HOME/Kvantum/kvantum.kvconfig`.
-        If this is disabled, you must manually set the theme (e.g. by using `kvantummanager`).
-      '';
+{
+  options.qt.style.catppuccin =
+    catppuccinLib.mkCatppuccinOption {
+      name = "Kvantum";
+      accentSupport = true;
+    }
+    // {
+      apply = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = ''
+          Applies the theme by overwriting `$XDG_CONFIG_HOME/Kvantum/kvantum.kvconfig`.
+          If this is disabled, you must manually set the theme (e.g. by using `kvantummanager`).
+        '';
+      };
     };
-  };
 
   config = lib.mkIf enable {
     assertions = [

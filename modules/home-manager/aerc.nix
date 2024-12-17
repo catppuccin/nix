@@ -1,16 +1,19 @@
+{ catppuccinLib }:
 { config, lib, ... }:
+
 let
   inherit (config.catppuccin) sources;
+
   cfg = config.programs.aerc.catppuccin;
-  enable = cfg.enable && config.programs.aerc.enable;
   themeName = "catppuccin-${cfg.flavor}";
 in
-{
-  options.programs.aerc.catppuccin = lib.ctp.mkCatppuccinOpt { name = "aerc"; };
 
-  config = lib.mkIf enable {
+{
+  options.programs.aerc.catppuccin = catppuccinLib.mkCatppuccinOption { name = "aerc"; };
+
+  config = lib.mkIf cfg.enable {
     programs.aerc = {
-      stylesets.${themeName} = builtins.readFile "${sources.aerc}/dist/${themeName}";
+      stylesets.${themeName} = lib.fileContents "${sources.aerc}/dist/${themeName}";
       extraConfig = {
         ui = {
           styleset-name = themeName;

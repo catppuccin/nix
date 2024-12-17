@@ -1,11 +1,12 @@
+{ catppuccinLib }:
 {
   config,
   lib,
   pkgs,
   ...
 }:
+
 let
-  inherit (lib) ctp;
   inherit (config.catppuccin) sources;
 
   cfg = config.programs.lazygit.catppuccin;
@@ -22,13 +23,17 @@ let
       "${config.home.homeDirectory}/Library/Application Support";
   configFile = "${configDirectory}/lazygit/config.yml";
 in
+
 {
-  options.programs.lazygit.catppuccin = lib.ctp.mkCatppuccinOpt { name = "lazygit"; } // {
-    accent = ctp.mkAccentOpt "lazygit";
+  options.programs.lazygit.catppuccin = catppuccinLib.mkCatppuccinOption {
+    name = "lazygit";
+    accentSupport = true;
   };
 
-  config.home.sessionVariables = lib.mkIf enable {
-    # Ensure that the default config file is still sourced
-    LG_CONFIG_FILE = "${sources.lazygit}/themes-mergable/${cfg.flavor}/${cfg.accent}.yml,${configFile}";
+  config = lib.mkIf enable {
+    home.sessionVariables = {
+      # Ensure that the default config file is still sourced
+      LG_CONFIG_FILE = "${sources.lazygit}/themes-mergable/${cfg.flavor}/${cfg.accent}.yml,${configFile}";
+    };
   };
 }

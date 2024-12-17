@@ -1,32 +1,35 @@
+{ catppuccinLib }:
 {
   config,
   pkgs,
   lib,
   ...
 }:
+
 let
   inherit (lib)
     concatStringsSep
-    ctp
-    mkIf
     mkEnableOption
+    mkIf
     mkMerge
     mkOption
     mkRenamedOptionModule
     types
     ;
+
   cfg = config.gtk.catppuccin;
   enable = cfg.enable && config.gtk.enable;
 in
+
 {
   options.gtk.catppuccin =
-    ctp.mkCatppuccinOpt {
+    catppuccinLib.mkCatppuccinOption {
       name = "gtk";
-      enableDefault = false;
+      useGlobalEnable = false;
+
+      accentSupport = true;
     }
     // {
-      accent = ctp.mkAccentOpt "gtk";
-
       size = mkOption {
         type = types.enum [
           "standard"
@@ -51,16 +54,14 @@ in
 
       gnomeShellTheme = mkEnableOption "Catppuccin gtk theme for GNOME Shell";
 
-      icon =
-        ctp.mkCatppuccinOpt {
-          name = "GTK modified Papirus icon theme";
-          # NOTE: we exclude this from the global `catppuccin.enable` as there is no
-          # `enable` option in the upstream module to guard it
-          enableDefault = false;
-        }
-        // {
-          accent = ctp.mkAccentOpt "GTK modified Papirus icon theme";
-        };
+      icon = catppuccinLib.mkCatppuccinOption {
+        name = "GTK modified Papirus icon theme";
+        # NOTE: we exclude this from the global `catppuccin.enable` as there is no
+        # `enable` option in the upstream module to guard it
+        default = false;
+
+        accentSupport = true;
+      };
     };
 
   imports = [

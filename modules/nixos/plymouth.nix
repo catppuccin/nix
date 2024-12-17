@@ -1,19 +1,22 @@
+{ catppuccinLib }:
 {
   config,
   pkgs,
   lib,
   ...
 }:
-let
-  inherit (lib) ctp mkIf;
-  cfg = config.boot.plymouth.catppuccin;
-  enable = cfg.enable && config.boot.plymouth.enable;
-in
-{
-  options.boot.plymouth.catppuccin = ctp.mkCatppuccinOpt { name = "plymouth"; };
 
-  config.boot.plymouth = mkIf enable {
-    theme = "catppuccin-${cfg.flavor}";
-    themePackages = [ (pkgs.catppuccin-plymouth.override { variant = cfg.flavor; }) ];
+let
+  cfg = config.boot.plymouth.catppuccin;
+in
+
+{
+  options.boot.plymouth.catppuccin = catppuccinLib.mkCatppuccinOption { name = "plymouth"; };
+
+  config = lib.mkIf cfg.enable {
+    boot.plymouth = {
+      theme = "catppuccin-${cfg.flavor}";
+      themePackages = [ (pkgs.catppuccin-plymouth.override { variant = cfg.flavor; }) ];
+    };
   };
 }

@@ -1,14 +1,18 @@
+{ catppuccinLib }:
 { config, lib, ... }:
+
 let
   inherit (config.catppuccin) sources;
+
   cfg = config.programs.fish.catppuccin;
   enable = cfg.enable && config.programs.fish.enable;
 
-  themeName = "Catppuccin ${lib.ctp.mkUpper cfg.flavor}";
+  themeName = "Catppuccin ${catppuccinLib.mkUpper cfg.flavor}";
   themePath = "/themes/${themeName}.theme";
 in
+
 {
-  options.programs.fish.catppuccin = lib.ctp.mkCatppuccinOpt { name = "fish"; };
+  options.programs.fish.catppuccin = catppuccinLib.mkCatppuccinOption { name = "fish"; };
 
   config = lib.mkIf enable {
     xdg.configFile."fish${themePath}".source = "${sources.fish}${themePath}";
