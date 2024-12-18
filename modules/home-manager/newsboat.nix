@@ -4,12 +4,20 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.newsboat.catppuccin;
+  cfg = config.catppuccin.newsboat;
   theme = if cfg.flavor == "latte" then "latte" else "dark";
 in
-
 {
-  options.programs.newsboat.catppuccin = catppuccinLib.mkCatppuccinOption { name = "newsboat"; };
+  options.catppuccin.newsboat = catppuccinLib.mkCatppuccinOption { name = "newsboat"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "newsboat"
+      "catppuccin"
+    ];
+    to = "newsboat";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.newsboat = {

@@ -9,7 +9,7 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.services.mako.catppuccin;
+  cfg = config.catppuccin.mako;
   theme = catppuccinLib.fromINI (
     sources.mako + "/themes/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}"
   );
@@ -19,8 +19,18 @@ let
 in
 
 {
-  options.services.mako.catppuccin = catppuccinLib.mkCatppuccinOption {
+  options.catppuccin.mako = catppuccinLib.mkCatppuccinOption {
     name = "mako";
+    accentSupport = true;
+  };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "services"
+      "mako"
+      "catppuccin"
+    ];
+    to = "mako";
     accentSupport = true;
   };
 

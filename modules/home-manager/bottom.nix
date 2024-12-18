@@ -3,12 +3,19 @@
 
 let
   inherit (config.catppuccin) sources;
-
-  cfg = config.programs.bottom.catppuccin;
+  cfg = config.catppuccin.bottom;
 in
-
 {
-  options.programs.bottom.catppuccin = catppuccinLib.mkCatppuccinOption { name = "bottom"; };
+  options.catppuccin.bottom = catppuccinLib.mkCatppuccinOption { name = "bottom"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "bottom"
+      "catppuccin"
+    ];
+    to = "bottom";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.bottom = {

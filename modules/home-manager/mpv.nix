@@ -4,12 +4,22 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.mpv.catppuccin;
+  cfg = config.catppuccin.mpv;
 in
 
 {
-  options.programs.mpv.catppuccin = catppuccinLib.mkCatppuccinOption {
+  options.catppuccin.mpv = catppuccinLib.mkCatppuccinOption {
     name = "mpv";
+    accentSupport = true;
+  };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "mpv"
+      "catppuccin"
+    ];
+    to = "mpv";
     accentSupport = true;
   };
 

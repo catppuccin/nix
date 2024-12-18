@@ -4,14 +4,23 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.micro.catppuccin;
+  cfg = config.catppuccin.micro;
   enable = cfg.enable && config.programs.micro.enable;
 
   themePath = "catppuccin-${cfg.flavor}.micro";
 in
 
 {
-  options.programs.micro.catppuccin = catppuccinLib.mkCatppuccinOption { name = "micro"; };
+  options.catppuccin.micro = catppuccinLib.mkCatppuccinOption { name = "micro"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "micro"
+      "catppuccin"
+    ];
+    to = "micro";
+  };
 
   config = lib.mkIf enable {
     programs.micro = {

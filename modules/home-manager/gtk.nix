@@ -17,12 +17,12 @@ let
     types
     ;
 
-  cfg = config.gtk.catppuccin;
+  cfg = config.catppuccin.gtk;
   enable = cfg.enable && config.gtk.enable;
 in
 
 {
-  options.gtk.catppuccin =
+  options.catppuccin.gtk =
     catppuccinLib.mkCatppuccinOption {
       name = "gtk";
       useGlobalEnable = false;
@@ -64,49 +64,77 @@ in
       };
     };
 
-  imports = [
-    (mkRenamedOptionModule
-      [
+  imports =
+    (catppuccinLib.mkRenamedCatppuccinOpts {
+      from = [
+        "gtk"
+        "catppuccin"
+      ];
+      to = "gtk";
+      accentSupport = true;
+    })
+    ++ (catppuccinLib.mkRenamedCatppuccinOpts {
+      from = [
         "gtk"
         "catppuccin"
         "cursor"
-        "enable"
-      ]
-      [
-        "catppuccin"
-        "pointerCursor"
-        "enable"
-      ]
-    )
+      ];
+      to = "cursors";
+      accentSupport = true;
+    })
+    ++ [
+      (mkRenamedOptionModule
+        [
+          "gtk"
+          "catppuccin"
+          "size"
+        ]
+        [
+          "catppuccin"
+          "gtk"
+          "size"
+        ]
+      )
 
-    (mkRenamedOptionModule
-      [
-        "gtk"
-        "catppuccin"
-        "cursor"
-        "flavor"
-      ]
-      [
-        "catppuccin"
-        "pointerCursor"
-        "flavor"
-      ]
-    )
+      (mkRenamedOptionModule
+        [
+          "gtk"
+          "catppuccin"
+          "tweaks"
+        ]
+        [
+          "catppuccin"
+          "gtk"
+          "tweaks"
+        ]
+      )
 
-    (mkRenamedOptionModule
-      [
-        "gtk"
-        "catppuccin"
-        "cursor"
-        "accent"
-      ]
-      [
-        "catppuccin"
-        "pointerCursor"
-        "accent"
-      ]
-    )
-  ];
+      (mkRenamedOptionModule
+        [
+          "gtk"
+          "catppuccin"
+          "gnomeShellTheme"
+        ]
+        [
+          "catppuccin"
+          "gtk"
+          "gnomeShellTheme"
+        ]
+      )
+
+      (mkRenamedOptionModule
+        [
+          "gtk"
+          "catppuccin"
+          "icon"
+        ]
+        [
+          "catppuccin"
+          "gtk"
+          "icon"
+        ]
+      )
+    ];
 
   config = mkMerge [
     (mkIf (enable || cfg.gnomeShellTheme) {

@@ -4,13 +4,23 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.yazi.catppuccin;
+  cfg = config.catppuccin.yazi;
   enable = cfg.enable && config.programs.yazi.enable;
 in
 
 {
-  options.programs.yazi.catppuccin = catppuccinLib.mkCatppuccinOption {
+  options.catppuccin.yazi = catppuccinLib.mkCatppuccinOption {
     name = "yazi";
+    accentSupport = true;
+  };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "yazi"
+      "catppuccin"
+    ];
+    to = "yazi";
     accentSupport = true;
   };
 
@@ -20,8 +30,7 @@ in
     };
 
     xdg.configFile = {
-      "yazi/Catppuccin-${cfg.flavor}.tmTheme".source =
-        "${sources.bat}/themes/Catppuccin ${catppuccinLib.mkUpper cfg.flavor}.tmTheme";
+      "yazi/Catppuccin-${cfg.flavor}.tmTheme".source = "${sources.bat}/themes/Catppuccin ${catppuccinLib.mkUpper cfg.flavor}.tmTheme";
     };
   };
 }

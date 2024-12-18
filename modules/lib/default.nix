@@ -154,4 +154,56 @@ lib.makeExtensible (ctp: {
   # [ module ] -> [ module ]
   # Imports a list of modules with the current library
   applyToModules = map (lib.flip lib.modules.importApply { catppuccinLib = ctp; });
+
+  # a -> list
+  # this is used to make old modules to new modules
+  mkRenamedCatppuccinOpts =
+    {
+      from,
+      to,
+      accentSupport ? false,
+    }:
+    [
+      (lib.mkRenamedOptionModule
+        (
+          from
+          ++ [
+            "enable"
+          ]
+        )
+        [
+          "catppuccin"
+          to
+          "enable"
+        ]
+      )
+
+      (lib.mkRenamedOptionModule
+        (
+          from
+          ++ [
+            "flavor"
+          ]
+        )
+        [
+          "catppuccin"
+          to
+          "flavor"
+        ]
+      )
+    ]
+    ++ lib.optional accentSupport (
+      lib.mkRenamedOptionModule
+        (
+          from
+          ++ [
+            "accent"
+          ]
+        )
+        [
+          "catppuccin"
+          to
+          "accent"
+        ]
+    );
 })

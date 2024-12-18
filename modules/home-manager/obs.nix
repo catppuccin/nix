@@ -4,14 +4,23 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.obs-studio.catppuccin;
+  cfg = config.catppuccin.obs;
   enable = cfg.enable && config.programs.obs-studio.enable;
 
   themeName = "Catppuccin_${catppuccinLib.mkUpper cfg.flavor}.ovt";
 in
 
 {
-  options.programs.obs-studio.catppuccin = catppuccinLib.mkCatppuccinOption { name = "obs-studio"; };
+  options.catppuccin.obs = catppuccinLib.mkCatppuccinOption { name = "obs-studio"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "obs-studio"
+      "catppuccin"
+    ];
+    to = "obs";
+  };
 
   config = lib.mkIf enable {
     xdg.configFile = {

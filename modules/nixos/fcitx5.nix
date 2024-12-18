@@ -9,7 +9,7 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.i18n.inputMethod.fcitx5.catppuccin;
+  cfg = config.catppuccin.fcitx5;
 
   theme = pkgs.runCommand "catppuccin-fcitx5" { } ''
     mkdir -p $out/share/fcitx5/themes/
@@ -18,8 +18,19 @@ let
 in
 
 {
-  options.i18n.inputMethod.fcitx5.catppuccin = catppuccinLib.mkCatppuccinOption {
+  options.catppuccin.fcitx5 = catppuccinLib.mkCatppuccinOption {
     name = "Fcitx5";
+    accentSupport = true;
+  };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "i18n"
+      "inputMethod"
+      "fcitx5"
+      "catppuccin"
+    ];
+    to = "fcitx5";
     accentSupport = true;
   };
 

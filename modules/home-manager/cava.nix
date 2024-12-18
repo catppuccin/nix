@@ -4,14 +4,38 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.cava.catppuccin;
+  cfg = config.catppuccin.cava;
   flavor = "${cfg.flavor}" + lib.optionalString cfg.transparent "-transparent";
 in
-
 {
-  options.programs.cava.catppuccin = catppuccinLib.mkCatppuccinOption { name = "cava"; } // {
+  options.catppuccin.cava = catppuccinLib.mkCatppuccinOption { name = "cava"; } // {
     transparent = lib.mkEnableOption "transparent version of flavor";
   };
+
+  imports =
+    (catppuccinLib.mkRenamedCatppuccinOpts {
+      from = [
+        "programs"
+        "cava"
+        "catppuccin"
+      ];
+      to = "cava";
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "programs"
+          "cava"
+          "catppuccin"
+          "transparent"
+        ]
+        [
+          "catppuccin"
+          "cava"
+          "transparent"
+        ]
+      )
+    ];
 
   config = lib.mkIf cfg.enable {
     programs.cava = {

@@ -4,11 +4,19 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.starship.catppuccin;
+  cfg = config.catppuccin.starship;
 in
-
 {
-  options.programs.starship.catppuccin = catppuccinLib.mkCatppuccinOption { name = "starship"; };
+  options.catppuccin.starship = catppuccinLib.mkCatppuccinOption { name = "starship"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "starship"
+      "catppuccin"
+    ];
+    to = "starship";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.starship = {

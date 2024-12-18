@@ -4,12 +4,12 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.i18n.inputMethod.fcitx5.catppuccin;
+  cfg = config.catppuccin.fcitx5;
   enable = cfg.enable && config.i18n.inputMethod.enabled == "fcitx5";
 in
 
 {
-  options.i18n.inputMethod.fcitx5.catppuccin =
+  options.catppuccin.fcitx5 =
     catppuccinLib.mkCatppuccinOption {
       name = "Fcitx5";
       accentSupport = true;
@@ -23,22 +23,50 @@ in
           If this is disabled, you must manually set the theme (e.g. by using `fcitx5-configtool`).
         '';
       };
-    };
 
-  config = lib.mkIf enable {
-    xdg.dataFile = {
-      "fcitx5/themes/catppuccin-${cfg.flavor}-${cfg.accent}" = {
-        source = "${sources.fcitx5}/src/catppuccin-${cfg.flavor}-${cfg.accent}";
-        recursive = true;
-      };
-    };
+      imports =
+        (catppuccinLib.mkRenamedCatppuccinOpts {
+          from = [
+            "i18n"
+            "inputMethod"
+            "fcitx5"
+            "catppuccin"
+          ];
+          to = "fcitx5";
+          accentSupport = true;
+        })
+        ++ [
+          (lib.mkRenamedOptionModule
+            [
+              "i18n"
+              "inputMethod"
+              "fcitx5"
+              "catppuccin"
+              "apply"
+            ]
+            [
+              "catppuccin"
+              "fcitx5"
+              "apply"
+            ]
+          )
+        ];
 
-    xdg.configFile = {
-      "fcitx5/conf/classicui.conf" = lib.mkIf cfg.apply {
-        text = lib.generators.toINIWithGlobalSection { } {
-          globalSection.Theme = "catppuccin-${cfg.flavor}-${cfg.accent}";
+      config = lib.mkIf enable {
+        xdg.dataFile = {
+          "fcitx5/themes/catppuccin-${cfg.flavor}-${cfg.accent}" = {
+            source = "${sources.fcitx5}/src/catppuccin-${cfg.flavor}-${cfg.accent}";
+            recursive = true;
+          };
+        };
+
+        xdg.configFile = {
+          "fcitx5/conf/classicui.conf" = lib.mkIf cfg.apply {
+            text = lib.generators.toINIWithGlobalSection { } {
+              globalSection.Theme = "catppuccin-${cfg.flavor}-${cfg.accent}";
+            };
+          };
         };
       };
     };
-  };
 }

@@ -7,11 +7,20 @@
 }:
 
 let
-  cfg = config.programs.neovim.catppuccin;
+  cfg = config.catppuccin.nvim;
 in
 
 {
-  options.programs.neovim.catppuccin = catppuccinLib.mkCatppuccinOption { name = "neovim"; };
+  options.catppuccin.nvim = catppuccinLib.mkCatppuccinOption { name = "neovim"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "neovim"
+      "catppuccin"
+    ];
+    to = "nvim";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.neovim = {

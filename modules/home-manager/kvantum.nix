@@ -7,7 +7,7 @@
 }:
 
 let
-  cfg = config.qt.style.catppuccin;
+  cfg = config.catppuccin.kvantum;
   enable = cfg.enable && config.qt.enable;
 
   theme = pkgs.catppuccin-kvantum.override {
@@ -17,9 +17,8 @@ let
 
   themeName = "catppuccin-${cfg.flavor}-${cfg.accent}";
 in
-
 {
-  options.qt.style.catppuccin =
+  options.catppuccin.kvantum =
     catppuccinLib.mkCatppuccinOption {
       name = "Kvantum";
       accentSupport = true;
@@ -34,6 +33,32 @@ in
         '';
       };
     };
+
+  imports =
+    (catppuccinLib.mkRenamedCatppuccinOpts {
+      from = [
+        "qt"
+        "style"
+        "catppuccin"
+      ];
+      to = "kvantum";
+      accentSupport = true;
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "qt"
+          "style"
+          "catppuccin"
+          "apply"
+        ]
+        [
+          "catppuccin"
+          "kvantum"
+          "apply"
+        ]
+      )
+    ];
 
   config = lib.mkIf enable {
     assertions = [

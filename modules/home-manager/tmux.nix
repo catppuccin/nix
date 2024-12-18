@@ -9,7 +9,7 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.tmux.catppuccin;
+  cfg = config.catppuccin.tmux;
 
   plugin =
     # TODO @getchoo: upstream this in nixpkgs
@@ -21,7 +21,7 @@ let
 in
 
 {
-  options.programs.tmux.catppuccin = catppuccinLib.mkCatppuccinOption { name = "tmux"; } // {
+  options.catppuccin.tmux = catppuccinLib.mkCatppuccinOption { name = "tmux"; } // {
     extraConfig = lib.mkOption {
       type = lib.types.lines;
       description = "Additional configuration for the catppuccin plugin.";
@@ -31,6 +31,31 @@ in
       '';
     };
   };
+
+  imports =
+    (catppuccinLib.mkRenamedCatppuccinOpts {
+      from = [
+        "programs"
+        "tmux"
+        "catppuccin"
+      ];
+      to = "tmux";
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "programs"
+          "tmux"
+          "catppuccin"
+          "extraConfig"
+        ]
+        [
+          "catppuccin"
+          "tmux"
+          "extraConfig"
+        ]
+      )
+    ];
 
   config = lib.mkIf cfg.enable {
     programs.tmux = {

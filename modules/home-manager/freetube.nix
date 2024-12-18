@@ -5,11 +5,11 @@ let
   inherit (catppuccinLib) mkUpper;
   inherit (config.programs.freetube.settings) baseTheme;
 
-  cfg = config.programs.freetube.catppuccin;
+  cfg = config.catppuccin.freetube;
 in
 
 {
-  options.programs.freetube.catppuccin =
+  options.catppuccin.freetube =
     catppuccinLib.mkCatppuccinOption {
       name = "freetube";
       accentSupport = true;
@@ -24,6 +24,32 @@ in
         description = "Secondary accent for freetube";
       };
     };
+
+  imports =
+    (catppuccinLib.mkRenamedCatppuccinOpts {
+      from = [
+        "programs"
+        "freetube"
+        "catppuccin"
+      ];
+      to = "freetube";
+      accentSupport = true;
+    })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "programs"
+          "freetube"
+          "catppuccin"
+          "secondaryAccent"
+        ]
+        [
+          "catppuccin"
+          "freetube"
+          "secondaryAccent"
+        ]
+      )
+    ];
 
   config = lib.mkIf cfg.enable {
     programs.freetube.settings = {

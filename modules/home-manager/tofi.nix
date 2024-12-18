@@ -4,11 +4,19 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.tofi.catppuccin;
+  cfg = config.catppuccin.tofi;
 in
-
 {
-  options.programs.tofi.catppuccin = catppuccinLib.mkCatppuccinOption { name = "tofi"; };
+  options.catppuccin.tofi = catppuccinLib.mkCatppuccinOption { name = "tofi"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "tofi"
+      "catppuccin"
+    ];
+    to = "tofi";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.tofi = {

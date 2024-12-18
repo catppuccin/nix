@@ -9,12 +9,22 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.hyprlock.catppuccin;
+  cfg = config.catppuccin.hyprlock;
 in
 
 {
-  options.programs.hyprlock.catppuccin = catppuccinLib.mkCatppuccinOption {
+  options.catppuccin.hyprlock = catppuccinLib.mkCatppuccinOption {
     name = "hyprlock";
+    accentSupport = true;
+  };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOpts {
+    from = [
+      "programs"
+      "hyprlock"
+      "catppuccin"
+    ];
+    to = "hyprlock";
     accentSupport = true;
   };
 
