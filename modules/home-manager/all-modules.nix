@@ -42,6 +42,7 @@
   ./tmux.nix
   ./tofi.nix
   ./obs.nix
+  ./oh-my-posh.nix
   ./waybar.nix
   ./yazi.nix
   ./zathura.nix
