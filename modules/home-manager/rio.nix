@@ -4,11 +4,19 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.rio.catppuccin;
+  cfg = config.catppuccin.rio;
 in
-
 {
-  options.programs.rio.catppuccin = catppuccinLib.mkCatppuccinOption { name = "rio"; };
+  options.catppuccin.rio = catppuccinLib.mkCatppuccinOption { name = "rio"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "rio"
+      "catppuccin"
+    ];
+    to = "rio";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.rio = {

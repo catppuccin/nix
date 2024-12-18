@@ -3,13 +3,20 @@
 
 let
   inherit (config.catppuccin) sources;
-
-  cfg = config.programs.aerc.catppuccin;
+  cfg = config.catppuccin.aerc;
   themeName = "catppuccin-${cfg.flavor}";
 in
-
 {
-  options.programs.aerc.catppuccin = catppuccinLib.mkCatppuccinOption { name = "aerc"; };
+  options.catppuccin.aerc = catppuccinLib.mkCatppuccinOption { name = "aerc"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "aerc"
+      "catppuccin"
+    ];
+    to = "aerc";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.aerc = {

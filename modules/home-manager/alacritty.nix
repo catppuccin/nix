@@ -3,12 +3,19 @@
 
 let
   inherit (config.catppuccin) sources;
-
-  cfg = config.programs.alacritty.catppuccin;
+  cfg = config.catppuccin.alacritty;
 in
-
 {
-  options.programs.alacritty.catppuccin = catppuccinLib.mkCatppuccinOption { name = "alacritty"; };
+  options.catppuccin.alacritty = catppuccinLib.mkCatppuccinOption { name = "alacritty"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "alacritty"
+      "catppuccin"
+    ];
+    to = "alacritty";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.alacritty = {

@@ -4,11 +4,20 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.rofi.catppuccin;
+  cfg = config.catppuccin.rofi;
+  enable = cfg.enable && config.programs.rofi.enable;
 in
-
 {
-  options.programs.rofi.catppuccin = catppuccinLib.mkCatppuccinOption { name = "rofi"; };
+  options.catppuccin.rofi = catppuccinLib.mkCatppuccinOption { name = "rofi"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "rofi"
+      "catppuccin"
+    ];
+    to = "rofi";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.rofi = {

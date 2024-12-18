@@ -4,12 +4,21 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.wayland.windowManager.sway.catppuccin;
+  cfg = config.catppuccin.sway;
   theme = "${sources.sway}/themes/catppuccin-${cfg.flavor}";
 in
-
 {
-  options.wayland.windowManager.sway.catppuccin = catppuccinLib.mkCatppuccinOption { name = "sway"; };
+  options.catppuccin.sway = catppuccinLib.mkCatppuccinOption { name = "sway"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "wayland"
+      "windowManager"
+      "sway"
+      "catppuccin"
+    ];
+    to = "sway";
+  };
 
   config = lib.mkIf cfg.enable {
     wayland.windowManager.sway = {

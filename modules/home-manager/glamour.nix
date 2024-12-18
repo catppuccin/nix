@@ -4,11 +4,20 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.glamour.catppuccin;
+  cfg = config.catppuccin.glamour;
 in
 
 {
-  options.programs.glamour.catppuccin = catppuccinLib.mkCatppuccinOption { name = "glamour"; };
+  options.catppuccin.glamour = catppuccinLib.mkCatppuccinOption { name = "glamour"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "glamour"
+      "catppuccin"
+    ];
+    to = "glamour";
+  };
 
   config = lib.mkIf cfg.enable {
     home.sessionVariables = {

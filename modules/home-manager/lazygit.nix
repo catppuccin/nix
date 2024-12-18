@@ -9,7 +9,7 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.lazygit.catppuccin;
+  cfg = config.catppuccin.lazygit;
   enable = cfg.enable && config.programs.lazygit.enable;
 
   # NOTE: On MacOS specifically, k9s expects its configuration to be in
@@ -25,8 +25,18 @@ let
 in
 
 {
-  options.programs.lazygit.catppuccin = catppuccinLib.mkCatppuccinOption {
+  options.catppuccin.lazygit = catppuccinLib.mkCatppuccinOption {
     name = "lazygit";
+    accentSupport = true;
+  };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "lazygit"
+      "catppuccin"
+    ];
+    to = "lazygit";
     accentSupport = true;
   };
 

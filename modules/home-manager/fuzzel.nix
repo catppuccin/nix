@@ -4,12 +4,22 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.fuzzel.catppuccin;
+  cfg = config.catppuccin.fuzzel;
 in
 
 {
-  options.programs.fuzzel.catppuccin = catppuccinLib.mkCatppuccinOption {
+  options.catppuccin.fuzzel = catppuccinLib.mkCatppuccinOption {
     name = "fuzzel";
+    accentSupport = true;
+  };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "fuzzel"
+      "catppuccin"
+    ];
+    to = "fuzzel";
     accentSupport = true;
   };
 
