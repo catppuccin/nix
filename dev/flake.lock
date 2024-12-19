@@ -2,11 +2,11 @@
   "nodes": {
     "catppuccin-rolling": {
       "locked": {
-        "lastModified": 1734055912,
-        "narHash": "sha256-KyS4QJ/zfruToq3NmxKQQ2/4WNlzznMaGNO7Aq1kozQ=",
+        "lastModified": 1734601205,
+        "narHash": "sha256-TzJewMe7yoVPUOMM6Mi0ptN6dTwSe9tY1UJKUM6rxpE=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "7e17c6946516d6599b9ccd4b04447e6567506a1e",
+        "rev": "dcc1cbe936d053efca73483cfca81a35d2318c6b",
         "type": "github"
       },
       "original": {
