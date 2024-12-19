@@ -5,13 +5,20 @@
   lib,
   ...
 }:
-
 let
-  cfg = config.boot.plymouth.catppuccin;
+  cfg = config.catppuccin.plymouth;
 in
-
 {
-  options.boot.plymouth.catppuccin = catppuccinLib.mkCatppuccinOption { name = "plymouth"; };
+  options.catppuccin.plymouth = catppuccinLib.mkCatppuccinOption { name = "plymouth"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "boot"
+      "plymouth"
+      "catppuccin"
+    ];
+    to = "plymouth";
+  };
 
   config = lib.mkIf cfg.enable {
     boot.plymouth = {

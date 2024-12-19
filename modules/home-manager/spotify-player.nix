@@ -4,12 +4,21 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.spotify-player.catppuccin;
+  cfg = config.catppuccin.spotify-player;
+  enable = cfg.enable && config.programs.spotify-player.enable;
 in
-
 {
-  options.programs.spotify-player.catppuccin = catppuccinLib.mkCatppuccinOption {
+  options.catppuccin.spotify-player = catppuccinLib.mkCatppuccinOption {
     name = "spotify-player";
+  };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "spotify-player"
+      "catppuccin"
+    ];
+    to = "spotify-player";
   };
 
   config = lib.mkIf cfg.enable {

@@ -4,13 +4,23 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.gh-dash.catppuccin;
+  cfg = config.catppuccin.gh-dash;
   theme = "${sources.gh-dash}/themes/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.yml";
 in
 
 {
-  options.programs.gh-dash.catppuccin = catppuccinLib.mkCatppuccinOption {
+  options.catppuccin.gh-dash = catppuccinLib.mkCatppuccinOption {
     name = "gh-dash";
+    accentSupport = true;
+  };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "gh-dash"
+      "catppuccin"
+    ];
+    to = "gh-dash";
     accentSupport = true;
   };
 

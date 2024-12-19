@@ -4,11 +4,19 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.gitui.catppuccin;
+  cfg = config.catppuccin.gitui;
 in
-
 {
-  options.programs.gitui.catppuccin = catppuccinLib.mkCatppuccinOption { name = "gitui"; };
+  options.catppuccin.gitui = catppuccinLib.mkCatppuccinOption { name = "gitui"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "gitui"
+      "catppuccin"
+    ];
+    to = "gitui";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.gitui.theme = builtins.path {

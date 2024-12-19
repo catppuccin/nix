@@ -4,7 +4,7 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.fzf.catppuccin;
+  cfg = config.catppuccin.fzf;
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 
   # Manually populate with colors from catppuccin/fzf
@@ -26,8 +26,18 @@ let
 in
 
 {
-  options.programs.fzf.catppuccin = catppuccinLib.mkCatppuccinOption {
+  options.catppuccin.fzf = catppuccinLib.mkCatppuccinOption {
     name = "fzf";
+    accentSupport = true;
+  };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "fzf"
+      "catppuccin"
+    ];
+    to = "fzf";
     accentSupport = true;
   };
 

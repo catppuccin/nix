@@ -4,11 +4,19 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.zathura.catppuccin;
+  cfg = config.catppuccin.zathura;
 in
-
 {
-  options.programs.zathura.catppuccin = catppuccinLib.mkCatppuccinOption { name = "zathura"; };
+  options.catppuccin.zathura = catppuccinLib.mkCatppuccinOption { name = "zathura"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "zathura"
+      "catppuccin"
+    ];
+    to = "zathura";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.zathura = {

@@ -4,12 +4,21 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.skim.catppuccin;
+  cfg = config.catppuccin.skim;
+  enable = cfg.enable && config.programs.skim.enable;
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
-
 {
-  options.programs.skim.catppuccin = catppuccinLib.mkCatppuccinOption { name = "skim"; };
+  options.catppuccin.skim = catppuccinLib.mkCatppuccinOption { name = "skim"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "skim"
+      "catppuccin"
+    ];
+    to = "skim";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.skim = {

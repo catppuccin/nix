@@ -9,7 +9,7 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.boot.loader.grub.catppuccin;
+  cfg = config.catppuccin.grub;
 
   # TODO @getchoo: upstream this in nixpkgs maybe? idk if they have grub themes
   theme = pkgs.runCommand "catppuccin-grub-theme" { } ''
@@ -17,9 +17,18 @@ let
     cp -r ${sources.grub}/src/catppuccin-${cfg.flavor}-grub-theme/* "$out"/
   '';
 in
-
 {
-  options.boot.loader.grub.catppuccin = catppuccinLib.mkCatppuccinOption { name = "grub"; };
+  options.catppuccin.grub = catppuccinLib.mkCatppuccinOption { name = "grub"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "boot"
+      "loader"
+      "grub"
+      "catppuccin"
+    ];
+    to = "grub";
+  };
 
   config = lib.mkIf cfg.enable {
     boot.loader.grub = {

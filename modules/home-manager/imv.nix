@@ -4,11 +4,19 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.imv.catppuccin;
+  cfg = config.catppuccin.imv;
 in
-
 {
-  options.programs.imv.catppuccin = catppuccinLib.mkCatppuccinOption { name = "imv"; };
+  options.catppuccin.imv = catppuccinLib.mkCatppuccinOption { name = "imv"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "imv"
+      "catppuccin"
+    ];
+    to = "imv";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.imv = {

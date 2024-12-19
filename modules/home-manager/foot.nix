@@ -4,11 +4,19 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.foot.catppuccin;
+  cfg = config.catppuccin.foot;
 in
-
 {
-  options.programs.foot.catppuccin = catppuccinLib.mkCatppuccinOption { name = "foot"; };
+  options.catppuccin.foot = catppuccinLib.mkCatppuccinOption { name = "foot"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "foot"
+      "catppuccin"
+    ];
+    to = "foot";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.foot = {

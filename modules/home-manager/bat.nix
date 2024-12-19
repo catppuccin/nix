@@ -3,13 +3,20 @@
 
 let
   inherit (config.catppuccin) sources;
-
-  cfg = config.programs.bat.catppuccin;
+  cfg = config.catppuccin.bat;
   themeName = "Catppuccin ${catppuccinLib.mkUpper cfg.flavor}";
 in
-
 {
-  options.programs.bat.catppuccin = catppuccinLib.mkCatppuccinOption { name = "bat"; };
+  options.catppuccin.bat = catppuccinLib.mkCatppuccinOption { name = "bat"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "bat"
+      "catppuccin"
+    ];
+    to = "bat";
+  };
 
   config = lib.mkIf cfg.enable {
     programs.bat = {

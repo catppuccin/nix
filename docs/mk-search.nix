@@ -3,7 +3,7 @@
 { catppuccin, versionName }:
 
 let
-  urlPrefix = "https://github.com/catppuccin/nix/tree/${catppuccin.rev}/";
+  urlPrefix = "https://github.com/catppuccin/nix/tree/${catppuccin.rev or "main"}/";
 in
 
 mkMultiSearch {

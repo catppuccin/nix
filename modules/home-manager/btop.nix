@@ -4,7 +4,7 @@
 let
   inherit (config.catppuccin) sources;
 
-  cfg = config.programs.btop.catppuccin;
+  cfg = config.catppuccin.btop;
   enable = cfg.enable && config.programs.btop.enable;
 
   themeFile = "catppuccin_${cfg.flavor}.theme";
@@ -13,7 +13,16 @@ let
 in
 
 {
-  options.programs.btop.catppuccin = catppuccinLib.mkCatppuccinOption { name = "btop"; };
+  options.catppuccin.btop = catppuccinLib.mkCatppuccinOption { name = "btop"; };
+
+  imports = catppuccinLib.mkRenamedCatppuccinOptions {
+    from = [
+      "programs"
+      "btop"
+      "catppuccin"
+    ];
+    to = "btop";
+  };
 
   config = lib.mkIf enable {
     xdg.configFile = {
