@@ -8,12 +8,16 @@ on:
       - 'CHANGELOG.md'
       - '**.lock'
       - '**.nix'
+
+      - '.github/workflows/website.yml'
   pull_request:
     paths:
       - 'docs/**'
       - 'CHANGELOG.md'
       - '**.lock'
       - '**.nix'
+
+      - '.github/workflows/website.yml'
   workflow_dispatch:
 
 jobs:
