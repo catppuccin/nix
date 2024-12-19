@@ -2,7 +2,7 @@
 { config, lib, ... }:
 let
   inherit (config.catppuccin) sources;
-  cfg = config.programs.swaylock.catppuccin;
+  cfg = config.catppuccin.swaylock;
 in
 {
   options.catppuccin.swaylock = catppuccinLib.mkCatppuccinOption {
