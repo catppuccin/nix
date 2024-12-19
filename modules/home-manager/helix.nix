@@ -45,7 +45,8 @@ in
         editor.color-modes = lib.mkDefault true;
       };
 
-      themes."catppuccin-${cfg.flavor}" = lib.importTOML "${sources.helix}/themes/${subdir}/catppuccin_${cfg.flavor}.toml";
+      themes."catppuccin-${cfg.flavor}" =
+        lib.importTOML "${sources.helix}/themes/${subdir}/catppuccin_${cfg.flavor}.toml";
     };
   };
 }

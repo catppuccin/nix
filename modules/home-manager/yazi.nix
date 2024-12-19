@@ -30,7 +30,8 @@ in
     };
 
     xdg.configFile = {
-      "yazi/Catppuccin-${cfg.flavor}.tmTheme".source = "${sources.bat}/themes/Catppuccin ${catppuccinLib.mkUpper cfg.flavor}.tmTheme";
+      "yazi/Catppuccin-${cfg.flavor}.tmTheme".source =
+        "${sources.bat}/themes/Catppuccin ${catppuccinLib.mkUpper cfg.flavor}.tmTheme";
     };
   };
 }
