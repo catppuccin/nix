@@ -6,6 +6,7 @@ let
 
   cfg = config.catppuccin.starship;
 in
+
 {
   options.catppuccin.starship = catppuccinLib.mkCatppuccinOption { name = "starship"; };
 
@@ -23,7 +24,7 @@ in
       settings = {
         format = lib.mkDefault "$all";
         palette = "catppuccin_${cfg.flavor}";
-      } // lib.importTOML "${sources.starship}/themes/${cfg.flavor}.toml";
+      } // lib.importTOML "${sources.starship}/${cfg.flavor}.toml";
     };
   };
 }

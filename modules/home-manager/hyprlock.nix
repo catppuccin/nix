@@ -32,7 +32,7 @@ in
     programs.hyprlock = {
       settings = {
         source = [
-          "${sources.hyprland}/themes/${cfg.flavor}.conf"
+          "${sources.hyprland}/${cfg.flavor}.conf"
 
           # Define accents in file to ensure they appear before user vars
           (pkgs.writeText "hyprland-${cfg.accent}-accent.conf" ''

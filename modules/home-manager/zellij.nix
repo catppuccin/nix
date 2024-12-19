@@ -5,6 +5,7 @@ let
   cfg = config.catppuccin.zellij;
   themeName = "catppuccin-${cfg.flavor}";
 in
+
 {
   options.catppuccin.zellij = catppuccinLib.mkCatppuccinOption { name = "zellij"; };
 
