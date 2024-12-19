@@ -26,6 +26,7 @@ in
       "catppuccin"
     ];
     to = "hyprland";
+    accentSupport = true;
   };
 
   config = lib.mkIf enable {
