@@ -30,8 +30,11 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@V27
 
-      - name: Setup cache
-        uses: DeterminateSystems/magic-nix-cache-action@v8
+      - name: Install Cachix
+        uses: cachix/cachix-action@v15
+        with:
+          name: catppuccin
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Run build
         run: |
@@ -55,8 +58,11 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@V27
 
-      - name: Setup cache
-        uses: DeterminateSystems/magic-nix-cache-action@v8
+      - name: Install Cachix
+        uses: cachix/cachix-action@v15
+        with:
+          name: catppuccin
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Run tests
         run: |
