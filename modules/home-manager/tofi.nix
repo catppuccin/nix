@@ -6,6 +6,7 @@ let
 
   cfg = config.catppuccin.tofi;
 in
+
 {
   options.catppuccin.tofi = catppuccinLib.mkCatppuccinOption { name = "tofi"; };
 
@@ -21,7 +22,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.tofi = {
       settings = {
-        include = sources.tofi + "/themes/catppuccin-${cfg.flavor}";
+        include = sources.tofi + "/catppuccin-${cfg.flavor}";
       };
     };
   };

@@ -6,6 +6,7 @@ let
 
   cfg = config.catppuccin.imv;
 in
+
 {
   options.catppuccin.imv = catppuccinLib.mkCatppuccinOption { name = "imv"; };
 
@@ -20,7 +21,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.imv = {
-      settings = catppuccinLib.fromINI (sources.imv + "/themes/${cfg.flavor}.config");
+      settings = catppuccinLib.fromINI (sources.imv + "/${cfg.flavor}.config");
     };
   };
 }

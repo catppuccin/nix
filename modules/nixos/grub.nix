@@ -2,7 +2,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -12,11 +11,9 @@ let
   cfg = config.catppuccin.grub;
 
   # TODO @getchoo: upstream this in nixpkgs maybe? idk if they have grub themes
-  theme = pkgs.runCommand "catppuccin-grub-theme" { } ''
-    mkdir -p "$out"
-    cp -r ${sources.grub}/src/catppuccin-${cfg.flavor}-grub-theme/* "$out"/
-  '';
+  theme = sources.grub + "/share/grub/themes/catppuccin-${cfg.flavor}-grub-theme";
 in
+
 {
   options.catppuccin.grub = catppuccinLib.mkCatppuccinOption { name = "grub"; };
 

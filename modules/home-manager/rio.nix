@@ -6,6 +6,7 @@ let
 
   cfg = config.catppuccin.rio;
 in
+
 {
   options.catppuccin.rio = catppuccinLib.mkCatppuccinOption { name = "rio"; };
 
@@ -20,7 +21,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.rio = {
-      settings = lib.importTOML "${sources.rio}/themes/catppuccin-${cfg.flavor}.toml";
+      settings = lib.importTOML "${sources.rio}/catppuccin-${cfg.flavor}.toml";
     };
   };
 }

@@ -31,7 +31,7 @@ in
     };
 
     xdg.configFile = {
-      "micro/colorschemes/${themePath}".source = "${sources.micro}/src/${themePath}";
+      "micro/colorschemes/${themePath}".source = "${sources.micro}/${themePath}";
     };
   };
 }

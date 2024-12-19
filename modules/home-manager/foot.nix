@@ -6,6 +6,7 @@ let
 
   cfg = config.catppuccin.foot;
 in
+
 {
   options.catppuccin.foot = catppuccinLib.mkCatppuccinOption { name = "foot"; };
 
@@ -21,7 +22,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.foot = {
       settings = {
-        main.include = sources.foot + "/themes/catppuccin-${cfg.flavor}.ini";
+        main.include = sources.foot + "/catppuccin-${cfg.flavor}.ini";
       };
     };
   };
