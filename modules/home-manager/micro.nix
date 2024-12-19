@@ -1,17 +1,18 @@
 { catppuccinLib }:
 { config, lib, ... }:
-
 let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.micro;
   enable = cfg.enable && config.programs.micro.enable;
 
-  themePath = "catppuccin-${cfg.flavor}.micro";
+  themePath =
+    "catppuccin-${cfg.flavor}" + lib.optionalString cfg.transparent "-transparent" + ".micro";
 in
-
 {
-  options.catppuccin.micro = catppuccinLib.mkCatppuccinOption { name = "micro"; };
+  options.catppuccin.micro = catppuccinLib.mkCatppuccinOption { name = "micro"; } // {
+    transparent = lib.mkEnableOption "transparent version of flavor";
+  };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
     from = [
