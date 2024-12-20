@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.1](https://github.com/catppuccin/nix/releases/tag/v1.2.1) - 2024-12-20
+
+### 🐛 Bug Fixes
+
+- **home-manager/zed**: use correct names by [@isabelroses](https://github.com/isabelroses)
+
 ## [1.2.0](https://github.com/catppuccin/nix/releases/tag/v1.2.0) - 2024-12-20
 
 This will (hopefully) be the final release before 2.0.0. In preparation for the next major release, our
