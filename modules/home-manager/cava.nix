@@ -39,7 +39,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.cava = {
-      settings = catppuccinLib.fromINIRaw (sources.cava + "/themes/${flavor}.cava");
+      settings = catppuccinLib.importINIRaw (sources.cava + "/themes/${flavor}.cava");
     };
   };
 }
