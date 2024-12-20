@@ -200,9 +200,9 @@
         "repo": "helix"
       },
       "branch": "main",
-      "revision": "53a4de781d7f925105aa5ee9b9a4d892d89b5e86",
-      "url": "https://github.com/catppuccin/helix/archive/53a4de781d7f925105aa5ee9b9a4d892d89b5e86.tar.gz",
-      "hash": "0qbfshmjw3iicpppihyyxp11zj5fiwglqh32ncal7mc8vb31rjbz"
+      "revision": "2a98f48d45c1394caf1f4499457549218d5f2041",
+      "url": "https://github.com/catppuccin/helix/archive/2a98f48d45c1394caf1f4499457549218d5f2041.tar.gz",
+      "hash": "1iwx1q18njkrraccxfmm8rl996fqx8laz9knwzi8mxbvgnql3xpx"
     },
     "hyprland": {
       "type": "Git",
@@ -476,9 +476,9 @@
         "repo": "yazi"
       },
       "branch": "main",
-      "revision": "01773cb5ec0676de1472f9b8394548127034c67a",
-      "url": "https://github.com/catppuccin/yazi/archive/01773cb5ec0676de1472f9b8394548127034c67a.tar.gz",
-      "hash": "0by3r0ycg8pzl23r4vr54h3j32gn54nla8q29kv1sk7mw4vrx1f0"
+      "revision": "5d3a1eecc304524e995fe5b936b8e25f014953e8",
+      "url": "https://github.com/catppuccin/yazi/archive/5d3a1eecc304524e995fe5b936b8e25f014953e8.tar.gz",
+      "hash": "0fagrwf4pfc9pbj9j1z401h294gmblsdgzvxx98ir03h05shymsi"
     },
     "zathura": {
       "type": "Git",
