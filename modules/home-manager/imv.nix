@@ -20,7 +20,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.imv = {
-      settings = catppuccinLib.fromINI (sources.imv + "/themes/${cfg.flavor}.config");
+      settings = catppuccinLib.importINI (sources.imv + "/themes/${cfg.flavor}.config");
     };
   };
 }

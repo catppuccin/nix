@@ -39,7 +39,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.swaylock = {
-      settings = catppuccinLib.fromINI (sources.swaylock + "/themes/${cfg.flavor}.conf");
+      settings = catppuccinLib.importINI (sources.swaylock + "/themes/${cfg.flavor}.conf");
     };
   };
 }

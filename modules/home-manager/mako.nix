@@ -10,7 +10,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.mako;
-  theme = catppuccinLib.fromINI (
+  theme = catppuccinLib.importINI (
     sources.mako + "/themes/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}"
   );
 
