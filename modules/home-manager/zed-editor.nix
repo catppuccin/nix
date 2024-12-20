@@ -17,8 +17,10 @@ in
       extensions = [ "catppuccin" ];
 
       userSettings.theme = {
-        light = "Catppuccin " + cfg.flavor + lib.optionalString cfg.italics " - No Italic";
-        dark = "Catppuccin" + cfg.flavor + lib.optionalString cfg.italics " - No Italic";
+        light =
+          "Catppuccin " + catppuccinLib.mkUpper cfg.flavor + lib.optionalString cfg.italics " - No Italics";
+        dark =
+          "Catppuccin " + catppuccinLib.mkUpper cfg.flavor + lib.optionalString cfg.italics " - No Italics";
       };
     };
   };
