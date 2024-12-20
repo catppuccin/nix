@@ -1,5 +1,13 @@
 # git-cliff ~ configuration file
 # https://git-cliff.org/docs/configuration
+#
+# To bump the changelog:
+#
+# ```console
+# $ TAG="x.y.z"
+# $ TAG=v"$TAG"
+# $ git-cliff --github-token (gh auth token) --prepend CHANGELOG.md --tag "$TAG" --unreleased
+# ```
 
 [changelog]
 header = """

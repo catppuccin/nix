@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.0](https://github.com/catppuccin/nix/releases/tag/v1.2.0) - 2024-12-20
+
+This will (hopefully) be the final release before 2.0.0. In preparation for the next major release, our
+modules have been moved to a standard `catppuccin` namespace (i.e., `programs.bat.catppuccin.enable` is now
+`catppuccin.bat.enable`), but aliases to the old options remain for backwards compatibility. **These will be
+removed in 2.0.0**
+
+### 🚀 Features
+
+- **home-manager**: add transparent option for micro by [@henrisota](https://github.com/henrisota)
+- **home-manager**: add support for zed-editor by [@isabelroses](https://github.com/isabelroses)
+- **modules**: move to catppuccin namespace by [@isabelroses](https://github.com/isabelroses)
+
+### 📚 Documentation
+
+- fully document nix library by [@getchoo](https://github.com/getchoo)
+
 ## [1.1.1](https://github.com/catppuccin/nix/releases/tag/v1.1.1) - 2024-12-12
 
 ### 🐛 Bug Fixes
