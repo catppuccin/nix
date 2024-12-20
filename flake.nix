@@ -200,13 +200,13 @@
 
             {
               darwin = {
-                test-unstable = callUnstable ./tests/darwin.nix;
-                test-stable = callStable ./tests/darwin.nix;
+                test-unstable = callUnstable ./modules/tests/darwin.nix;
+                test-stable = callStable ./modules/tests/darwin.nix;
               };
 
               linux = {
-                test-unstable = callUnstable ./tests/nixos.nix;
-                test-stable = callStable ./tests/nixos.nix;
+                test-unstable = callUnstable ./modules/tests/nixos.nix;
+                test-stable = callStable ./modules/tests/nixos.nix;
               };
             }
             .${kernelName} or { };

@@ -17,7 +17,7 @@ testers.runNixOSTest {
     {
       imports = [
         home-manager.nixosModules.default
-        ../modules/nixos
+        ../nixos
         ./common.nix
       ];
 
