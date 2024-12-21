@@ -15,6 +15,7 @@ let
   cfg = config.catppuccin.sddm;
   enable = cfg.enable && config.services.displayManager.sddm.enable;
 in
+
 {
   options.catppuccin.sddm = catppuccinLib.mkCatppuccinOption { name = "sddm"; } // {
     font = mkOption {
@@ -158,9 +159,8 @@ in
     };
 
     environment.systemPackages = [
-      (pkgs.catppuccin-sddm.override {
+      (config.catppuccin.sources.sddm.override {
         inherit (cfg)
-          flavor
           font
           fontSize
           background

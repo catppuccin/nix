@@ -8,6 +8,7 @@ let
   enable = cfg.enable && config.console.enable;
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
+
 {
   options.catppuccin.tty = catppuccinLib.mkCatppuccinOption { name = "console"; };
 
