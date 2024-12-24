@@ -141,14 +141,11 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
 }
 ```
 
-3. Enable for supported programs with `catppuccin.enable = true;`
+3. Enable for supported programs
 
 ```nix
 {
-  programs.starship = {
-    enable = true;
-    catppuccin.enable = true;
-  };
+  catppuccin.starship.enable = true;
 }
 ```
 
