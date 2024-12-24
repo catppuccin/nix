@@ -46,7 +46,7 @@ in
       };
 
       themes."catppuccin-${cfg.flavor}" =
-        lib.importTOML "${sources.helix}/themes/${subdir}/catppuccin_${cfg.flavor}.toml";
+        lib.importTOML "${sources.helix}/${subdir}/catppuccin_${cfg.flavor}.toml";
     };
   };
 }

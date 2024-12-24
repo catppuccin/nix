@@ -24,8 +24,8 @@ in
 
   config = lib.mkIf enable {
     xdg.configFile = {
-      "obs-studio/themes/Catppuccin.obt".source = "${sources.obs}/themes/Catppuccin.obt";
-      "obs-studio/themes/${themeName}".source = "${sources.obs}/themes/${themeName}";
+      "obs-studio/themes/Catppuccin.obt".source = "${sources.obs}/Catppuccin.obt";
+      "obs-studio/themes/${themeName}".source = "${sources.obs}/${themeName}";
     };
   };
 }

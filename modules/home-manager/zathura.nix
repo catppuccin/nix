@@ -6,6 +6,7 @@ let
 
   cfg = config.catppuccin.zathura;
 in
+
 {
   options.catppuccin.zathura = catppuccinLib.mkCatppuccinOption { name = "zathura"; };
 
@@ -21,7 +22,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.zathura = {
       extraConfig = ''
-        include ${sources.zathura + "/src/catppuccin-${cfg.flavor}"}
+        include ${sources.zathura + "/catppuccin-${cfg.flavor}"}
       '';
     };
   };
