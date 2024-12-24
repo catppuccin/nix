@@ -18,9 +18,9 @@ in
 
       userSettings.theme = {
         light =
-          "Catppuccin " + catppuccinLib.mkUpper cfg.flavor + lib.optionalString cfg.italics " - No Italics";
+          "Catppuccin " + catppuccinLib.mkUpper cfg.flavor + lib.optionalString (!cfg.italics) " - No Italics";
         dark =
-          "Catppuccin " + catppuccinLib.mkUpper cfg.flavor + lib.optionalString cfg.italics " - No Italics";
+          "Catppuccin " + catppuccinLib.mkUpper cfg.flavor + lib.optionalString (!cfg.italics) " - No Italics";
       };
     };
   };
