@@ -32,9 +32,9 @@
         "repo": "bat"
       },
       "branch": "main",
-      "revision": "d2bbee4f7e7d5bac63c054e4d8eca57954b31471",
-      "url": "https://github.com/catppuccin/bat/archive/d2bbee4f7e7d5bac63c054e4d8eca57954b31471.tar.gz",
-      "hash": "0v46lfx9fjg1a36w5n9q424j2v017vhf2gf2znqi985f4lyalp67"
+      "revision": "699f60fc8ec434574ca7451b444b880430319941",
+      "url": "https://github.com/catppuccin/bat/archive/699f60fc8ec434574ca7451b444b880430319941.tar.gz",
+      "hash": "1lirgwgh2hnz6j60py19bbmhvgaqs7i6wf6702k6n83lgw4aixg9"
     },
     "bottom": {
       "type": "Git",
@@ -92,9 +92,9 @@
         "repo": "dunst"
       },
       "branch": "main",
-      "revision": "f02cd2894411c9b4caa207cfd8ed6345f97c0455",
-      "url": "https://github.com/catppuccin/dunst/archive/f02cd2894411c9b4caa207cfd8ed6345f97c0455.tar.gz",
-      "hash": "07lf6yz3sd0vrs0ls5cm2w6j71kp7snyn5brjkdzz6vms6m4v9qi"
+      "revision": "5955cf0213d14a3494ec63580a81818b6f7caa66",
+      "url": "https://github.com/catppuccin/dunst/archive/5955cf0213d14a3494ec63580a81818b6f7caa66.tar.gz",
+      "hash": "1rpxrnhphcxm93s2wc7wbd9cxjmv79r2m6ip0a6rj7lh9v0ps6mc"
     },
     "fcitx5": {
       "type": "Git",
@@ -188,9 +188,9 @@
         "repo": "grub"
       },
       "branch": "main",
-      "revision": "ffcceb344e2bc86adc8e64437459c1f38adf5b63",
-      "url": "https://github.com/catppuccin/grub/archive/ffcceb344e2bc86adc8e64437459c1f38adf5b63.tar.gz",
-      "hash": "0w9dr21zfzlyc1bsxvldl0xgp5vrkam44pahsn22hyb3mxdkwg3c"
+      "revision": "2a5c8be8185dae49dd22030df45860df8c796312",
+      "url": "https://github.com/catppuccin/grub/archive/2a5c8be8185dae49dd22030df45860df8c796312.tar.gz",
+      "hash": "0j3b26pihgr0wy9fdlssg2ibf2v9hp703p8jwjfn6jbwql8zah6v"
     },
     "helix": {
       "type": "Git",
@@ -308,9 +308,9 @@
         "repo": "nvim"
       },
       "branch": "main",
-      "revision": "faf15ab0201b564b6368ffa47b56feefc92ce3f4",
-      "url": "https://github.com/catppuccin/nvim/archive/faf15ab0201b564b6368ffa47b56feefc92ce3f4.tar.gz",
-      "hash": "0b5bygd3zx1pazq6mxq2kg5xrp9azbx16ky9n3riz4wq17kk121s"
+      "revision": "5d9582dbbe37e465f7f93ca6e3dd60cd20eea44f",
+      "url": "https://github.com/catppuccin/nvim/archive/5d9582dbbe37e465f7f93ca6e3dd60cd20eea44f.tar.gz",
+      "hash": "0h34c9nnckar557b1g2mbhd047sg30db70anrk7d3i7mcy8c3kq7"
     },
     "obs": {
       "type": "Git",
