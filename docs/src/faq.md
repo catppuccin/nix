@@ -5,7 +5,8 @@
   and NixOS modules [here](https://nix.catppuccin.com/search/rolling/?scope=NixOS+modules)
 
 - Q: **"How do I set `catppuccin.enable` for everything I use?"**\
-  A: You can set `catppuccin.enable` [globally](https://nix.catppuccin.com/search/rolling/?option_scope=0&option=catppuccin.enable)
+  A: You can set `catppuccin.enable` globally through home-manager [here](https://nix.catppuccin.com/search/rolling/?option_scope=1&option=catppuccin.enable),
+  and NixOS modules [here](https://nix.catppuccin.com/search/rolling/?option_scope=0&option=catppuccin.enable)
 
 - Q: **"What versions of NixOS and home-manager are supported?"**\
   A: We primarily support the `unstable` branch, but try our best to support the current stable release.
