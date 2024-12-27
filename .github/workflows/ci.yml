@@ -2,65 +2,28 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
-      - '.sources/**'
-      - '**.lock'
       - '**.nix'
+      - 'flake.lock'
+
+      - '.github/workflows/ci.yml'
   pull_request:
     paths:
-      - '.sources/**'
-      - '**.lock'
       - '**.nix'
+      - 'flake.lock'
+
+      - '.github/workflows/ci.yml'
   workflow_dispatch:
 
 jobs:
-  format:
-    name: Format Nix files
-
-    if: github.repository_owner == 'Catppuccin' && github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PUSH_TOKEN }}
-
-      - name: Set Git user info
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-
-      - name: Get short revision
-        id: rev
-        run:
-          echo "rev=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
-
-      - name: Install Nix
-        uses: cachix/install-nix-action@V27
-
-      - name: Format changes
-        run: |
-          nix run \
-            --inputs-from ./dev \
-            'nixpkgs#nixfmt-rfc-style' -- .
-
-      - name: Commit changes
-        run: |
-          if ! git diff --color=always --exit-code; then
-            git commit -am "style: format ${{ steps.rev.outputs.rev }}"
-            git push
-          fi
-
-  test:
-    name: Test Modules
+  packages:
+    name: Build Packages
 
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, ubuntu-latest]
+        os: [ macos-latest, macos-13, ubuntu-latest ]
 
     runs-on: ${{ matrix.os }}
 
@@ -71,21 +34,26 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@V27
 
-      - name: Setup cache
-        uses: DeterminateSystems/magic-nix-cache-action@v8
+      - name: Install Cachix
+        uses: cachix/cachix-action@v15
+        with:
+          name: catppuccin
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - name: Run tests
+      - name: Run build
         run: |
-          nix run \
-            --inputs-from ./dev \
-            github:Mic92/nix-fast-build -- \
-            --no-nom \
-            --flake "./dev#checks.$(nix eval --raw --impure --expr builtins.currentSystem)"
+          nix run .#build-outputs -- 'packages'
 
-  validate-sources:
-    name: Validate sources
+  modules:
+    name: Test Modules
+    needs: packages
 
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ macos-latest, ubuntu-latest ]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout repository
@@ -94,7 +62,23 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@V27
 
-      - name: Check for external repositories
+      - name: Install Cachix
+        uses: cachix/cachix-action@v15
+        with:
+          name: catppuccin
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Run tests
         run: |
-          set -e
-          nix eval --file ./.github/checkSources.nix
+          nix run .#build-outputs -- 'checks'
+
+  release-gate:
+    name: Release Gate
+    needs: [ modules, packages ]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Exit with error
+        if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+        run: exit 1

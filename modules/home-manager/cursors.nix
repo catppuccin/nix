@@ -1,12 +1,13 @@
 { catppuccinLib }:
 {
   config,
-  pkgs,
   lib,
   ...
 }:
 
 let
+  inherit (config.catppuccin) sources;
+
   cfg = config.catppuccin.cursors;
 
   # "dark" and "light" can be used alongside the regular accents
@@ -46,7 +47,7 @@ in
   config = lib.mkIf cfg.enable {
     home.pointerCursor = {
       name = "catppuccin-${cfg.flavor}-${cfg.accent}-cursors";
-      package = pkgs.catppuccin-cursors.${cfg.flavor + catppuccinLib.mkUpper cfg.accent};
+      package = sources.cursors;
     };
   };
 }

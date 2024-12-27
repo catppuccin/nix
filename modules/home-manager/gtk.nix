@@ -1,8 +1,8 @@
 { catppuccinLib }:
 {
   config,
-  pkgs,
   lib,
+  pkgs,
   ...
 }:
 
@@ -157,7 +157,7 @@ in
           name =
             "catppuccin-${cfg.flavor}-${cfg.accent}-${cfg.size}"
             + lib.optionalString (cfg.tweaks != [ ]) gtkTweaks;
-          package = pkgs.catppuccin-gtk.override {
+          package = config.catppuccin.sources.gtk.override {
             inherit (cfg) size tweaks;
             accents = [ cfg.accent ];
             variant = cfg.flavor;

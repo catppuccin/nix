@@ -5,6 +5,7 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.alacritty;
 in
+
 {
   options.catppuccin.alacritty = catppuccinLib.mkCatppuccinOption { name = "alacritty"; };
 

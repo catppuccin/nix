@@ -43,7 +43,7 @@ in
   config = lib.mkIf enable {
     home.sessionVariables = {
       # Ensure that the default config file is still sourced
-      LG_CONFIG_FILE = "${sources.lazygit}/themes-mergable/${cfg.flavor}/${cfg.accent}.yml,${configFile}";
+      LG_CONFIG_FILE = "${sources.lazygit}/${cfg.flavor}/${cfg.accent}.yml,${configFile}";
     };
   };
 }

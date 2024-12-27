@@ -2,22 +2,11 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
 let
-  inherit (config.catppuccin) sources;
-
   cfg = config.catppuccin.tmux;
-
-  plugin =
-    # TODO @getchoo: upstream this in nixpkgs
-    pkgs.tmuxPlugins.mkTmuxPlugin {
-      pluginName = "catppuccin";
-      version = builtins.substring 0 7 sources.tmux.revision;
-      src = sources.tmux;
-    };
 in
 
 {
@@ -61,7 +50,7 @@ in
     programs.tmux = {
       plugins = [
         {
-          inherit plugin;
+          plugin = config.catppuccin.sources.tmux;
           extraConfig = lib.concatStrings [
             ''
               set -g @catppuccin_flavor '${cfg.flavor}'

@@ -19,7 +19,7 @@ let
   themeName = "catppuccin-${cfg.flavor}" + lib.optionalString cfg.transparent "-transparent";
   themeFile = "${themeName}.yaml";
   themePath = "k9s/skins/${themeFile}";
-  theme = sources.k9s + "/dist/${themeFile}";
+  theme = sources.k9s + "/${themeFile}";
 in
 
 {

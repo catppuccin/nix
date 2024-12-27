@@ -1,20 +1,12 @@
 { catppuccinLib }:
 {
   config,
-  pkgs,
   lib,
   ...
 }:
 
 let
-  inherit (config.catppuccin) sources;
-
   cfg = config.catppuccin.fcitx5;
-
-  theme = pkgs.runCommand "catppuccin-fcitx5" { } ''
-    mkdir -p $out/share/fcitx5/themes/
-    cp -r ${sources.fcitx5}/src/catppuccin-${cfg.flavor}-${cfg.accent}/ $out/share/fcitx5/themes/
-  '';
 in
 
 {
@@ -36,7 +28,7 @@ in
 
   config = lib.mkIf cfg.enable {
     i18n.inputMethod.fcitx5 = {
-      addons = [ theme ];
+      addons = [ config.catppuccin.sources.fcitx5 ];
       settings.addons.classicui.globalSection.Theme = "catppuccin-${cfg.flavor}-${cfg.accent}";
     };
   };

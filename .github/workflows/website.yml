@@ -8,12 +8,16 @@ on:
       - 'CHANGELOG.md'
       - '**.lock'
       - '**.nix'
+
+      - '.github/workflows/website.yml'
   pull_request:
     paths:
       - 'docs/**'
       - 'CHANGELOG.md'
       - '**.lock'
       - '**.nix'
+
+      - '.github/workflows/website.yml'
   workflow_dispatch:
 
 jobs:
@@ -29,15 +33,18 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@V27
 
-      - name: Setup cache
-        uses: DeterminateSystems/magic-nix-cache-action@v8
+      - name: Install Cachix
+        uses: cachix/cachix-action@v15
+        with:
+          name: catppuccin
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Run build
         run: |
           nix build \
             --print-build-logs \
             --show-trace \
-            './dev#site'
+            '.#site'
 
       - name: Get artifact directory
         id: find-path

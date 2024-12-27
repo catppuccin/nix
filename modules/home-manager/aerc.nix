@@ -6,6 +6,7 @@ let
   cfg = config.catppuccin.aerc;
   themeName = "catppuccin-${cfg.flavor}";
 in
+
 {
   options.catppuccin.aerc = catppuccinLib.mkCatppuccinOption { name = "aerc"; };
 
@@ -20,7 +21,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.aerc = {
-      stylesets.${themeName} = lib.fileContents "${sources.aerc}/dist/${themeName}";
+      stylesets.${themeName} = lib.fileContents "${sources.aerc}/${themeName}";
       extraConfig = {
         ui = {
           styleset-name = themeName;

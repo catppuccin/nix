@@ -1,5 +1,6 @@
 { catppuccinLib }:
 { config, lib, ... }:
+
 let
   inherit (config.catppuccin) sources;
 
@@ -9,6 +10,7 @@ let
   themePath =
     "catppuccin-${cfg.flavor}" + lib.optionalString cfg.transparent "-transparent" + ".micro";
 in
+
 {
   options.catppuccin.micro = catppuccinLib.mkCatppuccinOption { name = "micro"; } // {
     transparent = lib.mkEnableOption "transparent version of flavor";
@@ -31,7 +33,7 @@ in
     };
 
     xdg.configFile = {
-      "micro/colorschemes/${themePath}".source = "${sources.micro}/src/${themePath}";
+      "micro/colorschemes/${themePath}".source = "${sources.micro}/${themePath}";
     };
   };
 }
