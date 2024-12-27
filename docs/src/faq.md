@@ -1,11 +1,12 @@
 # FAQ
 
 - Q: **"How do I know what programs are supported?"**\
-  A: You can find programs supported through home-manager [here](options/home-manager-options.md),
-  and NixOS modules [here](options/nixos-options.md)
+  A: You can find programs supported through home-manager [here](https://nix.catppuccin.com/search/rolling/?scope=home-manager+modules),
+  and NixOS modules [here](https://nix.catppuccin.com/search/rolling/?scope=NixOS+modules)
 
 - Q: **"How do I set `catppuccin.enable` for everything I use?"**\
-  A: You can set `catppuccin.enable` [globally](options/nixos-options.md#catppuccinenable)
+  A: You can set `catppuccin.enable` globally through home-manager [here](https://nix.catppuccin.com/search/rolling/?option_scope=1&option=catppuccin.enable),
+  and NixOS modules [here](https://nix.catppuccin.com/search/rolling/?option_scope=0&option=catppuccin.enable)
 
 - Q: **"What versions of NixOS and home-manager are supported?"**\
   A: We primarily support the `unstable` branch, but try our best to support the current stable release.
@@ -19,15 +20,12 @@
   
   ```nix
   {
-    programs = {
-      cava.catppuccin.enable = false;
-      gh-dash.catppuccin.enable = false;
-      imv.catppuccin.enable = false;
-      swaylock.catppuccin.enable = false;
-    };
-  
-    services = {
-      mako.catppuccin.enable = false;
+    catppuccin = {
+      cava.enable = false;
+      gh-dash.enable = false;
+      imv.enable = false;
+      swaylock.enable = false;
+      mako.enable = false;
     };
   }
   ```
