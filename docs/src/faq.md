@@ -24,7 +24,6 @@
       cava.enable = false;
       gh-dash.enable = false;
       imv.enable = false;
-      kitty.enable = false; # IFD is introduced by home-manager
       swaylock.enable = false;
       mako.enable = false;
     };
