@@ -1,11 +1,11 @@
 # FAQ
 
 - Q: **"How do I know what programs are supported?"**\
-  A: You can find programs supported through home-manager [here](search/rolling/?scope=home-manager+modules),
-  and NixOS modules [here](search/rolling/?scope=NixOS+modules)
+  A: You can find programs supported through home-manager [here](https://nix.catppuccin.com/search/rolling/?scope=home-manager+modules),
+  and NixOS modules [here](https://nix.catppuccin.com/search/rolling/?scope=NixOS+modules)
 
 - Q: **"How do I set `catppuccin.enable` for everything I use?"**\
-  A: You can set `catppuccin.enable` [globally](search/rolling/?option_scope=0&option=catppuccin.enable)
+  A: You can set `catppuccin.enable` [globally](https://nix.catppuccin.com/search/rolling/?option_scope=0&option=catppuccin.enable)
 
 - Q: **"What versions of NixOS and home-manager are supported?"**\
   A: We primarily support the `unstable` branch, but try our best to support the current stable release.
