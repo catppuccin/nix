@@ -158,9 +158,8 @@ in
             "catppuccin-${cfg.flavor}-${cfg.accent}-${cfg.size}"
             + lib.optionalString (cfg.tweaks != [ ]) gtkTweaks;
           package = config.catppuccin.sources.gtk.override {
-            inherit (cfg) size tweaks;
+            inherit (cfg) flavor size tweaks;
             accents = [ cfg.accent ];
-            variant = cfg.flavor;
           };
         };
 
