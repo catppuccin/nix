@@ -175,6 +175,10 @@
     "hash": "sha256-/vD/hOi6KcaGyAp6Az7jL5/tQSGRzIrf0oHjAJf4QbI=",
     "rev": "0adc53028d81bf047461bc61c43a484d11b15220"
   },
+  "zed": {
+    "hash": "sha256-QxT9OvhOZCJrtgahwQhtlatHZ15/xRmw4AVfiM6YnFY=",
+    "rev": "1e4d756b4c71d5568be6c16e73f7a6efe3c4d7ef"
+  },
   "zsh-syntax-highlighting": {
     "hash": "sha256-l6tztApzYpQ2/CiKuLBf8vI2imM6vPJuFdNDSEi7T/o=",
     "rev": "7926c3d3e17d26b3779851a2255b95ee650bd928"
