@@ -14,6 +14,12 @@ vimUtils.buildVimPlugin rec {
 
   src = sources.${portName};
 
+    nvimSkipModule = [
+      "catppuccin.groups.integrations.noice"
+      "catppuccin.groups.integrations.feline"
+      "catppuccin.lib.vim.init"
+    ];
+
   meta = {
     description = "Soothing pastel theme for ${portName}";
     homepage = "https://github.com/catppuccin/${portName}";
