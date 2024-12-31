@@ -6,11 +6,16 @@ let
 in
 
 {
-  options.catppuccin.zed = catppuccinLib.mkCatppuccinOption { name = "zed"; } // {
-    italics = lib.mkEnableOption "the italicized version of theme" // {
-      default = true;
+  options.catppuccin.zed =
+    catppuccinLib.mkCatppuccinOption {
+      name = "zed";
+      darkLightSupport = true;
+    }
+    // {
+      italics = lib.mkEnableOption "the italicized version of theme" // {
+        default = true;
+      };
     };
-  };
 
   config = lib.mkIf cfg.enable {
     programs.zed-editor = {
@@ -19,11 +24,11 @@ in
       userSettings.theme = {
         light =
           "Catppuccin "
-          + catppuccinLib.mkUpper cfg.flavor
+          + catppuccinLib.mkUpper cfg.lightFlavor
           + lib.optionalString (!cfg.italics) " - No Italics";
         dark =
           "Catppuccin "
-          + catppuccinLib.mkUpper cfg.flavor
+          + catppuccinLib.mkUpper cfg.darkFlavor
           + lib.optionalString (!cfg.italics) " - No Italics";
       };
     };
