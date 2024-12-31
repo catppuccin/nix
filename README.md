@@ -162,11 +162,13 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
 
 ## 🙋 FAQ
 
-- Q: **"How do I know what ports are supported?"**\
-  A: You can look through all of the options for our supported ports at [nix.catppuccin.com/search](https://nix.catppuccin.com/search)
+- Q: **"How do I know what programs are supported?"**\
+  A: You can find programs supported through home-manager [here](https://nix.catppuccin.com/search/rolling/?scope=home-manager+modules),
+  and NixOS modules [here](https://nix.catppuccin.com/search/rolling/?scope=NixOS+modules)
 
 - Q: **"How do I set `catppuccin.enable` for everything I use?"**\
-  A: You can set `catppuccin.enable` [globally](https://nix.catppuccin.com/search/rolling/?option_scope=0&option=catppuccin.enable&scope=NixOS%20modules)
+  A: You can set `catppuccin.enable` globally through home-manager [here](https://nix.catppuccin.com/search/rolling/?option_scope=1&option=catppuccin.enable),
+  and NixOS modules [here](https://nix.catppuccin.com/search/rolling/?option_scope=0&option=catppuccin.enable)
 
 - Q: **"What versions of NixOS and home-manager are supported?"**\
   A: We primarily support the `unstable` branch, but try our best to support the current stable release.
@@ -180,15 +182,12 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
   
   ```nix
   {
-    programs = {
-      cava.catppuccin.enable = false;
-      gh-dash.catppuccin.enable = false;
-      imv.catppuccin.enable = false;
-      swaylock.catppuccin.enable = false;
-    };
-  
-    services = {
-      mako.catppuccin.enable = false;
+    catppuccin = {
+      cava.enable = false;
+      gh-dash.enable = false;
+      imv.enable = false;
+      swaylock.enable = false;
+      mako.enable = false;
     };
   }
   ```
