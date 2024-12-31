@@ -15,6 +15,7 @@ in
     catppuccinLib.mkCatppuccinOption {
       name = "home-assistant";
       accentSupport = true;
+      darkLightSupport = true;
     }
     // {
       setDefaultAtStartup = lib.mkEnableOption "setting the default theme at Home Assistant startup" // {
@@ -30,7 +31,7 @@ in
       "automation catppuccin" = lib.mkIf cfg.setDefaultAtStartup {
         alias = "Catppuccin default theme";
         id = "catppuccin_default_theme";
-        description = "Sets the default frontend theme to ${catppuccinLib.mkFlavorName cfg.flavor} at startup.";
+        description = "Sets the default frontend theme to catppuccin at startup.";
         mode = "single";
         triggers = singleton {
           trigger = "homeassistant";
@@ -39,8 +40,8 @@ in
         actions = singleton {
           action = "frontend.set_theme";
           data = {
-            name = "Catppuccin ${toSentenceCase cfg.flavor} ${toSentenceCase cfg.accent}";
-            name_dark = "none";
+            name = "Catppuccin ${toSentenceCase cfg.lightFlavor} ${toSentenceCase cfg.accent}";
+            name_dark = "Catppuccin ${toSentenceCase cfg.darkFlavor} ${toSentenceCase cfg.accent}";
           };
         };
       };

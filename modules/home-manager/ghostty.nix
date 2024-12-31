@@ -5,20 +5,28 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.ghostty;
-  themeName = "catppuccin-${cfg.flavor}";
   enable = cfg.enable && config.programs.ghostty.enable;
+
+  lightThemeName = "catppuccin-${cfg.lightFlavor}";
+  darkThemeName = "catppuccin-${cfg.darkFlavor}";
 in
 {
-  options.catppuccin.ghostty = catppuccinLib.mkCatppuccinOption { name = "ghostty"; };
+  options.catppuccin.ghostty = catppuccinLib.mkCatppuccinOption {
+    name = "ghostty";
+    darkLightSupport = true;
+  };
 
   config = lib.mkIf enable {
     xdg.configFile = {
-      "ghostty/themes/${themeName}".source = "${sources.ghostty}/${themeName}.conf";
+      "ghostty/themes/${lightThemeName}".source = "${sources.ghostty}/${lightThemeName}.conf";
+    }
+    // lib.optionalAttrs (lightThemeName != darkThemeName) {
+      "ghostty/themes/${darkThemeName}".source = "${sources.ghostty}/${darkThemeName}.conf";
     };
 
     programs.ghostty = {
       settings = {
-        theme = "light:${themeName},dark:${themeName}";
+        theme = "light:${lightThemeName},dark:${darkThemeName}";
       };
     };
   };
