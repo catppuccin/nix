@@ -189,6 +189,7 @@ lib.makeExtensible (ctp: {
       default ? if useGlobalEnable then config.catppuccin.enable else false,
       defaultText ? if useGlobalEnable then "catppuccin.enable" else null,
       accentSupport ? false,
+      darkLightSupport ? false,
     }:
 
     {
@@ -212,6 +213,19 @@ lib.makeExtensible (ctp: {
         type = ctp.types.accent;
         default = config.catppuccin.accent;
         description = "Catppuccin accent for ${name}";
+      };
+    }
+    // optionalAttrs darkLightSupport {
+      darkFlavor = mkOption {
+        type = ctp.types.flavor;
+        default = config.catppuccin.darkFlavor;
+        description = "Catppuccin dark flavor for ${name}";
+      };
+
+      lightFlavor = mkOption {
+        type = ctp.types.flavor;
+        default = config.catppuccin.lightFlavor;
+        description = "Catppuccin light flavor for ${name}";
       };
     };
 

@@ -26,6 +26,18 @@ in
       description = "Global Catppuccin flavor";
     };
 
+    darkFlavor = lib.mkOption {
+      type = catppuccinLib.types.flavor;
+      default = config.catppuccin.flavor;
+      description = "Global Catppuccin dark flavor";
+    };
+
+    lightFlavor = lib.mkOption {
+      type = catppuccinLib.types.flavor;
+      default = config.catppuccin.flavor;
+      description = "Global Catppuccin light flavor";
+    };
+
     accent = lib.mkOption {
       type = catppuccinLib.types.accent;
       default = "mauve";
