@@ -34,6 +34,7 @@
           swaylock.enable = lib.mkVMOverride false;
           tofi.enable = lib.mkVMOverride false;
           waybar.enable = lib.mkVMOverride false;
+          wlogout.enable = lib.mkVMOverride false;
         };
 
         qt.enable = lib.mkVMOverride false; # NOTE: same as cava

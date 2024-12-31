@@ -58,6 +58,7 @@
     tofi.enable = true;
     obs-studio.enable = true;
     waybar.enable = true;
+    wlogout.enable = true;
     yazi.enable = true;
     zathura.enable = true;
     zed-editor.enable = true;
