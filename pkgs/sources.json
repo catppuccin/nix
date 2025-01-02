@@ -55,6 +55,10 @@
     "hash": "sha256-fOCZxrEyWLi+VYnx3QYOP1R+VBhllhOlnO5/5Wg5aq4=",
     "rev": "acb1b1c22446e34781731ddbfb5e9bd699eccc74"
   },
+  "ghostty": {
+    "hash": "sha256-YHHOGeXNlVdUdUXHQW4G+6Nl8xyHo2tuJ9b+/1LfGos=",
+    "rev": "1cb0c33770a411160cbe14b48b831455a2244ee3"
+  },
   "gitui": {
     "hash": "sha256-CRxpEDShQcCEYtSXwLV5zFB8u0HVcudNcMruPyrnSEk=",
     "rev": "c7661f043cb6773a1fc96c336738c6399de3e617"
