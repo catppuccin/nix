@@ -45,5 +45,14 @@ in
         apply = lib.recursiveUpdate defaultSources;
         description = "Port sources used across all options";
       };
+
+    cache.enable = lib.mkEnableOption "the usage of Catppuccin's binary cache";
+  };
+
+  config = {
+    nix.settings = lib.mkIf config.catppuccin.cache.enable {
+      substituters = [ "https://catppuccin.cachix.org" ];
+      trusted-public-keys = [ "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU=" ];
+    };
   };
 }
