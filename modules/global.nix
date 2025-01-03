@@ -46,7 +46,7 @@ in
         description = "Port sources used across all options";
       };
 
-    cache.enable = lib.mkEnableOption "Enable Catppuccin cache";
+    cache.enable = lib.mkEnableOption "the usage of Catppuccin's binary cache";
   };
 
   config = {
