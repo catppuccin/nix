@@ -17,6 +17,12 @@
 
   i18n.inputMethod.enabled = "fcitx5";
 
+  catppuccin = {
+    firefox.profiles = [ "test" ];
+    librewolf.profiles = [ "test" ];
+    floorp.profiles = [ "test" ];
+  };
+
   programs = {
     aerc.enable = true;
     alacritty.enable = true;
@@ -26,7 +32,9 @@
     btop.enable = true;
     cava.enable = true;
     chromium.enable = true;
+    firefox.enable = true;
     fish.enable = true;
+    floorp.enable = true;
     foot.enable = true;
     freetube.enable = true;
     fuzzel.enable = true;
@@ -48,6 +56,7 @@
     kitty.enable = true;
     lazygit.enable = true;
     lsd.enable = true;
+    librewolf.enable = true;
     micro.enable = true;
     mpv.enable = true;
     neovim.enable = true;

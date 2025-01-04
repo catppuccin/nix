@@ -23,12 +23,15 @@
         programs = {
           cava.enable = lib.mkVMOverride false; # NOTE: this may actually work on darwin, but the package is currently not supported
           chromium.enable = lib.mkVMOverride false;
+          firefox.enable = lib.mkVMOverride false; # NOTE: Not available on darwin
+          floorp.enable = lib.mkVMOverride false; # NOTE: same as firefox
           foot.enable = lib.mkVMOverride false;
           freetube.enable = lib.mkVMOverride false; # NOTE: currently fails to build
           fuzzel.enable = lib.mkVMOverride false;
           ghostty.enable = lib.mkVMOverride false; # TODO: Remove when Darwin support is added
           hyprlock.enable = lib.mkVMOverride false;
           imv.enable = lib.mkVMOverride false;
+          librewolf.enable = lib.mkVMOverride false; # NOTE: same as firefox
           mpv.enable = lib.mkVMOverride false; # NOTE: same as cava, but `mpv` fails to build currently
           obs-studio.enable = lib.mkVMOverride false;
           rio.enable = lib.mkVMOverride false; # marked as broken
