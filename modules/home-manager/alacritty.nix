@@ -20,7 +20,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.alacritty = {
-      settings.general.import = lib.mkBefore [ "${sources.alacritty}/catppuccin-${cfg.flavor}.toml" ];
+      settings.import = lib.mkBefore [ "${sources.alacritty}/catppuccin-${cfg.flavor}.toml" ];
     };
   };
 }
