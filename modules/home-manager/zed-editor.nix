@@ -5,6 +5,9 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.zed;
+  enable = cfg.enable && config.programs.zed-editor.enable;
+
+  accent = if cfg.accent == "mauve" then "" else " (${cfg.accent})";
 in
 
 {
@@ -19,22 +22,18 @@ in
       };
     };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enable {
     programs.zed-editor = {
       userSettings.theme = {
         light =
           "Catppuccin "
           + catppuccinLib.mkUpper cfg.flavor
-          + " ("
-          + cfg.accent
-          + ")"
+          + accent
           + lib.optionalString (!cfg.italics) " - No Italics";
         dark =
           "Catppuccin "
           + catppuccinLib.mkUpper cfg.flavor
-          + " ("
-          + cfg.accent
-          + ")"
+          + accent
           + lib.optionalString (!cfg.italics) " - No Italics";
       };
     };
