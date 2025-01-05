@@ -7,7 +7,7 @@ let
   cfg = config.catppuccin.zed;
   enable = cfg.enable && config.programs.zed-editor.enable;
 
-  accent = if cfg.accent == "muave" then "" else " (${cfg.accent})";
+  accent = if cfg.accent == "mauve" then "" else " (${cfg.accent})";
 in
 
 {
