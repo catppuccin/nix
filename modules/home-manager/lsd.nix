@@ -11,15 +11,6 @@ in
 {
   options.catppuccin.lsd = catppuccinLib.mkCatppuccinOption { name = "lsd"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "lsd"
-      "catppuccin"
-    ];
-    to = "lsd";
-  };
-
   config = lib.mkIf enable {
     xdg.configFile = {
       "lsd/config.yaml".source = "${sources.lsd}/catppuccin-${cfg.flavor}/colors.yaml";
