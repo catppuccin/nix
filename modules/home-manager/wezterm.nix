@@ -20,14 +20,14 @@ in
       extraConfig = ''
         local catppuccin_plugin = "${sources.wezterm}/plugin/init.lua"
       ''
-      + lib.mkIf cfg.apply (lib.mkBefore ''
+      + lib.optionalString cfg.apply ''
           local config = {}
           if wezterm.config_builder then
             config = wezterm.config_builder()
           end
 
           dofile("${sources.wezterm}/plugin/init.lua").apply_to_config(config)
-      '');
+      '';
     };
   };
 }
