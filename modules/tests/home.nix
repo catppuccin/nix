@@ -22,8 +22,10 @@
     alacritty.enable = true;
     bat.enable = true;
     bottom.enable = true;
+    brave.enable = true;
     btop.enable = true;
     cava.enable = true;
+    chromium.enable = true;
     fish.enable = true;
     foot.enable = true;
     freetube.enable = true;
@@ -48,6 +50,7 @@
     mpv.enable = true;
     neovim.enable = true;
     newsboat.enable = true;
+    obs-studio.enable = true;
     rio.enable = true;
     rofi.enable = true;
     skim.enable = true;
@@ -56,7 +59,6 @@
     swaylock.enable = true;
     tmux.enable = true;
     tofi.enable = true;
-    obs-studio.enable = true;
     waybar.enable = true;
     wlogout.enable = true;
     yazi.enable = true;
