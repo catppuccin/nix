@@ -19,6 +19,9 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.lsd.colors = catppuccinLib.importYAML "${sources.lsd}/catppuccin-${cfg.flavor}/colors.yaml";
+    xdg.configFile = {
+      "lsd/config.yaml".source = "${sources.lsd}/catppuccin-${cfg.flavor}/colors.yaml";
+    };
+    programs.lsd.settings.color.theme = "custom";
   };
 }
