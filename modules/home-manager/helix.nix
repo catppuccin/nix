@@ -5,6 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.helix;
+  enable = cfg.enable && config.programs.helix.enable;
   subdir = if cfg.useItalics then "default" else "no_italics";
 in
 
@@ -38,15 +39,17 @@ in
       )
     ];
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enable {
     programs.helix = {
       settings = {
         theme = "catppuccin-${cfg.flavor}";
         editor.color-modes = lib.mkDefault true;
       };
+    };
 
-      themes."catppuccin-${cfg.flavor}" =
-        lib.importTOML "${sources.helix}/${subdir}/catppuccin_${cfg.flavor}.toml";
+    xdg.configFile = {
+      "helix/themes/catppuccin-${cfg.flavor}.toml".source =
+        "${sources.helix}/${subdir}/catppuccin_${cfg.flavor}.toml";
     };
   };
 }
