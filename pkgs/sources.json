@@ -91,6 +91,10 @@
     "hash": "sha256-b2SoIeXT1BaoxvEeQ0VaPmnBND+7qUe342kOIkyOcAc=",
     "rev": "d3c95a67ea3f778f7705d8ef814f87ac5213436d"
   },
+  "lsd": {
+    "hash": "sha256-lf6VawCgK9VlKO+PAzPD/WqPjxoqw2j000b5ZlEXj/Y=",
+    "rev": "7085155432c7fe53a7acd7b0c004955368aa0fba"
+  },
   "mako": {
     "hash": "sha256-jgiZ+CrM4DX2nZR5BjjD9/Rk5CGGUy3gq9CCvYzp5Vs=",
     "rev": "92844f144e72f2dc8727879ec141ffdacf3ff6a1"
