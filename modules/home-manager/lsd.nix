@@ -3,7 +3,9 @@
 
 let
   inherit (config.catppuccin) sources;
+
   cfg = config.catppuccin.lsd;
+  enable = cfg.enable && config.programs.lsd.enable;
 in
 
 {
@@ -18,7 +20,7 @@ in
     to = "lsd";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enable {
     xdg.configFile = {
       "lsd/config.yaml".source = "${sources.lsd}/catppuccin-${cfg.flavor}/colors.yaml";
     };
