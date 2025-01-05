@@ -17,13 +17,16 @@ in
   config = lib.mkIf cfg.enable {
     programs.wezterm = {
       colorSchemes."catppuccin-${cfg.flavor}" = lib.importTOML "${sources.wezterm}/dist/catppuccin-${cfg.flavor}.toml";
-      extraConfig = lib.mkIf cfg.apply (lib.mkBefore ''
-        local config = {}
-        if wezterm.config_builder then
-          config = wezterm.config_builder()
-        end
+      extraConfig = ''
+        local catppuccin_plugin = "${sources.wezterm}/plugin/init.lua"
+      ''
+      + lib.mkIf cfg.apply (lib.mkBefore ''
+          local config = {}
+          if wezterm.config_builder then
+            config = wezterm.config_builder()
+          end
 
-        dofile("${sources.wezterm}/plugin/init.lua").apply_to_config(config)
+          dofile("${sources.wezterm}/plugin/init.lua").apply_to_config(config)
       '');
     };
   };
