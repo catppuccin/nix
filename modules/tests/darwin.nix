@@ -25,6 +25,7 @@
           chromium.enable = lib.mkVMOverride false;
           foot.enable = lib.mkVMOverride false;
           fuzzel.enable = lib.mkVMOverride false;
+          ghostty.enable = lib.mkVMOverride false; # TODO: Remove when Darwin support is added
           hyprlock.enable = lib.mkVMOverride false;
           imv.enable = lib.mkVMOverride false;
           mpv.enable = lib.mkVMOverride false; # NOTE: same as cava, but `mpv` fails to build currently
