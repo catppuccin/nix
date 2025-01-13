@@ -2,7 +2,6 @@
 { config, lib, ... }:
 let
   cfg = config.catppuccin.nvim;
-  pluginSettings = lib.generators.toLua { } (defaultConfig // cfg.extraConfig);
 
   defaultConfig = {
     compile_path = lib.generators.mkLuaInline "compile_path";
@@ -11,10 +10,11 @@ let
 in
 {
   options.catppuccin.nvim = catppuccinLib.mkCatppuccinOption { name = "neovim"; } // {
-    extraConfig = lib.mkOption {
+    settings = lib.mkOption {
       description = "Extra settings that will be passed to the setup function.";
       default = { };
-      type = lib.types.attrs;
+      type = lib.types.submodule { freeformType = lib.types.attrsOf lib.types.anything; };
+      apply = lib.recursiveUpdate defaultConfig;
     };
   };
 
@@ -38,7 +38,7 @@ in
               vim.fn.mkdir(compile_path, "p")
               vim.opt.runtimepath:append(compile_path)
 
-              require("catppuccin").setup(${pluginSettings})
+              require("catppuccin").setup(${lib.generators.toLua { } cfg.settings})
 
               vim.api.nvim_command("colorscheme catppuccin")
             EOF
