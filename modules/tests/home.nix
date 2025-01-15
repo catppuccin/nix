@@ -32,6 +32,7 @@
     fuzzel.enable = true;
     fzf.enable = true;
     gh-dash.enable = true;
+    ghostty.enable = true;
     git = {
       enable = true;
       delta.enable = true;

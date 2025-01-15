@@ -17,6 +17,7 @@
   ./fzf.nix
   ./gh-dash.nix
   ./gitui.nix
+  ./ghostty.nix
   ./glamour.nix
   ./gtk.nix
   ./helix.nix

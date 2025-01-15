@@ -24,7 +24,9 @@
           cava.enable = lib.mkVMOverride false; # NOTE: this may actually work on darwin, but the package is currently not supported
           chromium.enable = lib.mkVMOverride false;
           foot.enable = lib.mkVMOverride false;
+          freetube.enable = lib.mkVMOverride false; # NOTE: currently fails to build
           fuzzel.enable = lib.mkVMOverride false;
+          ghostty.enable = lib.mkVMOverride false; # TODO: Remove when Darwin support is added
           hyprlock.enable = lib.mkVMOverride false;
           imv.enable = lib.mkVMOverride false;
           mpv.enable = lib.mkVMOverride false; # NOTE: same as cava, but `mpv` fails to build currently
