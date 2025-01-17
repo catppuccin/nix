@@ -4,18 +4,20 @@ on:
   push:
     branches: [main]
     paths:
-      - 'docs/**'
-      - 'CHANGELOG.md'
       - '**.lock'
       - '**.nix'
+      - 'docs/**'
+      - 'pkgs/**'
+      - 'CHANGELOG.md'
 
       - '.github/workflows/website.yml'
   pull_request:
     paths:
-      - 'docs/**'
-      - 'CHANGELOG.md'
       - '**.lock'
       - '**.nix'
+      - 'docs/**'
+      - 'pkgs/**'
+      - 'CHANGELOG.md'
 
       - '.github/workflows/website.yml'
   workflow_dispatch:
@@ -32,6 +34,10 @@ jobs:
 
       - name: Install Nix
         uses: cachix/install-nix-action@V27
+        with:
+          # TODO: Remove when Nix 2.26 is released
+          # https://hydra.nixos.org/build/285560910
+          install_url: https://hydra.nixos.org/build/285560910/download/1/install
 
       - name: Install Cachix
         uses: cachix/cachix-action@v15
@@ -44,7 +50,7 @@ jobs:
           nix build \
             --print-build-logs \
             --show-trace \
-            '.#site'
+            './dev#site'
 
       - name: Get artifact directory
         id: find-path
