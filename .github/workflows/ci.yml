@@ -4,14 +4,16 @@ on:
   push:
     branches: [ main ]
     paths:
+      - '**.lock'
       - '**.nix'
-      - 'flake.lock'
+      - 'pkgs/**'
 
       - '.github/workflows/ci.yml'
   pull_request:
     paths:
+      - '**.lock'
       - '**.nix'
-      - 'flake.lock'
+      - 'pkgs/**'
 
       - '.github/workflows/ci.yml'
   workflow_dispatch:
@@ -33,6 +35,9 @@ jobs:
 
       - name: Install Nix
         uses: cachix/install-nix-action@V27
+        with:
+          # NOTE: Required for subflake
+          install_url: https://releases.nixos.org/nix/nix-2.26.0/install
 
       - name: Install Cachix
         uses: cachix/cachix-action@v15
@@ -42,7 +47,7 @@ jobs:
 
       - name: Run build
         run: |
-          nix run .#build-outputs -- 'packages'
+          nix run './dev#build-hydra-job' -- 'packages'
 
   modules:
     name: Test Modules
@@ -61,6 +66,9 @@ jobs:
 
       - name: Install Nix
         uses: cachix/install-nix-action@V27
+        with:
+          # NOTE: Required for subflake
+          install_url: https://releases.nixos.org/nix/nix-2.26.0/install
 
       - name: Install Cachix
         uses: cachix/cachix-action@v15
@@ -70,7 +78,7 @@ jobs:
 
       - name: Run tests
         run: |
-          nix run .#build-outputs -- 'checks'
+          nix run './dev#build-hydra-job' -- 'checks'
 
   release-gate:
     name: Release Gate

@@ -20,7 +20,7 @@
     ```
     {
       "v1.1" = catppuccin_v1_1;
-      "rolling" = self;
+      "rolling" = catppuccin;
     }
   */
   searchVersions ? null,
@@ -31,7 +31,7 @@ assert lib.assertMsg (
 ) "./docs/package.nix: `searchVersions` must be provided";
 
 let
-  inherit (inputs) self;
+  inherit (inputs) catppuccin;
 
   mkSite = callPackage ./mk-site.nix { };
   mkSearchInstance = callPackage ./mk-search.nix {
@@ -67,11 +67,11 @@ in
 
 mkSite {
   pname = "catppuccin-nix-site";
-  version = self.shortRev or self.dirtyShortRev or "unknown";
+  version = catppuccin.shortRev or catppuccin.dirtyShortRev or "unknown";
 
-  src = self + "/docs";
+  src = catppuccin + "/docs";
 
-  postPatch = "ln -sf ${self + "/CHANGELOG.md"} src/NEWS.md";
+  postPatch = "ln -sf ${catppuccin + "/CHANGELOG.md"} src/NEWS.md";
 
   postInstall = ''
     ln -sf ${
