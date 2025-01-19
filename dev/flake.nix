@@ -10,7 +10,7 @@
     # TODO: Remove when Nix 2.26 is released
     # Pinned for the above feature
     nix = {
-      url = "github:NixOS/nix/043df13f724cc084a805372b0455cc6d8684cd5b";
+      url = "github:NixOS/nix/bcb92a5fa00463067701e7d7d9c5c41ce2bb7088";
 
       # NOTE: The primary Nixpkgs is not overridden so we can leverage the Hydra cache
       inputs = {

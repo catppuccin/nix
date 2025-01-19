@@ -37,7 +37,7 @@ jobs:
         with:
           # TODO: Remove when Nix 2.26 is released
           # https://hydra.nixos.org/eval/1811064
-          nix-package-url: https://hydra.nixos.org/build/285561167/download/1/nix-2.26.0pre19700101_043df13-x86_64-linux.tar.xz
+          nix-package-url: https://hydra.nixos.org/build/285626679/download/1/nix-2.26.0pre19700101_bcb92a5-x86_64-linux.tar.xz
 
       - name: Install Cachix
         uses: cachix/cachix-action@v15
