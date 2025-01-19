@@ -4,26 +4,38 @@ on:
   push:
     branches: [ main ]
     paths:
+      - '**.lock'
       - '**.nix'
-      - 'flake.lock'
+      - 'pkgs/**'
 
       - '.github/workflows/ci.yml'
   pull_request:
     paths:
+      - '**.lock'
       - '**.nix'
-      - 'flake.lock'
+      - 'pkgs/**'
 
       - '.github/workflows/ci.yml'
   workflow_dispatch:
 
 jobs:
   packages:
-    name: Build Packages
+    name: Build Packages (${{ matrix.os }})
 
     strategy:
       fail-fast: false
       matrix:
-        os: [ macos-latest, macos-13, ubuntu-latest ]
+        include:
+          # TODO: Stop pinning Nix when 2.26 is released
+          # https://hydra.nixos.org/eval/1811064
+          - os: macos-latest
+            nix-package-url: https://hydra.nixos.org/build/285626775/download/1/nix-2.26.0pre19700101_bcb92a5-aarch64-darwin.tar.xz
+
+          - os: macos-13
+            nix-package-url: https://hydra.nixos.org/build/285626866/download/1/nix-2.26.0pre19700101_bcb92a5-x86_64-darwin.tar.xz
+
+          - os: ubuntu-latest
+            nix-package-url: https://hydra.nixos.org/build/285626679/download/1/nix-2.26.0pre19700101_bcb92a5-x86_64-linux.tar.xz
 
     runs-on: ${{ matrix.os }}
 
@@ -32,7 +44,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Nix
-        uses: cachix/install-nix-action@V27
+        uses: DeterminateSystems/nix-installer-action@v16
+        with:
+          nix-package-url: ${{ matrix.nix-package-url }}
 
       - name: Install Cachix
         uses: cachix/cachix-action@v15
@@ -42,16 +56,23 @@ jobs:
 
       - name: Run build
         run: |
-          nix run .#build-outputs -- 'packages'
+          nix run './dev#build-hydra-job' -- 'packages'
 
   modules:
-    name: Test Modules
+    name: Test Modules (${{ matrix.os }})
     needs: packages
 
     strategy:
       fail-fast: false
       matrix:
-        os: [ macos-latest, ubuntu-latest ]
+        include:
+          # TODO: Stop pinning Nix when 2.26 is released
+          # https://hydra.nixos.org/eval/1811064
+          - os: macos-latest
+            nix-package-url: https://hydra.nixos.org/build/285626775/download/1/nix-2.26.0pre19700101_bcb92a5-aarch64-darwin.tar.xz
+
+          - os: ubuntu-latest
+            nix-package-url: https://hydra.nixos.org/build/285626679/download/1/nix-2.26.0pre19700101_bcb92a5-x86_64-linux.tar.xz
 
     runs-on: ${{ matrix.os }}
 
@@ -60,7 +81,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Nix
-        uses: cachix/install-nix-action@V27
+        uses: DeterminateSystems/nix-installer-action@v16
+        with:
+          nix-package-url: ${{ matrix.nix-package-url }}
 
       - name: Install Cachix
         uses: cachix/cachix-action@v15
@@ -70,7 +93,7 @@ jobs:
 
       - name: Run tests
         run: |
-          nix run .#build-outputs -- 'checks'
+          nix run './dev#build-hydra-job' -- 'checks'
 
   release-gate:
     name: Release Gate
