@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ macos-latest, macos-13, ubuntu-latest ]
+        os: [ macos-latest, macos-13, ubuntu-latest, ubuntu-24.04-arm ]
 
     runs-on: ${{ matrix.os }}
 
