@@ -1,17 +1,9 @@
-{
-  lib,
-  stdenvNoCC,
-  mdbook,
-  python3,
-  writeShellApplication,
-}:
+{ lib, stdenvNoCC, mdbook, python3, writeShellApplication, }:
 
 args:
 
-stdenvNoCC.mkDerivation (
-  finalAttrs:
-  args
-  // {
+stdenvNoCC.mkDerivation (finalAttrs:
+  args // {
     nativeBuildInputs = args.nativeBuildInputs or [ ] ++ [ mdbook ];
 
     dontConfigure = true;
@@ -40,5 +32,4 @@ stdenvNoCC.mkDerivation (
         '';
       };
     };
-  }
-)
+  })

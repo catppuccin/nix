@@ -1,23 +1,14 @@
 { catppuccinLib }:
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 
-let
-  cfg = config.catppuccin.plymouth;
-in
+let cfg = config.catppuccin.plymouth;
 
-{
-  options.catppuccin.plymouth = catppuccinLib.mkCatppuccinOption { name = "plymouth"; };
+in {
+  options.catppuccin.plymouth =
+    catppuccinLib.mkCatppuccinOption { name = "plymouth"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "boot"
-      "plymouth"
-      "catppuccin"
-    ];
+    from = [ "boot" "plymouth" "catppuccin" ];
     to = "plymouth";
   };
 

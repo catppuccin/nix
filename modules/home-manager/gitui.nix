@@ -5,17 +5,13 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.gitui;
-in
 
-{
-  options.catppuccin.gitui = catppuccinLib.mkCatppuccinOption { name = "gitui"; };
+in {
+  options.catppuccin.gitui =
+    catppuccinLib.mkCatppuccinOption { name = "gitui"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "gitui"
-      "catppuccin"
-    ];
+    from = [ "programs" "gitui" "catppuccin" ];
     to = "gitui";
   };
 

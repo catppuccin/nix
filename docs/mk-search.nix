@@ -3,10 +3,10 @@
 { catppuccin, versionName }:
 
 let
-  urlPrefix = "https://github.com/catppuccin/nix/tree/${catppuccin.rev or "main"}/";
-in
+  urlPrefix =
+    "https://github.com/catppuccin/nix/tree/${catppuccin.rev or "main"}/";
 
-mkMultiSearch {
+in mkMultiSearch {
   title = "catppuccin/nix Option Search";
   baseHref = "/search/${versionName}/";
 

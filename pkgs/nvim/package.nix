@@ -1,14 +1,8 @@
-{
-  lib,
-  vimUtils,
-  sources,
-}:
+{ lib, vimUtils, sources, }:
 
-let
-  portName = "nvim";
-in
+let portName = "nvim";
 
-vimUtils.buildVimPlugin rec {
+in vimUtils.buildVimPlugin rec {
   pname = "catppuccin-nvim";
   version = builtins.substring 0 7 src.rev;
 

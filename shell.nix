@@ -1,11 +1,8 @@
-{
-  pkgs ? import <nixpkgs> {
-    inherit system;
-    config = { };
-    overlays = [ ];
-  },
-  system ? builtins.currentSystem,
-}:
+{ pkgs ? import <nixpkgs> {
+  inherit system;
+  config = { };
+  overlays = [ ];
+}, system ? builtins.currentSystem, }:
 
 pkgs.mkShellNoCC {
   packages = [

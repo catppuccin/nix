@@ -12,22 +12,16 @@ let
 
   # Google Chrome is not supported since it does not support extensions
   # See nix-community/home-manager#1383 for more information.
-  supportedBrowsers = [
-    "brave"
-    "chromium"
-    "vivaldi"
-  ];
+  supportedBrowsers = [ "brave" "chromium" "vivaldi" ];
 
-  generateConfig =
-    browser:
+  generateConfig = browser:
     lib.mkIf cfg.${browser}.enable {
-      programs.${browser}.extensions = [ { id = identifiers.${cfg.${browser}.flavor}; } ];
+      programs.${browser}.extensions =
+        [{ id = identifiers.${cfg.${browser}.flavor}; }];
     };
-in
-{
-  options.catppuccin = lib.genAttrs supportedBrowsers (
-    name: catppuccinLib.mkCatppuccinOption { inherit name; }
-  );
+in {
+  options.catppuccin = lib.genAttrs supportedBrowsers
+    (name: catppuccinLib.mkCatppuccinOption { inherit name; });
 
   config = lib.mkMerge (map generateConfig supportedBrowsers);
 }

@@ -5,18 +5,14 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.skim;
-  palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
-in
+  palette =
+    (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 
-{
+in {
   options.catppuccin.skim = catppuccinLib.mkCatppuccinOption { name = "skim"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "skim"
-      "catppuccin"
-    ];
+    from = [ "programs" "skim" "catppuccin" ];
     to = "skim";
   };
 

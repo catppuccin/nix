@@ -1,71 +1,57 @@
-{
-  lib,
-  callPackage,
-  linkFarm,
-  writeText,
+{ lib, callPackage, linkFarm, writeText,
 
-  nuscht-search,
-  inputs,
-  /*
-    Should be in the format of
+nuscht-search, inputs,
+/* Should be in the format of
 
-    ```
-    {
-      <version name> = <flake input>;
-    }
-    ```
+   ```
+   {
+     <version name> = <flake input>;
+   }
+   ```
 
-    i.e.,
+   i.e.,
 
-    ```
-    {
-      "v1.1" = catppuccin_v1_1;
-      "rolling" = catppuccin;
-    }
-  */
-  searchVersions ? null,
-}:
+   ```
+   {
+     "v1.1" = catppuccin_v1_1;
+     "rolling" = catppuccin;
+   }
+*/
+searchVersions ? null, }:
 
-assert lib.assertMsg (
-  searchVersions != null
-) "./docs/package.nix: `searchVersions` must be provided";
+assert lib.assertMsg (searchVersions != null)
+  "./docs/package.nix: `searchVersions` must be provided";
 
 let
   inherit (inputs) catppuccin;
 
   mkSite = callPackage ./mk-site.nix { };
-  mkSearchInstance = callPackage ./mk-search.nix {
-    inherit (nuscht-search) mkMultiSearch;
-  };
+  mkSearchInstance =
+    callPackage ./mk-search.nix { inherit (nuscht-search) mkMultiSearch; };
 
   # Collect the latest stable version from the `searchVersions` given
-  latestStableVersion =
-    let
-      latest = lib.foldl' (
-        latest: versionName:
-        if (versionName != "rolling" && lib.versionOlder latest (lib.removePrefix "v" versionName)) then
-          versionName
-        else
-          latest
-      ) "0" (lib.attrNames searchVersions);
-    in
-    assert lib.assertMsg (latest != "0") "Unable to determine latest stable version!";
-    latest;
+  latestStableVersion = let
+    latest = lib.foldl' (latest: versionName:
+      if (versionName != "rolling"
+        && lib.versionOlder latest (lib.removePrefix "v" versionName)) then
+        versionName
+      else
+        latest) "0" (lib.attrNames searchVersions);
+  in assert lib.assertMsg (latest != "0")
+    "Unable to determine latest stable version!";
+  latest;
 
   # Then create a search instance for each one
-  searchInstances = lib.mapAttrs (
-    versionName: catppuccin: mkSearchInstance { inherit catppuccin versionName; }
-  ) searchVersions;
+  searchInstances = lib.mapAttrs (versionName: catppuccin:
+    mkSearchInstance { inherit catppuccin versionName; }) searchVersions;
 
   # Create an html page for redirecting to a given endpoint
-  redirectTo =
-    endpoint:
+  redirectTo = endpoint:
     writeText "index.html" ''
       <meta http-equiv="refresh" content="0;url=${endpoint}">
     '';
-in
 
-mkSite {
+in mkSite {
   pname = "catppuccin-nix-site";
   version = catppuccin.shortRev or catppuccin.dirtyShortRev or "unknown";
 
@@ -75,19 +61,17 @@ mkSite {
 
   postInstall = ''
     ln -sf ${
-      linkFarm "search-engines" (
-        [
-          {
-            name = "stable.html";
-            path = redirectTo "/search/${latestStableVersion}/";
-          }
-          {
-            name = "index.html";
-            path = redirectTo "/search/stable.html";
-          }
-        ]
-        ++ lib.mapAttrsToList (name: path: { inherit name path; }) searchInstances
-      )
+      linkFarm "search-engines" ([
+        {
+          name = "stable.html";
+          path = redirectTo "/search/${latestStableVersion}/";
+        }
+        {
+          name = "index.html";
+          path = redirectTo "/search/stable.html";
+        }
+      ] ++ lib.mapAttrsToList (name: path: { inherit name path; })
+        searchInstances)
     } $out/search
   '';
 }

@@ -1,19 +1,10 @@
 { catppuccinModules }:
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 
-let
-  catppuccinLib = import ./lib { inherit config lib pkgs; };
-in
+let catppuccinLib = import ./lib { inherit config lib pkgs; };
 
-{
-  config = {
-    assertions = [ (catppuccinLib.assertMinimumVersion "24.11") ];
-  };
+in {
+  config = { assertions = [ (catppuccinLib.assertMinimumVersion "24.11") ]; };
 
   imports = catppuccinLib.applyToModules catppuccinModules;
 
@@ -33,10 +24,8 @@ in
     };
 
     sources =
-      let
-        defaultSources = (import ../default.nix { inherit pkgs; }).packages;
-      in
-      lib.mkOption {
+      let defaultSources = (import ../default.nix { inherit pkgs; }).packages;
+      in lib.mkOption {
         type = lib.types.lazyAttrsOf lib.types.raw;
         default = defaultSources;
         defaultText = "{ ... }";
@@ -52,7 +41,9 @@ in
   config = {
     nix.settings = lib.mkIf config.catppuccin.cache.enable {
       substituters = [ "https://catppuccin.cachix.org" ];
-      trusted-public-keys = [ "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU=" ];
+      trusted-public-keys = [
+        "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
+      ];
     };
   };
 }

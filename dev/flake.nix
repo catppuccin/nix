@@ -43,13 +43,7 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      catppuccin,
-      ...
-    }@inputs:
+  outputs = { self, nixpkgs, catppuccin, ... }@inputs:
 
     let
       inherit (nixpkgs) lib;
@@ -63,10 +57,8 @@
         "v1.2" = inputs.catppuccin-v1_2;
         "rolling" = catppuccin;
       };
-    in
 
-    eachDefaultSystem (
-      system:
+    in eachDefaultSystem (system:
 
       let
         pkgs = nixpkgs.legacyPackages.${system};
@@ -76,48 +68,36 @@
 
         callWith = pkgs: lib.flip pkgs.callPackage;
         callUnstable = callWith pkgs { inherit (inputs) home-manager; };
-        callStable = callWith pkgsStable { home-manager = inputs.home-manager-stable; };
-      in
+        callStable =
+          callWith pkgsStable { home-manager = inputs.home-manager-stable; };
 
-      {
-        apps = {
-          serve = mkApp' self.packages.${system}.site.serve;
-        };
+      in {
+        apps = { serve = mkApp' self.packages.${system}.site.serve; };
 
-        checks =
-          {
-            darwin = {
-              test-unstable = callUnstable (catppuccin + "/modules/tests/darwin.nix");
-              test-stable = callStable (catppuccin + "/modules/tests/darwin.nix");
-            };
+        checks = {
+          darwin = {
+            test-unstable =
+              callUnstable (catppuccin + "/modules/tests/darwin.nix");
+            test-stable = callStable (catppuccin + "/modules/tests/darwin.nix");
+          };
 
-            linux = {
-              test-unstable = callUnstable (catppuccin + "/modules/tests/nixos.nix");
-              test-stable = callStable (catppuccin + "/modules/tests/nixos.nix");
-            };
-          }
-          .${kernelName} or { };
+          linux = {
+            test-unstable =
+              callUnstable (catppuccin + "/modules/tests/nixos.nix");
+            test-stable = callStable (catppuccin + "/modules/tests/nixos.nix");
+          };
+        }.${kernelName} or { };
 
         packages = {
           # Used in CI
-          all-ports = pkgs.linkFarm "all-ports" (
-            lib.foldlAttrs (
-              acc: name: pkg:
-              if pkg ? "outPath" then
-                acc
-                // {
-                  ${name} = pkg.outPath;
-                }
-              else
-                acc
-            ) { } (lib.removeAttrs catppuccin.packages.${system} [ "default" ])
-          );
+          all-ports = pkgs.linkFarm "all-ports" (lib.foldlAttrs (acc: name: pkg:
+            if pkg ? "outPath" then acc // { ${name} = pkg.outPath; } else acc)
+            { } (lib.removeAttrs catppuccin.packages.${system} [ "default" ]));
 
           site = pkgs.callPackage (catppuccin + "/docs/package.nix") {
             inherit inputs searchVersions;
             nuscht-search = inputs.nuscht-search.packages.${system};
           };
         };
-      }
-    );
+      });
 }

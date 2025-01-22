@@ -1,14 +1,8 @@
-{
-  lib,
-  sources,
-  tmuxPlugins,
-}:
+{ lib, sources, tmuxPlugins, }:
 
-let
-  portName = "tmux";
-in
+let portName = "tmux";
 
-tmuxPlugins.mkTmuxPlugin rec {
+in tmuxPlugins.mkTmuxPlugin rec {
   pluginName = "catppuccin";
   version = builtins.substring 0 7 src.rev;
 

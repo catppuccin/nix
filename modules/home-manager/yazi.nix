@@ -6,20 +6,15 @@ let
 
   cfg = config.catppuccin.yazi;
   enable = cfg.enable && config.programs.yazi.enable;
-in
 
-{
+in {
   options.catppuccin.yazi = catppuccinLib.mkCatppuccinOption {
     name = "yazi";
     accentSupport = true;
   };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "yazi"
-      "catppuccin"
-    ];
+    from = [ "programs" "yazi" "catppuccin" ];
     to = "yazi";
     accentSupport = true;
   };

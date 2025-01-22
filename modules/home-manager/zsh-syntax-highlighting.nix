@@ -8,13 +8,11 @@ let
   oldCfg = config.programs.zsh.syntaxHighlighting.catppuccin;
 
   isSubmoduleOptionDefined = value: (builtins.tryEval value).success;
-in
 
-{
+in {
   options = {
-    catppuccin.zsh-syntax-highlighting = catppuccinLib.mkCatppuccinOption {
-      name = "Zsh Syntax Highlighting";
-    };
+    catppuccin.zsh-syntax-highlighting =
+      catppuccinLib.mkCatppuccinOption { name = "Zsh Syntax Highlighting"; };
 
     # `mkRenamedOptionModule` can't rename submodule options to top-level ones
     # Enter this nonsense

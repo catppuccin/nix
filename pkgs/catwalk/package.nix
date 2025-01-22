@@ -1,12 +1,5 @@
-{
-  lib,
-  stdenv,
-  buildPackages,
-  fetchCatppuccinPort,
-  installShellFiles,
-  nix-update-script,
-  rustPlatform,
-}:
+{ lib, stdenv, buildPackages, fetchCatppuccinPort, installShellFiles
+, nix-update-script, rustPlatform, }:
 
 rustPlatform.buildRustPackage rec {
   pname = "catwalk";
@@ -22,20 +15,16 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [ installShellFiles ];
 
-  postInstall =
-    let
-      catwalk = stdenv.hostPlatform.emulator buildPackages + " $out/bin/catwalk";
-    in
-    lib.optionalString (stdenv.hostPlatform.emulatorAvailable buildPackages) ''
-      installShellCompletion --cmd catwalk \
-        --bash <(${catwalk} completion bash) \
-        --fish <(${catwalk} completion fish) \
-        --zsh <(${catwalk} completion zsh)
-    '';
+  postInstall = let
+    catwalk = stdenv.hostPlatform.emulator buildPackages + " $out/bin/catwalk";
+  in lib.optionalString (stdenv.hostPlatform.emulatorAvailable buildPackages) ''
+    installShellCompletion --cmd catwalk \
+      --bash <(${catwalk} completion bash) \
+      --fish <(${catwalk} completion fish) \
+      --zsh <(${catwalk} completion zsh)
+  '';
 
-  passthru = {
-    updateScript = nix-update-script { };
-  };
+  passthru = { updateScript = nix-update-script { }; };
 
   meta = {
     description = "Soothing pastel previews for the high-spirited!";

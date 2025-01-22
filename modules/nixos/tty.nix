@@ -6,17 +6,15 @@ let
 
   cfg = config.catppuccin.tty;
   enable = cfg.enable && config.console.enable;
-  palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
-in
+  palette =
+    (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 
-{
-  options.catppuccin.tty = catppuccinLib.mkCatppuccinOption { name = "console"; };
+in {
+  options.catppuccin.tty =
+    catppuccinLib.mkCatppuccinOption { name = "console"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "console"
-      "catppuccin"
-    ];
+    from = [ "console" "catppuccin" ];
     to = "tty";
   };
 

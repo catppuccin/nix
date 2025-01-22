@@ -1,25 +1,14 @@
-{
-  lib,
-  testers,
-  home-manager,
-}:
+{ lib, testers, home-manager, }:
 
-let
-  userName = lib.fileContents ./username.txt;
-in
+let userName = lib.fileContents ./username.txt;
 
-testers.runNixOSTest {
+in testers.runNixOSTest {
   name = "catppuccin-nix";
 
-  nodes.machine =
-    { pkgs, ... }:
+  nodes.machine = { pkgs, ... }:
 
     {
-      imports = [
-        home-manager.nixosModules.default
-        ../nixos
-        ./common.nix
-      ];
+      imports = [ home-manager.nixosModules.default ../nixos ./common.nix ];
 
       boot = {
         loader.grub.enable = true;
@@ -29,7 +18,8 @@ testers.runNixOSTest {
       services = {
         displayManager.sddm = {
           enable = true;
-          package = pkgs.kdePackages.sddm; # our module/the upstream port requires the qt6 version
+          package =
+            pkgs.kdePackages.sddm; # our module/the upstream port requires the qt6 version
         };
         xserver.enable = true; # required for sddm
       };
@@ -51,19 +41,14 @@ testers.runNixOSTest {
         writableStore = true;
       };
 
-      home-manager.users.${userName} = {
-        imports = [ ./home.nix ];
-      };
+      home-manager.users.${userName} = { imports = [ ./home.nix ]; };
     };
 
-  testScript =
-    { nodes, ... }:
+  testScript = { nodes, ... }:
 
-    let
-      user = nodes.machine.users.users.${userName};
-    in
+    let user = nodes.machine.users.users.${userName};
 
-    ''
+    in ''
       start_all()
 
       with subtest("Wait for startup"):

@@ -5,17 +5,13 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.starship;
-in
 
-{
-  options.catppuccin.starship = catppuccinLib.mkCatppuccinOption { name = "starship"; };
+in {
+  options.catppuccin.starship =
+    catppuccinLib.mkCatppuccinOption { name = "starship"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "starship"
-      "catppuccin"
-    ];
+    from = [ "programs" "starship" "catppuccin" ];
     to = "starship";
   };
 

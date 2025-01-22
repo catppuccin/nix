@@ -1,7 +1,4 @@
-{
-  lib,
-  buildCatppuccinPort,
-}:
+{ lib, buildCatppuccinPort, }:
 
 buildCatppuccinPort (finalAttrs: {
   pname = "kvantum";
@@ -13,7 +10,5 @@ buildCatppuccinPort (finalAttrs: {
     mv themes $out/share/Kvantum/
   '';
 
-  meta = {
-    platforms = lib.platforms.linux;
-  };
+  meta = { platforms = lib.platforms.linux; };
 })

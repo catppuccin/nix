@@ -1,15 +1,5 @@
-{
-  lib,
-  buildCatppuccinPort,
-  hyprcursor,
-  inkscape,
-  just,
-  python3,
-  whiskers,
-  xcur2png,
-  xorg,
-  zip,
-}:
+{ lib, buildCatppuccinPort, hyprcursor, inkscape, just, python3, whiskers
+, xcur2png, xorg, zip, }:
 
 buildCatppuccinPort (finalAttrs: {
   pname = "cursors";

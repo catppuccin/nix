@@ -5,17 +5,12 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.rio;
-in
 
-{
+in {
   options.catppuccin.rio = catppuccinLib.mkCatppuccinOption { name = "rio"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "rio"
-      "catppuccin"
-    ];
+    from = [ "programs" "rio" "catppuccin" ];
     to = "rio";
   };
 

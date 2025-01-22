@@ -5,17 +5,12 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.aerc;
   themeName = "catppuccin-${cfg.flavor}";
-in
 
-{
+in {
   options.catppuccin.aerc = catppuccinLib.mkCatppuccinOption { name = "aerc"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "aerc"
-      "catppuccin"
-    ];
+    from = [ "programs" "aerc" "catppuccin" ];
     to = "aerc";
   };
 

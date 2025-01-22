@@ -3,8 +3,5 @@
 buildCatppuccinPort {
   pname = "spotify-player";
 
-  installTargets = [
-    "theme.toml"
-    "README.md"
-  ];
+  installTargets = [ "theme.toml" "README.md" ];
 }

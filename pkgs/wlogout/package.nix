@@ -3,8 +3,5 @@
 buildCatppuccinPort {
   pname = "wlogout";
 
-  installTargets = [
-    "themes"
-    "icons"
-  ];
+  installTargets = [ "themes" "icons" ];
 }

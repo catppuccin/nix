@@ -1,35 +1,24 @@
 { catppuccinLib }:
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, pkgs, lib, ... }:
 
 let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.mako;
-  theme = catppuccinLib.importINI (
-    sources.mako + "/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}"
-  );
+  theme = catppuccinLib.importINI (sources.mako
+    + "/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}");
 
   # Settings that need to be extracted and put in extraConfig
   extraConfigAttrs = lib.attrsets.getAttrs [ "urgency=high" ] theme;
-in
 
-{
+in {
   options.catppuccin.mako = catppuccinLib.mkCatppuccinOption {
     name = "mako";
     accentSupport = true;
   };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "services"
-      "mako"
-      "catppuccin"
-    ];
+    from = [ "services" "mako" "catppuccin" ];
     to = "mako";
     accentSupport = true;
   };
@@ -40,8 +29,7 @@ in
     textColor = theme.text-color;
     borderColor = theme.border-color;
     progressColor = theme.progress-color;
-    extraConfig = lib.fileContents (
-      (pkgs.formats.ini { }).generate "mako-extra-config" extraConfigAttrs
-    );
+    extraConfig = lib.fileContents
+      ((pkgs.formats.ini { }).generate "mako-extra-config" extraConfigAttrs);
   };
 }

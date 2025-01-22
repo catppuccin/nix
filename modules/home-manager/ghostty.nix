@@ -7,19 +7,18 @@ let
   cfg = config.catppuccin.ghostty;
   themeName = "catppuccin-${cfg.flavor}";
   enable = cfg.enable && config.programs.ghostty.enable;
-in
-{
-  options.catppuccin.ghostty = catppuccinLib.mkCatppuccinOption { name = "ghostty"; };
+in {
+  options.catppuccin.ghostty =
+    catppuccinLib.mkCatppuccinOption { name = "ghostty"; };
 
   config = lib.mkIf enable {
     xdg.configFile = {
-      "ghostty/themes/${themeName}".source = "${sources.ghostty}/${themeName}.conf";
+      "ghostty/themes/${themeName}".source =
+        "${sources.ghostty}/${themeName}.conf";
     };
 
     programs.ghostty = {
-      settings = {
-        theme = "light:${themeName},dark:${themeName}";
-      };
+      settings = { theme = "light:${themeName},dark:${themeName}"; };
     };
   };
 }

@@ -5,17 +5,13 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.polybar;
-in
 
-{
-  options.catppuccin.polybar = catppuccinLib.mkCatppuccinOption { name = "polybar"; };
+in {
+  options.catppuccin.polybar =
+    catppuccinLib.mkCatppuccinOption { name = "polybar"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "services"
-      "polybar"
-      "catppuccin"
-    ];
+    from = [ "services" "polybar" "catppuccin" ];
     to = "polybar";
   };
 
