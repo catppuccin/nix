@@ -59,7 +59,7 @@
         default = import ./shell.nix { pkgs = nixpkgs.legacyPackages.${system}; };
       });
 
-      formatter = forAllDevSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+      formatter = forAllDevSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
       homeManagerModules.catppuccin = mkModule {
         type = "homeManager";
