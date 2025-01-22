@@ -5,12 +5,17 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.rofi;
+in
 
-in {
+{
   options.catppuccin.rofi = catppuccinLib.mkCatppuccinOption { name = "rofi"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "programs" "rofi" "catppuccin" ];
+    from = [
+      "programs"
+      "rofi"
+      "catppuccin"
+    ];
     to = "rofi";
   };
 

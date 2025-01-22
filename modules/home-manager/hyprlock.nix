@@ -1,19 +1,29 @@
 { catppuccinLib }:
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.hyprlock;
+in
 
-in {
+{
   options.catppuccin.hyprlock = catppuccinLib.mkCatppuccinOption {
     name = "hyprlock";
     accentSupport = true;
   };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "programs" "hyprlock" "catppuccin" ];
+    from = [
+      "programs"
+      "hyprlock"
+      "catppuccin"
+    ];
     to = "hyprlock";
     accentSupport = true;
   };

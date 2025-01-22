@@ -1,11 +1,23 @@
 { lib, fetchFromGitHub }:
 
-lib.makeOverridable ({ port, rev, hash, ... }@args:
+lib.makeOverridable (
+  {
+    port,
+    rev,
+    hash,
+    ...
+  }@args:
 
-  let arguments = [ "port" ];
+  let
+    arguments = [ "port" ];
+  in
 
-  in fetchFromGitHub ({
-    owner = "catppuccin";
-    repo = port;
-    inherit rev hash;
-  } // lib.removeAttrs args arguments))
+  fetchFromGitHub (
+    {
+      owner = "catppuccin";
+      repo = port;
+      inherit rev hash;
+    }
+    // lib.removeAttrs args arguments
+  )
+)

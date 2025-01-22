@@ -1,5 +1,10 @@
 { catppuccinLib }:
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   inherit (config.catppuccin) sources;
@@ -11,38 +16,59 @@ let
   # `~/Library/Application Support` when not using XDG
   enableXdgConfig = !pkgs.stdenv.hostPlatform.isDarwin || config.xdg.enable;
 
-  themeName = "catppuccin-${cfg.flavor}"
-    + lib.optionalString cfg.transparent "-transparent";
+  themeName = "catppuccin-${cfg.flavor}" + lib.optionalString cfg.transparent "-transparent";
   themeFile = "${themeName}.yaml";
   themePath = "k9s/skins/${themeFile}";
   theme = sources.k9s + "/${themeFile}";
+in
 
-in {
-  options.catppuccin.k9s = catppuccinLib.mkCatppuccinOption { name = "k9s"; }
-    // {
-      transparent = lib.mkEnableOption "transparent version of flavor";
-    };
+{
+  options.catppuccin.k9s = catppuccinLib.mkCatppuccinOption { name = "k9s"; } // {
+    transparent = lib.mkEnableOption "transparent version of flavor";
+  };
 
-  imports = (catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "programs" "k9s" "catppuccin" ];
-    to = "k9s";
-  }) ++ [
-    (lib.mkRenamedOptionModule [ "programs" "k9s" "catppuccin" "transparent" ] [
-      "catppuccin"
-      "k9s"
-      "transparent"
-    ])
-  ];
-
-  config = lib.mkIf enable (lib.mkMerge [
-    (lib.mkIf (!enableXdgConfig) {
-      home.file = {
-        "Library/Application Support/${themePath}".source = theme;
-      };
+  imports =
+    (catppuccinLib.mkRenamedCatppuccinOptions {
+      from = [
+        "programs"
+        "k9s"
+        "catppuccin"
+      ];
+      to = "k9s";
     })
+    ++ [
+      (lib.mkRenamedOptionModule
+        [
+          "programs"
+          "k9s"
+          "catppuccin"
+          "transparent"
+        ]
+        [
+          "catppuccin"
+          "k9s"
+          "transparent"
+        ]
+      )
+    ];
 
-    (lib.mkIf enableXdgConfig { xdg.configFile.${themePath}.source = theme; })
+  config = lib.mkIf enable (
+    lib.mkMerge [
+      (lib.mkIf (!enableXdgConfig) {
+        home.file = {
+          "Library/Application Support/${themePath}".source = theme;
+        };
+      })
 
-    { programs.k9s = { settings = { k9s.ui.skin = themeName; }; }; }
-  ]);
+      (lib.mkIf enableXdgConfig { xdg.configFile.${themePath}.source = theme; })
+
+      {
+        programs.k9s = {
+          settings = {
+            k9s.ui.skin = themeName;
+          };
+        };
+      }
+    ]
+  );
 }

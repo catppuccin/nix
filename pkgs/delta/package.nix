@@ -3,5 +3,8 @@
 buildCatppuccinPort {
   pname = "delta";
 
-  installTargets = [ "catppuccin.gitconfig" "README.md" ];
+  installTargets = [
+    "catppuccin.gitconfig"
+    "README.md"
+  ];
 }

@@ -4,13 +4,17 @@
 let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.bottom;
+in
 
-in {
-  options.catppuccin.bottom =
-    catppuccinLib.mkCatppuccinOption { name = "bottom"; };
+{
+  options.catppuccin.bottom = catppuccinLib.mkCatppuccinOption { name = "bottom"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "programs" "bottom" "catppuccin" ];
+    from = [
+      "programs"
+      "bottom"
+      "catppuccin"
+    ];
     to = "bottom";
   };
 

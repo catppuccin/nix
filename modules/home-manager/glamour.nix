@@ -5,13 +5,17 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.glamour;
+in
 
-in {
-  options.catppuccin.glamour =
-    catppuccinLib.mkCatppuccinOption { name = "glamour"; };
+{
+  options.catppuccin.glamour = catppuccinLib.mkCatppuccinOption { name = "glamour"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "programs" "glamour" "catppuccin" ];
+    from = [
+      "programs"
+      "glamour"
+      "catppuccin"
+    ];
     to = "glamour";
   };
 

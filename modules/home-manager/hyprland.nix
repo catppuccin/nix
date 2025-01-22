@@ -1,19 +1,30 @@
 { catppuccinLib }:
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   inherit (config.catppuccin) sources cursors;
   cfg = config.catppuccin.hyprland;
   enable = cfg.enable && config.wayland.windowManager.hyprland.enable;
+in
 
-in {
+{
   options.catppuccin.hyprland = catppuccinLib.mkCatppuccinOption {
     name = "hyprland";
     accentSupport = true;
   };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "wayland" "windowManager" "hyprland" "catppuccin" ];
+    from = [
+      "wayland"
+      "windowManager"
+      "hyprland"
+      "catppuccin"
+    ];
     to = "hyprland";
     accentSupport = true;
   };
@@ -21,8 +32,7 @@ in {
   config = lib.mkIf enable {
     home.sessionVariables = lib.mkIf cursors.enable {
       HYPRCURSOR_SIZE = config.home.pointerCursor.size;
-      HYPRCURSOR_THEME =
-        "catppuccin-${cursors.flavor}-${cursors.accent}-cursors";
+      HYPRCURSOR_THEME = "catppuccin-${cursors.flavor}-${cursors.accent}-cursors";
     };
 
     wayland.windowManager.hyprland = {

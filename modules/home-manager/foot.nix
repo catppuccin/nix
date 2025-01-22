@@ -5,12 +5,17 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.foot;
+in
 
-in {
+{
   options.catppuccin.foot = catppuccinLib.mkCatppuccinOption { name = "foot"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "programs" "foot" "catppuccin" ];
+    from = [
+      "programs"
+      "foot"
+      "catppuccin"
+    ];
     to = "foot";
   };
 

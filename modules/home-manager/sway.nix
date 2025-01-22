@@ -6,12 +6,18 @@ let
 
   cfg = config.catppuccin.sway;
   theme = "${sources.sway}/catppuccin-${cfg.flavor}";
+in
 
-in {
+{
   options.catppuccin.sway = catppuccinLib.mkCatppuccinOption { name = "sway"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "wayland" "windowManager" "sway" "catppuccin" ];
+    from = [
+      "wayland"
+      "windowManager"
+      "sway"
+      "catppuccin"
+    ];
     to = "sway";
   };
 

@@ -1,4 +1,7 @@
-{ lib, buildCatppuccinPort, }:
+{
+  lib,
+  buildCatppuccinPort,
+}:
 
 buildCatppuccinPort (finalAttrs: {
   pname = "plymouth";

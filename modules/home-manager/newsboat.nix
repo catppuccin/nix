@@ -6,13 +6,17 @@ let
 
   cfg = config.catppuccin.newsboat;
   theme = if cfg.flavor == "latte" then "latte" else "dark";
+in
 
-in {
-  options.catppuccin.newsboat =
-    catppuccinLib.mkCatppuccinOption { name = "newsboat"; };
+{
+  options.catppuccin.newsboat = catppuccinLib.mkCatppuccinOption { name = "newsboat"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "programs" "newsboat" "catppuccin" ];
+    from = [
+      "programs"
+      "newsboat"
+      "catppuccin"
+    ];
     to = "newsboat";
   };
 
