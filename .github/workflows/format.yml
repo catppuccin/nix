@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - "**.nix"
+      - "**.lock"
 
       - ".github/workflows/format.yml"
   workflow_dispatch:
