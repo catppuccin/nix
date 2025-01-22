@@ -5,13 +5,17 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.zathura;
+in
 
-in {
-  options.catppuccin.zathura =
-    catppuccinLib.mkCatppuccinOption { name = "zathura"; };
+{
+  options.catppuccin.zathura = catppuccinLib.mkCatppuccinOption { name = "zathura"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "programs" "zathura" "catppuccin" ];
+    from = [
+      "programs"
+      "zathura"
+      "catppuccin"
+    ];
     to = "zathura";
   };
 

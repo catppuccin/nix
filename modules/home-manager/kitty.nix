@@ -1,14 +1,19 @@
 { catppuccinLib }:
 { config, lib, ... }:
 
-let cfg = config.catppuccin.kitty;
+let
+  cfg = config.catppuccin.kitty;
+in
 
-in {
-  options.catppuccin.kitty =
-    catppuccinLib.mkCatppuccinOption { name = "kitty"; };
+{
+  options.catppuccin.kitty = catppuccinLib.mkCatppuccinOption { name = "kitty"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "programs" "kitty" "catppuccin" ];
+    from = [
+      "programs"
+      "kitty"
+      "catppuccin"
+    ];
     to = "kitty";
   };
 

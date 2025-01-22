@@ -5,12 +5,17 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.bat;
   themeName = "Catppuccin ${catppuccinLib.mkUpper cfg.flavor}";
+in
 
-in {
+{
   options.catppuccin.bat = catppuccinLib.mkCatppuccinOption { name = "bat"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "programs" "bat" "catppuccin" ];
+    from = [
+      "programs"
+      "bat"
+      "catppuccin"
+    ];
     to = "bat";
   };
 

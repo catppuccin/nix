@@ -5,13 +5,19 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.spotify-player;
+in
 
-in {
-  options.catppuccin.spotify-player =
-    catppuccinLib.mkCatppuccinOption { name = "spotify-player"; };
+{
+  options.catppuccin.spotify-player = catppuccinLib.mkCatppuccinOption {
+    name = "spotify-player";
+  };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "programs" "spotify-player" "catppuccin" ];
+    from = [
+      "programs"
+      "spotify-player"
+      "catppuccin"
+    ];
     to = "spotify-player";
   };
 

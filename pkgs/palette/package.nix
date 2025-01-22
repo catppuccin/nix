@@ -3,5 +3,8 @@
 buildCatppuccinPort {
   pname = "palette";
 
-  installTargets = [ "README.md" "palette.json" ];
+  installTargets = [
+    "README.md"
+    "palette.json"
+  ];
 }

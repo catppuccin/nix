@@ -1,16 +1,27 @@
 { catppuccinLib }:
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 
-let cfg = config.catppuccin.fcitx5;
+let
+  cfg = config.catppuccin.fcitx5;
+in
 
-in {
+{
   options.catppuccin.fcitx5 = catppuccinLib.mkCatppuccinOption {
     name = "Fcitx5";
     accentSupport = true;
   };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [ "i18n" "inputMethod" "fcitx5" "catppuccin" ];
+    from = [
+      "i18n"
+      "inputMethod"
+      "fcitx5"
+      "catppuccin"
+    ];
     to = "fcitx5";
     accentSupport = true;
   };
@@ -18,8 +29,7 @@ in {
   config = lib.mkIf cfg.enable {
     i18n.inputMethod.fcitx5 = {
       addons = [ config.catppuccin.sources.fcitx5 ];
-      settings.addons.classicui.globalSection.Theme =
-        "catppuccin-${cfg.flavor}-${cfg.accent}";
+      settings.addons.classicui.globalSection.Theme = "catppuccin-${cfg.flavor}-${cfg.accent}";
     };
   };
 }

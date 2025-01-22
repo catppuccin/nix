@@ -1,7 +1,10 @@
 { lib, ... }:
 
 {
-  imports = [ ../home-manager ./common.nix ];
+  imports = [
+    ../home-manager
+    ./common.nix
+  ];
 
   xdg.enable = true;
 
