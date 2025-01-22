@@ -55,7 +55,6 @@
       inherit (nixpkgs) lib;
       inherit (inputs.flake-utils.lib) eachDefaultSystem mkApp;
 
-      mergeAttrs = lib.foldl' lib.recursiveUpdate { };
       mkApp' = drv: mkApp { inherit drv; };
 
       # Versions of the modules we want to index in our search
@@ -64,90 +63,61 @@
         "v1.2" = inputs.catppuccin-v1_2;
         "rolling" = catppuccin;
       };
-
-      # Systems to build for in CI
-      ciSystems = [
-        "x86_64-linux"
-        "aarch64-darwin"
-      ];
     in
 
-    mergeAttrs [
-      (eachDefaultSystem (
-        system:
+    eachDefaultSystem (
+      system:
 
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-          pkgsStable = inputs.nixpkgs-stable.legacyPackages.${system};
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+        pkgsStable = inputs.nixpkgs-stable.legacyPackages.${system};
 
-          kernelName = pkgs.stdenv.hostPlatform.parsed.kernel.name;
+        kernelName = pkgs.stdenv.hostPlatform.parsed.kernel.name;
 
-          callWith = pkgs: lib.flip pkgs.callPackage;
-          callUnstable = callWith pkgs { inherit (inputs) home-manager; };
-          callStable = callWith pkgsStable { home-manager = inputs.home-manager-stable; };
-        in
-
-        {
-          apps = {
-            build-hydra-job = mkApp' (
-              pkgs.writeShellApplication {
-                name = "build-hydra-job";
-
-                runtimeInputs = [ pkgs.nix-fast-build ];
-
-                text = ''
-                  usage="Usage: $0 <hydra_job>"
-
-                  hydra_job="''${1:-}"
-                  if [[ -z $hydra_job ]]; then
-                    echo -n "$usage"
-                    exit 1
-                  fi
-
-                  args=(
-                    "--no-nom"
-                    "--skip-cached"
-                    "--flake" "${self.outPath}#hydraJobs.$hydra_job.${system}"
-                  )
-
-                  nix-fast-build "''${args[@]}"
-                '';
-              }
-            );
-
-            serve = mkApp' self.packages.${system}.site.serve;
-          };
-
-          checks =
-            {
-              darwin = {
-                test-unstable = callUnstable (catppuccin + "/modules/tests/darwin.nix");
-                test-stable = callStable (catppuccin + "/modules/tests/darwin.nix");
-              };
-
-              linux = {
-                test-unstable = callUnstable (catppuccin + "/modules/tests/nixos.nix");
-                test-stable = callStable (catppuccin + "/modules/tests/nixos.nix");
-              };
-            }
-            .${kernelName} or { };
-
-          packages = {
-            site = pkgs.callPackage (catppuccin + "/docs/package.nix") {
-              inherit inputs searchVersions;
-              nuscht-search = inputs.nuscht-search.packages.${system};
-            };
-          };
-        }
-      ))
+        callWith = pkgs: lib.flip pkgs.callPackage;
+        callUnstable = callWith pkgs { inherit (inputs) home-manager; };
+        callStable = callWith pkgsStable { home-manager = inputs.home-manager-stable; };
+      in
 
       {
-        # Nicely organize some of the outputs we want to build in CI
-        hydraJobs = lib.mapAttrs (lib.const (lib.getAttrs ciSystems)) {
-          inherit (self) checks;
-          # Re-export the base Flake's packages
-          inherit (catppuccin) packages;
+        apps = {
+          serve = mkApp' self.packages.${system}.site.serve;
+        };
+
+        checks =
+          {
+            darwin = {
+              test-unstable = callUnstable (catppuccin + "/modules/tests/darwin.nix");
+              test-stable = callStable (catppuccin + "/modules/tests/darwin.nix");
+            };
+
+            linux = {
+              test-unstable = callUnstable (catppuccin + "/modules/tests/nixos.nix");
+              test-stable = callStable (catppuccin + "/modules/tests/nixos.nix");
+            };
+          }
+          .${kernelName} or { };
+
+        packages = {
+          # Used in CI
+          all-ports = pkgs.linkFarm "all-ports" (
+            lib.foldlAttrs (
+              acc: name: pkg:
+              if pkg ? "outPath" then
+                acc
+                // {
+                  ${name} = pkg.outPath;
+                }
+              else
+                acc
+            ) { } (lib.removeAttrs catppuccin.packages.${system} [ "default" ])
+          );
+
+          site = pkgs.callPackage (catppuccin + "/docs/package.nix") {
+            inherit inputs searchVersions;
+            nuscht-search = inputs.nuscht-search.packages.${system};
+          };
         };
       }
-    ];
+    );
 }

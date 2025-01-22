@@ -47,7 +47,7 @@ jobs:
 
       - name: Run build
         run: |
-          nix run './dev#build-hydra-job' -- 'packages'
+          nix build './dev#all-ports' --print-build-logs --show-trace
 
   modules:
     name: Test Modules
@@ -78,7 +78,7 @@ jobs:
 
       - name: Run tests
         run: |
-          nix run './dev#build-hydra-job' -- 'checks'
+          nix flake check './dev' --print-build-logs --show-trace
 
   release-gate:
     name: Release Gate
