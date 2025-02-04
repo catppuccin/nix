@@ -34,6 +34,7 @@
         }:
         { pkgs, ... }:
         {
+          _class = type;
           _file = "${self.outPath}/flake.nix#${type}Modules.${name}";
 
           imports = [ file ];
