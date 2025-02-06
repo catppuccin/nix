@@ -22,10 +22,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.rofi = {
       theme = {
-        "@theme" = builtins.path {
-          name = "catppuccin-${cfg.flavor}.rasi";
-          path = "${sources.rofi}/catppuccin-${cfg.flavor}.rasi";
-        };
+        "@theme" = "${sources.rofi}/catppuccin-${cfg.flavor}.rasi";
       };
     };
   };
