@@ -24,6 +24,7 @@ in
 
   config = lib.mkIf enable {
     programs.zed-editor = {
+      extensions = [ "catppuccin-icons" ];
       userSettings.theme = {
         light =
           "Catppuccin "
