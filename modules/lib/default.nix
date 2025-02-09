@@ -30,15 +30,15 @@ let
 in
 
 lib.makeExtensible (ctp: {
-  types = {
-    flavor = types.enum [
+  consts = {
+    flavors = [
       "latte"
       "frappe"
       "macchiato"
       "mocha"
     ];
 
-    accent = types.enum [
+    accents = [
       "blue"
       "flamingo"
       "green"
@@ -54,6 +54,12 @@ lib.makeExtensible (ctp: {
       "teal"
       "yellow"
     ];
+  };
+
+  types = {
+    flavor = types.enum ctp.consts.flavors;
+
+    accent = types.enum ctp.consts.accents;
   };
 
   /**
