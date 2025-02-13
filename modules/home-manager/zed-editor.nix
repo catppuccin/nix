@@ -25,17 +25,20 @@ in
   config = lib.mkIf enable {
     programs.zed-editor = {
       extensions = [ "catppuccin-icons" ];
-      userSettings.theme = {
-        light =
-          "Catppuccin "
-          + catppuccinLib.mkUpper cfg.flavor
-          + accent
-          + lib.optionalString (!cfg.italics) " - No Italics";
-        dark =
-          "Catppuccin "
-          + catppuccinLib.mkUpper cfg.flavor
-          + accent
-          + lib.optionalString (!cfg.italics) " - No Italics";
+      userSettings = {
+        icon_theme = "Catppuccin" + catppuccinLib.mkUpper cfg.flavor;
+        theme = {
+          light =
+            "Catppuccin "
+            + catppuccinLib.mkUpper cfg.flavor
+            + accent
+            + lib.optionalString (!cfg.italics) " - No Italics";
+          dark =
+            "Catppuccin "
+            + catppuccinLib.mkUpper cfg.flavor
+            + accent
+            + lib.optionalString (!cfg.italics) " - No Italics";
+        };
       };
     };
 
