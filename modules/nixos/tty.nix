@@ -10,7 +10,7 @@ let
 in
 
 {
-  options.catppuccin.tty = catppuccinLib.mkCatppuccinOption { name = "console"; };
+  options.catppuccin.tty = catppuccinLib.mkCatppuccinOption { name = "tty"; };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
     from = [
