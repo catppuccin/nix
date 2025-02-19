@@ -62,6 +62,7 @@
     tmux.enable = true;
     tofi.enable = true;
     waybar.enable = true;
+    wezterm.enable = true;
     wlogout.enable = true;
     yazi.enable = true;
     zathura.enable = true;
