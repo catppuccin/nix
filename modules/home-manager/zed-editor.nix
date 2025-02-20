@@ -26,7 +26,7 @@ in
     programs.zed-editor = {
       extensions = [ "catppuccin-icons" ];
       userSettings = {
-        icon_theme = "Catppuccin" + catppuccinLib.mkUpper cfg.flavor;
+        icon_theme = "Catppuccin " + catppuccinLib.mkUpper cfg.flavor;
         theme = {
           light =
             "Catppuccin "
