@@ -7,7 +7,7 @@ let
   cfg = config.catppuccin.obs;
   enable = cfg.enable && config.programs.obs-studio.enable;
 
-  themeName = "Catppuccin_${catppuccinLib.mkUpper cfg.flavor}.ovt";
+  themeName = "Catppuccin_${lib.toSentenceCase cfg.flavor}.ovt";
 in
 
 {

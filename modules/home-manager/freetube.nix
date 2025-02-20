@@ -2,7 +2,7 @@
 { config, lib, ... }:
 
 let
-  inherit (catppuccinLib) mkUpper;
+  inherit (lib) toSentenceCase;
   inherit (config.programs.freetube.settings) baseTheme;
 
   cfg = config.catppuccin.freetube;
@@ -54,9 +54,9 @@ in
   config = lib.mkIf cfg.enable {
     programs.freetube.settings = {
       # NOTE: For some reason, baseTheme does not capitalize first letter, but the other settings do
-      baseTheme = "catppuccin${mkUpper cfg.flavor}";
-      mainColor = mkUpper "${baseTheme}${mkUpper cfg.accent}";
-      secColor = mkUpper "${baseTheme}${mkUpper cfg.secondaryAccent}";
+      baseTheme = "catppuccin${toSentenceCase cfg.flavor}";
+      mainColor = toSentenceCase "${baseTheme}${toSentenceCase cfg.accent}";
+      secColor = toSentenceCase "${baseTheme}${toSentenceCase cfg.secondaryAccent}";
     };
   };
 }
