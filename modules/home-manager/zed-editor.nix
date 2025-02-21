@@ -8,6 +8,7 @@ let
   enable = cfg.enable && config.programs.zed-editor.enable;
 
   accent = if cfg.accent == "mauve" then "" else " (${cfg.accent})";
+  flavor = if cfg.flavor == "frappe" then "Frappé" else catppuccinLib.mkUpper cfg.flavor;
 in
 
 {
@@ -24,17 +25,21 @@ in
 
   config = lib.mkIf enable {
     programs.zed-editor = {
-      userSettings.theme = {
-        light =
-          "Catppuccin "
-          + catppuccinLib.mkUpper cfg.flavor
-          + accent
-          + lib.optionalString (!cfg.italics) " - No Italics";
-        dark =
-          "Catppuccin "
-          + catppuccinLib.mkUpper cfg.flavor
-          + accent
-          + lib.optionalString (!cfg.italics) " - No Italics";
+      extensions = [ "catppuccin-icons" ];
+      userSettings = {
+        icon_theme = "Catppuccin " + flavor;
+        theme = {
+          light =
+            "Catppuccin "
+            + flavor
+            + accent
+            + lib.optionalString (!cfg.italics) " - No Italics";
+          dark =
+            "Catppuccin "
+            + flavor
+            + accent
+            + lib.optionalString (!cfg.italics) " - No Italics";
+        };
       };
     };
 
