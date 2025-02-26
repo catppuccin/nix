@@ -230,7 +230,7 @@ lib.makeExtensible (ctp: {
     ```
   */
   getModuleRelease =
-    config.home.version.release or config.system.nixos.release
+    config.home.version.release or config.system.nixos.release or config.system.darwinRelease
       or (throw "Couldn't determine release version!");
 
   /**

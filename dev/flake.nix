@@ -13,12 +13,18 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       self,
       nixpkgs,
+      nix-darwin,
       catppuccin,
       ...
     }@inputs:
@@ -71,8 +77,8 @@
               else
                 "/home/${config.home.username}"
             );
-            # See comment in NixOS config below
-            inherit (osConfig.system or self.nixosConfigurations.pepperjack-pc.config.system) stateVersion;
+
+            stateVersion = config.home.version.release;
           };
         };
     in
@@ -85,6 +91,18 @@
 
         # Evaluate each of our modules for different systems
         nixosConfiguration = self.nixosConfigurations.pepperjack-pc.extendModules {
+          modules = [
+            (
+              { lib, ... }:
+
+              {
+                nixpkgs.pkgs = lib.mkForce pkgs;
+              }
+            )
+          ];
+        };
+
+        darwinConfigurations = self.darwinConfigurations.pepperjack-pc.extendModules {
           modules = [
             (
               { lib, ... }:
@@ -113,7 +131,7 @@
           if pkgs.stdenv.hostPlatform.isLinux then
             nixosConfiguration.config.system.build.toplevel.outPath
           else
-            homeConfiguration.activationPackage.outPath;
+            darwinConfigurations.config.system.build.toplevel.outPath;
 
         mkOptionsJSONFrom =
           eval:
@@ -144,61 +162,80 @@
 
         packages = {
           nixosOptionsJSON = mkOptionsJSONFrom nixosConfiguration;
+          darwinOptionsJSON = mkOptionsJSONFrom darwinConfigurations;
           homeOptionsJSON = mkOptionsJSONFrom homeConfiguration;
         };
       }
     )
-    // (
-      let
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      in
-
-      {
-        homeConfigurations = {
-          pepperjack = inputs.home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [
-              pepperjackHomeModule
-              { home.username = "pepperjack"; }
-            ];
-          };
+    // {
+      homeConfigurations = {
+        pepperjack = inputs.home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [
+            pepperjackHomeModule
+            { home.username = "pepperjack"; }
+          ];
         };
+      };
 
-        nixosConfigurations = {
-          pepperjack-pc = nixpkgs.lib.nixosSystem {
-            modules = [
-              inputs.home-manager.nixosModules.default
-              catppuccin.nixosModules.catppuccin
-              catppuccinEnableModule
-              (catppuccin + "/modules/tests/nixos.nix")
+      nixosConfigurations = {
+        pepperjack-pc = nixpkgs.lib.nixosSystem {
+          modules = [
+            inputs.home-manager.nixosModules.default
+            catppuccin.nixosModules.catppuccin
+            catppuccinEnableModule
+            (catppuccin + "/modules/tests/nixos.nix")
 
-              (
-                { config, ... }:
+            (
+              { config, ... }:
 
-                {
-                  # Silence, convenient safety assertions!!!!
-                  fileSystems."/" = {
-                    label = "root";
-                    fsType = "auto";
-                  };
+              {
+                # Silence, convenient safety assertions!!!!
+                fileSystems."/" = {
+                  label = "root";
+                  fsType = "auto";
+                };
 
-                  # NOTE: This isn't required for NixOS. But it is for home-manager!
-                  system.stateVersion = config.system.nixos.release;
+                system.stateVersion = config.system.nixos.release;
 
-                  nixpkgs = { inherit pkgs; };
+                nixpkgs.pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-                  users.users.pepperjack = {
-                    isNormalUser = true;
-                  };
+                users.users.pepperjack = {
+                  isNormalUser = true;
+                };
 
-                  home-manager.users.pepperjack = {
-                    imports = [ pepperjackHomeModule ];
-                  };
-                }
-              )
-            ];
-          };
+                home-manager.users.pepperjack = {
+                  imports = [ pepperjackHomeModule ];
+                };
+              }
+            )
+          ];
         };
-      }
-    );
+      };
+
+      darwinConfigurations = {
+        pepperjack-pc = nix-darwin.lib.darwinSystem {
+          modules = [
+            inputs.home-manager.darwinModules.default
+            catppuccin.darwinModules.catppuccin
+            catppuccinEnableModule
+            (catppuccin + "/modules/tests/darwin.nix")
+
+            {
+              system.stateVersion = 5;
+
+              nixpkgs.pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+
+              users.users.pepperjack = {
+                home = "/Users/pepperjack";
+              };
+
+              home-manager.users.pepperjack = {
+                imports = [ pepperjackHomeModule ];
+              };
+            }
+          ];
+        };
+      };
+    };
 }
