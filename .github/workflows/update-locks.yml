@@ -1,0 +1,110 @@
+name: Update lockfiles
+
+on:
+  schedule:
+    # run every friday
+    - cron: "0 0 * * 5"
+  workflow_dispatch:
+
+jobs:
+  flake:
+    name: Update flake.lock
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@V30
+        with:
+          # NOTE: Required for subflake
+          install_url: https://releases.nixos.org/nix/nix-2.26.0/install
+
+      - uses: DeterminateSystems/update-flake-lock@v24
+        with:
+          commit-msg: "chore: update flake inputs"
+          pr-title: "chore: update flake inputs"
+          branch: "update-lock"
+          token: ${{ github.token }}
+
+      - name: Check
+        uses: ./.github/workflows/ci.yml
+        with:
+          ref: "update-lock"
+
+  dev-flake:
+    name: Update dev flake.lock
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@V30
+        with:
+          # NOTE: Required for subflake
+          install_url: https://releases.nixos.org/nix/nix-2.26.0/install
+
+      - uses: DeterminateSystems/update-flake-lock@v24
+        with:
+          path-to-flake-dir: "./dev"
+          commit-msg: "chore: update dev flake inputs"
+          pr-title: "chore: update dev flake inputs"
+          branch: "update-dev-lock"
+          token: ${{ github.token }}
+
+      - name: Check
+        uses: ./.github/workflows/ci.yml
+        with:
+          ref: "update-dev-lock"
+
+
+  ports:
+    name: Update port sources
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@V27
+
+      - name: Install python
+        run: nix profile install --inputs-from . 'nixpkgs#python3'
+
+      - name: Update ports
+        run: ./pkgs/paws.py
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          commit-message: "chore: update port sources"
+          title: "chore: update port sources"
+          signoff: true
+          sign-commits: true
+          branch: "update-ports"
+
+      - name: Check
+        uses: ./.github/workflows/ci.yml
+        with:
+          ref: "update-ports"
+
