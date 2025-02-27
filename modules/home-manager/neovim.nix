@@ -1,16 +1,22 @@
 { catppuccinLib }:
-{
-  config,
-  lib,
-  ...
-}:
-
+{ config, lib, ... }:
 let
   cfg = config.catppuccin.nvim;
-in
 
+  defaultConfig = {
+    compile_path = lib.generators.mkLuaInline "compile_path";
+    flavour = cfg.flavor;
+  };
+in
 {
-  options.catppuccin.nvim = catppuccinLib.mkCatppuccinOption { name = "neovim"; };
+  options.catppuccin.nvim = catppuccinLib.mkCatppuccinOption { name = "neovim"; } // {
+    settings = lib.mkOption {
+      description = "Extra settings that will be passed to the setup function.";
+      default = { };
+      type = lib.types.submodule { freeformType = lib.types.attrsOf lib.types.anything; };
+      apply = lib.recursiveUpdate defaultConfig;
+    };
+  };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
     from = [
@@ -32,10 +38,7 @@ in
               vim.fn.mkdir(compile_path, "p")
               vim.opt.runtimepath:append(compile_path)
 
-              require("catppuccin").setup({
-              	compile_path = compile_path,
-              	flavour = "${cfg.flavor}",
-              })
+              require("catppuccin").setup(${lib.generators.toLua { } cfg.settings})
 
               vim.api.nvim_command("colorscheme catppuccin")
             EOF
