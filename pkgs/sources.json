@@ -115,6 +115,10 @@
     "hash": "sha256-czvR3bVZ0NfBmuu0JixalS7B1vf1uEGSTSUVVTclKxI=",
     "rev": "be3d0ee1ba0fc26baf7a47c2aa7032b7541deb0f"
   },
+  "nushell": {
+    "hash": "sha256-O95OrdF9UA5xid1UlXzqrgZqw3fBpTChUDmyExmD2i4=",
+    "rev": "82c31124b39294c722f5853cf94edc01ad5ddf34"
+  },
   "nvim": {
     "hash": "sha256-Oogw5wmYkx/zsMlPE/r6Kt3cy5sC92rwVzf0P9rzqyw=",
     "rev": "faf15ab0201b564b6368ffa47b56feefc92ce3f4"
