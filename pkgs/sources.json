@@ -135,6 +135,10 @@
     "hash": "sha256-jMQ+gH1djp2euERZpVW9muHQFI7xYnEQoNpucRj7Gow=",
     "rev": "20054f39d3b77bd1afc765981a42c3467bf91204"
   },
+  "qutebrowser": {
+    "hash": "sha256-0QPssOh87pl55tV+6zLVtT3toUrZac+RAcEZKDcSdKE=",
+    "rev": "715ebccaf8131eddaef3ef6960580735e4525244"
+  },
   "rio": {
     "hash": "sha256-TMhSufhDB3ZQ8/dIDx33NLzNsfjFwnUdRDOV/jF/EGM=",
     "rev": "13c2fab4d416625d49b54b9c1b97f12e34e85ca1"
