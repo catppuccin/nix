@@ -61,6 +61,7 @@
     swaylock.enable = true;
     tmux.enable = true;
     tofi.enable = true;
+    thunderbird.enable = true;
     waybar.enable = true;
     wlogout.enable = true;
     yazi.enable = true;

@@ -43,6 +43,7 @@
   ./starship.nix
   ./swaylock.nix
   ./sway.nix
+  ./thunderbird.nix
   ./tmux.nix
   ./tofi.nix
   ./waybar.nix

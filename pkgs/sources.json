@@ -163,6 +163,10 @@
     "hash": "sha256-AKiOeV9ggvsreC/lq2qXytUsR+x66Q0kpN2F4/Oh2Ao=",
     "rev": "77246bbbbf8926bdb8962cffab6616bc2b9e8a06"
   },
+  "thunderbird": {
+    "hash": "sha256-07gT37m1+OhRTbUk51l0Nhx+I+tl1il5ayx2ow23APY=",
+    "rev": "0289f3bd9566f9666682f66a3355155c0d0563fc"
+  },
   "tmux": {
     "hash": "sha256-vBYBvZrMGLpMU059a+Z4SEekWdQD0GrDqBQyqfkEHPg=",
     "rev": "2c4cb5a07a3e133ce6d5382db1ab541a0216ddc7"
