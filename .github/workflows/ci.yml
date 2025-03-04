@@ -9,7 +9,7 @@ on:
       - 'pkgs/**'
 
       - '.github/workflows/ci.yml'
-  pull_request:
+  pull_request_target:
     paths:
       - '**.lock'
       - '**.nix'
