@@ -11,7 +11,7 @@ on:
       - 'CHANGELOG.md'
 
       - '.github/workflows/website.yml'
-  pull_request:
+  pull_request_target:
     paths:
       - '**.lock'
       - '**.nix'
