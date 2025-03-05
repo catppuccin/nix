@@ -12,7 +12,7 @@ testers.runNixOSTest {
   name = "catppuccin-nix";
 
   nodes.machine =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
 
     {
       imports = [
@@ -54,7 +54,10 @@ testers.runNixOSTest {
       };
 
       home-manager.users.${userName} = {
-        imports = [ ./home.nix ];
+        imports = [
+          ./home.nix
+          { home = { inherit (config.system) stateVersion; }; }
+        ];
       };
     };
 
