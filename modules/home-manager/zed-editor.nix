@@ -29,16 +29,8 @@ in
       userSettings = {
         icon_theme = "Catppuccin " + flavor;
         theme = {
-          light =
-            "Catppuccin "
-            + flavor
-            + accent
-            + lib.optionalString (!cfg.italics) " - No Italics";
-          dark =
-            "Catppuccin "
-            + flavor
-            + accent
-            + lib.optionalString (!cfg.italics) " - No Italics";
+          light = "Catppuccin " + flavor + accent + lib.optionalString (!cfg.italics) " - No Italics";
+          dark = "Catppuccin " + flavor + accent + lib.optionalString (!cfg.italics) " - No Italics";
         };
       };
     };
