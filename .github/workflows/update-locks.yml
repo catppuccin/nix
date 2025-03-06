@@ -1,0 +1,88 @@
+name: Update lockfiles
+
+on:
+  schedule:
+    # run every friday
+    - cron: "0 0 * * 5"
+  workflow_dispatch:
+
+jobs:
+  flake:
+    name: Update flake.lock
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
+        with:
+          # NOTE: Required for subflake
+          install_url: https://releases.nixos.org/nix/nix-2.26.0/install
+
+      - name: Update Flakes
+        run: |
+          nix flake update .
+          nix flake update ./dev
+
+      - name:  Create pull request
+        id: create-pull-request 
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          commit-message: "chore: update flakes"
+          title: "chore: update flakes"
+          signoff: true
+          sign-commits: true
+          branch: "update-flake-lock"
+
+      - name: Check
+        uses: ./.github/workflows/ci.yml
+        with:
+          ref: ${{ steps.create-pull-request.outputs.pull-request-head-sha }}
+
+
+  ports:
+    name: Update port sources
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@V27
+
+      - name: Install python
+        run: nix profile install --inputs-from . 'nixpkgs#python3'
+
+      - name: Update ports
+        run: ./pkgs/paws.py
+
+      - name: Create pull request
+        id: create-pull-request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          commit-message: "chore: update port sources"
+          title: "chore: update port sources"
+          signoff: true
+          sign-commits: true
+          branch: "update-ports"
+
+      - name: Check
+        uses: ./.github/workflows/ci.yml
+        with:
+          ref: ${{ steps.create-pull-request.outputs.pull-request-head-sha }}
+
