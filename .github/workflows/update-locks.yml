@@ -28,11 +28,11 @@ jobs:
 
       - name: Update Flakes
         run: |
-          nix flake update .
-          nix flake update ./dev
+          nix flake update --flake .
+          nix flake update --flake ./dev
 
       - name:  Create pull request
-        id: create-pull-request 
+        id: create-pull-request
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ github.token }}
@@ -63,9 +63,9 @@ jobs:
 
       - name: Install Nix
         uses: cachix/install-nix-action@V27
-
-      - name: Install python
-        run: nix profile install --inputs-from . 'nixpkgs#python3'
+        with:
+          # NOTE: Required for paws
+          nix_path: nixpkgs=channel:nixos-unstable
 
       - name: Update ports
         run: ./pkgs/paws.py
