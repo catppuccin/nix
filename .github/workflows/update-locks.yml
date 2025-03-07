@@ -42,11 +42,10 @@ jobs:
           sign-commits: true
           branch: "update-flake-lock"
 
-      - name: Check
-        uses: ./.github/workflows/ci.yml
-        with:
-          ref: ${{ steps.create-pull-request.outputs.pull-request-head-sha }}
-
+      - name: Run CI
+        run: |
+          gh workflow run ci.yml \
+            --ref ${{ steps.create-pull-request.outputs.pull-request-branch }}
 
   ports:
     name: Update port sources
@@ -81,8 +80,7 @@ jobs:
           sign-commits: true
           branch: "update-ports"
 
-      - name: Check
-        uses: ./.github/workflows/ci.yml
-        with:
-          ref: ${{ steps.create-pull-request.outputs.pull-request-head-sha }}
-
+      - name: Run CI
+        run: |
+          gh workflow run ci.yml \
+            --ref ${{ steps.create-pull-request.outputs.pull-request-branch }}
