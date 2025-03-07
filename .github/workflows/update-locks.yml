@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
+      actions: write
       contents: write
       pull-requests: write
 
@@ -43,6 +44,8 @@ jobs:
           branch: "update-flake-lock"
 
       - name: Run CI
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh workflow run ci.yml \
             --ref ${{ steps.create-pull-request.outputs.pull-request-branch }}
@@ -53,6 +56,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
+      actions: write
       contents: write
       pull-requests: write
 
@@ -81,6 +85,8 @@ jobs:
           branch: "update-ports"
 
       - name: Run CI
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh workflow run ci.yml \
             --ref ${{ steps.create-pull-request.outputs.pull-request-branch }}
