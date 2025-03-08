@@ -10,12 +10,9 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.thunderbird;
   # extensions support was added in https://github.com/nix-community/home-manager/pull/6033
-  enable =
-    cfg.enable
-    && config.programs.thunderbird.enable
-    && lib.versionAtLeast config.home.stateVersion "25.05";
+  correctVersion = lib.versionAtLeast config.home.stateVersion "25.05";
+  enable = cfg.enable && config.programs.thunderbird.enable;
 in
-
 {
   options.catppuccin.thunderbird =
     catppuccinLib.mkCatppuccinOption {
@@ -31,7 +28,15 @@ in
     };
 
   config = lib.mkIf enable {
-    programs.thunderbird = {
+
+    assertions = [
+      {
+        assertion = correctVersion;
+        message = "catppuccin/nix thunderbird module requires at least version 25.05 of home-manager";
+      }
+    ];
+
+    programs.thunderbird = lib.mkIf correctVersion {
       profiles."${cfg.profile}".extensions = [
         (pkgs.runCommandLocal "catppuccin-${cfg.flavor}-${cfg.accent}.thunderbird.theme"
           {

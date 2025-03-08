@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -62,7 +62,7 @@
     tmux.enable = true;
     tofi.enable = true;
     thunderbird = {
-      enable = pkgs.thunderbird.meta.available;
+      enable = lib.versionAtLeast config.home.stateVersion "25.05";
       profiles.catppuccin-mocha-mauve.isDefault = true;
     };
     waybar.enable = true;
