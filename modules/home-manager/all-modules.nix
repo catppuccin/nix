@@ -36,6 +36,7 @@
   ./neovim.nix
   ./obs.nix
   ./polybar.nix
+  ./qutebrowser.nix
   ./rio.nix
   ./rofi.nix
   ./skim.nix
