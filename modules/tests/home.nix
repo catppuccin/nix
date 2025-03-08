@@ -62,7 +62,7 @@
     tmux.enable = true;
     tofi.enable = true;
     thunderbird = {
-      enable = lib.versionAtLeast config.home.stateVersion "25.05";
+      enable = lib.versionAtLeast config.home.version.release "25.05";
       profiles.catppuccin-mocha-mauve.isDefault = true;
     };
     waybar.enable = true;
