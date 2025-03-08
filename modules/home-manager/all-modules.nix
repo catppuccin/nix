@@ -47,6 +47,7 @@
   ./tmux.nix
   ./tofi.nix
   ./waybar.nix
+  ./wezterm.nix
   ./wlogout.nix
   ./yazi.nix
   ./zathura.nix
