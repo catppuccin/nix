@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 
 {
   imports = [
@@ -62,7 +62,7 @@
     tmux.enable = true;
     tofi.enable = true;
     thunderbird = {
-      enable = pkgs.thunderbird.meta.available;
+      enable = true;
       profiles.catppuccin-mocha-mauve.isDefault = true;
     };
     waybar.enable = true;
