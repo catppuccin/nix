@@ -3,5 +3,8 @@
 buildCatppuccinPort {
   pname = "rofi";
 
-  installTargets = [ "themes" ];
+  installTargets = [
+    "themes"
+    "catppuccin-default.rasi"
+  ];
 }

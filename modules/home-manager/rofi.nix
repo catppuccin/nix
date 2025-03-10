@@ -5,6 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.rofi;
+  enable = config.programs.rofi.enable && cfg.enable;
 in
 
 {
@@ -19,10 +20,20 @@ in
     to = "rofi";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enable {
     programs.rofi = {
       theme = {
-        "@theme" = "${sources.rofi}/catppuccin-${cfg.flavor}.rasi";
+        "@theme" = "catppuccin-default";
+        "@import" = "catppuccin-${cfg.flavor}";
+      };
+    };
+
+    xdg.dataFile = {
+      "rofi/themes/catppuccin-default.rasi" = {
+        source = sources.rofi + "/catppuccin-default.rasi";
+      };
+      "rofi/themes/catppuccin-${cfg.flavor}.rasi" = {
+        source = sources.rofi + "/themes/catppuccin-${cfg.flavor}.rasi";
       };
     };
   };
