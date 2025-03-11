@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "zathura";
+  port = "zathura";
 
   installTargets = [ "src" ];
 }

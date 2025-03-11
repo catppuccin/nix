@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "palette";
+  port = "palette";
 
   installTargets = [
     "README.md"

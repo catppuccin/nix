@@ -1,202 +1,252 @@
 {
   "aerc": {
     "hash": "sha256-OWIkHsKFts/zkrDUtbBPXHVSrHL/F0v3LB1rnlFAKmE=",
+    "lastModified": "2024-06-26",
     "rev": "ca404a9f2d125ef12db40db663d43c9d94116a05"
   },
   "alacritty": {
     "hash": "sha256-H8bouVCS46h0DgQ+oYY8JitahQDj0V9p2cOoD4cQX+Q=",
+    "lastModified": "2024-10-28",
     "rev": "f6cb5a5c2b404cdaceaff193b9c52317f62c62f7"
   },
   "bat": {
     "hash": "sha256-6fWoCH90IGumAMc4buLRWL0N61op+AuMNN9CAR9/OdI=",
+    "lastModified": "2024-12-24",
     "rev": "699f60fc8ec434574ca7451b444b880430319941"
   },
   "bottom": {
     "hash": "sha256-Vi438I+YVvoD2xzq2t9hJ9R3a+2TlDdbakjFYFtjtXQ=",
+    "lastModified": "2024-09-18",
     "rev": "ed09bd5a5dd78d83acdc8ff5fdec40a6340ed1c2"
   },
   "btop": {
     "hash": "sha256-mEGZwScVPWGu+Vbtddc/sJ+mNdD2kKienGZVUcTSl+c=",
+    "lastModified": "2024-09-23",
     "rev": "f437574b600f1c6d932627050b15ff5153b58fa3"
   },
   "cava": {
     "hash": "sha256-5AQcCRGaAxP5KFzkJtkKFYq0Ug2xVIEqr2r/k87uWwY=",
+    "lastModified": "2024-09-04",
     "rev": "0746f77974330338ee2e1e4d1ef9872eba57eb26"
   },
   "cursors": {
     "hash": "sha256-qis6p+/m7+DdRDYzLq9yB2eZGpfZe5z5xRsa/1HoIG4=",
+    "lastModified": "2025-02-22",
     "rev": "a7eb08527dcce01010fa0ec46fa2bc4c3154f0d4"
   },
   "delta": {
     "hash": "sha256-04po0A7bVMsmYdJcKL6oL39RlMLij1lRKvWl5AUXJ7Q=",
+    "lastModified": "2025-01-01",
     "rev": "e9e21cffd98787f1b59e6f6e42db599f9b8ab399"
   },
   "dunst": {
     "hash": "sha256-rBp9wU6QHpmNAjeaKnI6u8rOUlv8MC70SLUzeKHN/eY=",
+    "lastModified": "2024-12-24",
     "rev": "5955cf0213d14a3494ec63580a81818b6f7caa66"
   },
   "fcitx5": {
     "hash": "sha256-1IqFVTEY6z8yNjpi5C+wahMN1kpt0OJATy5echjPXmc=",
+    "lastModified": "2024-09-01",
     "rev": "3471b918d4b5aab2d3c3dd9f2c3b9c18fb470e8e"
   },
   "fish": {
     "hash": "sha256-Oc0emnIUI4LV7QJLs4B2/FQtCFewRFVp7EDv8GawFsA=",
+    "lastModified": "2025-03-01",
     "rev": "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed"
   },
   "foot": {
     "hash": "sha256-eVH3BY2fZe0/OjqucM/IZthV8PMsM9XeIijOg8cNE1Y=",
+    "lastModified": "2024-09-25",
     "rev": "962ff1a5b6387bc5419e9788a773a080eea5f1e1"
   },
   "fuzzel": {
     "hash": "sha256-XpItMGsYq4XvLT+7OJ9YRILfd/9RG1GMuO6J4hSGepg=",
+    "lastModified": "2024-10-30",
     "rev": "0af0e26901b60ada4b20522df739f032797b07c3"
   },
   "gh-dash": {
     "hash": "sha256-fOCZxrEyWLi+VYnx3QYOP1R+VBhllhOlnO5/5Wg5aq4=",
+    "lastModified": "2024-10-31",
     "rev": "acb1b1c22446e34781731ddbfb5e9bd699eccc74"
   },
   "ghostty": {
     "hash": "sha256-RlgTeBkjEvZpkZbhIss3KxQcvt0goy4WU+w9d2XCOnw=",
+    "lastModified": "2025-02-11",
     "rev": "9e38fc2b4e76d4ed5ff9edc5ac9e4081c7ce6ba6"
   },
   "gitui": {
     "hash": "sha256-DRK/j3899qJW4qP1HKzgEtefz/tTJtwPkKtoIzuoTj0=",
+    "lastModified": "2025-02-23",
     "rev": "df2f59f847e047ff119a105afff49238311b2d36"
   },
   "glamour": {
     "hash": "sha256-a7yR19KcxIS4UPhuhB+X0B+s8D5eytw0/EB0X4z46kA=",
+    "lastModified": "2024-07-14",
     "rev": "f410083af1e9b2418bcd73dbbbc987461d4aa292"
   },
   "grub": {
     "hash": "sha256-20D1EcV8SWOd5BLdAc6FaQu3onha0+aS5yA/GK8Ra0g=",
+    "lastModified": "2024-12-22",
     "rev": "2a5c8be8185dae49dd22030df45860df8c796312"
   },
   "helix": {
     "hash": "sha256-/o2/xpcIryI0jW3K4IWa66ydfnMGmGwDhBObFLGbDXo=",
+    "lastModified": "2025-02-18",
     "rev": "ba13a603ba91cc63c0ef14515111ecc208064469"
   },
   "hyprland": {
     "hash": "sha256-xSa/z0Pu+ioZ0gFH9qSo9P94NPkEMovstm1avJ7rvzM=",
+    "lastModified": "2024-06-19",
     "rev": "c388ac55563ddeea0afe9df79d4bfff0096b146b"
   },
   "imv": {
     "hash": "sha256-n6obxM5iVSOdlGdI8ZEmYuxudarLoZHqGETrpTcdrok=",
+    "lastModified": "2024-01-18",
     "rev": "0317a097b6ec8122b1da6d02f61d0c5158019f6e"
   },
   "k9s": {
     "hash": "sha256-9h+jyEO4w0OnzeEKQXJbg9dvvWGZYQAO4MbgDn6QRzM=",
+    "lastModified": "2024-07-21",
     "rev": "fdbec82284744a1fc2eb3e2d24cb92ef87ffb8b4"
   },
   "kvantum": {
     "hash": "sha256-eQmEeKC+L408ajlNg3oKMnDK6Syy2GV6FrR2TN5ZBCg=",
+    "lastModified": "2024-10-25",
     "rev": "a87694e0a3c97644dbb34f8835112d17b54ace68"
   },
   "lazygit": {
     "hash": "sha256-b2SoIeXT1BaoxvEeQ0VaPmnBND+7qUe342kOIkyOcAc=",
+    "lastModified": "2024-10-15",
     "rev": "d3c95a67ea3f778f7705d8ef814f87ac5213436d"
   },
   "lsd": {
     "hash": "sha256-lf6VawCgK9VlKO+PAzPD/WqPjxoqw2j000b5ZlEXj/Y=",
+    "lastModified": "2024-11-28",
     "rev": "7085155432c7fe53a7acd7b0c004955368aa0fba"
   },
   "mako": {
     "hash": "sha256-jgiZ+CrM4DX2nZR5BjjD9/Rk5CGGUy3gq9CCvYzp5Vs=",
+    "lastModified": "2024-08-31",
     "rev": "92844f144e72f2dc8727879ec141ffdacf3ff6a1"
   },
   "micro": {
     "hash": "sha256-+Jf32S2CHackdmx+UmEKjx71ZCf4VfnxeA3yzz3MSLQ=",
+    "lastModified": "2024-09-09",
     "rev": "2802b32308e5b1a827689c095f11ae604bbc85e6"
   },
   "mpv": {
     "hash": "sha256-PgiszDip99DVqUUQBMAhXxqkVThTFVX8sXaTlGyGSeE=",
+    "lastModified": "2025-03-06",
     "rev": "d7eeccdcc855d1d892fb065af3bc939159208402"
   },
   "newsboat": {
     "hash": "sha256-czvR3bVZ0NfBmuu0JixalS7B1vf1uEGSTSUVVTclKxI=",
+    "lastModified": "2022-10-18",
     "rev": "be3d0ee1ba0fc26baf7a47c2aa7032b7541deb0f"
   },
   "nvim": {
     "hash": "sha256-4h/fzFY8JR9r+QnoiWEqgQKPMuu8i9HTC4v0Jp7iuUo=",
+    "lastModified": "2025-03-01",
     "rev": "5b5e3aef9ad7af84f463d17b5479f06b87d5c429"
   },
   "obs": {
     "hash": "sha256-+X2ZkteIHVq9eP8yrzAERVp7IC2V9MWfcsJsBb+WBd0=",
+    "lastModified": "2025-03-04",
     "rev": "3f8af3bf1a1742529259a19d923277786b99e3ef"
   },
   "palette": {
-    "hash": "sha256-aIIwnSRJPQGaAwprYIRQ7Bp5MtpAhJS8Y007cBi0UsI=",
-    "rev": "5bb0420add3b61e4c7e32549e014f06e03dfbc42"
+    "hash": "sha256-SVF1fNFdvWxZq5vZWiA5WL1VT2qFxuZ5l0ncCwGiy4E=",
+    "lastModified": "2025-03-09",
+    "rev": "1d13846d736bdd96ca84e8406209c834ed9f8fc6"
   },
   "plymouth": {
     "hash": "sha256-He6ER1QNrJCUthFoBBGHBINouW/tozxQy3R79F5tsuo=",
+    "lastModified": "2024-10-19",
     "rev": "e0f58d6fcf3dbc2d35dfc4fec394217fbfa92666"
   },
   "polybar": {
     "hash": "sha256-jMQ+gH1djp2euERZpVW9muHQFI7xYnEQoNpucRj7Gow=",
+    "lastModified": "2024-07-21",
     "rev": "20054f39d3b77bd1afc765981a42c3467bf91204"
   },
   "rio": {
     "hash": "sha256-TMhSufhDB3ZQ8/dIDx33NLzNsfjFwnUdRDOV/jF/EGM=",
+    "lastModified": "2024-11-25",
     "rev": "13c2fab4d416625d49b54b9c1b97f12e34e85ca1"
   },
   "rofi": {
     "hash": "sha256-WGYEA4Q7UvSaRDjP/DiEtfXjvmWbewtdyJWRpjhbZgg=",
+    "lastModified": "2025-02-21",
     "rev": "c24a212a6b07c2d45f32d01d7f10b4d88ddc9f45"
   },
   "sddm": {
     "hash": "sha256-U0bQt+enDT8de3DqGYDaFHCZVfXAP9+2hUtWvAlQi7U=",
+    "lastModified": "2025-02-28",
     "rev": "9c0a84c0670ac7cf7e3afc27006455afe492160c"
   },
   "spotify-player": {
     "hash": "sha256-eenf1jB8b2s2qeG7wAApGwkjJZWVNzQj/wEZMUgnn5U=",
+    "lastModified": "2024-08-16",
     "rev": "34b3d23806770185b72466d777853c73454b85a6"
   },
   "starship": {
     "hash": "sha256-1w0TJdQP5lb9jCrCmhPlSexf0PkAlcz8GBDEsRjPRns=",
+    "lastModified": "2024-12-07",
     "rev": "e99ba6b210c0739af2a18094024ca0bdf4bb3225"
   },
   "sway": {
     "hash": "sha256-H+ZueiYkCoBfS8JENLKhL/efFK6WFNDsbiMbTpGROUs=",
+    "lastModified": "2024-10-14",
     "rev": "c072ada05271eec960dc893affe9ac55af63a745"
   },
   "swaylock": {
     "hash": "sha256-AKiOeV9ggvsreC/lq2qXytUsR+x66Q0kpN2F4/Oh2Ao=",
+    "lastModified": "2024-04-02",
     "rev": "77246bbbbf8926bdb8962cffab6616bc2b9e8a06"
   },
   "thunderbird": {
     "hash": "sha256-07gT37m1+OhRTbUk51l0Nhx+I+tl1il5ayx2ow23APY=",
+    "lastModified": "2024-11-01",
     "rev": "0289f3bd9566f9666682f66a3355155c0d0563fc"
   },
   "tmux": {
     "hash": "sha256-rd3f6Q8xQJg9llwpUeDoRuuCwP3BhqwyIjlSg13c9YU=",
+    "lastModified": "2025-02-23",
     "rev": "073ee54992c59fedcc29c1525a26f95691f0ae1f"
   },
   "tofi": {
     "hash": "sha256-urvt0ZuCe6iEtHwMUl4K6GDLQat/lV0TqgUOlKs8ykE=",
+    "lastModified": "2024-05-17",
     "rev": "d6106461867c077a5e1d25236e02b7be7c83839e"
   },
   "waybar": {
     "hash": "sha256-za0y6hcN2rvN6Xjf31xLRe4PP0YyHu2i454ZPjr+lWA=",
+    "lastModified": "2024-07-13",
     "rev": "ee8ed32b4f63e9c417249c109818dcc05a2e25da"
   },
   "wlogout": {
     "hash": "sha256-QUSDx5M+BG7YqI4MBsOKFPxvZHQtCa8ibT0Ln4FPQ7I=",
+    "lastModified": "2024-11-28",
     "rev": "b690cee13b944890e43a5fb629ccdff86cffbbb3"
   },
   "yazi": {
     "hash": "sha256-nEF3gs8JAipZK8Ut67EVHw6zW1zCeFse4b2LxOwRIlc=",
+    "lastModified": "2025-03-06",
     "rev": "0c274adb1e128bbc3355363703759a0842be620c"
   },
   "zathura": {
     "hash": "sha256-/vD/hOi6KcaGyAp6Az7jL5/tQSGRzIrf0oHjAJf4QbI=",
+    "lastModified": "2024-04-05",
     "rev": "0adc53028d81bf047461bc61c43a484d11b15220"
   },
   "zed": {
     "hash": "sha256-ftMgXygFaGwoell07ilw7kkLJ0Qi0cxf1LMrtIzjveQ=",
+    "lastModified": "2025-02-08",
     "rev": "8378f5047c27eb67b67bbbe01887a4fafffa0dae"
   },
   "zsh-syntax-highlighting": {
     "hash": "sha256-l6tztApzYpQ2/CiKuLBf8vI2imM6vPJuFdNDSEi7T/o=",
+    "lastModified": "2024-07-21",
     "rev": "7926c3d3e17d26b3779851a2255b95ee650bd928"
   }
 }

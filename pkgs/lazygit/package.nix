@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "lazygit";
+  port = "lazygit";
 
   installTargets = [ "themes-mergable" ];
 }

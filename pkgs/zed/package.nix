@@ -1,7 +1,7 @@
 { buildCatppuccinPort, whiskers }:
 
 buildCatppuccinPort {
-  pname = "zed";
+  port = "zed";
 
   nativeBuildInputs = [ whiskers ];
 

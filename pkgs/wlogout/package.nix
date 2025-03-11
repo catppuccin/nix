@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "wlogout";
+  port = "wlogout";
 
   installTargets = [
     "themes"

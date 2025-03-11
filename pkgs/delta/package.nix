@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "delta";
+  port = "delta";
 
   installTargets = [
     "catppuccin.gitconfig"

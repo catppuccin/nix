@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "k9s";
+  port = "k9s";
 
   installTargets = [ "dist" ];
 }

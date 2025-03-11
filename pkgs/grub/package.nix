@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "grub";
+  port = "grub";
 
   dontCatppuccinInstall = true;
 

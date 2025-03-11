@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "alacritty";
+  port = "alacritty";
 
   dontCatppuccinInstall = true;
 

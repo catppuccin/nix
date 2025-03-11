@@ -4,7 +4,7 @@
 }:
 
 buildCatppuccinPort (finalAttrs: {
-  pname = "kvantum";
+  port = "kvantum";
 
   dontCatppuccinInstall = true;
 
