@@ -54,6 +54,11 @@
     "lastModified": "2025-03-01",
     "rev": "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed"
   },
+  "firefox": {
+    "hash": "sha256-ZIK0LX8OJOBr20diRDQRrNc1X+q3DtHNcc/dRZU2QfM=",
+    "lastModified": "2022-08-22",
+    "rev": "a8751f7d2260ac75f709e785e8f2e7ee903e45ec"
+  },
   "foot": {
     "hash": "sha256-eVH3BY2fZe0/OjqucM/IZthV8PMsM9XeIijOg8cNE1Y=",
     "lastModified": "2024-09-25",

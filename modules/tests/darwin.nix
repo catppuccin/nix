@@ -23,6 +23,7 @@
         programs = {
           cava.enable = lib.mkVMOverride false; # NOTE: this may actually work on darwin, but the package is currently not supported
           chromium.enable = lib.mkVMOverride false;
+          firefox.enable = lib.mkVMOverride false;
           foot.enable = lib.mkVMOverride false;
           freetube.enable = lib.mkVMOverride false; # NOTE: currently fails to build
           fuzzel.enable = lib.mkVMOverride false;
