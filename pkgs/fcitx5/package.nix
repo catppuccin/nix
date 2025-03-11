@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "fcitx5";
+  port = "fcitx5";
 
   dontCatppuccinInstall = true;
 

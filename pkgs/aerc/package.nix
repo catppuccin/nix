@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "aerc";
+  port = "aerc";
 
   installTargets = [ "dist/" ];
 }

@@ -12,7 +12,7 @@
 }:
 
 buildCatppuccinPort (finalAttrs: {
-  pname = "cursors";
+  port = "cursors";
 
   postPatch = "patchShebangs scripts/ build";
 

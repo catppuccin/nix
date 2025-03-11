@@ -4,7 +4,7 @@
 }:
 
 buildCatppuccinPort (finalAttrs: {
-  pname = "plymouth";
+  port = "plymouth";
 
   dontCatppuccinInstall = true;
 

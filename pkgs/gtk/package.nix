@@ -14,7 +14,7 @@
 }:
 
 buildCatppuccinPort (finalAttrs: {
-  pname = "gtk";
+  port = "gtk";
   version = "1.0.3";
 
   src = fetchFromGitHub {

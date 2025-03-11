@@ -13,13 +13,17 @@ let
     let
       generated = lib.foldlAttrs (
         acc: port:
-        { rev, hash }:
+        {
+          rev,
+          hash,
+          lastModified,
+        }:
         lib.recursiveUpdate acc {
           # Save our sources for each port
           sources.${port} = catppuccinPackages.fetchCatppuccinPort { inherit port rev hash; };
 
           # And create a default package for them
-          "${port}" = catppuccinPackages.buildCatppuccinPort { pname = port; };
+          "${port}" = catppuccinPackages.buildCatppuccinPort { inherit port lastModified; };
         }
       ) { } (lib.importJSON ./pkgs/sources.json);
 

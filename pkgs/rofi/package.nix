@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "rofi";
+  port = "rofi";
 
   installTargets = [ "themes" ];
 }

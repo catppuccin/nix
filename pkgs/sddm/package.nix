@@ -10,7 +10,7 @@
 }:
 
 buildCatppuccinPort (finalAttrs: {
-  pname = "sddm";
+  port = "sddm";
 
   postPatch =
     ''

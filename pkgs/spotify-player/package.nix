@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "spotify-player";
+  port = "spotify-player";
 
   installTargets = [
     "theme.toml"

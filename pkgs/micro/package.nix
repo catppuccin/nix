@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "micro";
+  port = "micro";
 
   installTargets = [ "src" ];
 }
