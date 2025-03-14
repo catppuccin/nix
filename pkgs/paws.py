@@ -5,7 +5,7 @@ import argparse
 import json
 import subprocess
 from multiprocessing import cpu_count
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 # Directory of the current script
@@ -59,7 +59,7 @@ async def handle_port(sources: dict, port: str, remove=False):
 	else:
 		data = await fetch_port(port)
 		locked = data["locked"]
-		last_modified = datetime.fromtimestamp(int(locked["lastModified"])).strftime('%Y-%m-%d')
+		last_modified = datetime.fromtimestamp(int(locked["lastModified"]), tz = timezone.utc).strftime('%Y-%m-%d')
 		sources[port] = {"rev": locked["rev"], "hash": locked["narHash"], "lastModified": last_modified}
 
 
