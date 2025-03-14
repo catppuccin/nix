@@ -66,6 +66,7 @@
       profiles.catppuccin-mocha-mauve.isDefault = true;
     };
     waybar.enable = true;
+    wezterm.enable = true;
     wlogout.enable = true;
     yazi.enable = true;
     zathura.enable = true;
