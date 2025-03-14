@@ -27,6 +27,7 @@
     cava.enable = true;
     chromium.enable = true;
     fish.enable = true;
+    firefox.enable = true;
     foot.enable = true;
     freetube.enable = true;
     fuzzel.enable = true;

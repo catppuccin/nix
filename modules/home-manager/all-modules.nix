@@ -11,6 +11,7 @@
   ./dunst.nix
   ./fcitx5.nix
   ./fish.nix
+  ./firefox.nix
   ./foot.nix
   ./freetube.nix
   ./fuzzel.nix
