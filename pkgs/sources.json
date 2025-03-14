@@ -169,6 +169,10 @@
     "lastModified": "2024-07-20",
     "rev": "20054f39d3b77bd1afc765981a42c3467bf91204"
   },
+  "qutebrowser": {
+    "hash": "sha256-0QPssOh87pl55tV+6zLVtT3toUrZac+RAcEZKDcSdKE=",
+    "rev": "715ebccaf8131eddaef3ef6960580735e4525244"
+  },
   "rio": {
     "hash": "sha256-TMhSufhDB3ZQ8/dIDx33NLzNsfjFwnUdRDOV/jF/EGM=",
     "lastModified": "2024-11-25",
