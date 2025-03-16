@@ -30,6 +30,7 @@
   ./lazygit.nix
   ./lsd.nix
   ./newsboat.nix
+  ./nushell.nix
   ./mako.nix
   ./micro.nix
   ./mpv.nix
