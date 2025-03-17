@@ -37,7 +37,7 @@ jobs:
 
       - name: Format changes
         run: |
-          nix fmt
+          nix fmt **/**.nix
 
       - name: Commit changes
         run: |
