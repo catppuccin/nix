@@ -28,7 +28,7 @@ jobs:
           ref: ${{ inputs.tag }}
 
       - name: Install Nix
-        uses: cachix/install-nix-action@V27
+        uses: cachix/install-nix-action@v31
 
       - name: Push to FlakeHub
         uses: DeterminateSystems/flakehub-push@v5
@@ -52,7 +52,7 @@ jobs:
           ref: ${{ inputs.tag }}
 
       - name: Install Nix
-        uses: cachix/install-nix-action@V27
+        uses: cachix/install-nix-action@v31
 
       - name: Push to Flakestry
         uses: flakestry/flakestry-publish@main
