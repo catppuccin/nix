@@ -13,10 +13,16 @@ let
 in
 
 {
-  options.catppuccin.hyprlock = catppuccinLib.mkCatppuccinOption {
-    name = "hyprlock";
-    accentSupport = true;
-  };
+  options.catppuccin.hyprlock =
+    catppuccinLib.mkCatppuccinOption {
+      name = "hyprlock";
+      accentSupport = true;
+    }
+    // {
+      useDefaultConfig = lib.mkEnableOption "the default configuration of the port" // {
+        default = true;
+      };
+    };
 
   imports = catppuccinLib.mkRenamedCatppuccinOptions {
     from = [
@@ -39,7 +45,7 @@ in
             $accent = ''$${cfg.accent}
             $accentAlpha = ''$${cfg.accent}Alpha
           '')
-        ];
+        ] ++ lib.optional cfg.useDefaultConfig sources.hyprlock;
       };
     };
   };
