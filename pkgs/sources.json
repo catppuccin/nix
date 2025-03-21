@@ -115,9 +115,9 @@
     "rev": "a87694e0a3c97644dbb34f8835112d17b54ace68"
   },
   "lazygit": {
-    "hash": "sha256-b2SoIeXT1BaoxvEeQ0VaPmnBND+7qUe342kOIkyOcAc=",
-    "lastModified": "2024-10-14",
-    "rev": "d3c95a67ea3f778f7705d8ef814f87ac5213436d"
+    "hash": "sha256-Zapk0wGA57Eio8b7fKnY/C4PC1Cbfwiaatu4BiN1rmU=",
+    "lastModified": "2025-03-20",
+    "rev": "ebc6df1ef954d79907159aa5da85cb44410c0a6e"
   },
   "lsd": {
     "hash": "sha256-lf6VawCgK9VlKO+PAzPD/WqPjxoqw2j000b5ZlEXj/Y=",
@@ -160,9 +160,9 @@
     "rev": "a994c89a88578d003796b51df67e3623bd864449"
   },
   "palette": {
-    "hash": "sha256-SVF1fNFdvWxZq5vZWiA5WL1VT2qFxuZ5l0ncCwGiy4E=",
-    "lastModified": "2025-03-09",
-    "rev": "1d13846d736bdd96ca84e8406209c834ed9f8fc6"
+    "hash": "sha256-R52Q1FVAclvBk7xNgj/Jl+GPCIbORNf6YbJ1nxH3Gzs=",
+    "lastModified": "2025-03-17",
+    "rev": "0df7db6fe201b437d91e7288fa22807bb0e44701"
   },
   "plymouth": {
     "hash": "sha256-He6ER1QNrJCUthFoBBGHBINouW/tozxQy3R79F5tsuo=",
@@ -245,9 +245,9 @@
     "rev": "0adc53028d81bf047461bc61c43a484d11b15220"
   },
   "zed": {
-    "hash": "sha256-ftMgXygFaGwoell07ilw7kkLJ0Qi0cxf1LMrtIzjveQ=",
-    "lastModified": "2025-02-08",
-    "rev": "8378f5047c27eb67b67bbbe01887a4fafffa0dae"
+    "hash": "sha256-MPldZfiYY3kP/nbP/kcmMo9uiw4PQwRLv4c5MtUuSNw=",
+    "lastModified": "2025-03-17",
+    "rev": "26d9da7a13c880a61574c4a65b58dec8881ab84e"
   },
   "zsh-syntax-highlighting": {
     "hash": "sha256-l6tztApzYpQ2/CiKuLBf8vI2imM6vPJuFdNDSEi7T/o=",
