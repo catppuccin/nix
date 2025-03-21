@@ -1,27 +1,9 @@
 { catppuccinLib }:
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, ... }:
 
 let
   inherit (config.catppuccin) sources;
-
   cfg = config.catppuccin.lazygit;
-  enable = cfg.enable && config.programs.lazygit.enable;
-
-  # NOTE: On MacOS specifically, k9s expects its configuration to be in
-  # `~/Library/Application Support` when not using XDG
-  enableXdgConfig = !pkgs.stdenv.hostPlatform.isDarwin || config.xdg.enable;
-
-  configDirectory =
-    if enableXdgConfig then
-      config.xdg.configHome
-    else
-      "${config.home.homeDirectory}/Library/Application Support";
-  configFile = "${configDirectory}/lazygit/config.yml";
 in
 
 {
@@ -40,10 +22,10 @@ in
     accentSupport = true;
   };
 
-  config = lib.mkIf enable {
-    home.sessionVariables = {
-      # Ensure that the default config file is still sourced
-      LG_CONFIG_FILE = "${sources.lazygit}/${cfg.flavor}/${cfg.accent}.yml,${configFile}";
-    };
+  config = lib.mkIf cfg.enable {
+    # TODO: Find a way to "source" a config file with $LG_CONFIG_FILE
+    # and *not* come across https://github.com/catppuccin/nix/issues/455
+    # https://github.com/jesseduffield/lazygit/blob/4b4d82e13c568f3b43c018740132454446cb0a2e/docs/Config.md#overriding-default-config-file-location
+    programs.lazygit.settings = catppuccinLib.importYAML (sources.lazygit + "/${cfg.flavor}/${cfg.accent}.yml");
   };
 }
