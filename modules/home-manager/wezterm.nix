@@ -17,7 +17,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.wezterm = {
       colorSchemes."catppuccin-${cfg.flavor}" = lib.importTOML "${sources.wezterm}/dist/catppuccin-${cfg.flavor}.toml";
-      extraConfig = ''
+      extraConfig = lib.mkBefore (''
         local catppuccin_plugin = "${sources.wezterm}/plugin/init.lua"
       ''
       + lib.optionalString cfg.apply ''
@@ -27,7 +27,7 @@ in
           end
 
           dofile("${sources.wezterm}/plugin/init.lua").apply_to_config(config)
-      '';
+      '');
     };
   };
 }
