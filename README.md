@@ -133,7 +133,7 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
 
 </details>
 
-2. Choose your desired flavor with `catppuccin.flavor`
+2. In your configuration, choose your desired flavor with `catppuccin.flavor`
 
 ```nix
 {
@@ -173,22 +173,10 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
 
 - Q: **"How do I fix the error: ... during evaluation because the option 'allow-import-from-derivation' is disabled"**\
   A: Some ports need to read and/or manipulate remote resources, resulting in Nix performing [IFD](https://nix.dev/manual/nix/latest/language/import-from-derivation).
+  We try to avoid this where possible, but sometimes we need to use it. Check out [our tracking issue](https://github.com/catppuccin/nix/issues/392) to see what ports are affected.
 
-  <details>
-  <summary>Disable modules that use IFD</summary>
-  
-  ```nix
-  {
-    catppuccin = {
-      cava.enable = false;
-      gh-dash.enable = false;
-      imv.enable = false;
-      swaylock.enable = false;
-      mako.enable = false;
-    };
-  }
-  ```
-  </details>
+- Q: **"How do I fix the error: a '...' with features {} is required to build '...'"?**\
+  A: See the above
 
 ## 💝 Thanks to
 
