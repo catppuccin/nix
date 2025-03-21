@@ -234,6 +234,11 @@
     "lastModified": "2024-07-13",
     "rev": "ee8ed32b4f63e9c417249c109818dcc05a2e25da"
   },
+  "wezterm": {
+    "hash": "sha256-McSWoZaJeK+oqdK/0vjiRxZGuLBpEB10Zg4+7p5dIGY=",
+    "lastModified": "2023-04-12",
+    "rev": "b1a81bae74d66eaae16457f2d8f151b5bd4fe5da"
+  },
   "wlogout": {
     "hash": "sha256-QUSDx5M+BG7YqI4MBsOKFPxvZHQtCa8ibT0Ln4FPQ7I=",
     "lastModified": "2024-11-28",

@@ -70,6 +70,7 @@
       package = pkgs.vscodium;
     };
     waybar.enable = true;
+    wezterm.enable = true;
     wlogout.enable = true;
     yazi.enable = true;
     zathura.enable = true;

@@ -49,6 +49,7 @@
   ./tofi.nix
   ./vscode.nix
   ./waybar.nix
+  ./wezterm.nix
   ./wlogout.nix
   ./yazi.nix
   ./zathura.nix
