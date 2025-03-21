@@ -1,7 +1,7 @@
 { buildCatppuccinPort }:
 
 buildCatppuccinPort {
-  pname = "wezterm";
+  port = "wezterm";
 
   installTargets = [ "dist" "plugin" ];
 }
