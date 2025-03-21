@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -64,6 +64,10 @@
     thunderbird = {
       enable = true;
       profiles.catppuccin-mocha-mauve.isDefault = true;
+    };
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
     };
     waybar.enable = true;
     wlogout.enable = true;

@@ -47,6 +47,7 @@
   ./thunderbird.nix
   ./tmux.nix
   ./tofi.nix
+  ./vscode.nix
   ./waybar.nix
   ./wlogout.nix
   ./yazi.nix
