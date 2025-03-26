@@ -1,19 +1,11 @@
 {
+  lib,
   vscode-utils,
   sources,
   nodejs_22,
-  pnpm,
+  pnpm_10,
 
-  accentColor ? null,
-  accent ? "mauve",
-  boldKeywords ? true,
-  italicComments ? true,
-  italicKeywords ? true,
-  extraBordersEnabled ? false,
-  workbenchMode ? "default",
-  bracketMode ? "rainbow",
-  colorOverrides ? { },
-  customUIColors ? { },
+  catppuccinOptions ? { },
 }:
 
 let
@@ -22,9 +14,12 @@ let
   version = builtins.substring 0 7 src.rev;
   src = sources.vscode;
 
+  nodejs = nodejs_22;
+  pnpm = pnpm_10.override { inherit nodejs; };
+
   pnpmWorkspaces = [ "catppuccin-vsc" ];
 
-  extention = vscode-utils.buildVscodeExtension {
+  extension = vscode-utils.buildVscodeExtension {
     name = pname;
     inherit
       pname
@@ -43,27 +38,16 @@ let
         src
         pnpmWorkspaces
         ;
-      hash = "sha256-W3Ztsy7M4ub0Se2o3ZOe/EMWeXXC+D9Mph0t/UYFTXY=";
+      hash = "sha256-1wTPiZjC+QKsTOU1DUj84ZCJtiobjZ6HCnhgAzTPek0=";
     };
 
     nativeBuildInputs = [
-      nodejs_22
-      (pnpm.override { nodejs = nodejs_22; }).configHook
+      nodejs
+      pnpm.configHook
     ];
 
-    env.CATPPUCCIN_OPTIONS = builtins.toJSON {
-      inherit
-        accentColor
-        accent
-        boldKeywords
-        italicComments
-        italicKeywords
-        extraBordersEnabled
-        workbenchMode
-        bracketMode
-        colorOverrides
-        customUIColors
-        ;
+    env = lib.optionalAttrs (catppuccinOptions != { }) {
+      CATPPUCCIN_OPTIONS = builtins.toJSON catppuccinOptions;
     };
 
     buildPhase = ''
@@ -81,7 +65,9 @@ let
 
 in
 
-extention.overrideAttrs (_: {
+# TODO: Remove once https://github.com/NixOS/nixpkgs/pull/393486 is widely available
+# (Probably 2-4 weeks after this is committed)
+extension.overrideAttrs (_: {
   sourceRoot = null;
 
   installPhase = ''
