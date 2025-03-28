@@ -1,4 +1,4 @@
-{ mkMultiSearch }:
+{ mkMultiSearch, pkgs }:
 
 { catppuccin, versionName }:
 
@@ -13,12 +13,18 @@ mkMultiSearch {
   scopes = [
     {
       name = "NixOS modules";
-      modules = [ catppuccin.nixosModules.catppuccin ];
+      modules = [
+        catppuccin.nixosModules.catppuccin
+        { _module.args = { inherit pkgs; }; }
+      ];
       inherit urlPrefix;
     }
     {
       name = "home-manager modules";
-      modules = [ catppuccin.homeManagerModules.catppuccin ];
+      modules = [
+        catppuccin.homeManagerModules.catppuccin
+        { _module.args = { inherit pkgs; }; }
+      ];
       inherit urlPrefix;
     }
   ];
