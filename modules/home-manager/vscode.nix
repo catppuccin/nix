@@ -49,7 +49,11 @@ in
     }
     // {
       settings = lib.mkOption {
-        description = "Extra settings that will be passed to the vscode build.";
+        description = ''
+          Settings for the extension theme.
+
+          See https://github.com/catppuccin/vscode/blob/8ac8c5e1db78174c98c55ecd9c1bd3a6f2cbbc0b/packages/catppuccin-vsc/src/theme/index.ts#L14-L25 for a full list of options.
+        '';
         default = { };
         type = lib.types.submodule settingsSubmodule;
       };
