@@ -61,14 +61,20 @@
 
       formatter = forAllDevSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
-      homeManagerModules.catppuccin = mkModule {
-        type = "homeManager";
-        file = ./modules/home-manager;
+      homeManagerModules = {
+        default = self.homeManagerModules.catppuccin;
+        catppuccin = mkModule {
+          type = "homeManager";
+          file = ./modules/home-manager;
+        };
       };
 
-      nixosModules.catppuccin = mkModule {
-        type = "nixos";
-        file = ./modules/nixos;
+      nixosModules = {
+        default = self.nixosModules.catppuccin;
+        catppuccin = mkModule {
+          type = "nixos";
+          file = ./modules/nixos;
+        };
       };
     };
 }
