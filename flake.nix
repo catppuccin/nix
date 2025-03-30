@@ -61,7 +61,13 @@
 
       formatter = forAllDevSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
-      homeManagerModules = {
+      # TODO: Remove before 2.0 is stable
+      homeManagerModules = lib.mapAttrs (
+        name:
+        lib.warn "Obsolete Flake attribute `catppuccin.homeManagerModules.${name}' is used. It was renamed to `catppuccin.homeModules.${name}`'."
+      ) self.homeModules;
+
+      homeModules = {
         default = self.homeManagerModules.catppuccin;
         catppuccin = mkModule {
           type = "homeManager";
