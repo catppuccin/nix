@@ -1,7 +1,7 @@
 {
   lib,
   vscode-utils,
-  sources,
+  fetchCatppuccinPort,
   nodejs_22,
   pnpm_10,
 
@@ -11,8 +11,13 @@
 let
 
   pname = "catppuccin-vscode";
-  version = builtins.substring 0 7 src.rev;
-  src = sources.vscode;
+  version = "3.17.0";
+
+  src = fetchCatppuccinPort {
+    port = "vscode";
+    rev = "refs/tags/@catppuccin/vscode-v${version}";
+    hash = "sha256-TG6vZjPddZ2vTH4S81CNBI9axKS+HFwyx6GFUDUEC3U=";
+  };
 
   nodejs = nodejs_22;
   pnpm = pnpm_10.override { inherit nodejs; };
@@ -38,7 +43,7 @@ let
         src
         pnpmWorkspaces
         ;
-      hash = "sha256-1wTPiZjC+QKsTOU1DUj84ZCJtiobjZ6HCnhgAzTPek0=";
+      hash = "sha256-ksxzTirYEzgaQOJ+43K6SUAD/UA1b3Mtyc3HDGtMXeM=";
     };
 
     nativeBuildInputs = [
