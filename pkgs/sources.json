@@ -90,9 +90,9 @@
     "rev": "2a5c8be8185dae49dd22030df45860df8c796312"
   },
   "helix": {
-    "hash": "sha256-/o2/xpcIryI0jW3K4IWa66ydfnMGmGwDhBObFLGbDXo=",
-    "lastModified": "2025-02-17",
-    "rev": "ba13a603ba91cc63c0ef14515111ecc208064469"
+    "hash": "sha256-7TJ1CDts0i3QPRWz/gvRpkXzh8wGGLW5cv9+Vg3K1zc=",
+    "lastModified": "2025-04-03",
+    "rev": "3b1b0b2446791812e4a76ba147223dd5f3d4319b"
   },
   "hyprland": {
     "hash": "sha256-xSa/z0Pu+ioZ0gFH9qSo9P94NPkEMovstm1avJ7rvzM=",
@@ -185,9 +185,9 @@
     "rev": "808adc3d7d5be6fc573d6be6e9c888cb96b5d6e6"
   },
   "rio": {
-    "hash": "sha256-TMhSufhDB3ZQ8/dIDx33NLzNsfjFwnUdRDOV/jF/EGM=",
-    "lastModified": "2024-11-25",
-    "rev": "13c2fab4d416625d49b54b9c1b97f12e34e85ca1"
+    "hash": "sha256-sBMskd9ihisrCSwSGoVvXaEhIXTycMRRcBX3mSwvIJw=",
+    "lastModified": "2025-04-03",
+    "rev": "87e93f09456d65af830efbc2167b624812129471"
   },
   "rofi": {
     "hash": "sha256-WGYEA4Q7UvSaRDjP/DiEtfXjvmWbewtdyJWRpjhbZgg=",
@@ -235,9 +235,9 @@
     "rev": "d6106461867c077a5e1d25236e02b7be7c83839e"
   },
   "vscode": {
-    "hash": "sha256-3mDT5h8dH4r/SICL+onqX/06ybwwfrCWz6R+Tu2adtE=",
-    "lastModified": "2025-03-26",
-    "rev": "07576788397e895a6845d2d70700082c28013746"
+    "hash": "sha256-iw9TQ2qgKKQb+HJjFlLuCpM6RpJ1ncRP/13MPnyNk3Q=",
+    "lastModified": "2025-04-02",
+    "rev": "9e744fd306efeb0c44f6e78f82ad0dc96aedf237"
   },
   "waybar": {
     "hash": "sha256-za0y6hcN2rvN6Xjf31xLRe4PP0YyHu2i454ZPjr+lWA=",
