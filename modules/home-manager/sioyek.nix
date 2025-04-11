@@ -12,29 +12,11 @@ let
 in
  
 {
-  options.catppuccin.sioyek = 
-    catppuccinLib.mkCatppuccinOption {
-      name = "sioyek";
-    }
-    // {
-      applyOnStartup = lib.mkOption {
-        type = lib.types.bool;
-        default = true;
-        description = ''
-          Applies the theme by adding `toggle_custom_color` to `startup_commands` in sioyek's config.
-          If this is disabled, you must manually run `toggle_custom_colors` in Sioyek to enable the theme.
-        '';
-      };
-    };
-
+  options.catppuccin.sioyek = catppuccinLib.mkCatppuccinOption {
+    name = "sioyek";
+  };
 
   config = lib.mkIf enable {
-    xdg.configFile = {
-      "sioyek/prefs_user.config".source = theme;
-    };
-    
-    programs.sioyek.config = lib.mkIf cfg.applyOnStartup {
-      startup_commands = lib.mkBefore "toggle_custom_color;";
-    };
+    programs.sioyek.config = catppuccinLib.importINI theme;
   };
 } 
