@@ -27,14 +27,6 @@ in
       };
     };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "sioyek"
-      "catppuccin"
-    ];
-    to = "sioyek";
-  };
 
   config = lib.mkIf enable {
     xdg.configFile = {
