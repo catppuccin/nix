@@ -58,4 +58,5 @@
   ./zed-editor.nix
   ./zellij.nix
   ./zsh-syntax-highlighting.nix
+  ./sioyek.nix
 ]
