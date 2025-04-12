@@ -81,6 +81,7 @@
       enable = true;
       syntaxHighlighting.enable = true;
     };
+    sioyek.enable = true;
   };
 
   qt = {

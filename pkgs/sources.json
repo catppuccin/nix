@@ -199,6 +199,11 @@
     "lastModified": "2025-02-27",
     "rev": "9c0a84c0670ac7cf7e3afc27006455afe492160c"
   },
+  "sioyek": {
+    "hash": "sha256-QlanYqcU/kLJqCceAgIAvXeLJ4y2kMvmzKUYxyCnC/c=",
+    "lastModified": "2024-05-15",
+    "rev": "3e142d195e74c1d61239e0fa2e93347d6fa5eb55"
+  },
   "spotify-player": {
     "hash": "sha256-eenf1jB8b2s2qeG7wAApGwkjJZWVNzQj/wEZMUgnn5U=",
     "lastModified": "2024-08-16",
