@@ -68,7 +68,7 @@
       ) self.homeModules;
 
       homeModules = {
-        default = self.homeManagerModules.catppuccin;
+        default = self.homeModules.catppuccin;
         catppuccin = mkModule {
           type = "homeManager";
           file = ./modules/home-manager;
