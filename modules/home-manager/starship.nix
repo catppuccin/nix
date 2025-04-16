@@ -24,21 +24,21 @@ in
       settings = {
         format = lib.mkDefault "$all";
         palette = "catppuccin_${cfg.flavor}";
-      } // lib.importTOML "${sources.starship}/${cfg.flavor}.toml";
+      } // lib.importTOML "${sources.starship}/${cfg.flavor}.toml" // {
+        character = {
+          success_symbol = "[[󰄛](green) ❯](peach)";
+          error_symbol = "[[󰄛](red) ❯](peach)";
+          vimcmd_symbol = "[󰄛 ❮](subtext1)";
+        };
 
-      character = {
-        success_symbol = "[[󰄛](green) ❯](peach)";
-        error_symbol = "[[󰄛](red) ❯](peach)";
-        vimcmd_symbol = "[󰄛 ❮](subtext1)";
-      };
+        git_branch = {
+          style = "bold mauve";
+        };
 
-      git_branch = {
-        style = "bold mauve";
-      };
-
-      directory = {
-        truncation_length = 4;
-        style = "bold lavender";
+        directory = {
+          truncation_length = 4;
+          style = "bold lavender";
+        };
       };
     };
   };
