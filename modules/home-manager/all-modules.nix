@@ -1,6 +1,7 @@
 [
   ./aerc.nix
   ./alacritty.nix
+  ./atuin.nix
   ./bat.nix
   ./bottom.nix
   ./btop.nix

@@ -9,6 +9,11 @@
     "lastModified": "2024-10-28",
     "rev": "f6cb5a5c2b404cdaceaff193b9c52317f62c62f7"
   },
+  "atuin": {
+    "hash": "sha256-JYHsWUKKBzYEc5iSiyYsYm5Kz73PPN0php0JfR9wMxg=",
+    "lastModified": "2025-04-18",
+    "rev": "bd403cf7f0324aafc3f2462aeb9c2be6e230c9ac"
+  },
   "bat": {
     "hash": "sha256-6fWoCH90IGumAMc4buLRWL0N61op+AuMNN9CAR9/OdI=",
     "lastModified": "2024-12-23",
