@@ -60,7 +60,7 @@ async def handle_port(sources: dict, port: str, remove=False):
 		data = await fetch_port(port)
 		locked = data["locked"]
 		last_modified = datetime.fromtimestamp(int(locked["lastModified"]), tz = timezone.utc).strftime('%Y-%m-%d')
-		sources[port] = {"rev": locked["rev"], "hash": locked["narHash"], "lastModified": last_modified}
+		sources[port] = {"rev": locked["rev"], "hash": data["hash"], "lastModified": last_modified}
 
 
 async def main():
