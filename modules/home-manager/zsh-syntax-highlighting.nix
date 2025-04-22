@@ -63,11 +63,16 @@ in
 
     # And this is our actual module
     (lib.mkIf cfg.enable {
-      programs.zsh = {
-        initExtra = lib.mkBefore ''
-          source '${sources.zsh-syntax-highlighting}/catppuccin_${cfg.flavor}-zsh-syntax-highlighting.zsh'
-        '';
-      };
+      programs.zsh =
+        let
+          key = if builtins.hasAttr "initContent" config.programs.zsh then "initContent" else "initExtra";
+        in
+        {
+          # NOTE: Backwards compatible mkOrder priority working with stable/unstable HM.
+          "${key}" = lib.mkOrder (if key == "initContent" then 950 else 500) ''
+            source '${sources.zsh-syntax-highlighting}/catppuccin_${cfg.flavor}-zsh-syntax-highlighting.zsh'
+          '';
+        };
     })
   ];
 }
