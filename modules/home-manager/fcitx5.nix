@@ -5,7 +5,16 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.fcitx5;
-  enable = cfg.enable && config.i18n.inputMethod.enabled == "fcitx5";
+  enable =
+    cfg.enable
+    && (
+      (
+        config.i18n.inputMethod ? enable
+        && config.i18n.inputMethod.enable
+        && config.i18n.inputMethod.type == "fcitx5"
+      )
+      || config.i18n.inputMethod.enabled == "fcitx5"
+    );
 in
 
 {
