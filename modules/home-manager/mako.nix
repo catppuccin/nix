@@ -42,7 +42,7 @@ in
       borderColor = theme.border-color;
       progressColor = theme.progress-color;
     };
-    criterias = extraConfigAttrs;
+    criteria = extraConfigAttrs;
   } else {
       backgroundColor = theme.background-color;
       textColor = theme.text-color;
