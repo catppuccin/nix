@@ -35,13 +35,21 @@ in
   };
 
   # Will cause infinite recursion if config.services.mako is directly set as a whole
-  config.services.mako = lib.mkIf cfg.enable {
-    backgroundColor = theme.background-color;
-    textColor = theme.text-color;
-    borderColor = theme.border-color;
-    progressColor = theme.progress-color;
-    extraConfig = lib.fileContents (
-      (pkgs.formats.ini { }).generate "mako-extra-config" extraConfigAttrs
-    );
-  };
+  config.services.mako = lib.mkIf cfg.enable (if (config.services.mako ? settings) then {
+    settings = {
+      backgroundColor = theme.background-color;
+      textColor = theme.text-color;
+      borderColor = theme.border-color;
+      progressColor = theme.progress-color;
+    };
+    criteria = extraConfigAttrs;
+  } else {
+      backgroundColor = theme.background-color;
+      textColor = theme.text-color;
+      borderColor = theme.border-color;
+      progressColor = theme.progress-color;
+      extraConfig = lib.fileContents (
+        (pkgs.formats.ini { }).generate "mako-extra-config" extraConfigAttrs
+      );
+  });
 }
