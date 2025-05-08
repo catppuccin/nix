@@ -2,7 +2,7 @@
 { config, lib, ... }:
 
 let
-  inherit (config.catppuccin) mkUpper;
+  inherit (catppuccinLib) mkUpper;
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.element;
