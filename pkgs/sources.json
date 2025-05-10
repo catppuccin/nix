@@ -85,9 +85,9 @@
     "rev": "df2f59f847e047ff119a105afff49238311b2d36"
   },
   "glamour": {
-    "hash": "sha256-a7yR19KcxIS4UPhuhB+X0B+s8D5eytw0/EB0X4z46kA=",
-    "lastModified": "2024-07-13",
-    "rev": "f410083af1e9b2418bcd73dbbbc987461d4aa292"
+    "hash": "sha256-SI/COnVFdKltMRqeqLTbR/Rh0xUJcWSqiX/YlR221eo=",
+    "lastModified": "2025-05-02",
+    "rev": "00c97fa3823d272d9d041d5d872ae6335555a776"
   },
   "grub": {
     "hash": "sha256-20D1EcV8SWOd5BLdAc6FaQu3onha0+aS5yA/GK8Ra0g=",
@@ -155,14 +155,14 @@
     "rev": "be3d0ee1ba0fc26baf7a47c2aa7032b7541deb0f"
   },
   "nushell": {
-    "hash": "sha256-O95OrdF9UA5xid1UlXzqrgZqw3fBpTChUDmyExmD2i4=",
-    "lastModified": "2025-02-20",
-    "rev": "82c31124b39294c722f5853cf94edc01ad5ddf34"
+    "hash": "sha256-tQ3Br6PaLBUNIXY56nDjPkthzvgEsNzOp2gHDkZVQo0=",
+    "lastModified": "2025-05-04",
+    "rev": "05987d258cb765a881ee1f2f2b65276c8b379658"
   },
   "nvim": {
-    "hash": "sha256-YLM54Cpz7CRsnmJqAtlu+hWNyVUQ8DD+gnES9OJlHDk=",
-    "lastModified": "2025-05-01",
-    "rev": "b7bbdf93b42866f166af98d39a2563eedb7cabac"
+    "hash": "sha256-4GpFqo1IDxikmsY6muTJ55+AYPURLMHt7L6lmboyYvI=",
+    "lastModified": "2025-05-04",
+    "rev": "1bf070129c0b6f77cc23f6a2212dcdc868308c52"
   },
   "obs": {
     "hash": "sha256-2CuaMd+9GHK18M971+pVltPC9h59LYDXEAEkEq+tRw8=",
