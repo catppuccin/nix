@@ -38,7 +38,14 @@ in
   config.services.mako = lib.mkIf cfg.enable (
     if (config.services.mako ? settings) then
       {
-        settings = theme;
+        settings = {
+          inherit (theme)
+            background-color
+            text-color
+            border-color
+            progress-color
+            ;
+        };
         criteria = extraConfigAttrs;
       }
     else
