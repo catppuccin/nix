@@ -10,6 +10,7 @@
   ./cursors.nix
   ./delta.nix
   ./dunst.nix
+  ./element.nix
   ./fcitx5.nix
   ./fish.nix
   ./foot.nix
