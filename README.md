@@ -68,7 +68,7 @@ You will probably want to see our [Getting started guide](http://nix.catppuccin.
           home-manager.users.pepperjack = {
             imports = [
               ./home.nix
-              catppuccin.homeManagerModules.catppuccin
+              catppuccin.homeModules.catppuccin
             ];
           };
         }
@@ -80,7 +80,7 @@ You will probably want to see our [Getting started guide](http://nix.catppuccin.
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
         ./home.nix
-        catppuccin.homeManagerModules.catppuccin
+        catppuccin.homeModules.catppuccin
       ];
     };
   };
