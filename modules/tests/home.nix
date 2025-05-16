@@ -36,6 +36,7 @@
     btop.enable = true;
     cava.enable = true;
     chromium.enable = true;
+    element-desktop.enable = true;
     fish.enable = true;
     foot.enable = true;
     freetube.enable = true;
