@@ -50,6 +50,7 @@
   ./thunderbird.nix
   ./tmux.nix
   ./tofi.nix
+  ./vesktop.nix
   ./vscode.nix
   ./waybar.nix
   ./wezterm.nix
