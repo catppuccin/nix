@@ -76,6 +76,7 @@
       enable = true;
       profiles.catppuccin-mocha-mauve.isDefault = true;
     };
+    vesktop.enable = true;
     vscode = {
       enable = true;
       package = pkgs.vscodium;
