@@ -2,6 +2,7 @@
   lib,
   testers,
   home-manager,
+  cosmic-manager,
 }:
 
 let
@@ -55,6 +56,7 @@ testers.runNixOSTest {
 
       home-manager.users.${userName} = {
         imports = [
+          cosmic-manager.homeManagerModules.default
           ./home.nix
           { home = { inherit (config.system) stateVersion; }; }
         ];
