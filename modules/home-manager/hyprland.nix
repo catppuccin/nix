@@ -30,9 +30,15 @@ in
   };
 
   config = lib.mkIf enable {
-    home.sessionVariables = lib.mkIf cursors.enable {
-      HYPRCURSOR_SIZE = config.home.pointerCursor.size;
-      HYPRCURSOR_THEME = "catppuccin-${cursors.flavor}-${cursors.accent}-cursors";
+    home = {
+      pointerCursor = lib.mkIf config.home.pointerCursor.enable {
+        package = pkgs.catppuccin-cursors."${cursors.flavor}${lib.strings.capitalize cursors.accent}";
+      };
+
+      sessionVariables = lib.mkIf cursors.enable {
+        HYPRCURSOR_SIZE = config.home.pointerCursor.size;
+        HYPRCURSOR_THEME = "catppuccin-${cursors.flavor}-${cursors.accent}-cursors";
+      };
     };
 
     wayland.windowManager.hyprland = {
