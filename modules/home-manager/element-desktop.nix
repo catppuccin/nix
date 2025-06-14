@@ -16,15 +16,14 @@ in
   config = lib.mkIf cfg.enable {
     assertions = [ (catppuccinLib.assertMinimumVersion "25.05") ];
     programs.element-desktop = {
-      settings = {
-        default_theme =
-          "custom-Catppuccin "
-          + (if cfg.flavor == "frappe" then "Frappé" else catppuccinLib.mkUpper cfg.flavor)
-          + " (${catppuccinLib.mkUpper cfg.accent})";
-        setting_defaults.custom_themes = [
-          (lib.importJSON "${sources.element}/${cfg.flavor}/${cfg.accent}.json")
-        ];
-      };
+      settings =
+        let
+          custom-theme = lib.importJSON "${sources.element}/${cfg.flavor}/${cfg.accent}.json";
+        in
+        {
+          default_theme = custom-theme.name;
+          setting_defaults.custom_themes = [ custom-theme ];
+        };
     };
   };
 }
