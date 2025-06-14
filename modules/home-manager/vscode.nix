@@ -15,8 +15,7 @@ let
     extensions = [ (sources.vscode.override { catppuccinOptions = cfg.settings; }) ];
 
     userSettings = {
-      "workbench.colorTheme" =
-        "Catppuccin " + (if cfg.flavor == "frappe" then "Frappé" else catppuccinLib.mkUpper cfg.flavor);
+      "workbench.colorTheme" = "Catppuccin " + (catppuccinLib.mkFlavorName cfg.flavor);
       "catppuccin.accentColor" = cfg.accent;
 
       # Recommended settings
