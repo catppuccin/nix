@@ -79,6 +79,29 @@ lib.makeExtensible (ctp: {
   mkUpper = str: (toUpper (substring 0 1 str)) + (substring 1 (stringLength str) str);
 
   /**
+    Capitalize the first letter in a string, and change the final "e" into "é" if the
+    original string is "frappe"
+
+    # Example
+
+    ```nix
+    mkFlavorName "frappe"
+    => "Frappé"
+    ```
+
+    # Type
+
+    ```
+    mkFlavorName :: String -> String
+    ```
+
+    # Arguments
+
+    - [str] String to capitalize
+  */
+  mkFlavorName = str: if str == "frappe" then "Frappé" else ctp.mkUpper str;
+
+  /**
     Reads a YAML file
 
     # Example
