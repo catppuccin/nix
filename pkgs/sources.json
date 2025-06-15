@@ -129,6 +129,11 @@
     "lastModified": "2025-04-21",
     "rev": "c24895902ec2a3cb62b4557f6ecd8e0afeed95d5"
   },
+  "limine": {
+    "hash": "sha256-CdL1fq7JKju5SOvt8pBynLzM1knlM26SRinqYD48b+c=",
+    "lastModified": "2024-08-04",
+    "rev": "87a6320b8385c2745468eeff925c57a223200085"
+  },
   "lsd": {
     "hash": "sha256-lf6VawCgK9VlKO+PAzPD/WqPjxoqw2j000b5ZlEXj/Y=",
     "lastModified": "2024-11-28",
