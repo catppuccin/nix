@@ -42,7 +42,7 @@ in
 {
   options.catppuccin.xfce4-terminal = catppuccinLib.mkCatppuccinOption {
     name = "xfce4-terminal";
-    accentSupport = false;
+    useGlobalEnable = false;
   };
 
   config = lib.mkIf enable {
