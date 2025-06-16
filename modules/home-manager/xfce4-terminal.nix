@@ -7,8 +7,17 @@ let
   enable = cfg.enable;
   themeName = "catppuccin-${cfg.flavor}";
 
-  # required until merged https://github.com/nix-community/home-manager/pull/7282
-  pascalToKebabCase = string: lib.removePrefix "-" (lib.hm.strings.toKebabCase string);
+  toCaseWithSeparator =
+    separator: string:
+    let
+      splitByWords = builtins.split "([A-Z])";
+      processWord = s: if lib.isString s then s else separator + lib.toLower (lib.elemAt s 0);
+      words = splitByWords string;
+      converted = lib.concatStrings (map processWord words);
+    in
+    lib.removePrefix separator converted;
+
+  toKebabCase = toCaseWithSeparator "-";
 
   normalizeValue =
     value:
@@ -25,7 +34,7 @@ let
 
   terminalSettings = lib.listToAttrs (
     lib.mapAttrsToList (name: value: {
-      name = pascalToKebabCase name;
+      name = toKebabCase name;
       value = normalizeValue value;
     }) themeProperties
   );
