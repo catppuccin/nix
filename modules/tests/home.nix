@@ -17,6 +17,11 @@
 
   i18n.inputMethod.enabled = "fcitx5";
 
+  catppuccin = {
+    cosmic.enable = true;
+    cosmic-term.enable = true;
+  };
+
   programs = {
     aerc.enable = true;
     alacritty.enable = true;
@@ -102,6 +107,7 @@
     swaync.enable = true;
   };
 
+  wayland.desktopManager.cosmic.enable = true;
   wayland.windowManager.sway.enable = true;
   wayland.windowManager.hyprland.enable = true;
 }
