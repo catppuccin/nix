@@ -60,7 +60,7 @@ in
           else
             "${customDir}/public/css";
       in
-      lib.mkIf cfg.enable {
+      lib.mkIf (cfg.enable && config.services.${forge}.enable) {
         systemd.tmpfiles.settings."10-catppuccin-${forge}-theme" = {
           ${themeDir}."L+" = {
             argument = toString sources.gitea;
