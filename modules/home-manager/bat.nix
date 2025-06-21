@@ -4,7 +4,7 @@
 let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.bat;
-  themeName = "Catppuccin ${catppuccinLib.mkUpper cfg.flavor}";
+  themeName = "Catppuccin ${lib.toSentenceCase cfg.flavor}";
 in
 
 {
