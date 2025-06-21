@@ -19,9 +19,7 @@ in
       settings.enabledThemes = [ "${themeName}.css" ];
       themes."${themeName}" = ''
         /**
-         * @name Catppuccin ${
-           if cfg.flavor == "frappe" then "Frappé" else catppuccinLib.mkUpper cfg.flavor
-         } (${catppuccinLib.mkUpper cfg.accent})
+         * @name Catppuccin ${catppuccinLib.mkFlavorName cfg.flavor} (${catppuccinLib.mkUpper cfg.accent})
          * @author Catppuccin
          * @description 🎮 Soothing pastel theme for Discord
          * @website https://github.com/catppuccin/discord
