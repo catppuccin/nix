@@ -24,6 +24,7 @@
     firefox.profiles.test = { };
     librewolf.profiles.test = { };
     floorp.profiles.test = { };
+    xfce4-terminal.enable = true;
   };
 
   programs = {

@@ -55,6 +55,7 @@
   ./waybar.nix
   ./wezterm.nix
   ./wlogout.nix
+  ./xfce4-terminal.nix
   ./yazi.nix
   ./zathura.nix
   ./zed-editor.nix
