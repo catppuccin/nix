@@ -15,7 +15,10 @@
 
   manual.manpages.enable = lib.mkDefault false;
 
-  i18n.inputMethod.enabled = "fcitx5";
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+  };
 
   programs = {
     aerc.enable = true;

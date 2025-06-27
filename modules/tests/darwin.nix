@@ -18,7 +18,7 @@
           homeDirectory = "/Users/${config.home.username}";
         };
 
-        i18n.inputMethod.enabled = lib.mkVMOverride null;
+        i18n.inputMethod.enable = lib.mkVMOverride false;
 
         programs = {
           cava.enable = lib.mkVMOverride false; # NOTE: this may actually work on darwin, but the package is currently not supported
