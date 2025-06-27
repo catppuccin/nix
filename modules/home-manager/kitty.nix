@@ -19,7 +19,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.kitty = {
-      themeFile = "Catppuccin-${catppuccinLib.mkUpper cfg.flavor}";
+      themeFile = "Catppuccin-${lib.toSentenceCase cfg.flavor}";
     };
   };
 }

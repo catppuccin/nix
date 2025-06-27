@@ -7,7 +7,7 @@ let
   cfg = config.catppuccin.fish;
   enable = cfg.enable && config.programs.fish.enable;
 
-  themeName = "Catppuccin ${catppuccinLib.mkUpper cfg.flavor}";
+  themeName = "Catppuccin ${lib.toSentenceCase cfg.flavor}";
 in
 
 {

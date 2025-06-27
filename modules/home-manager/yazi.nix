@@ -30,7 +30,7 @@ in
         "${sources.yazi}/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.toml";
 
       "yazi/Catppuccin-${cfg.flavor}.tmTheme".source =
-        "${sources.bat}/Catppuccin ${catppuccinLib.mkUpper cfg.flavor}.tmTheme";
+        "${sources.bat}/Catppuccin ${lib.toSentenceCase cfg.flavor}.tmTheme";
     };
   };
 }

@@ -12,7 +12,7 @@ in
 
 {
   config = {
-    assertions = [ (catppuccinLib.assertMinimumVersion "24.11") ];
+    assertions = [ (catppuccinLib.assertMinimumVersion "25.05") ];
   };
 
   imports = catppuccinLib.applyToModules catppuccinModules;
