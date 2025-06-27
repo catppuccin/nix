@@ -42,6 +42,22 @@ in
       description = "Add an additional background layer to the login panel";
     };
 
+    userIcon = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Enable user icon on the login screen
+
+        To use this, you should place a file in `~/.face.icon` or `FacesDir/username.face.icon`
+      '';
+    };
+
+    accentColor = mkOption {
+      type = types.nullOr types.str;
+      default = null;
+      description = "Accent color to use for the login screen";
+    };
+
     assertQt6Sddm =
       lib.mkEnableOption ''
         checking if `services.displayManager.sddm.package` is the Qt 6 version.

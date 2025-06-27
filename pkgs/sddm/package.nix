@@ -7,6 +7,8 @@
   font ? "Noto Sans",
   fontSize ? "9",
   loginBackground ? false,
+  userIcon ? false,
+  accentColor ? null,
 }:
 
 buildCatppuccinPort (finalAttrs: {
@@ -26,6 +28,13 @@ buildCatppuccinPort (finalAttrs: {
     + lib.optionalString loginBackground ''
       substituteInPlace pertheme/*.conf \
         --replace-fail 'LoginBackground="false"' 'LoginBackground="true"'
+    ''
+    + lib.optionalString userIcon ''
+      substituteInPlace pertheme/*.conf \
+        --replace-fail 'UserIcon="false"' 'UserIcon="true"'
+    ''
+    + lib.optionalString (accentColor != null) ''
+      sed -i "s/^AccentColor="[^']*"/AccentColor="${accentColor}"/" pertheme/*.conf
     '';
 
   nativeBuildInputs = [
