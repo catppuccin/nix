@@ -1,0 +1,17 @@
+--- a/scripts/usercss-meta.d.ts
++++ b/scripts/usercss-meta.d.ts
+@@ -63,10 +63,10 @@ declare namespace usercssMeta {
+   export function createParser(options?: ParserOptions): Parser;
+
+   // TODO: export stringify types
+-  // export function stringify(
+-  //   metadata: Metadata,
+-  //   options: StringifierOptions,
+-  // ): string;
++  export function stringify(
++    metadata: Metadata,
++    options: StringifierOptions,
++  ): string;
+   // export function createStringifier(options: StringifierOptions): Stringifier;
+
+   type Parser = {
