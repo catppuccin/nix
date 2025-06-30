@@ -17,6 +17,12 @@
 
   i18n.inputMethod.enabled = "fcitx5";
 
+  catppuccin = {
+    firefox.profiles.test = { };
+    librewolf.profiles.test = { };
+    floorp.profiles.test = { };
+  };
+
   programs = {
     aerc.enable = true;
     alacritty.enable = true;

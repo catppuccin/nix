@@ -11,6 +11,7 @@
   ./delta.nix
   ./dunst.nix
   ./fcitx5.nix
+  ./firefox.nix
   ./fish.nix
   ./foot.nix
   ./freetube.nix
