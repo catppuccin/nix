@@ -10,11 +10,9 @@ in
   options.catppuccin.element-desktop = catppuccinLib.mkCatppuccinOption {
     name = "element-desktop";
     accentSupport = true;
-    default = lib.versionAtLeast config.home.stateVersion "25.05" && config.catppuccin.enable;
   };
 
   config = lib.mkIf cfg.enable {
-    assertions = [ (catppuccinLib.assertMinimumVersion "25.05") ];
     programs.element-desktop = {
       settings =
         let
