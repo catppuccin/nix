@@ -264,6 +264,11 @@
     "lastModified": "2024-05-17",
     "rev": "d6106461867c077a5e1d25236e02b7be7c83839e"
   },
+  "userstyles": {
+    "hash": "sha256-oKHzw18p3qLV0wiaORWMC74tLiN31PvcbBgm75UqZHo=",
+    "lastModified": "2025-07-16",
+    "rev": "c146009c157907e1269f592b90e1213ccb9c5e7e"
+  },
   "waybar": {
     "hash": "sha256-za0y6hcN2rvN6Xjf31xLRe4PP0YyHu2i454ZPjr+lWA=",
     "lastModified": "2024-07-13",
