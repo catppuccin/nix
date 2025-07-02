@@ -15,7 +15,10 @@
 
   manual.manpages.enable = lib.mkDefault false;
 
-  i18n.inputMethod.enabled = "fcitx5";
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+  };
 
   catppuccin = {
     firefox.profiles.test = { };
@@ -59,7 +62,7 @@
     neovim.enable = true;
     newsboat.enable = true;
     obs-studio.enable = true;
-    qutebrowser.enable = true;
+    qutebrowser.enable = false; # broken package due to python3.13-lxml-html-clean-0.4.2
     rio.enable = true;
     rofi.enable = true;
     skim.enable = true;

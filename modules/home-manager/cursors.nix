@@ -11,7 +11,7 @@ let
   cfg = config.catppuccin.cursors;
 
   # "dark" and "light" can be used alongside the regular accents
-  cursorAccentType = catppuccinLib.mergeEnums catppuccinLib.types.accent (
+  cursorAccentType = lib.types.mergeTypes catppuccinLib.types.accent (
     lib.types.enum [
       "dark"
       "light"
