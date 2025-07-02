@@ -17,7 +17,7 @@ in
       settings.enabledThemes = [ "${themeName}.css" ];
       themes."${themeName}" = ''
         /**
-         * @name Catppuccin ${catppuccinLib.mkFlavorName cfg.flavor} (${catppuccinLib.mkUpper cfg.accent})
+         * @name Catppuccin ${catppuccinLib.mkFlavorName cfg.flavor} (${lib.toSentenceCase cfg.accent})
          * @author Catppuccin
          * @description 🎮 Soothing pastel theme for Discord
          * @website https://github.com/catppuccin/discord
