@@ -10,11 +10,9 @@ in
   options.catppuccin.vesktop = catppuccinLib.mkCatppuccinOption {
     name = "vesktop";
     accentSupport = true;
-    default = lib.versionAtLeast config.home.stateVersion "25.05" && config.catppuccin.enable;
   };
 
   config = lib.mkIf cfg.enable {
-    assertions = [ (catppuccinLib.assertMinimumVersion "25.05") ];
     programs.vesktop.vencord = {
       settings.enabledThemes = [ "${themeName}.css" ];
       themes."${themeName}" = ''
