@@ -264,6 +264,11 @@
     "lastModified": "2024-11-28",
     "rev": "b690cee13b944890e43a5fb629ccdff86cffbbb3"
   },
+  "xfce4-terminal": {
+    "hash": "sha256-xVK77p+kmwhxPHveHhmVglUt4bN2GUxhlhllS2wwvzs=",
+    "lastModified": "2024-07-20",
+    "rev": "cbc9861bb9c40fad098cf55d4b53879e6f9a737c"
+  },
   "yazi": {
     "hash": "sha256-hjqmNxIr/KCN9k5ZT7O994BeWdp56NP7aS34+nZ/fQQ=",
     "lastModified": "2025-06-06",

@@ -20,6 +20,8 @@
 
         i18n.inputMethod.enable = lib.mkVMOverride false;
 
+        catppuccin.xfce4-terminal.enable = lib.mkVMOverride false; # NOTE: xfconf is not supported on darwin
+
         programs = {
           cava.enable = lib.mkVMOverride false; # NOTE: this may actually work on darwin, but the package is currently not supported
           chromium.enable = lib.mkVMOverride false;
