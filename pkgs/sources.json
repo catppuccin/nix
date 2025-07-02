@@ -54,6 +54,11 @@
     "lastModified": "2025-05-16",
     "rev": "393845cf3ed0e0000bfe57fe1b9ad75748e2547f"
   },
+  "firefox": {
+    "hash": "sha256-8yZA3Amus00xORmxDJxgKmbH4zou+OpMfSYV7vMS4P8=",
+    "lastModified": "2023-07-18",
+    "rev": "1aa345a3312f0a649068418679ceb81a9c599d36"
+  },
   "fish": {
     "hash": "sha256-Oc0emnIUI4LV7QJLs4B2/FQtCFewRFVp7EDv8GawFsA=",
     "lastModified": "2025-03-01",
