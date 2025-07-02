@@ -6,6 +6,7 @@ let
     foldl'
     hasAttr
     importJSON
+    mapAttrs'
     toSentenceCase
     mapAttrs
     mkIf
@@ -18,6 +19,8 @@ let
 
   inherit (config.catppuccin) sources;
   themes = importJSON "${sources.firefox}/themes.json";
+
+  stylusExtensionId = "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}";
 
   mkFirefoxModule =
     {
@@ -39,10 +42,11 @@ let
       cfg = getAttrFromPath modulePath config;
       firefoxCfg = getAttrFromPath hmModulePath config;
 
-      mkProfileOptions =
+      mkThemeOptions =
         {
-          forceDefault ? false,
-          enableDefault ? null,
+          name,
+          forceDefault,
+          enableDefault,
         }:
         catppuccinLib.mkCatppuccinOption (
           {
@@ -57,23 +61,101 @@ let
           force = mkOption {
             type = types.bool;
             default = forceDefault;
-            description = "Forcibly override any existing configuration for Firefox Color.";
+            description = "Forcibly override any existing configuration for ${name}.";
             example = true;
           };
+        };
+
+      mkBrowserOptions =
+        {
+          isProfile ? false,
+        }:
+        mkThemeOptions {
+          name = "Firefox Color";
+          forceDefault = if isProfile then cfg.force else false;
+          enableDefault = if isProfile then cfg.enable else null;
+        }
+        // {
+          userstyles =
+            mkThemeOptions {
+              name = "Stylus";
+              forceDefault = if isProfile then cfg.userstyles.force else false;
+              enableDefault = if isProfile then cfg.userstyles.enable else null;
+            }
+            // {
+              settings = mkOption {
+                type = types.attrsOf (
+                  types.submodule (
+                    { name, ... }:
+                    {
+                      options = {
+                        # we use mkOption instead of mkEnable option to default true
+                        enable = mkOption {
+                          type = types.bool;
+                          default = true;
+                          example = false;
+                          description = "Whether to enable ${name} Catppuccin userstyle";
+                        };
+
+                        # Since applying settings through home-manager makes the storage.js file read only,
+                        # build-stylus-settings removes the ability to configure userstyles through the stylus extension,
+                        # instead settings are defined here & are baked into the userstyles
+                        settings = mkOption {
+                          type = types.attrsOf (
+                            types.oneOf [
+                              types.str
+                              types.int
+                              types.bool
+                            ]
+                          );
+                          default = { };
+                          description = "Userstyle setting overrides";
+                          example = lib.literalExample ''
+                            {
+                              lightFlavor = "latte";
+                              darkFlavor = "mocha";
+                              accentColor = "mauve";
+                              logo = true;
+                              oled = false;
+                              sponsorBlock = true;
+                            };
+                          '';
+                        };
+
+                        # From what I can tell, this has no function with Catppuccin userstyles
+                        # It is probably better not to include this option, to reduce confusion
+                        # inclusions = mkOption {
+                        #   type = types.listOf types.str;
+                        #   default = [];
+                        #   description = "Custom included sites";
+                        #   example = "*://www.aaa.com/*";
+                        # };
+
+                        exclusions = mkOption {
+                          type = types.listOf types.str;
+                          default = [ ];
+                          description = "Custom excluded sites";
+                          example = "*://www.aaa.com/*";
+                        };
+                      };
+                    }
+                  )
+                );
+                default = { };
+                description = "Settings for Catppuccin userstyles";
+              };
+            };
         };
     in
     {
       options =
         (setAttrByPath modulePath (
-          (mkProfileOptions { })
+          (mkBrowserOptions { })
           // {
             profiles = mkOption {
               type = types.attrsOf (
                 types.submodule {
-                  options = mkProfileOptions {
-                    enableDefault = cfg.enable;
-                    forceDefault = cfg.force;
-                  };
+                  options = mkBrowserOptions { isProfile = true; };
                   config = {
                     flavor = lib.mkDefault cfg.flavor;
                     accent = lib.mkDefault cfg.accent;
@@ -96,15 +178,38 @@ let
                   profile = cfg.profiles.${name} or { enable = false; };
                 in
                 {
-                  config = mkIf profile.enable {
-                    extensions = {
-                      settings."FirefoxColor@mozilla.com" = {
-                        inherit (profile) force;
-                        settings = {
-                          firstRunDone = true;
-                          theme = themes.${profile.flavor}.${profile.accent};
-                        };
+                  config.extensions.settings = {
+                    "FirefoxColor@mozilla.com" = mkIf profile.enable {
+                      inherit (profile) force;
+                      settings = {
+                        firstRunDone = true;
+                        theme = themes.${profile.flavor}.${profile.accent};
                       };
+                    };
+
+                    ${stylusExtensionId} = mkIf profile.userstyles.enable {
+                      inherit (profile.userstyles) force;
+                      settings =
+                        let
+                          userstylesConfig = {
+                            # default settings applied to all userstyles
+                            defaultSettings = {
+                              lightFlavor = profile.userstyles.flavor;
+                              darkFlavor = profile.userstyles.flavor;
+                              accentColor = profile.userstyles.accent;
+                            };
+
+                            # settings applied per userstyle
+                            # these take priority over global settings
+                            userstyles = mapAttrs' (name: value: {
+                              name = "${name} catppuccin";
+                              value = { inherit (value) enable settings exclusions; };
+                            }) profile.userstyles.settings;
+                          };
+
+                          settingsPackage = sources.userstyles.override { inherit userstylesConfig; };
+                        in
+                        lib.importJSON "${settingsPackage}/share/storage.js";
                     };
                   };
                 }
