@@ -203,6 +203,7 @@ lib.makeExtensible (ctp: {
       flavor = mkOption {
         type = ctp.types.flavor;
         default = config.catppuccin.flavor;
+        defaultText = "catppuccin.flavor";
         description = "Catppuccin flavor for ${name}";
       };
     }
@@ -210,6 +211,7 @@ lib.makeExtensible (ctp: {
       accent = mkOption {
         type = ctp.types.accent;
         default = config.catppuccin.accent;
+        defaultText = "catppuccin.accent";
         description = "Catppuccin accent for ${name}";
       };
     };
