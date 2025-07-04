@@ -51,7 +51,12 @@ let
                 };
             }
           );
-          default = { };
+
+          # by default we list the `default` profile to enable the theme with just the `.enable` option
+          default = {
+            default = { };
+          };
+
           description = "Catppuccin settings for ${prettyName} profiles.";
         };
       };
