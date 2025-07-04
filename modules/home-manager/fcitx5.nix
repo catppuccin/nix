@@ -15,6 +15,10 @@ let
       )
       || config.i18n.inputMethod.enabled == "fcitx5"
     );
+
+  package = sources.fcitx5.override {
+    inherit (cfg) enableRounded;
+  };
 in
 
 {
@@ -32,6 +36,8 @@ in
           If this is disabled, you must manually set the theme (e.g. by using `fcitx5-configtool`).
         '';
       };
+
+      enableRounded = lib.mkEnableOption "rounded corners for the Fcitx5 theme";
     };
 
   imports =
@@ -65,7 +71,7 @@ in
   config = lib.mkIf enable {
     xdg.dataFile = {
       "fcitx5/themes/catppuccin-${cfg.flavor}-${cfg.accent}" = {
-        source = "${sources.fcitx5}/share/fcitx5/themes/catppuccin-${cfg.flavor}-${cfg.accent}";
+        source = "${package}/share/fcitx5/themes/catppuccin-${cfg.flavor}-${cfg.accent}";
         recursive = true;
       };
     };
