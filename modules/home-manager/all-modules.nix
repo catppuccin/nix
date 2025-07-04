@@ -35,6 +35,7 @@
   ./newsboat.nix
   ./nushell.nix
   ./mako.nix
+  ./mangohud.nix
   ./micro.nix
   ./mpv.nix
   ./neovim.nix
