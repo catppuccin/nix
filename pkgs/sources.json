@@ -154,6 +154,11 @@
     "lastModified": "2024-08-30",
     "rev": "92844f144e72f2dc8727879ec141ffdacf3ff6a1"
   },
+  "mangohud": {
+    "hash": "sha256-t3BibbcC8EAk8/Z+xjmZXaaiSIGlFtIGYhL0G+A84Io=",
+    "lastModified": "2025-06-11",
+    "rev": "9d4a3adc3dea2082831eeea00a7c1f5c68488f90"
+  },
   "micro": {
     "hash": "sha256-+Jf32S2CHackdmx+UmEKjx71ZCf4VfnxeA3yzz3MSLQ=",
     "lastModified": "2024-09-08",

@@ -59,6 +59,7 @@
     kitty.enable = true;
     lazygit.enable = true;
     lsd.enable = true;
+    mangohud.enable = true;
     micro.enable = true;
     mpv.enable = true;
     neovim.enable = true;
