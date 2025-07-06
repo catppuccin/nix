@@ -16,18 +16,21 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.wezterm = {
-      colorSchemes."catppuccin-${cfg.flavor}" = lib.importTOML "${sources.wezterm}/dist/catppuccin-${cfg.flavor}.toml";
-      extraConfig = lib.mkBefore (''
-        local catppuccin_plugin = "${sources.wezterm}/plugin/init.lua"
-      ''
-      + lib.optionalString cfg.apply ''
+      colorSchemes."catppuccin-${cfg.flavor}" =
+        lib.importTOML "${sources.wezterm}/dist/catppuccin-${cfg.flavor}.toml";
+      extraConfig = lib.mkBefore (
+        ''
+          local catppuccin_plugin = "${sources.wezterm}/plugin/init.lua"
+        ''
+        + lib.optionalString cfg.apply ''
           local config = {}
           if wezterm.config_builder then
             config = wezterm.config_builder()
           end
 
           dofile("${sources.wezterm}/plugin/init.lua").apply_to_config(config)
-      '');
+        ''
+      );
     };
   };
 }

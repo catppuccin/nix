@@ -14,15 +14,17 @@
       { config, ... }:
 
       {
+        # keep-sorted start newline_separated=yes block=yes
+        catppuccin.xfce4-terminal.enable = lib.mkVMOverride false; # NOTE: xfconf is not supported on darwin
+
         home = {
           homeDirectory = "/Users/${config.home.username}";
         };
 
         i18n.inputMethod.enable = lib.mkVMOverride false;
 
-        catppuccin.xfce4-terminal.enable = lib.mkVMOverride false; # NOTE: xfconf is not supported on darwin
-
         programs = {
+          # keep-sorted start
           cava.enable = lib.mkVMOverride false; # NOTE: this may actually work on darwin, but the package is currently not supported
           chromium.enable = lib.mkVMOverride false;
           foot.enable = lib.mkVMOverride false;
@@ -38,25 +40,31 @@
           rofi.enable = lib.mkVMOverride false;
           spotify-player.enable = lib.mkVMOverride false; # NOTE: same as mpv
           swaylock.enable = lib.mkVMOverride false;
-          tofi.enable = lib.mkVMOverride false;
           thunderbird.enable = lib.mkVMOverride false;
+          tofi.enable = lib.mkVMOverride false;
           waybar.enable = lib.mkVMOverride false;
           wlogout.enable = lib.mkVMOverride false;
+          # keep-sorted end
         };
 
         qt.enable = lib.mkVMOverride false; # NOTE: same as cava
 
         services = {
+          # keep-sorted start
           dunst.enable = lib.mkVMOverride false;
           mako.enable = lib.mkVMOverride false;
           polybar.enable = lib.mkVMOverride false;
           swaync.enable = lib.mkVMOverride false;
+          # keep-sorted end
         };
 
         wayland.windowManager = {
+          # keep-sorted start
           hyprland.enable = lib.mkVMOverride false;
           sway.enable = lib.mkVMOverride false;
+          # keep-sorted end
         };
+        # keep-sorted end
       }
     )
   ];

@@ -59,7 +59,34 @@
         default = import ./shell.nix { pkgs = nixpkgs.legacyPackages.${system}; };
       });
 
-      formatter = forAllDevSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = forAllDevSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        pkgs.treefmt.withConfig {
+          runtimeInputs = with pkgs; [
+            keep-sorted
+            nixfmt-rfc-style
+          ];
+
+          settings = {
+            on-unmatched = "info";
+            tree-root-file = "flake.nix";
+
+            formatter = {
+              keep-sorted = {
+                command = "keep-sorted";
+                includes = [ "*" ];
+              };
+              nixfmt = {
+                command = "nixfmt";
+                includes = [ "*.nix" ];
+              };
+            };
+          };
+        }
+      );
 
       # TODO: Remove before 2.0 is stable
       homeManagerModules = lib.mapAttrs (
