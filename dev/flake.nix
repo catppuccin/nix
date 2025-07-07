@@ -23,6 +23,14 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
+    cosmic-manager = {
+      url = "github:HeitorAugustoLN/cosmic-manager";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
     # Our option search generator
     nuscht-search = {
       url = "github:NuschtOS/search";
@@ -75,8 +83,11 @@
         kernelName = pkgs.stdenv.hostPlatform.parsed.kernel.name;
 
         callWith = pkgs: lib.flip pkgs.callPackage;
-        callUnstable = callWith pkgs { inherit (inputs) home-manager; };
-        callStable = callWith pkgsStable { home-manager = inputs.home-manager-stable; };
+        callUnstable = callWith pkgs { inherit (inputs) home-manager cosmic-manager; };
+        callStable = callWith pkgsStable {
+          inherit (inputs) cosmic-manager;
+          home-manager = inputs.home-manager-stable;
+        };
       in
 
       {
