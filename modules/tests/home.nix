@@ -21,13 +21,16 @@
   };
 
   catppuccin = {
+    # keep-sorted start
     firefox.profiles.test = { };
-    librewolf.profiles.test = { };
     floorp.profiles.test = { };
+    librewolf.profiles.test = { };
     xfce4-terminal.enable = true;
+    # keep-sorted end
   };
 
   programs = {
+    # keep-sorted start block=yes sticky_comments=yes
     aerc.enable = true;
     alacritty.enable = true;
     bat.enable = true;
@@ -68,16 +71,17 @@
     qutebrowser.enable = false; # broken package due to python3.13-lxml-html-clean-0.4.2
     rio.enable = true;
     rofi.enable = true;
+    sioyek.enable = true;
     skim.enable = true;
     spotify-player.enable = true;
     starship.enable = true;
     swaylock.enable = true;
-    tmux.enable = true;
-    tofi.enable = true;
     thunderbird = {
       enable = true;
       profiles.catppuccin-mocha-mauve.isDefault = true;
     };
+    tmux.enable = true;
+    tofi.enable = true;
     vesktop.enable = true;
     vscode = {
       enable = true;
@@ -94,7 +98,7 @@
       enable = true;
       syntaxHighlighting.enable = true;
     };
-    sioyek.enable = true;
+    # keep-sorted end
   };
 
   qt = {
@@ -104,6 +108,7 @@
   };
 
   services = {
+    # keep-sorted start block=yes
     dunst.enable = true;
     mako.enable = true;
     polybar = {
@@ -113,8 +118,13 @@
       '';
     };
     swaync.enable = true;
+    # keep-sorted end
   };
 
-  wayland.windowManager.sway.enable = true;
-  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager = {
+    # keep-sorted start
+    hyprland.enable = true;
+    sway.enable = true;
+    # keep-sorted end
+  };
 }

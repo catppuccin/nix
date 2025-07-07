@@ -3,5 +3,8 @@
 buildCatppuccinPort {
   port = "wezterm";
 
-  installTargets = [ "dist" "plugin" ];
+  installTargets = [
+    "dist"
+    "plugin"
+  ];
 }

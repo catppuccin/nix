@@ -3,11 +3,6 @@ name: Format
 on:
   push:
     branches: [ main ]
-    paths:
-      - "**.nix"
-      - "**.lock"
-
-      - ".github/workflows/format.yml"
   workflow_dispatch:
 
 jobs:
@@ -37,7 +32,7 @@ jobs:
 
       - name: Format changes
         run: |
-          nix fmt **/**.nix
+          nix fmt
 
       - name: Commit changes
         run: |

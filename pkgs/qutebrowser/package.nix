@@ -3,5 +3,8 @@
 buildCatppuccinPort {
   port = "qutebrowser";
 
-  installTargets = [ "setup.py" "__init__.py" ];
+  installTargets = [
+    "setup.py"
+    "__init__.py"
+  ];
 }
