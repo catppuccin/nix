@@ -4,6 +4,7 @@ let
   inherit (lib)
     importJSON
     mapAttrs
+    filterAttrs
     toSentenceCase
     mkIf
     mkOption
@@ -51,24 +52,36 @@ let
                 };
             }
           );
-          default = { };
+
+          # by default we list the `default` profile to enable the theme with just the `.enable` option
+          default = {
+            default = { };
+          };
+
           description = "Catppuccin settings for ${prettyName} profiles.";
         };
       };
 
-      config = setAttrByPath hmModulePath {
-        profiles = mapAttrs (_: profile: {
-          extensions = {
-            settings."FirefoxColor@mozilla.com" = mkIf profile.enable {
-              inherit (profile) force;
-              settings = {
-                firstRunDone = true;
-                theme = themes.${profile.flavor}.${profile.accent};
+      config =
+        let
+          # guarding against creating any configuration when no profiles are enabled
+          activeProfiles = filterAttrs (_: profile: profile.enable) cfg.profiles;
+        in
+        mkIf (activeProfiles != { }) (
+          setAttrByPath hmModulePath {
+            profiles = mapAttrs (_: profile: {
+              extensions = {
+                settings."FirefoxColor@mozilla.com" = {
+                  inherit (profile) force;
+                  settings = {
+                    firstRunDone = true;
+                    theme = themes.${profile.flavor}.${profile.accent};
+                  };
+                };
               };
-            };
-          };
-        }) cfg.profiles;
-      };
+            }) activeProfiles;
+          }
+        );
     };
 in
 {
