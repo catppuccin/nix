@@ -1,6 +1,7 @@
 { catppuccinLib }:
 {
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -23,9 +24,7 @@ in
   options.catppuccin.cursors =
     catppuccinLib.mkCatppuccinOption {
       name = "pointer cursors";
-      # NOTE: We exclude this as there is no `enable` option in the upstream
-      # module to guard it
-      useGlobalEnable = false;
+      useGlobalEnable = pkgs.stdenv.hostPlatform.isLinux;
     }
     // {
       accent = lib.mkOption {
