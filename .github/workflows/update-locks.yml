@@ -54,7 +54,7 @@ jobs:
     name: Update port sources
 
     runs-on: ubuntu-latest
-
+    timeout-minutes: 4 # max + 3*std over the last 33 runs
     permissions:
       actions: write
       contents: write
