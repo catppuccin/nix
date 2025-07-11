@@ -15,9 +15,9 @@
     "rev": "abfab12de743aa73cf20ac3fa61e450c4d96380c"
   },
   "bat": {
-    "hash": "sha256-6fWoCH90IGumAMc4buLRWL0N61op+AuMNN9CAR9/OdI=",
-    "lastModified": "2024-12-23",
-    "rev": "699f60fc8ec434574ca7451b444b880430319941"
+    "hash": "sha256-lJapSgRVENTrbmpVyn+UQabC9fpV1G1e+CdlJ090uvg=",
+    "lastModified": "2025-06-29",
+    "rev": "6810349b28055dce54076712fc05fc68da4b8ec0"
   },
   "bottom": {
     "hash": "sha256-dfukdk70ug1lRGADKBnvMhkl+3tsY7F+UAwTS2Qyapk=",
@@ -85,9 +85,9 @@
     "rev": "acb1b1c22446e34781731ddbfb5e9bd699eccc74"
   },
   "ghostty": {
-    "hash": "sha256-RlgTeBkjEvZpkZbhIss3KxQcvt0goy4WU+w9d2XCOnw=",
-    "lastModified": "2025-02-11",
-    "rev": "9e38fc2b4e76d4ed5ff9edc5ac9e4081c7ce6ba6"
+    "hash": "sha256-zJrL3ndgUJ8E8O5RpJf5VAmnDMcOrMdnHDQE5DQyIO4=",
+    "lastModified": "2025-07-03",
+    "rev": "7b1967449c91122274652097691b92e0d91390b1"
   },
   "gitui": {
     "hash": "sha256-DRK/j3899qJW4qP1HKzgEtefz/tTJtwPkKtoIzuoTj0=",
@@ -230,9 +230,9 @@
     "rev": "3e142d195e74c1d61239e0fa2e93347d6fa5eb55"
   },
   "spotify-player": {
-    "hash": "sha256-eenf1jB8b2s2qeG7wAApGwkjJZWVNzQj/wEZMUgnn5U=",
-    "lastModified": "2024-08-16",
-    "rev": "34b3d23806770185b72466d777853c73454b85a6"
+    "hash": "sha256-sf0pOKjr5CJN3JcxmVPpXFIIQtN1lyshKGfs/72bPgM=",
+    "lastModified": "2025-06-29",
+    "rev": "08ede82f25e2a9801a1d1c1d453816ea42693754"
   },
   "starship": {
     "hash": "sha256-1w0TJdQP5lb9jCrCmhPlSexf0PkAlcz8GBDEsRjPRns=",
