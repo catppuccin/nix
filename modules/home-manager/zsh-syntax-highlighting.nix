@@ -1,5 +1,10 @@
 { catppuccinLib }:
-{ config, lib, ... }:
+{
+  options,
+  config,
+  lib,
+  ...
+}:
 
 let
   inherit (config.catppuccin) sources;
@@ -65,7 +70,7 @@ in
     (lib.mkIf cfg.enable {
       programs.zsh =
         let
-          key = if builtins.hasAttr "initContent" config.programs.zsh then "initContent" else "initExtra";
+          key = if options.programs.zsh ? initContent then "initContent" else "initExtra";
         in
         {
           # NOTE: Backwards compatible mkOrder priority working with stable/unstable HM.
