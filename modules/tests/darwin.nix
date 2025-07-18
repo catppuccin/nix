@@ -42,6 +42,7 @@
           swaylock.enable = lib.mkVMOverride false;
           thunderbird.enable = lib.mkVMOverride false;
           tofi.enable = lib.mkVMOverride false;
+          vesktop.enable = lib.mkVMOverride false; # https://github.com/NixOS/nixpkgs/issues/425816
           waybar.enable = lib.mkVMOverride false;
           wlogout.enable = lib.mkVMOverride false;
           # keep-sorted end
