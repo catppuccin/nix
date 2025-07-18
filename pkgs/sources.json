@@ -100,9 +100,9 @@
     "rev": "00c97fa3823d272d9d041d5d872ae6335555a776"
   },
   "grub": {
-    "hash": "sha256-20D1EcV8SWOd5BLdAc6FaQu3onha0+aS5yA/GK8Ra0g=",
-    "lastModified": "2024-12-22",
-    "rev": "2a5c8be8185dae49dd22030df45860df8c796312"
+    "hash": "sha256-jgM22pvCQvb0bjQQXoiqGMgScR9AgCK3OfDF5Ud+/mk=",
+    "lastModified": "2025-07-11",
+    "rev": "0a37ab19f654e77129b409fed371891c01ffd0b9"
   },
   "helix": {
     "hash": "sha256-MS1oDn+nMlPL5EJb/lXBVXMzku7vmuMWneMAXdTB1nU=",
@@ -215,9 +215,9 @@
     "rev": "2aed2a3e545504090edde25591b5e85abad0286f"
   },
   "rofi": {
-    "hash": "sha256-WGYEA4Q7UvSaRDjP/DiEtfXjvmWbewtdyJWRpjhbZgg=",
-    "lastModified": "2025-02-20",
-    "rev": "c24a212a6b07c2d45f32d01d7f10b4d88ddc9f45"
+    "hash": "sha256-pglnY8dEhRGz4C9Pfw60gOWfg+CcumHy7Ckvq43Wkro=",
+    "lastModified": "2025-07-13",
+    "rev": "fbd89cd7a940d9a54da9d7b0bae5ef9dfc393dcf"
   },
   "sddm": {
     "hash": "sha256-mDOiIGcpIvl4d3Dtsb2AX/1OggFEJ+hAjCd2LH7lqv0=",
@@ -255,9 +255,9 @@
     "rev": "0289f3bd9566f9666682f66a3355155c0d0563fc"
   },
   "tmux": {
-    "hash": "sha256-vY2Cx9in0x8KeW10ObEJijFVNOGDaF99mJ6M9qBoZjk=",
-    "lastModified": "2025-06-24",
-    "rev": "ef9497982032a9494f4bf3ad276fba58b61bd7e6"
+    "hash": "sha256-Xk3LogY3B2bZbUWyTHa2nap4Rn0bU2QgYlHlkngMPsk=",
+    "lastModified": "2025-07-12",
+    "rev": "9d21d7ccd50df82bd732be2850ce2798e78b6391"
   },
   "tofi": {
     "hash": "sha256-urvt0ZuCe6iEtHwMUl4K6GDLQat/lV0TqgUOlKs8ykE=",
