@@ -40,25 +40,24 @@ buildCatppuccinPort (finalAttrs: {
   dontConfigure = true;
   dontCatppuccinInstall = true;
 
-  buildFlags =
-    [
-      flavor
-      "--dest"
-      "dist"
-    ]
-    ++ lib.optional allAccents "--all-accents"
-    ++ lib.optionals (accents != [ ]) [
-      "--accent"
-      (toString accents)
-    ]
-    ++ lib.optionals (size != [ ]) [
-      "--size"
-      size
-    ]
-    ++ lib.optionals (tweaks != [ ]) [
-      "--tweaks"
-      (toString tweaks)
-    ];
+  buildFlags = [
+    flavor
+    "--dest"
+    "dist"
+  ]
+  ++ lib.optional allAccents "--all-accents"
+  ++ lib.optionals (accents != [ ]) [
+    "--accent"
+    (toString accents)
+  ]
+  ++ lib.optionals (size != [ ]) [
+    "--size"
+    size
+  ]
+  ++ lib.optionals (tweaks != [ ]) [
+    "--tweaks"
+    (toString tweaks)
+  ];
 
   postBuild = ''
     python3 build.py $buildFlags

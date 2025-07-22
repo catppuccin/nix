@@ -45,7 +45,8 @@ in
       let
         configFiles = [
           "${sources.lazygit}/${cfg.flavor}/${cfg.accent}.yml"
-        ] ++ lib.optional (config.programs.lazygit.settings != { }) configFile;
+        ]
+        ++ lib.optional (config.programs.lazygit.settings != { }) configFile;
       in
       {
         # Ensure that the default config file is still sourced

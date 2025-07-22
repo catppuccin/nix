@@ -36,6 +36,7 @@ lib.extendMkDerivation {
           isabelroses
         ];
         platform = lib.platforms.all;
-      } // args.meta or { };
+      }
+      // args.meta or { };
     };
 }

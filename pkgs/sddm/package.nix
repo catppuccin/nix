@@ -14,28 +14,27 @@
 buildCatppuccinPort (finalAttrs: {
   port = "sddm";
 
-  postPatch =
-    ''
-      substituteInPlace pertheme/*.conf \
-        --replace-fail 'Font="Noto Sans"' 'Font="${font}"' \
-        --replace-fail 'FontSize=9' 'FontSize=${toString fontSize}'
-    ''
-    + lib.optionalString (background != null) ''
-      substituteInPlace pertheme/*.conf \
-        --replace-fail 'Background="backgrounds/wall.jpg"' 'Background="${background}"' \
-        --replace-fail 'CustomBackground="false"' 'CustomBackground="true"'
-    ''
-    + lib.optionalString loginBackground ''
-      substituteInPlace pertheme/*.conf \
-        --replace-fail 'LoginBackground="false"' 'LoginBackground="true"'
-    ''
-    + lib.optionalString userIcon ''
-      substituteInPlace pertheme/*.conf \
-        --replace-fail 'UserIcon="false"' 'UserIcon="true"'
-    ''
-    + lib.optionalString (accentColor != null) ''
-      sed -i "s/^AccentColor="[^']*"/AccentColor="${accentColor}"/" pertheme/*.conf
-    '';
+  postPatch = ''
+    substituteInPlace pertheme/*.conf \
+      --replace-fail 'Font="Noto Sans"' 'Font="${font}"' \
+      --replace-fail 'FontSize=9' 'FontSize=${toString fontSize}'
+  ''
+  + lib.optionalString (background != null) ''
+    substituteInPlace pertheme/*.conf \
+      --replace-fail 'Background="backgrounds/wall.jpg"' 'Background="${background}"' \
+      --replace-fail 'CustomBackground="false"' 'CustomBackground="true"'
+  ''
+  + lib.optionalString loginBackground ''
+    substituteInPlace pertheme/*.conf \
+      --replace-fail 'LoginBackground="false"' 'LoginBackground="true"'
+  ''
+  + lib.optionalString userIcon ''
+    substituteInPlace pertheme/*.conf \
+      --replace-fail 'UserIcon="false"' 'UserIcon="true"'
+  ''
+  + lib.optionalString (accentColor != null) ''
+    sed -i "s/^AccentColor="[^']*"/AccentColor="${accentColor}"/" pertheme/*.conf
+  '';
 
   nativeBuildInputs = [
     just

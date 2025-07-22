@@ -45,7 +45,8 @@ in
             $accent = ''$${cfg.accent}
             $accentAlpha = ''$${cfg.accent}Alpha
           '')
-        ] ++ lib.optional cfg.useDefaultConfig sources.hyprlock;
+        ]
+        ++ lib.optional cfg.useDefaultConfig sources.hyprlock;
       };
     };
   };
