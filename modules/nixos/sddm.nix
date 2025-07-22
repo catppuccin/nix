@@ -17,57 +17,62 @@ let
 in
 
 {
-  options.catppuccin.sddm = catppuccinLib.mkCatppuccinOption { name = "sddm"; } // {
-    font = mkOption {
-      type = types.str;
-      default = "Noto Sans";
-      description = "Font to use for the login screen";
-    };
-
-    fontSize = mkOption {
-      type = types.str;
-      default = "9";
-      description = "Font size to use for the login screen";
-    };
-
-    background = mkOption {
-      type = with types; (either path str);
-      default = "";
-      description = "Background image to use for the login screen";
-    };
-
-    loginBackground = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Add an additional background layer to the login panel";
-    };
-
-    userIcon = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Enable user icon on the login screen
-
-        To use this, you should place a file in `~/.face.icon` or `FacesDir/username.face.icon`
-      '';
-    };
-
-    accentColor = mkOption {
-      type = types.nullOr types.str;
-      default = null;
-      description = "Accent color to use for the login screen";
-    };
-
-    assertQt6Sddm =
-      lib.mkEnableOption ''
-        checking if `services.displayManager.sddm.package` is the Qt 6 version.
-
-        This is to ensure the theme is applied properly, but may have false positives in the case of overridden packages for example
-      ''
-      // {
-        default = true;
+  options.catppuccin.sddm =
+    catppuccinLib.mkCatppuccinOption {
+      name = "sddm";
+      accentSupport = true;
+    }
+    // {
+      font = mkOption {
+        type = types.str;
+        default = "Noto Sans";
+        description = "Font to use for the login screen";
       };
-  };
+
+      fontSize = mkOption {
+        type = types.str;
+        default = "9";
+        description = "Font size to use for the login screen";
+      };
+
+      background = mkOption {
+        type = with types; nullOr (either path str);
+        default = "backgrounds/wall.png";
+        description = "Background image to use for the login screen";
+      };
+
+      loginBackground = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Add an additional background layer to the login panel";
+      };
+
+      userIcon = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          Enable user icon on the login screen
+
+          To use this, you should place a file in `~/.face.icon` or `FacesDir/username.face.icon`
+        '';
+      };
+
+      clockEnabled = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Enable the clock on the login screen";
+      };
+
+      assertQt6Sddm =
+        lib.mkEnableOption ''
+          checking if `services.displayManager.sddm.package` is the Qt 6 version.
+
+          This is to ensure the theme is applied properly, but may have false positives in the case of overridden packages for example
+        ''
+        // {
+          default = true;
+        };
+    };
 
   imports =
     (catppuccinLib.mkRenamedCatppuccinOptions {
@@ -154,6 +159,15 @@ in
           "assertQt6Sddm"
         ]
       )
+
+      (lib.mkRemovedOptionModule
+        [
+          "catppuccin"
+          "sddm"
+          "accentColor"
+        ]
+        "The `accentColor` option is no longer used upstream, please migrate to the new `accent` option instead."
+      )
     ];
 
   config = lib.mkIf enable {
@@ -170,7 +184,7 @@ in
 
     services.displayManager = {
       sddm = {
-        theme = "catppuccin-${cfg.flavor}";
+        theme = "catppuccin-${cfg.flavor}-${cfg.accent}";
       };
     };
 
@@ -181,6 +195,8 @@ in
           fontSize
           background
           loginBackground
+          userIcon
+          clockEnabled
           ;
       })
     ];
