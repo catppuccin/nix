@@ -1,43 +1,53 @@
 {
   lib,
   buildCatppuccinPort,
+  bash,
   just,
+  whiskers,
   kdePackages,
   background ? null,
   font ? "Noto Sans",
   fontSize ? "9",
   loginBackground ? false,
   userIcon ? false,
-  accentColor ? null,
+  clockEnabled ? true,
 }:
 
 buildCatppuccinPort (finalAttrs: {
   port = "sddm";
 
   postPatch = ''
-    substituteInPlace pertheme/*.conf \
+    substituteInPlace justfile \
+      --replace-fail '#!/usr/bin/env bash' '#!${lib.getExe bash}' \
+
+    substituteInPlace src/theme.conf \
       --replace-fail 'Font="Noto Sans"' 'Font="${font}"' \
       --replace-fail 'FontSize=9' 'FontSize=${toString fontSize}'
   ''
   + lib.optionalString (background != null) ''
-    substituteInPlace pertheme/*.conf \
-      --replace-fail 'Background="backgrounds/wall.jpg"' 'Background="${background}"' \
-      --replace-fail 'CustomBackground="false"' 'CustomBackground="true"'
+    substituteInPlace src/theme.conf \
+      --replace-fail 'Background="backgrounds/wall.png"' 'Background="${background}"'
+  ''
+  + lib.optionalString (background == null) ''
+    substituteInPlace src/theme.conf \
+      --replace-fail 'CustomBackground="true"' 'CustomBackground="false"'
   ''
   + lib.optionalString loginBackground ''
-    substituteInPlace pertheme/*.conf \
+    substituteInPlace src/theme.conf \
       --replace-fail 'LoginBackground="false"' 'LoginBackground="true"'
   ''
   + lib.optionalString userIcon ''
-    substituteInPlace pertheme/*.conf \
+    substituteInPlace src/theme.conf \
       --replace-fail 'UserIcon="false"' 'UserIcon="true"'
   ''
-  + lib.optionalString (accentColor != null) ''
-    sed -i "s/^AccentColor="[^']*"/AccentColor="${accentColor}"/" pertheme/*.conf
+  + lib.optionalString (!clockEnabled) ''
+    substituteInPlace src/theme.conf \
+      --replace-fail 'ClockEnabled="true"' 'ClockEnabled="false"'
   '';
 
   nativeBuildInputs = [
     just
+    whiskers
   ];
 
   propagatedBuildInputs = [
@@ -58,7 +68,7 @@ buildCatppuccinPort (finalAttrs: {
     runHook preInstall
 
     mkdir -p $out/share/sddm
-    mv dist $out/share/sddm/themes
+    mv themes $out/share/sddm/
 
     runHook postInstall
   '';
