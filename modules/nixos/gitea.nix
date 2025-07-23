@@ -62,7 +62,7 @@ in
       in
       lib.mkIf (cfg.enable && config.services.${forge}.enable) {
         systemd.tmpfiles.settings."10-catppuccin-${forge}-theme" = {
-          ${themeDir}."L+" = {
+          ${themeDir}."C+" = {
             argument = toString sources.gitea;
           };
 
