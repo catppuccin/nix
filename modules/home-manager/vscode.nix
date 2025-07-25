@@ -64,6 +64,8 @@ in
                   };
                 };
               };
+
+              icons = catppuccinLib.mkCatppuccinOption { name = "vscode-icons"; };
             };
         }
       )
@@ -80,18 +82,27 @@ in
   config.programs.vscode.profiles = lib.mapAttrs (
     _: profile:
     lib.mkIf profile.enable {
-      extensions = [ (sources.vscode.override { catppuccinOptions = profile.settings; }) ];
+      extensions = [
+        (sources.vscode.override { catppuccinOptions = profile.settings; })
+      ]
+      ++ lib.optional (profile.icons.enable) sources.vscode-icons;
 
-      userSettings = {
-        "workbench.colorTheme" = "Catppuccin " + (catppuccinLib.mkFlavorName profile.flavor);
-        "catppuccin.accentColor" = profile.accent;
+      userSettings = lib.mkMerge [
+        {
+          "workbench.colorTheme" = "Catppuccin " + (catppuccinLib.mkFlavorName profile.flavor);
+          "catppuccin.accentColor" = profile.accent;
 
-        # Recommended settings
-        # https://github.com/catppuccin/vscode?tab=readme-ov-file#vscode-settings
-        "editor.semanticHighlighting.enabled" = lib.mkDefault true;
-        "terminal.integrated.minimumContrastRatio" = lib.mkDefault 1;
-        "window.titleBarStyle" = lib.mkDefault "custom";
-      };
+          # Recommended settings
+          # https://github.com/catppuccin/vscode?tab=readme-ov-file#vscode-settings
+          "editor.semanticHighlighting.enabled" = lib.mkDefault true;
+          "terminal.integrated.minimumContrastRatio" = lib.mkDefault 1;
+          "window.titleBarStyle" = lib.mkDefault "custom";
+        }
+
+        (lib.mkIf (profile.icons.enable) {
+          "workbench.iconTheme" = "catppuccin-" + profile.icons.flavor;
+        })
+      ];
     }
   ) cfg.profiles;
 }
