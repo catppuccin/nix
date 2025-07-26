@@ -1,0 +1,32 @@
+{
+  "name": "catppuccin-nix-website",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "astro": "astro",
+    "build": "astro check && astro build",
+    "check": "astro check",
+    "dev": "astro dev",
+    "fmt": "prettier --write ."
+  },
+  "devDependencies": {
+    "@astrojs/starlight": "^0.35.1",
+    "@catppuccin/starlight": "^1.0.1",
+    "astro": "^5.12.3",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-astro"
+    ]
+  },
+  "packageManager": "pnpm@10.14.0-0+sha512.2cd47a0cbf5f1d1de7693a88307a0ede5be94e0d3b34853d800ee775efbea0650cb562b77605ec80bc8d925f5cd27c4dfe8bb04d3a0b76090784c664450d32d6",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  }
+}
