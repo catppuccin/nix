@@ -31,7 +31,7 @@ jobs:
         uses: cachix/install-nix-action@v31
 
       - name: Push to FlakeHub
-        uses: DeterminateSystems/flakehub-push@v5
+        uses: DeterminateSystems/flakehub-push@v6
         with:
           tag: ${{ inputs.tag }}
           visibility: "public"
