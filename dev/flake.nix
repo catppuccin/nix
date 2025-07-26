@@ -32,6 +32,12 @@
         kernelName = pkgs.stdenv.hostPlatform.parsed.kernel.name;
         callTest = lib.flip pkgs.callPackage { inherit (inputs) home-manager; };
 
+        mkOptionsJSONWith = options: (pkgs.nixosOptionsDoc { inherit options; }).optionsJSON;
+        nixosEval = nixpkgs.lib.nixosSystem { modules = [ catppuccin.nixosModules.catppuccin ]; };
+        homeEval = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ catppuccin.homeModules.catppuccin ];
+        };
       in
 
       {
@@ -45,6 +51,8 @@
         } catppuccin.packages.${system} or { };
 
         packages = {
+          nixosOptionsJSON = mkOptionsJSONWith { inherit (nixosEval.options) catppuccin; };
+          homeOptionsJSON = mkOptionsJSONWith { inherit (homeEval.options) catppuccin; };
         };
       }
     );
