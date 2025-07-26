@@ -22,30 +22,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-
-    # Our option search generator
-    nuscht-search = {
-      url = "github:NuschtOS/search";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-
-    # Track some of our minor releases to index in said search
-
-    catppuccin-v1_1 = {
-      url = "https://flakehub.com/f/catppuccin/nix/1.1.*.tar.gz";
-    };
-
-    catppuccin-v1_2 = {
-      url = "https://flakehub.com/f/catppuccin/nix/1.2.*.tar.gz";
-    };
   };
 
   outputs =
     {
-      self,
       nixpkgs,
       catppuccin,
       ...
@@ -53,16 +33,7 @@
 
     let
       inherit (nixpkgs) lib;
-      inherit (inputs.flake-utils.lib) eachDefaultSystem mkApp;
-
-      mkApp' = drv: mkApp { inherit drv; };
-
-      # Versions of the modules we want to index in our search
-      searchVersions = {
-        "v1.1" = inputs.catppuccin-v1_1;
-        "v1.2" = inputs.catppuccin-v1_2;
-        "rolling" = catppuccin;
-      };
+      inherit (inputs.flake-utils.lib) eachDefaultSystem;
     in
 
     eachDefaultSystem (
@@ -80,10 +51,6 @@
       in
 
       {
-        apps = {
-          serve = mkApp' self.packages.${system}.site.serve;
-        };
-
         checks =
           {
             darwin = {
@@ -112,11 +79,6 @@
                 acc
             ) { } (lib.removeAttrs catppuccin.packages.${system} [ "default" ])
           );
-
-          site = pkgs.callPackage (catppuccin + "/docs/package.nix") {
-            inherit inputs searchVersions;
-            nuscht-search = inputs.nuscht-search.packages.${system};
-          };
         };
       }
     );
