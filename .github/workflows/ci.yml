@@ -2,24 +2,23 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - '**.nix'
-      - 'flake.lock'
+      - "**.nix"
+      - "flake.lock"
 
-      - 'pkgs/**'
+      - "pkgs/**"
 
-      - '.github/workflows/ci.yml'
+      - ".github/workflows/ci.yml"
   pull_request:
     paths:
-      - '**.nix'
-      - 'flake.lock'
+      - "**.nix"
+      - "flake.lock"
 
-      - 'pkgs/**'
+      - "pkgs/**"
 
-      - '.github/workflows/ci.yml'
+      - ".github/workflows/ci.yml"
   workflow_dispatch:
-
 
 jobs:
   flake:
@@ -28,7 +27,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ macos-latest, ubuntu-latest ]
+        os: [macos-latest, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -62,7 +61,7 @@ jobs:
 
   release-gate:
     name: Release Gate
-    needs: [ flake ]
+    needs: [flake]
 
     runs-on: ubuntu-latest
 

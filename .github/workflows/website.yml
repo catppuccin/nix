@@ -4,30 +4,30 @@ on:
   push:
     branches: [main]
     paths:
-      - '**.lock'
-      - '**.nix'
-      - 'docs/**'
-      - 'modules/**'
+      - "**.lock"
+      - "**.nix"
+      - "docs/**"
+      - "modules/**"
 
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - 'tsconfig.json'
-      - 'astro.config.ts'
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "tsconfig.json"
+      - "astro.config.ts"
 
-      - '.github/workflows/website.yml'
+      - ".github/workflows/website.yml"
   pull_request:
     paths:
-      - '**.lock'
-      - '**.nix'
-      - 'docs/**'
-      - 'modules/**'
+      - "**.lock"
+      - "**.nix"
+      - "docs/**"
+      - "modules/**"
 
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - 'tsconfig.json'
-      - 'astro.config.ts'
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "tsconfig.json"
+      - "astro.config.ts"
 
-      - '.github/workflows/website.yml'
+      - ".github/workflows/website.yml"
   workflow_dispatch:
 
 jobs:

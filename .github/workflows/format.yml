@@ -2,7 +2,7 @@ name: Format
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -24,8 +24,7 @@ jobs:
 
       - name: Get short revision
         id: rev
-        run:
-          echo "rev=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+        run: echo "rev=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
