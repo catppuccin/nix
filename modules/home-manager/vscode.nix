@@ -60,6 +60,7 @@ in
                     accent = lib.mkOption {
                       type = catppuccinLib.types.accent;
                       default = config.accent;
+                      description = "Catppuccin accent for vscode.";
                     };
                   };
                 };
