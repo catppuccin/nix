@@ -1,0 +1,69 @@
+---
+import AnchorHeading from "@astrojs/starlight/components/AnchorHeading.astro";
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+
+import { optionsData } from "@data/options.ts";
+
+interface Props {
+  version: string;
+  type: string;
+  module: string;
+}
+
+export const getStaticPaths = () =>
+  Object.entries(optionsData).flatMap(([version, modules]) =>
+    Object.entries(modules).flatMap(([type, options]) =>
+      Object.keys(options).map((module) => {
+        const params = { params: { version, type, module } };
+        return params;
+      }),
+    ),
+  );
+
+const { version, type, module } = Astro.params;
+const moduleData = optionsData[version]?.[type]?.[module];
+
+// Find the filename from a link like `https://github.com/catppuccin/nix/blob/8bfcb715e9b3cfaa2bee8da8d5c877115963ee27/modules/global.nix`
+const filenameFromLink = (link: string): string => {
+  const linkBase = "https://github.com/catppuccin/nix/blob/";
+  // Git SHAs are 40 characters long
+  return link.substring(linkBase.length + 41, link.length);
+};
+---
+
+<StarlightPage
+  frontmatter={{
+    title: `${module}`,
+    // Only include options from the `main` branch in search, else they overlap
+    pagefind: version == "main",
+  }}
+>
+  <p>Options for the <code>{module}</code> module.</p>
+
+  {
+    moduleData.map(([optionName, data]) => (
+      <>
+        <AnchorHeading level="1" id={optionName.replace(".", "-")}>
+          {optionName}
+        </AnchorHeading>
+
+        <p>{data.description}</p>
+
+        <p>
+          Type: <code>{data.type}</code>
+        </p>
+
+        <p>
+          Default: <code>{data.default.text}</code>
+        </p>
+
+        <p>
+          Declared in:{" "}
+          <a href={data.declarations[0]}>
+            {filenameFromLink(data.declarations[0])}
+          </a>
+        </p>
+      </>
+    ))
+  }
+</StarlightPage>

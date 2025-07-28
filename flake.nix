@@ -55,9 +55,23 @@
         }
       );
 
-      devShells = forAllDevSystems (system: {
-        default = import ./shell.nix { pkgs = nixpkgs.legacyPackages.${system}; };
-      });
+      devShells = forAllDevSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = import ./shell.nix { inherit pkgs; };
+
+          ci = pkgs.mkShellNoCC {
+            packages = with pkgs; [
+              nodejs-slim_22
+              corepack
+              nrr
+            ];
+          };
+        }
+      );
 
       formatter = forAllDevSystems (
         system:
