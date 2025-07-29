@@ -29,9 +29,13 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v31
 
-      - name: Format changes
+      - name: Format Nix files
         run: |
           nix fmt
+
+      - name: Format with Prettier
+        run: |
+          nix develop --command nrr fmt
 
       - name: Commit changes
         run: |
