@@ -67,7 +67,7 @@
       in
 
       {
-        checks = catppuccin.packages.${system} or { } // {
+        checks = (lib.filterAttrs (lib.const lib.isDerivation) catppuccin.packages.${system} or { }) // {
           module-test = callTest (
             catppuccin + "/modules/tests/${if (kernelName == "linux") then "nixos" else kernelName}.nix"
           );
