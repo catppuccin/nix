@@ -2,67 +2,25 @@
   description = "Development Flake for catppuccin/nix";
 
   inputs = {
-    # WARN: This handling of `path:` is a Nix 2.26 feature. The Flake won't work on versions prior to it
+    # WARN: This handling of `path:` is a Nix 2.26 feature. The Flake won't work correctly on versions prior to it
     # https://github.com/NixOS/nix/pull/10089
     catppuccin.url = "path:../.";
     nixpkgs.follows = "catppuccin/nixpkgs";
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    # Module versions we test against (aside from NixOS unstable)
-
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    home-manager-stable = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
-    };
-
-    # Our option search generator
-    nuscht-search = {
-      url = "github:NuschtOS/search";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-
-    # Track some of our minor releases to index in said search
-
-    catppuccin-v1_1 = {
-      url = "https://flakehub.com/f/catppuccin/nix/1.1.*.tar.gz";
-    };
-
-    catppuccin-v1_2 = {
-      url = "https://flakehub.com/f/catppuccin/nix/1.2.*.tar.gz";
-    };
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      catppuccin,
-      ...
-    }@inputs:
+    { nixpkgs, catppuccin, ... }@inputs:
 
     let
       inherit (nixpkgs) lib;
-      inherit (inputs.flake-utils.lib) eachDefaultSystem mkApp;
-
-      mkApp' = drv: mkApp { inherit drv; };
-
-      # Versions of the modules we want to index in our search
-      searchVersions = {
-        "v1.1" = inputs.catppuccin-v1_1;
-        "v1.2" = inputs.catppuccin-v1_2;
-        "rolling" = catppuccin;
-      };
+      inherit (inputs.flake-utils.lib) eachDefaultSystem;
     in
 
     eachDefaultSystem (
@@ -70,53 +28,56 @@
 
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        pkgsStable = inputs.nixpkgs-stable.legacyPackages.${system};
 
         kernelName = pkgs.stdenv.hostPlatform.parsed.kernel.name;
+        callTest = lib.flip pkgs.callPackage { inherit (inputs) home-manager; };
 
-        callWith = pkgs: lib.flip pkgs.callPackage;
-        callUnstable = callWith pkgs { inherit (inputs) home-manager; };
-        callStable = callWith pkgsStable { home-manager = inputs.home-manager-stable; };
+        # This should point to where you can view our module files
+        filesLink = "https://github.com/catppuccin/nix/blob/${
+          lib.removeSuffix "-dirty" catppuccin.rev or catppuccin.dirtyRev or "main"
+        }";
+
+        # And replace the declarations of our modules with that link
+        rootPath = lib.removeSuffix "/dev/../." inputs.catppuccin.outPath; # HACK(@getchoo): Outpaths of subflakes are relative, womp womp
+        isOurDeclaration = lib.hasPrefix rootPath;
+        replaceDeclaration = lib.replaceString rootPath filesLink;
+        replaceDeclarations = map (
+          declaration: if (isOurDeclaration declaration) then replaceDeclaration declaration else declaration
+        );
+
+        mkOptionsJSONFrom =
+          module:
+
+          let
+            eval = lib.evalModules {
+              modules = [
+                module
+                { _module.check = false; }
+              ];
+              specialArgs = { inherit pkgs; };
+            };
+          in
+
+          (pkgs.nixosOptionsDoc {
+            options = lib.removeAttrs eval.options [ "_module" ];
+
+            transformOptions =
+              opt: lib.recursiveUpdate opt { declarations = replaceDeclarations opt.declarations; };
+          }).optionsJSON;
       in
 
       {
-        apps = {
-          serve = mkApp' self.packages.${system}.site.serve;
+        checks = (lib.filterAttrs (lib.const lib.isDerivation) catppuccin.packages.${system} or { }) // {
+          module-test = callTest (
+            catppuccin + "/modules/tests/${if (kernelName == "linux") then "nixos" else kernelName}.nix"
+          );
         };
 
-        checks =
-          {
-            darwin = {
-              test-unstable = callUnstable (catppuccin + "/modules/tests/darwin.nix");
-              test-stable = callStable (catppuccin + "/modules/tests/darwin.nix");
-            };
-
-            linux = {
-              test-unstable = callUnstable (catppuccin + "/modules/tests/nixos.nix");
-              test-stable = callStable (catppuccin + "/modules/tests/nixos.nix");
-            };
-          }
-          .${kernelName} or { };
-
         packages = {
-          # Used in CI
-          all-ports = pkgs.linkFarm "all-ports" (
-            lib.foldlAttrs (
-              acc: name: pkg:
-              if pkg ? "outPath" then
-                acc
-                // {
-                  ${name} = pkg.outPath;
-                }
-              else
-                acc
-            ) { } (lib.removeAttrs catppuccin.packages.${system} [ "default" ])
-          );
-
-          site = pkgs.callPackage (catppuccin + "/docs/package.nix") {
-            inherit inputs searchVersions;
-            nuscht-search = inputs.nuscht-search.packages.${system};
-          };
+          nixosOptionsJSON = mkOptionsJSONFrom catppuccin.nixosModules.catppuccin;
+          homeOptionsJSON =
+            mkOptionsJSONFrom
+              (catppuccin.homeModules or catppuccin.homeManagerModules).catppuccin;
         };
       }
     );

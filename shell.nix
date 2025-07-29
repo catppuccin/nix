@@ -8,20 +8,31 @@
 }:
 
 pkgs.mkShellNoCC {
-  packages = [
-    # GHA lints
-    pkgs.actionlint
-
+  packages = with pkgs; [
     # Nix tools
-    pkgs.deadnix
-    pkgs.nixfmt-rfc-style
-    pkgs.nil
-    pkgs.statix
+    deadnix
+    nixfmt-rfc-style
+    nil
+    statix
 
-    # Python tools
-    pkgs.pyright
-    pkgs.ruff
-    pkgs.ruff-lsp
+    # GHA lints
+    actionlint
+
+    # Python tools for paws.py
+    pyright
+    ruff
+
+    # Node tooling for Astro/Starlight
+    nodejs-slim_22
+    corepack
+
+    nrr
+
+    astro-language-server
+    typescript-language-server
+
+    # Shell lints
+    shellcheck
   ];
 
   shellHook = ''

@@ -1,0 +1,10 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+
+// TODO: Use Starlight's AnchorHeading components for this
+import { Content } from "../../CHANGELOG.md";
+---
+
+<StarlightPage frontmatter={{ title: "Changelog" }}>
+  <Content />
+</StarlightPage>

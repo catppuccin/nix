@@ -32,7 +32,7 @@ jobs:
           nix flake update --flake .
           nix flake update --flake ./dev
 
-      - name:  Create pull request
+      - name: Create pull request
         id: create-pull-request
         uses: peter-evans/create-pull-request@v7
         with:

@@ -1,6 +1,11 @@
+---
+title: Stable Nix
+description: Start using Catppuccin with Flakes, NixOS, and home-manager
+---
+
 # Stable Nix
 
-When using stable Nix, we have a couple options for installing `catppuccin/nix`
+When using stable Nix, we have a couple options for installing `catppuccin/nix`:
 
 ## With `npins`
 
@@ -51,10 +56,9 @@ in
 
 ## With channels
 
-[Nix channels](https://nixos.org/manual/nix/stable/command-ref/nix-channel.html) provide a way for you to easily download, update, and use our modules -- though at the cost of reproducibility across machines.
+[Nix channels](https://nixos.org/manual/nix/stable/command-ref/nix-channel.html) provide a way for you to easily download, update, and use our modules -- though at the cost of reproducible across machines.
 
 To add `catppuccin/nix` as a channel, you can run the following:
-
 
 ```sh
 sudo nix-channel --add https://github.com/catppuccin/nix/archive/main.tar.gz catppuccin
@@ -91,4 +95,3 @@ or if you use a [standalone installation](https://nix-community.github.io/home-m
 }
 
 ```
-

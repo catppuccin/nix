@@ -2,7 +2,7 @@
 
 ## Adding a port
 
-Create a file in `modules/<module>/` with the name of the port. All ports should have 
+Create a file in `modules/<module>/` with the name of the port. All ports should have
 the `catppuccin.enable` and `catppuccin.flavor` options, and optionally the
 `catppuccin.accent` option. `catppuccin.flavor` and `catppuccin.accent` should
 default to `config.catppuccin.flavor` and `config.catppuccin.accent`, respectively.
@@ -17,6 +17,7 @@ across systems. You can add a new port to this collection using a script in the
 ```bash
 ./pkgs/paws.py port_name
 ```
+
 Alternatively -- or if your port requires a build step -- you can make your own
 expression with `buildCatppuccinPort`.
 
@@ -25,6 +26,7 @@ After creating your module, add the options to enable it in `test.nix` under the
 with the other modules in a VM automatically.
 
 <!-- This looks the best with the changelog generator. -->
+
 Commits that add ports should be of the format
 
 ```

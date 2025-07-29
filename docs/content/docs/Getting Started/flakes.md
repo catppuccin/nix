@@ -1,9 +1,13 @@
+---
+title: Flakes
+description: Start using Catppuccin with Flakes, NixOS, and home-manager
+---
+
 # Flakes
 
-Flakes are the preferred way to to use `catppuccin/nix` and will be the easiest method for those with them enabled
+Flakes are the preferred way to use `catppuccin/nix` and will be the easiest method for most.
 
-
-First, we need to add this project to our inputs so we can use it in our configurations:
+First, we need to add the project to our inputs so we can use it in our configurations:
 
 ```nix
 {
@@ -18,10 +22,10 @@ After, we can use them in a NixOS configuration like so
 
 ```nix
 {
-  nixosConfigurations.pepperjacksComputer = {
-    system = "x86_64-linux";
-
+  nixosConfigurations.pepperjacks-pc = {
     modules = [
+      ./configuration.nix
+
       catppuccin.nixosModules.catppuccin
       # if you use home-manager
       home-manager.nixosModules.home-manager
@@ -55,6 +59,7 @@ or if you use a [standalone installation](https://nix-community.github.io/home-m
 ```
 
 By the end, you should have a flake.nix that looks something like this
+
 ```nix
 {
   inputs = {
@@ -69,8 +74,9 @@ By the end, you should have a flake.nix that looks something like this
   outputs = { nixpkgs, catppuccin, home-manager }: {
     # for nixos module home-manager installations
     nixosConfigurations.pepperjacksComputer = pkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       modules = [
+        ./configuration.nix
+
         catppuccin.nixosModules.catppuccin
         # if you use home-manager
         home-manager.nixosModules.home-manager
@@ -97,4 +103,4 @@ By the end, you should have a flake.nix that looks something like this
     };
   };
 }
-````
+```

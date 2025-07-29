@@ -2,70 +2,32 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - '**.lock'
-      - '**.nix'
-      - 'pkgs/**'
+      - "**.nix"
+      - "flake.lock"
 
-      - '.github/workflows/ci.yml'
+      - "pkgs/**"
+
+      - ".github/workflows/ci.yml"
   pull_request:
     paths:
-      - '**.lock'
-      - '**.nix'
-      - 'pkgs/**'
+      - "**.nix"
+      - "flake.lock"
 
-      - '.github/workflows/ci.yml'
+      - "pkgs/**"
+
+      - ".github/workflows/ci.yml"
   workflow_dispatch:
 
-
 jobs:
-  packages:
-    name: Build Packages
+  flake:
+    name: Run Flake checks
 
     strategy:
       fail-fast: false
       matrix:
-        os: [ macos-latest, macos-13, ubuntu-latest, ubuntu-24.04-arm ]
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - name: Maximize Space
-        uses: easimon/maximize-build-space@v10
-        if: ${{ matrix.os != 'macos-latest' && matrix.os != 'macos-13' }}
-        with:
-          overprovision-lvm: true
-          remove-android: true
-          remove-dotnet: true
-          remove-codeql: true
-          remove-haskell: true
-          remove-docker-images: true
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: cachix/install-nix-action@v31
-
-      - name: Install Cachix
-        uses: cachix/cachix-action@v16
-        with:
-          name: catppuccin
-          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-
-      - name: Run build
-        run: |
-          nix build './dev#all-ports' --print-build-logs --show-trace
-
-  modules:
-    name: Test Modules
-    needs: packages
-
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ macos-latest, ubuntu-latest ]
+        os: [macos-latest, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -99,7 +61,7 @@ jobs:
 
   release-gate:
     name: Release Gate
-    needs: [ modules, packages ]
+    needs: [flake]
 
     runs-on: ubuntu-latest
 
