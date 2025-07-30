@@ -2,10 +2,15 @@
 { config, lib, ... }:
 let
   inherit (lib)
+    attrNames
+    foldl'
+    hasAttr
     importJSON
     toSentenceCase
+    mapAttrs
     mkIf
     mkOption
+    optional
     getAttrFromPath
     setAttrByPath
     types
@@ -29,7 +34,10 @@ let
         name
       ];
 
+      getAttrStringFromPath = lib.concatStringsSep ".";
+
       cfg = getAttrFromPath modulePath config;
+      firefoxCfg = getAttrFromPath hmModulePath config;
 
       mkProfileOptions =
         {
@@ -72,7 +80,8 @@ let
                   };
                 }
               );
-              default = { };
+              default = mapAttrs (_: _: { }) firefoxCfg.profiles;
+              defaultText = "<profiles declared in `${getAttrStringFromPath hmModulePath}.profiles`>";
               description = "Catppuccin settings for ${prettyName} profiles.";
             };
           }
@@ -84,7 +93,7 @@ let
               types.submodule (
                 { name, ... }:
                 let
-                  profile = cfg.profiles.${name} or cfg;
+                  profile = cfg.profiles.${name} or { enable = false; };
                 in
                 {
                   config = mkIf profile.enable {
@@ -103,6 +112,16 @@ let
             );
           };
         });
+
+      config = {
+        warnings = foldl' (
+          acc: name:
+          acc
+          ++
+            optional (!(hasAttr name firefoxCfg.profiles))
+              "${prettyName} profile '${name}' is defined in '${getAttrStringFromPath modulePath}', but not '${getAttrStringFromPath hmModulePath}'. This will have no effect."
+        ) [ ] (attrNames cfg.profiles);
+      };
     };
 in
 {
