@@ -12,14 +12,7 @@ in
     type = "fcitx5";
   };
 
-  catppuccin = {
-    # keep-sorted start
-    firefox.profiles.test = { };
-    floorp.profiles.test = { };
-    librewolf.profiles.test = { };
-    xfce4-terminal.enable = true;
-    # keep-sorted end
-  };
+  catppuccin.xfce4-terminal.enable = true;
 
   programs = {
     # keep-sorted start block=yes sticky_comments=yes
@@ -32,6 +25,12 @@ in
     cava.enable = true;
     chromium.enable = isLinux;
     element-desktop.enable = true;
+    firefox = {
+      enable = true;
+      profiles.pepperjack = {
+        extensions.force = true;
+      };
+    };
     fish.enable = true;
     foot.enable = isLinux;
     freetube.enable = true;
