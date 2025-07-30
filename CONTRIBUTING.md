@@ -9,7 +9,7 @@ default to `config.catppuccin.flavor` and `config.catppuccin.accent`, respective
 When you're done, make sure to add your new file to the list in
 `modules/<module>/all-modules.nix`
 
-Package can be auto-generated from our our upstream sources to use in modules.
+Packages can be auto-generated from our upstream sources to use in modules.
 This allows us to easily access, build, and auto-update all themes reliably
 across systems. You can add a new port to this collection using a script in the
 `pkgs/` folder
@@ -21,9 +21,9 @@ across systems. You can add a new port to this collection using a script in the
 Alternatively -- or if your port requires a build step -- you can make your own
 expression with `buildCatppuccinPort`.
 
-After creating your module, add the options to enable it in `test.nix` under the
-`nodes.machine` attrset. This will allow for your configuration to be tested along
-with the other modules in a VM automatically.
+After creating your module, add the options to enable it in `modules/tests/`.
+This will allow for your configuration to be tested along with the other
+modules automatically.
 
 <!-- This looks the best with the changelog generator. -->
 
