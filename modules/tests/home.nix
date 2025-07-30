@@ -1,5 +1,10 @@
 { lib, pkgs, ... }:
-
+let
+  firefoxModuleConfig = {
+    enable = true;
+    profiles.test.extensions.force = true;
+  };
+in
 {
   imports = [
     ../home-manager
@@ -20,14 +25,7 @@
     type = "fcitx5";
   };
 
-  catppuccin = {
-    # keep-sorted start
-    firefox.profiles.test = { };
-    floorp.profiles.test = { };
-    librewolf.profiles.test = { };
-    xfce4-terminal.enable = true;
-    # keep-sorted end
-  };
+  catppuccin.xfce4-terminal.enable = true;
 
   programs = {
     # keep-sorted start block=yes sticky_comments=yes
@@ -40,7 +38,9 @@
     cava.enable = true;
     chromium.enable = true;
     element-desktop.enable = true;
+    firefox = firefoxModuleConfig;
     fish.enable = true;
+    floorp = firefoxModuleConfig;
     foot.enable = true;
     freetube.enable = true;
     fuzzel.enable = true;
@@ -61,6 +61,7 @@
     k9s.enable = true;
     kitty.enable = true;
     lazygit.enable = true;
+    librewolf = firefoxModuleConfig;
     lsd.enable = true;
     mangohud.enable = true;
     micro.enable = true;
