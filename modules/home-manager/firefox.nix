@@ -101,11 +101,6 @@ let
                 }
               )
             );
-            # HACK(@getchoo): We need to to re-define these for doc generation :/
-            # The option we're merging with doesn't actually exist when only this homeModule is evaluated,
-            # so these values would be missing otherwise. That sucks
-            default = { };
-            description = "Catppuccin settings for ${prettyName} profiles.";
           };
         });
     };

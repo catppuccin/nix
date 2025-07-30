@@ -59,7 +59,8 @@
           in
 
           (pkgs.nixosOptionsDoc {
-            options = lib.removeAttrs eval.options [ "_module" ];
+            # You can also use this for backwards compat with < v1.2: `options = lib.removeAttrs eval.options [ "_module" ];`
+            options = { inherit (eval.options) catppuccin; };
 
             transformOptions =
               opt: lib.recursiveUpdate opt { declarations = replaceDeclarations opt.declarations; };
