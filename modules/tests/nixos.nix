@@ -2,7 +2,10 @@
 
 {
   boot = {
-    loader.grub.enable = true;
+    loader.grub = {
+      enable = true;
+      device = "nodev";
+    };
     plymouth.enable = true;
   };
 
