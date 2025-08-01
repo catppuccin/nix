@@ -2,7 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches:
+      - "main"
+      - "release-*"
     paths:
       - "**.nix"
       - "flake.lock"
@@ -11,6 +13,9 @@ on:
 
       - ".github/workflows/ci.yml"
   pull_request:
+    branches:
+      - "main"
+      - "release-*"
     paths:
       - "**.nix"
       - "flake.lock"
