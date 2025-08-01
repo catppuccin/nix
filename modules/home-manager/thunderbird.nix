@@ -16,7 +16,6 @@ in
     catppuccinLib.mkCatppuccinOption {
       name = "thunderbird";
       accentSupport = true;
-      default = lib.versionAtLeast config.home.stateVersion "25.05" && config.catppuccin.enable;
     }
     // {
       profile = lib.mkOption {
@@ -27,10 +26,6 @@ in
     };
 
   config = lib.mkIf enable {
-
-    # extensions support was added in https://github.com/nix-community/home-manager/pull/6033
-    assertions = [ (catppuccinLib.assertMinimumVersion "25.05") ];
-
     programs.thunderbird = {
       profiles."${cfg.profile}".extensions = [
         (pkgs.runCommandLocal "catppuccin-${cfg.flavor}-${cfg.accent}.thunderbird.theme"
