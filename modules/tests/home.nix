@@ -14,6 +14,9 @@ in
 
   catppuccin.xfce4-terminal.enable = true;
 
+  # For `catppuccin.gtk.icon`
+  gtk.enable = true;
+
   programs = {
     # keep-sorted start block=yes sticky_comments=yes
     aerc.enable = true;
