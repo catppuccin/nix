@@ -34,8 +34,7 @@ export default defineConfig({
       },
 
       editLink: {
-        baseUrl:
-          "https://github.com/catppuccin/nix/edit/main/",
+        baseUrl: "https://github.com/catppuccin/nix/edit/main/",
       },
 
       social: [
@@ -81,7 +80,9 @@ export default defineConfig({
             };
 
             // Apply "new" badge to latest stable release
-            return version == latestStableVersion ? { ...versionGroup, badge: "New" } : versionGroup;
+            return version == latestStableVersion
+              ? { ...versionGroup, badge: "New" }
+              : versionGroup;
           }),
         },
         {
