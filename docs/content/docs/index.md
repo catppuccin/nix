@@ -1,8 +1,8 @@
 ---
 title: catppuccin/nix
-sidebar:
-  order: 0
 template: splash
+editUrl: false
+next: false
 hero:
   title: catppuccin/nix
   tagline: The soothing pastel theme - now for Nix!
