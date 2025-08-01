@@ -16,6 +16,7 @@ on:
 
       - ".github/workflows/website.yml"
   pull_request:
+    branches: [main]
     paths:
       - "**.lock"
       - "**.nix"
