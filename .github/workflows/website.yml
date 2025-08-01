@@ -30,6 +30,12 @@ on:
 
       - ".github/workflows/website.yml"
   workflow_dispatch:
+    inputs:
+      deploy:
+        description: Whether to deploy the website after building
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   build:
@@ -67,7 +73,7 @@ jobs:
 
     needs: build
 
-    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+    if: ${{ github.event_name == 'push' || inputs.deploy }}
 
     runs-on: ubuntu-latest
 

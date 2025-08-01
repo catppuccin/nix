@@ -1,0 +1,22 @@
+name: Deploy Release Docs
+
+on:
+  push:
+    branches:
+      - "release-*"
+
+jobs:
+  deploy:
+    name: Trigger deployment
+
+    permissions:
+      actions: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Dispatch website workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run website.yml --field deploy=true
