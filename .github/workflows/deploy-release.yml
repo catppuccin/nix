@@ -18,5 +18,6 @@ jobs:
       - name: Dispatch website workflow
         env:
           GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
         run: |
-          gh workflow run website.yml --field deploy=true
+          gh workflow run website.yml --repo "$REPOSITORY" --field deploy=true
