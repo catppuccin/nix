@@ -22,11 +22,17 @@ on:
 
 jobs:
   flake:
-    name: Run Flake checks
+    name: Run Flake checks (${{ matrix.system }})
 
     strategy:
       fail-fast: false
       matrix:
+        include:
+          - os: macos-latest
+            system: aarch64-darwin
+          - os: ubuntu-latest
+            system: x86_64-linux
+
         os: [macos-latest, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
@@ -56,8 +62,15 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Run tests
+        env:
+          SYSTEM: ${{ matrix.system }}
+        # Some modules require IFD, so only evaluate for the current system
         run: |
-          nix flake check './dev' --print-build-logs --show-trace
+          nix run \
+            --inputs-from . \
+            nixpkgs#nix-fast-build -- \
+            --skip-cached --no-nom \
+            --flake "./dev#checks.$SYSTEM"
 
   release-gate:
     name: Release Gate
