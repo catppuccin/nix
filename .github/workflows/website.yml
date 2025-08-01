@@ -2,7 +2,10 @@ name: Build & deploy website
 
 on:
   push:
-    branches: [main]
+    # NOTE: We need to deploy on changes to all branches that affect the build
+    branches:
+      - "main"
+      - "release-*"
     paths:
       - "**.lock"
       - "**.nix"
@@ -16,6 +19,8 @@ on:
 
       - ".github/workflows/website.yml"
   pull_request:
+    # But exclude non-main branches on PRs since we already check the JSON files we
+    # fetch from them, and don't actually need to deploy
     branches: [main]
     paths:
       - "**.lock"
@@ -40,10 +45,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ (github.event_name == 'push' && github.ref_name != 'main') && 'main' || '' }}
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
 
+        # TODO(@getchoo): Use merge commits here directly instead of the working directory?
+        # Assuming working directory == main branch Isn't Great
+        # Plus it'd make it pretty easy to run this on PR builds for release branches
       - name: Update options data
         run: |
           ./dev/update-docs-data.sh
