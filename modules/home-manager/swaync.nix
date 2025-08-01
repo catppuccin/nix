@@ -41,13 +41,7 @@ in
 
     # Install the default font if it is selected
     home.packages = lib.mkIf (cfg.font == "Ubuntu Nerd Font") [
-      # TODO: Remove when 25.05 is stable and `nerdfonts` is fully deprecated
-      (
-        if pkgs ? "nerd-fonts" then
-          pkgs.nerd-fonts.ubuntu
-        else
-          pkgs.nerdfonts.override { fonts = [ "Ubuntu" ]; }
-      )
+      pkgs.nerd-fonts.ubuntu
     ];
   };
 }
