@@ -56,7 +56,8 @@ jobs:
         # Plus it'd make it pretty easy to run this on PR builds for release branches
       - name: Update options data
         run: |
-          ./dev/update-docs-data.sh
+          ./dev/update-docs-data.sh main
+          ./dev/update-docs-data.sh 25.05 "github:catppuccin/nix/release-25.05?dir=dev/"
 
       - name: Install dependencies
         run: |
