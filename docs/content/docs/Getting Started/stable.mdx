@@ -3,6 +3,8 @@ title: Stable Nix
 description: Start using Catppuccin with Flakes, NixOS, and home-manager
 ---
 
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
 # Stable Nix
 
 When using stable Nix, we have a couple options for installing `catppuccin/nix`:
@@ -13,9 +15,25 @@ When using stable Nix, we have a couple options for installing `catppuccin/nix`:
 
 Assuming you have followed [their getting started guide](https://github.com/andir/npins#getting-started), you can run the following:
 
+<Tabs syncKey="channel">
+
+<TabItem label="Unstable">
+
 ```sh
 npins add --name catppuccin github catppuccin nix
 ```
+
+</TabItem>
+
+<TabItem label="25.05">
+
+```sh
+npins add --name catppuccin --branch release-25.05 github catppuccin nix
+```
+
+</TabItem>
+
+</Tabs>
 
 And in your system configuration:
 
@@ -60,10 +78,27 @@ in
 
 To add `catppuccin/nix` as a channel, you can run the following:
 
+<Tabs syncKey="channel">
+
+<TabItem label="Unstable">
+
 ```sh
 sudo nix-channel --add https://github.com/catppuccin/nix/archive/main.tar.gz catppuccin
 sudo nix-channel --update
 ```
+
+</TabItem>
+
+<TabItem label="25.05">
+
+```sh
+sudo nix-channel --add https://github.com/catppuccin/nix/archive/release-25.05.tar.gz catppuccin
+sudo nix-channel --update
+```
+
+</TabItem>
+
+</Tabs>
 
 And in your system configuration:
 
