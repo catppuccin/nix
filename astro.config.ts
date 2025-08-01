@@ -32,7 +32,7 @@ export default defineConfig({
 
       editLink: {
         baseUrl:
-          "https://github.com/catppuccin/nix/edit/main/docs/content/docs/",
+          "https://github.com/catppuccin/nix/edit/main/",
       },
 
       social: [
