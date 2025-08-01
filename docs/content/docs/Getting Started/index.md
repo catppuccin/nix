@@ -1,7 +1,5 @@
 ---
 title: What is catppuccin/nix?
-sidebar:
-  order: 1
 ---
 
 `catppuccin/nix` is a port of the [soothing pastel theme](https://catppuccin.com) for [Nix](https://nixos.org).
