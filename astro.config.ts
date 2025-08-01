@@ -17,6 +17,9 @@ const moduleTypeToNiceLabel = (type: string) => {
   }
 };
 
+const rollingVersion = "main";
+const latestStableVersion = "25.05";
+
 export default defineConfig({
   site: process.env.URL || "https://nix.catppuccin.com",
 
@@ -60,9 +63,9 @@ export default defineConfig({
         {
           label: "Options List",
           items: Object.entries(optionsData).map(([version, modules]) => {
-            return {
+            const versionGroup = {
               label: version,
-              collapsed: version != "main",
+              collapsed: version != rollingVersion,
               items: Object.entries(modules).map(([type, options]) => {
                 return {
                   label: moduleTypeToNiceLabel(type),
@@ -76,6 +79,9 @@ export default defineConfig({
                 };
               }),
             };
+
+            // Apply "new" badge to latest stable release
+            return version == latestStableVersion ? { ...versionGroup, badge: "New" } : versionGroup;
           }),
         },
         {
