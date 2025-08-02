@@ -123,5 +123,10 @@
           file = ./modules/nixos;
         };
       };
+
+      darwinModules.catppuccin = mkModule {
+        type = "darwin";
+        file = ./modules/darwin;
+      };
     };
 }
