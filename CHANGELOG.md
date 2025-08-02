@@ -1,5 +1,120 @@
 # Changelog
 
+## [25.05](https://github.com/catppuccin/nix/releases/tag/25.05) - 2025-08-01
+
+### 🚨 Breaking Changes
+
+- **modules**: drop support for nixpkgs 24.11 by [@getchoo](https://github.com/getchoo)
+- **home-manager/gtk**: remove by [@getchoo](https://github.com/getchoo)
+
+### 🚀 Features
+
+- **fctix5**: add enableRounded option by [@isabelroses](https://github.com/isabelroses)
+- **home-manager**: init wlogout module by [@Anomalocaridid](https://github.com/Anomalocaridid)
+- **home-manager**: add support for chromium and chromium-based browsers by [@HeitorAugustoLN](https://github.com/HeitorAugustoLN)
+- **home-manager**: add support for ghostty by [@natecox](https://github.com/natecox)
+- **home-manager**: add support for lsd by [@mariovagomarzal](https://github.com/mariovagomarzal)
+- **home-manager**: add support for thunderbird by [@nim65s](https://github.com/nim65s)
+- **home-manager**: add support for nushell by [@isabelroses](https://github.com/isabelroses)
+- **home-manager**: add support for vscode by [@getchoo](https://github.com/getchoo)
+- **home-manager**: add support for wezterm by [@taranarmo](https://github.com/taranarmo)
+- **home-manager**: add support for swaync by [@Lichthagel](https://github.com/Lichthagel)
+- **home-manager**: add support for qutebrowser by [@fmway](https://github.com/fmway)
+- **home-manager**: add support for sioyak by [@n194](https://github.com/n194)
+- **home-manager**: add support for atuin by [@isabelroses](https://github.com/isabelroses)
+- **home-manager**: add support for firefox-based browsers by [@different-name](https://github.com/different-name)
+- **home-manager**: add support for xfce4-terminal by [@different-name](https://github.com/different-name)
+- **home-manager**: add support for element-desktop by [@SchweGELBin](https://github.com/SchweGELBin)
+- **home-manager**: add support for vesktop by [@SchweGELBin](https://github.com/SchweGELBin)
+- **home-manager**: add support for mangohud by [@SchweGELBin](https://github.com/SchweGELBin)
+- **home-manager/firefox**: enable 'default' profile by default by [@different-name](https://github.com/different-name)
+- **home-manager/firefox**: use options submodule to apply configuration by [@different-name](https://github.com/different-name)
+- **home-manager/hyprlock**: allow using default config for port by [@getchoo](https://github.com/getchoo)
+- **home-manager/neovim**: add option for custom settings by [@toodeluna](https://github.com/toodeluna)
+- **home-manager/vscode**: allow configuration of build by [@isabelroses](https://github.com/isabelroses)
+- **home-manager/vscode**: Add support for per-profile config by [@different-name](https://github.com/different-name)
+- **home-manager/vscode-icons**: init by [@isabelroses](https://github.com/isabelroses)
+- **home-manager/zed**: accent support by [@isabelroses](https://github.com/isabelroses)
+- **home-manager/zed-editor**: icon support by [@42willow](https://github.com/42willow)
+- **home-manager/zed-editor**: add ability to enable/disable icons by [@isabelroses](https://github.com/isabelroses)
+- **modules**: use package set for port sources by [@getchoo](https://github.com/getchoo)
+- **nixos**: add support for gitea/forgejo by [@Lichthagel](https://github.com/Lichthagel)
+- **nixos**: Add support for Limine by [@dinckelman](https://github.com/dinckelman)
+- global cachix option by [@isabelroses](https://github.com/isabelroses)
+
+### 🐛 Bug Fixes
+
+- **catwalk**: enable useFetchCargoVendor by [@isabelroses](https://github.com/isabelroses)
+- **docs**: theming by [@isabelroses](https://github.com/isabelroses)
+- **gitea**: controlled by enable [#588](https://github.com/catppuccin/nix/issues/588) by [@luochen1990](https://github.com/luochen1990)
+- **home-manager/alacritty**: remove the `general` setting option by [@mariovagomarzal](https://github.com/mariovagomarzal)
+- **home-manager/fcitx5**: adjust source by [@isabelroses](https://github.com/isabelroses)
+- **home-manager/fcitx5**: support new enable option by [@brian14708](https://github.com/brian14708)
+- **home-manager/firefox**: set default profile safely by [@different-name](https://github.com/different-name)
+- **home-manager/firefox**: only apply to profiles specified by [@getchoo](https://github.com/getchoo)
+- **home-manager/gtk**: pass flavor and not variant by [@isabelroses](https://github.com/isabelroses)
+- **home-manager/gtk**: adjust config.gtk.name for new package by [@isabelroses](https://github.com/isabelroses)
+- **home-manager/mako**: use settings instead of extraConfig by [@MisileLab](https://github.com/MisileLab)
+- **home-manager/rofi**: update to use upstream overhaul by [@isabelroses](https://github.com/isabelroses)
+- **home-manager/zed**: correctly apply italics by [@getchoo](https://github.com/getchoo)
+- **home-manager/zed**: correctly enable & select accent by [@isabelroses](https://github.com/isabelroses)
+- **lib**: set defaultText for flavor and accent for mkCatppuccinOption by [@isabelroses](https://github.com/isabelroses)
+- **mako**: use theme directly by [@oliviafloof](https://github.com/oliviafloof)
+- **mako**: inherit from theme by [@oliviafloof](https://github.com/oliviafloof)
+- **mako**: deprecated settings.criteria by [@brian14708](https://github.com/brian14708)
+- **nixos/gitea**: copy files across for v12 forgejo by [@isabelroses](https://github.com/isabelroses)
+- **paws**: use hash instead of narHash by [@isabelroses](https://github.com/isabelroses)
+- **pkgs/nvim**: copy overrides from nixpkgs by [@w-lfchen](https://github.com/w-lfchen)
+- **pkgs/paws**: set timezone to UTC for fetcher by [@isabelroses](https://github.com/isabelroses)
+- **pkgs/rofi**: remove import at build by [@isabelroses](https://github.com/isabelroses)
+- **tests**: disable forgejo by [@isabelroses](https://github.com/isabelroses)
+- **whiskers**: enable useFetchCargoVendor by [@PerchunPak](https://github.com/PerchunPak)
+- **yazi**: update repository source by [@isabelroses](https://github.com/isabelroses)
+- use correct nixfmt package by [@getchoo](https://github.com/getchoo)
+- assert home-manager version for thunderbird module by [@nim65s](https://github.com/nim65s)
+- useFetchCargoVendor is non-optional and enabled by default as of 25.05 by [@Safenein](https://github.com/Safenein)
+
+### ⏪ Reverted
+
+- "fix(home-manager/alacritty): remove the `general` setting option" by [@Yakkhini](https://github.com/Yakkhini)
+- "fix(home-manager/lazygit): avoid IFD" by [@getchoo](https://github.com/getchoo)
+
+### 📚 Documentation
+
+- **FAQ**: move to catppuccin namespace by [@42willow](https://github.com/42willow)
+- **README**: sync FAQ with site by [@42willow](https://github.com/42willow)
+- **README**: link to IFD tracking issue by [@getchoo](https://github.com/getchoo)
+- show new option namespace by [@asymmetric](https://github.com/asymmetric)
+- update home-manager module name in readme by [@TheJolman](https://github.com/TheJolman)
+- move to starlight by [@getchoo](https://github.com/getchoo)
+- clean up and add release branch guides by [@getchoo](https://github.com/getchoo)
+
+### New Contributors
+
+* [@HeitorAugustoLN](https://github.com/HeitorAugustoLN) made their first contribution in [#447](https://github.com/catppuccin/nix/issues/447)
+* [@MisileLab](https://github.com/MisileLab) made their first contribution in [#553](https://github.com/catppuccin/nix/issues/553)
+* [@Safenein](https://github.com/Safenein) made their first contribution in [#629](https://github.com/catppuccin/nix/issues/629)
+* [@TheJolman](https://github.com/TheJolman) made their first contribution in [#562](https://github.com/catppuccin/nix/issues/562)
+* [@Yakkhini](https://github.com/Yakkhini) made their first contribution in [#452](https://github.com/catppuccin/nix/issues/452)
+* [@asymmetric](https://github.com/asymmetric) made their first contribution in [#421](https://github.com/catppuccin/nix/issues/421)
+* [@awwpotato](https://github.com/awwpotato) made their first contribution in [#605](https://github.com/catppuccin/nix/issues/605)
+* [@brian14708](https://github.com/brian14708) made their first contribution in [#563](https://github.com/catppuccin/nix/issues/563)
+* [@different-name](https://github.com/different-name) made their first contribution in [#609](https://github.com/catppuccin/nix/issues/609)
+* [@dinckelman](https://github.com/dinckelman) made their first contribution in [#570](https://github.com/catppuccin/nix/issues/570)
+* [@fmway](https://github.com/fmway) made their first contribution in [#479](https://github.com/catppuccin/nix/issues/479)
+* [@frahz](https://github.com/frahz) made their first contribution in [#567](https://github.com/catppuccin/nix/issues/567)
+* [@gepbird](https://github.com/gepbird) made their first contribution in [#616](https://github.com/catppuccin/nix/issues/616)
+* [@karitham](https://github.com/karitham) made their first contribution in [#537](https://github.com/catppuccin/nix/issues/537)
+* [@khaneliman](https://github.com/khaneliman) made their first contribution in [#543](https://github.com/catppuccin/nix/issues/543)
+* [@kittywitch](https://github.com/kittywitch) made their first contribution in [#610](https://github.com/catppuccin/nix/issues/610)
+* [@luochen1990](https://github.com/luochen1990) made their first contribution in [#589](https://github.com/catppuccin/nix/issues/589)
+* [@mariovagomarzal](https://github.com/mariovagomarzal) made their first contribution in [#454](https://github.com/catppuccin/nix/issues/454)
+* [@n194](https://github.com/n194) made their first contribution in [#535](https://github.com/catppuccin/nix/issues/535)
+* [@natecox](https://github.com/natecox) made their first contribution in [#446](https://github.com/catppuccin/nix/issues/446)
+* [@nim65s](https://github.com/nim65s) made their first contribution in [#489](https://github.com/catppuccin/nix/issues/489)
+* [@taranarmo](https://github.com/taranarmo) made their first contribution in [#433](https://github.com/catppuccin/nix/issues/433)
+* [@toodeluna](https://github.com/toodeluna) made their first contribution in [#457](https://github.com/catppuccin/nix/issues/457)
+
 ## [1.2.1](https://github.com/catppuccin/nix/releases/tag/v1.2.1) - 2024-12-20
 
 ### 🐛 Bug Fixes
