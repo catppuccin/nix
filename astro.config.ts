@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import catppuccin from "@catppuccin/starlight";
 import starlight from "@astrojs/starlight";
+import astroExpressiveCode from "astro-expressive-code";
 
 import { optionsData } from "./docs/data/options";
 
@@ -36,19 +37,6 @@ export default defineConfig({
       editLink: {
         baseUrl: "https://github.com/catppuccin/nix/edit/main/",
       },
-
-      social: [
-        {
-          icon: "github",
-          label: "GitHub",
-          href: "https://github.com/catppuccin/nix",
-        },
-        {
-          icon: "discord",
-          label: "Discord",
-          href: "https://discord.com/servers/907385605422448742",
-        },
-      ],
 
       sidebar: [
         {
@@ -91,6 +79,37 @@ export default defineConfig({
         },
         "contributing",
       ],
+
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/catppuccin/nix",
+        },
+        {
+          icon: "discord",
+          label: "Discord",
+          href: "https://discord.com/servers/907385605422448742",
+        },
+      ],
+
+      // Catppuccin-ified code blocks!
+      // Sourced from https://github.com/catppuccin/starlight/blob/e8e4bbf83541e6dc95c89b17df844b3c2c472103/apps/docs/astro.config.ts#L23-L36
+      // TODO(@getchoo): Stop vendoring this if/when we can
+      expressiveCode: {
+        themes: ["catppuccin-mocha", "catppuccin-latte"],
+        styleOverrides: {
+          textMarkers: {
+            insBackground:
+              "color-mix(in oklab, var(--sl-color-green-high) 25%, var(--sl-color-gray-6));",
+            insBorderColor: "var(--sl-color-gray-5)",
+            delBackground:
+              "color-mix(in oklab, var(--sl-color-red-high) 25%, var(--sl-color-gray-6));",
+            delBorderColor: "var(--sl-color-gray-5)",
+          },
+          codeBackground: "var(--sl-color-gray-6)",
+        },
+      },
 
       favicon: "./favicon.png",
 
