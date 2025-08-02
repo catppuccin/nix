@@ -1,6 +1,6 @@
 # Changelog
 
-## [25.05](https://github.com/catppuccin/nix/releases/tag/25.05) - 2025-08-01
+## [25.05](https://github.com/catppuccin/nix/releases/tag/v25.05) - 2025-08-01
 
 ### 🚨 Breaking Changes
 
