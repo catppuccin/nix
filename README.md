@@ -36,7 +36,7 @@
 
 ## Usage
 
-You will probably want to see our [Getting started guide](http://nix.catppuccin.com/getting-started/index.html), but as a TLDR:
+You will probably want to see our [Getting started guide](http://nix.catppuccin.com/getting-started/), but as a TLDR:
 
 1. Import the [NixOS](https://nixos.org) and [home-manager](https://github.com/nix-community/home-manager) modules
 
@@ -160,12 +160,12 @@ For [standalone installations](https://nix-community.github.io/home-manager/inde
 ## 🙋 FAQ
 
 - Q: **"How do I know what programs are supported?"**\
-  A: You can find programs supported through home-manager [here](https://nix.catppuccin.com/search/rolling/?scope=home-manager+modules),
-  and NixOS modules [here](https://nix.catppuccin.com/search/rolling/?scope=NixOS+modules)
+  A: You can find programs supported through home-manager [here](https://nix.catppuccin.com/options/main/home/catppuccin/),
+  and NixOS modules [here](https://nix.catppuccin.com/options/main/nixos/catppuccin/)
 
 - Q: **"How do I set `catppuccin.enable` for everything I use?"**\
-  A: You can set `catppuccin.enable` globally through home-manager [here](https://nix.catppuccin.com/search/rolling/?option_scope=1&option=catppuccin.enable),
-  and NixOS modules [here](https://nix.catppuccin.com/search/rolling/?option_scope=0&option=catppuccin.enable)
+  A: You can set `catppuccin.enable` globally through home-manager [here](https://nix.catppuccin.com/options/main/home/catppuccin/#catppuccin-enable),
+  and NixOS modules [here](https://nix.catppuccin.com/options/main/nixos/catppuccin/#catppuccin-enable)
 
 - Q: **"What versions of NixOS and home-manager are supported?"**\
   A: We primarily support the `unstable` branch, but try our best to support the current stable release.
