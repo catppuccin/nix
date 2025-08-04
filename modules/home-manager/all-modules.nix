@@ -23,6 +23,7 @@
   ./ghostty.nix
   ./glamour.nix
   ./gtk.nix
+  ./halloy.nix
   ./helix.nix
   ./hyprland.nix
   ./hyprlock.nix
