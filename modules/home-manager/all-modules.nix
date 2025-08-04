@@ -12,7 +12,7 @@
   ./dunst.nix
   ./element-desktop.nix
   ./fcitx5.nix
-  ./firefox.nix
+  ./firefox
   ./fish.nix
   ./foot.nix
   ./freetube.nix
