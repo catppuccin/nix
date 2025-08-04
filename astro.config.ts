@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import catppuccin from "@catppuccin/starlight";
 import starlight from "@astrojs/starlight";
-import astroExpressiveCode from "astro-expressive-code";
 
 import { optionsData } from "./docs/data/options";
 

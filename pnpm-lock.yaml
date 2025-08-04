@@ -20,9 +20,6 @@ importers:
       astro:
         specifier: ^5.12.3
         version: 5.12.3(@types/node@24.1.0)(rollup@4.45.1)(typescript@5.8.3)(yaml@2.8.0)
-      astro-expressive-code:
-        specifier: ^0.41.3
-        version: 0.41.3(astro@5.12.3(@types/node@24.1.0)(rollup@4.45.1)(typescript@5.8.3)(yaml@2.8.0))
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
