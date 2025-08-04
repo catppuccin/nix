@@ -49,6 +49,7 @@ in
     # this is enabled by default already, but still
     # listing explicitly so we know it's tested
     glamour.catppuccin.enable = true;
+    halloy.enable = true;
     helix.enable = true;
     hyprlock.enable = isLinux;
     imv.enable = isLinux;
