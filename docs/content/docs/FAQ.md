@@ -20,9 +20,10 @@ You can set `catppuccin.enable` globally through home-manager
 
 ## What versions of NixOS and home-manager are supported?
 
-We primarily support the `unstable` branch, but try our best to support the
-current stable release. You can check if your stable release is currently
-supported at [status.nixos.org](https://status.nixos.org/).
+We support both the `unstable` branch and latest stable. This is done through two branches in our repository:
+
+- `main`: for unstable users
+- `release-x.x`: for the latest stable release (i.e., `release-25.05`)
 
 ## How do I fix the error: `... during evaluation because the option 'allow-import-from-derivation' is disabled`
 
