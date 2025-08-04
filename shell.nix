@@ -5,35 +5,52 @@
     overlays = [ ];
   },
   system ? builtins.currentSystem,
+  minimal ? false,
 }:
 
 pkgs.mkShellNoCC {
-  packages = with pkgs; [
-    # Nix tools
-    deadnix
-    nixfmt-rfc-style
-    nil
-    statix
+  packages =
+    with pkgs;
+    [
+      /*
+        WARN(@getchoo): KEEP A SAFE NIX PINNED!!
 
-    # GHA lints
-    actionlint
+        We end up relying on some features exclusive to Nix, like relative path inputs
+        https://git.lix.systems/lix-project/lix/issues/641
 
-    # Python tools for paws.py
-    pyright
-    ruff
+        We also run into inconsistent evaluation with "distributions" of Nix
+        and their features - like DetNix and Lazy Trees
 
-    # Node tooling for Astro/Starlight
-    nodejs-slim_22
-    corepack
+        Basically: Nix is the only one that evaluates our development Flake correctly. Yay.
+      */
+      nixVersions.nix_2_28
 
-    nrr
+      # Node tooling for Astro/Starlight
+      nodejs-slim_22
+      corepack
+      nrr
+    ]
+    ++ lib.optionals (!minimal) [
+      # Nix tools
+      deadnix
+      nixfmt-rfc-style
+      nil
+      statix
 
-    astro-language-server
-    typescript-language-server
+      # GHA lints
+      actionlint
 
-    # Shell lints
-    shellcheck
-  ];
+      # Python tools for paws.py
+      pyright
+      ruff
+
+      # More node tooling for Astro/Starlight
+      astro-language-server
+      typescript-language-server
+
+      # Shell lints
+      shellcheck
+    ];
 
   shellHook = ''
     echo "Welcome to the catppuccin/nix repository! Thanks for contributing and have a wonderful day 🐈"
