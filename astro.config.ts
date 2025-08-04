@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import catppuccin from "@catppuccin/starlight";
 import starlight from "@astrojs/starlight";
-import astroExpressiveCode from "astro-expressive-code";
 
 import { optionsData } from "./docs/data/options";
 
@@ -24,7 +23,8 @@ const latestStableVersion = "25.05";
 export default defineConfig({
   site: process.env.URL || "https://nix.catppuccin.com",
 
-  srcDir: "./docs",
+  srcDir: './docs',
+  publicDir: './docs/public',
 
   integrations: [
     starlight({
@@ -72,6 +72,10 @@ export default defineConfig({
               ? { ...versionGroup, badge: "New" }
               : versionGroup;
           }),
+        },
+        {
+          label: "Frequently Asked Questions",
+          link: "/faq",
         },
         {
           label: "Changelog",
