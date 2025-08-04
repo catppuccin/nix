@@ -80,5 +80,26 @@ BREAKING CHANGE: bars are now foo'ed
 
 ## For Maintainers
 
+### Merging
+
 Use squash merges when reasonable. They don't pollute the log with merge commits, and
 unlike rebase merges, list the author as the committer as well.
+
+### Creating Releases
+
+As of v25.05, `catppuccin/nix` tries to match the upstream releases of NixOS
+and home-manager. This is done through the `main` branch supporting unstable,
+and the `release-*` branches matching a stable release of NixOS.
+
+Tags are created on each new stable "branch-off" in the format of `vYY.MM`.
+**These must be created from the accompanying `release-YY.MM` branch!** A
+release is then created from that tag, and a changelog entry is created for all
+changes since the last stable branch-off with the following
+[`git-cliff`](https://git-cliff.org/) command:
+
+```console
+$ VERSION="YY.MM"
+$ TAG="v${VERSION}"
+$ git switch "release-${VERSION}"
+$ git-cliff --github-token "$(gh auth token)" --prepend CHANGELOG.md --tag "$TAG" --unreleased
+```
