@@ -23,8 +23,8 @@ const latestStableVersion = "25.05";
 export default defineConfig({
   site: process.env.URL || "https://nix.catppuccin.com",
 
-  srcDir: './docs',
-  publicDir: './docs/public',
+  srcDir: "./docs",
+  publicDir: "./docs/public",
 
   integrations: [
     starlight({
