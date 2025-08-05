@@ -81,6 +81,8 @@ in
     vscode = {
       enable = true;
       package = pkgs.vscodium;
+
+      profiles.pepperjack = { };
     };
     waybar.enable = isLinux;
     wezterm.enable = true;
