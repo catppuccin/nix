@@ -104,6 +104,11 @@
     "lastModified": "2025-07-11",
     "rev": "0a37ab19f654e77129b409fed371891c01ffd0b9"
   },
+  "halloy": {
+    "hash": "sha256-+c9C9QHTHzt1bl0wDzknfUpoMtyUaeKZcbpfXA+BaVM=",
+    "lastModified": "2025-03-30",
+    "rev": "b7f0c9a9447fcebcaa0b946935232bdf96494515"
+  },
   "helix": {
     "hash": "sha256-MS1oDn+nMlPL5EJb/lXBVXMzku7vmuMWneMAXdTB1nU=",
     "lastModified": "2025-05-24",
