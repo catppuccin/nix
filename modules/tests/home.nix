@@ -12,7 +12,13 @@ in
     type = "fcitx5";
   };
 
-  catppuccin.xfce4-terminal.enable = true;
+  catppuccin = {
+    # NOTE: This is enabled by default already, but still
+    # listing explicitly so we know it's tested
+    glamour.enable = true;
+
+    xfce4-terminal.enable = true;
+  };
 
   # For `catppuccin.gtk.icon`
   gtk.enable = true;
@@ -46,9 +52,6 @@ in
       delta.enable = true;
     };
     gitui.enable = true;
-    # this is enabled by default already, but still
-    # listing explicitly so we know it's tested
-    glamour.catppuccin.enable = true;
     halloy.enable = true;
     helix.enable = true;
     hyprlock.enable = isLinux;

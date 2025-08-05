@@ -17,16 +17,6 @@ in
 {
   options.catppuccin.grub = catppuccinLib.mkCatppuccinOption { name = "grub"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "boot"
-      "loader"
-      "grub"
-      "catppuccin"
-    ];
-    to = "grub";
-  };
-
   config = lib.mkIf cfg.enable {
     boot.loader.grub = {
       font = "${theme}/font.pf2";

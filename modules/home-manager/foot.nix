@@ -10,15 +10,6 @@ in
 {
   options.catppuccin.foot = catppuccinLib.mkCatppuccinOption { name = "foot"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "foot"
-      "catppuccin"
-    ];
-    to = "foot";
-  };
-
   config = lib.mkIf cfg.enable {
     programs.foot = {
       settings = {

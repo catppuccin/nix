@@ -16,15 +16,6 @@ in
     transparent = lib.mkEnableOption "transparent version of flavor";
   };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "micro"
-      "catppuccin"
-    ];
-    to = "micro";
-  };
-
   config = lib.mkIf enable {
     programs.micro = {
       settings = {

@@ -11,15 +11,6 @@ in
 {
   options.catppuccin.newsboat = catppuccinLib.mkCatppuccinOption { name = "newsboat"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "newsboat"
-      "catppuccin"
-    ];
-    to = "newsboat";
-  };
-
   config = lib.mkIf cfg.enable {
     programs.newsboat = {
       extraConfig = lib.fileContents "${sources.newsboat}/${theme}";

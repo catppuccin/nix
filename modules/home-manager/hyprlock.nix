@@ -24,16 +24,6 @@ in
       };
     };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "hyprlock"
-      "catppuccin"
-    ];
-    to = "hyprlock";
-    accentSupport = true;
-  };
-
   config = lib.mkIf cfg.enable {
     programs.hyprlock = {
       settings = {

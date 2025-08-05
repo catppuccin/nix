@@ -18,17 +18,6 @@ in
     accentSupport = true;
   };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "wayland"
-      "windowManager"
-      "hyprland"
-      "catppuccin"
-    ];
-    to = "hyprland";
-    accentSupport = true;
-  };
-
   config = lib.mkIf enable {
     home.sessionVariables = lib.mkIf cursors.enable {
       HYPRCURSOR_SIZE = config.home.pointerCursor.size;
