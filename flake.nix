@@ -57,20 +57,18 @@
 
       devShells = forAllDevSystems (
         system:
+
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in
-        {
-          default = import ./shell.nix { inherit pkgs; };
 
-          ci = pkgs.mkShellNoCC {
-            packages = with pkgs; [
-              nodejs-slim_22
-              corepack
-              nrr
-            ];
-          };
-        }
+        lib.genAttrs [ "default" "ci" ] (
+          name:
+          import ./shell.nix {
+            inherit pkgs;
+            minimal = name == "ci";
+          }
+        )
       );
 
       formatter = forAllDevSystems (
