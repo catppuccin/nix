@@ -13,16 +13,6 @@ in
     accentSupport = true;
   };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "fuzzel"
-      "catppuccin"
-    ];
-    to = "fuzzel";
-    accentSupport = true;
-  };
-
   config = lib.mkIf cfg.enable {
     programs.fuzzel = {
       settings = {

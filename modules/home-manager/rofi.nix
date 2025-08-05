@@ -11,15 +11,6 @@ in
 {
   options.catppuccin.rofi = catppuccinLib.mkCatppuccinOption { name = "rofi"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "rofi"
-      "catppuccin"
-    ];
-    to = "rofi";
-  };
-
   config = lib.mkIf enable {
     programs.rofi = {
       theme = {

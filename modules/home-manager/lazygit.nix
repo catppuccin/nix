@@ -30,16 +30,6 @@ in
     accentSupport = true;
   };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "lazygit"
-      "catppuccin"
-    ];
-    to = "lazygit";
-    accentSupport = true;
-  };
-
   config = lib.mkIf enable {
     home.sessionVariables =
       let

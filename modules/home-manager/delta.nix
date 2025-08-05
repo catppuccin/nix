@@ -11,16 +11,6 @@ in
 {
   options.catppuccin.delta = catppuccinLib.mkCatppuccinOption { name = "delta"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "git"
-      "delta"
-      "catppuccin"
-    ];
-    to = "delta";
-  };
-
   config = lib.mkIf enable {
     programs.git = {
       includes = [ { path = "${sources.delta}/catppuccin.gitconfig"; } ];

@@ -14,31 +14,6 @@ in
     useItalics = lib.mkEnableOption "Italics in Catppuccin theme for Helix";
   };
 
-  imports =
-    (catppuccinLib.mkRenamedCatppuccinOptions {
-      from = [
-        "programs"
-        "helix"
-        "catppuccin"
-      ];
-      to = "helix";
-    })
-    ++ [
-      (lib.mkRenamedOptionModule
-        [
-          "programs"
-          "helix"
-          "catppuccin"
-          "useItalics"
-        ]
-        [
-          "catppuccin"
-          "helix"
-          "useItalics"
-        ]
-      )
-    ];
-
   config = lib.mkIf enable {
     programs.helix = {
       settings = {

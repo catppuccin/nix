@@ -17,31 +17,6 @@ in
     };
   };
 
-  imports =
-    (catppuccinLib.mkRenamedCatppuccinOptions {
-      from = [
-        "services"
-        "dunst"
-        "catppuccin"
-      ];
-      to = "dunst";
-    })
-    ++ [
-      (lib.mkRenamedOptionModule
-        [
-          "services"
-          "dunst"
-          "catppuccin"
-          "prefix"
-        ]
-        [
-          "catppuccin"
-          "dunst"
-          "prefix"
-        ]
-      )
-    ];
-
   # Dunst currently has no "include" functionality, but has "drop-ins"
   # Unfortunately, this may cause inconvenience as it overrides ~/.config/dunst/dunstrc
   # but it can be overridden by another drop-in.

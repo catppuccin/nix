@@ -12,15 +12,6 @@ in
 {
   options.catppuccin.plymouth = catppuccinLib.mkCatppuccinOption { name = "plymouth"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "boot"
-      "plymouth"
-      "catppuccin"
-    ];
-    to = "plymouth";
-  };
-
   config = lib.mkIf cfg.enable {
     boot.plymouth = {
       theme = "catppuccin-${cfg.flavor}";

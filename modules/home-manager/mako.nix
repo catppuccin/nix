@@ -24,16 +24,6 @@ in
     accentSupport = true;
   };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "services"
-      "mako"
-      "catppuccin"
-    ];
-    to = "mako";
-    accentSupport = true;
-  };
-
   # Will cause infinite recursion if config.services.mako is directly set as a whole
   config.services.mako = lib.mkIf cfg.enable (
     if (config.services.mako ? settings) then

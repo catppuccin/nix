@@ -10,15 +10,6 @@ in
 {
   options.catppuccin.aerc = catppuccinLib.mkCatppuccinOption { name = "aerc"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "aerc"
-      "catppuccin"
-    ];
-    to = "aerc";
-  };
-
   config = lib.mkIf cfg.enable {
     programs.aerc = {
       stylesets.${themeName} = lib.fileContents "${sources.aerc}/${themeName}";

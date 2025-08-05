@@ -35,15 +35,6 @@ in
       };
     };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "catppuccin"
-      "pointerCursor"
-    ];
-    to = "cursors";
-    accentSupport = true;
-  };
-
   config = lib.mkIf cfg.enable {
     home.pointerCursor = {
       name = "catppuccin-${cfg.flavor}-${cfg.accent}-cursors";

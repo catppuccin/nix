@@ -10,15 +10,6 @@ in
 {
   options.catppuccin.starship = catppuccinLib.mkCatppuccinOption { name = "starship"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "starship"
-      "catppuccin"
-    ];
-    to = "starship";
-  };
-
   config = lib.mkIf cfg.enable {
     programs.starship = {
       settings = {

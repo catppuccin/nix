@@ -21,31 +21,6 @@ in
     };
   };
 
-  imports =
-    (catppuccinLib.mkRenamedCatppuccinOptions {
-      from = [
-        "programs"
-        "tmux"
-        "catppuccin"
-      ];
-      to = "tmux";
-    })
-    ++ [
-      (lib.mkRenamedOptionModule
-        [
-          "programs"
-          "tmux"
-          "catppuccin"
-          "extraConfig"
-        ]
-        [
-          "catppuccin"
-          "tmux"
-          "extraConfig"
-        ]
-      )
-    ];
-
   config = lib.mkIf cfg.enable {
     programs.tmux = {
       plugins = [

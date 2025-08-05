@@ -13,15 +13,6 @@ in
 {
   options.catppuccin.obs = catppuccinLib.mkCatppuccinOption { name = "obs-studio"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "obs-studio"
-      "catppuccin"
-    ];
-    to = "obs";
-  };
-
   config = lib.mkIf enable {
     xdg.configFile = {
       "obs-studio/themes/Catppuccin.obt".source = "${sources.obs}/Catppuccin.obt";
