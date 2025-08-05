@@ -18,15 +18,6 @@ in
     };
   };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "neovim"
-      "catppuccin"
-    ];
-    to = "nvim";
-  };
-
   config = lib.mkIf cfg.enable {
     programs.neovim = {
       plugins = [

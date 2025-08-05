@@ -27,31 +27,6 @@ in
     transparent = lib.mkEnableOption "transparent version of flavor";
   };
 
-  imports =
-    (catppuccinLib.mkRenamedCatppuccinOptions {
-      from = [
-        "programs"
-        "k9s"
-        "catppuccin"
-      ];
-      to = "k9s";
-    })
-    ++ [
-      (lib.mkRenamedOptionModule
-        [
-          "programs"
-          "k9s"
-          "catppuccin"
-          "transparent"
-        ]
-        [
-          "catppuccin"
-          "k9s"
-          "transparent"
-        ]
-      )
-    ];
-
   config = lib.mkIf enable (
     lib.mkMerge [
       (lib.mkIf (!enableXdgConfig) {

@@ -11,15 +11,6 @@ in
 {
   options.catppuccin.skim = catppuccinLib.mkCatppuccinOption { name = "skim"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "skim"
-      "catppuccin"
-    ];
-    to = "skim";
-  };
-
   config = lib.mkIf cfg.enable {
     programs.skim = {
       defaultOptions = [

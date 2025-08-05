@@ -10,15 +10,6 @@ in
 {
   options.catppuccin.bat = catppuccinLib.mkCatppuccinOption { name = "bat"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "bat"
-      "catppuccin"
-    ];
-    to = "bat";
-  };
-
   config = lib.mkIf cfg.enable {
     programs.bat = {
       config.theme = themeName;

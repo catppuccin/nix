@@ -13,15 +13,6 @@ in
 {
   options.catppuccin.fish = catppuccinLib.mkCatppuccinOption { name = "fish"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "fish"
-      "catppuccin"
-    ];
-    to = "fish";
-  };
-
   config = lib.mkIf enable {
     xdg.configFile."fish/themes/${themeName}.theme".source = "${sources.fish}/${themeName}.theme";
 

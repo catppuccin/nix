@@ -14,16 +14,6 @@ in
     accentSupport = true;
   };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "yazi"
-      "catppuccin"
-    ];
-    to = "yazi";
-    accentSupport = true;
-  };
-
   config = lib.mkIf enable {
     xdg.configFile = {
       "yazi/theme.toml".source =

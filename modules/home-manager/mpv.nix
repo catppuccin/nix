@@ -13,16 +13,6 @@ in
     accentSupport = true;
   };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "mpv"
-      "catppuccin"
-    ];
-    to = "mpv";
-    accentSupport = true;
-  };
-
   config = lib.mkIf cfg.enable {
     programs.mpv = {
       config = {

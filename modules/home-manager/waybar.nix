@@ -27,31 +27,6 @@ in
     };
   };
 
-  imports =
-    (catppuccinLib.mkRenamedCatppuccinOptions {
-      from = [
-        "programs"
-        "waybar"
-        "catppuccin"
-      ];
-      to = "waybar";
-    })
-    ++ [
-      (lib.mkRenamedOptionModule
-        [
-          "programs"
-          "waybar"
-          "catppuccin"
-          "mode"
-        ]
-        [
-          "catppuccin"
-          "waybar"
-          "mode"
-        ]
-      )
-    ];
-
   config = lib.mkIf enable (
     lib.mkMerge [
       (lib.mkIf (cfg.mode == "prependImport") {

@@ -23,32 +23,6 @@ in
       };
     };
 
-  imports =
-    (catppuccinLib.mkRenamedCatppuccinOptions {
-      from = [
-        "programs"
-        "freetube"
-        "catppuccin"
-      ];
-      to = "freetube";
-      accentSupport = true;
-    })
-    ++ [
-      (lib.mkRenamedOptionModule
-        [
-          "programs"
-          "freetube"
-          "catppuccin"
-          "secondaryAccent"
-        ]
-        [
-          "catppuccin"
-          "freetube"
-          "secondaryAccent"
-        ]
-      )
-    ];
-
   config = lib.mkIf cfg.enable {
     programs.freetube.settings = {
       # NOTE: For some reason, baseTheme does not capitalize first letter, but the other settings do

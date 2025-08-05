@@ -12,14 +12,6 @@ in
 {
   options.catppuccin.tty = catppuccinLib.mkCatppuccinOption { name = "tty"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "console"
-      "catppuccin"
-    ];
-    to = "tty";
-  };
-
   config = lib.mkIf enable {
     # Manually populate with colors from catppuccin/tty
     # Make sure to strip initial # from hex codes
