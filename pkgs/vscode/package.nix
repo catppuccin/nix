@@ -40,8 +40,8 @@ vscode-utils.buildVscodeExtension (finalAttrs: {
       src
       pnpmWorkspaces
       ;
-    fetcherVersion = 1;
-    hash = "sha256-ksxzTirYEzgaQOJ+43K6SUAD/UA1b3Mtyc3HDGtMXeM=";
+    fetcherVersion = 2;
+    hash = "sha256-1+cSjq022J2U5UFsHDR/8+kDGySCqyKqat03+6qVktg=";
   };
 
   nativeBuildInputs = [
