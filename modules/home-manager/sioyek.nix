@@ -6,9 +6,6 @@ let
 
   cfg = config.catppuccin.sioyek;
   enable = cfg.enable && config.programs.sioyek.enable;
-
-  themeFile = "/catppuccin-${cfg.flavor}.config";
-  theme = sources.sioyek + themeFile;
 in
 
 {
@@ -17,6 +14,6 @@ in
   };
 
   config = lib.mkIf enable {
-    programs.sioyek.config = catppuccinLib.importINI theme;
+    programs.sioyek.config.source = sources.sioyek + "/catppuccin-${cfg.flavor}.config";
   };
 }
