@@ -1,0 +1,39 @@
+{
+  "name": "build-stylus-settings",
+  "version": "0.2.0",
+  "description": "Stylus storage.js file generator, compatible with Catppuccin Userstyles",
+  "homepage": "https://github.com/different-name/catppuccin-userstyles-nix#readme",
+  "bugs": {
+    "url": "https://github.com/different-name/catppuccin-userstyles-nix/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/different-name/catppuccin-userstyles-nix.git"
+  },
+  "license": "MIT",
+  "author": "different-name",
+  "type": "module",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc && cp scripts/sections-util.js dist/",
+    "start": "node dist/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "build-stylus-settings": "dist/main.js"
+  },
+  "devDependencies": {
+    "@types/less": "^3.0.8",
+    "@types/node": "^20.0.0",
+    "@types/yargs": "^17.0.33",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "less": "^4.3.0",
+    "parserlib": "^1.1.1",
+    "postcss": "^8.5.6",
+    "usercss-meta": "^0.12.0",
+    "yargs": "^18.0.0",
+    "zod": "^3.25.69"
+  }
+}
