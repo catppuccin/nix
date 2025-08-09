@@ -10,12 +10,6 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.mako;
-  theme = catppuccinLib.importINI (
-    sources.mako + "/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}"
-  );
-
-  # Settings that need to be extracted and put in extraConfig
-  extraConfigAttrs = lib.attrsets.getAttrs [ "urgency=high" ] theme;
 in
 
 {
@@ -34,21 +28,8 @@ in
     accentSupport = true;
   };
 
-  # Will cause infinite recursion if config.services.mako is directly set as a whole
-  config.services.mako = lib.mkIf cfg.enable (
-    if (config.services.mako ? settings) then
-      {
-        settings = theme;
-      }
-    else
-      {
-        backgroundColor = theme.background-color;
-        textColor = theme.text-color;
-        borderColor = theme.border-color;
-        progressColor = theme.progress-color;
-        extraConfig = lib.fileContents (
-          (pkgs.formats.ini { }).generate "mako-extra-config" extraConfigAttrs
-        );
-      }
-  );
+  config.services.mako = lib.mkIf cfg.enable ({
+    settings.include =
+      sources.mako + "/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}";
+  });
 }
