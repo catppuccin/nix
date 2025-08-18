@@ -1,4 +1,5 @@
 [
+  # keep-sorted start
   ./aerc.nix
   ./alacritty.nix
   ./atuin.nix
@@ -19,8 +20,8 @@
   ./fuzzel.nix
   ./fzf.nix
   ./gh-dash.nix
-  ./gitui.nix
   ./ghostty.nix
+  ./gitui.nix
   ./glamour.nix
   ./gtk.nix
   ./halloy.nix
@@ -33,23 +34,24 @@
   ./kvantum.nix
   ./lazygit.nix
   ./lsd.nix
-  ./newsboat.nix
-  ./nushell.nix
   ./mako.nix
   ./mangohud.nix
   ./micro.nix
   ./mpv.nix
   ./neovim.nix
+  ./newsboat.nix
+  ./nushell.nix
   ./obs.nix
   ./polybar.nix
   ./qutebrowser.nix
   ./rio.nix
   ./rofi.nix
+  ./sioyek.nix
   ./skim.nix
   ./spotify-player.nix
   ./starship.nix
-  ./swaylock.nix
   ./sway.nix
+  ./swaylock.nix
   ./swaync.nix
   ./thunderbird.nix
   ./tmux.nix
@@ -65,5 +67,5 @@
   ./zed-editor.nix
   ./zellij.nix
   ./zsh-syntax-highlighting.nix
-  ./sioyek.nix
+  # keep-sorted end
 ]
