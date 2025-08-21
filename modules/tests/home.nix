@@ -28,6 +28,7 @@ in
     cava.enable = true;
     chromium.enable = isLinux;
     element-desktop.enable = true;
+    eza.enable = true;
     firefox = {
       enable = true;
       profiles.pepperjack = {
