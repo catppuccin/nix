@@ -54,6 +54,11 @@
     "lastModified": "2025-05-19",
     "rev": "70b7ee121dcef28c6c8191d60df2f88b23c89084"
   },
+  "eza": {
+    "hash": "sha256-R9t6innhXZOQKToKGl4BceQOa5au9ANf8SXm4+Dgg5I=",
+    "lastModified": "2025-08-19",
+    "rev": "f3e093f8aba954d0c7eb1fc51d9b04e9ce0159ff"
+  },
   "fcitx5": {
     "hash": "sha256-ss0kW+ulvMhxeZKBrjQ7E5Cya+02eJrGsE4OLEkqKks=",
     "lastModified": "2025-05-16",
