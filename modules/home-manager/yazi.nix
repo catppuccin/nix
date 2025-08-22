@@ -25,11 +25,18 @@ in
   };
 
   config = lib.mkIf enable {
+    programs.yazi.theme = {
+      flavor = {
+        light = "catppuccin";
+        dark = "catppuccin";
+      };
+    };
+
     xdg.configFile = {
-      "yazi/theme.toml".source =
+      "yazi/flavors/catppuccin.yazi/flavor.toml".source =
         "${sources.yazi}/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.toml";
 
-      "yazi/Catppuccin-${cfg.flavor}.tmTheme".source =
+      "yazi/flavors/catppuccin.yazi/tmTheme.tmTheme".source =
         "${sources.bat}/Catppuccin ${lib.toSentenceCase cfg.flavor}.tmTheme";
     };
   };
