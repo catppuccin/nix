@@ -16,7 +16,7 @@ importers:
         version: 0.35.2(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0))
       '@catppuccin/starlight':
         specifier: ^1.0.1
-        version: 1.0.1(@astrojs/starlight@0.35.2(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0)))(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0))
+        version: 1.0.2(@astrojs/starlight@0.35.2(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0)))(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0))
       astro:
         specifier: ^5.12.3
         version: 5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0)
@@ -111,8 +111,8 @@ packages:
   '@capsizecss/unpack@2.4.0':
     resolution: {integrity: sha512-GrSU71meACqcmIUxPYOJvGKF0yryjN/L1aCuE9DViCTJI7bfkjgYDPD1zbNDcINJwSSP6UaBZY9GAbYDO7re0Q==}
 
-  '@catppuccin/starlight@1.0.1':
-    resolution: {integrity: sha512-jBNMYSBkyFGrI0pJRDfOL26HyIuDIWrqfACxbvI4/xw0jLNColXjYw3i+HBeS2bC+UcJqJtRqsrcxqDb31TcBg==}
+  '@catppuccin/starlight@1.0.2':
+    resolution: {integrity: sha512-Qfy0l5EjGCoyRFlpsyDm9YFaxHCZXrMbLaEFPjzbFHMndKLv457nEyNlFnP7EkN1djnJgfORmmoaQ4ru2wiQEg==}
     peerDependencies:
       '@astrojs/starlight': '>=0.32'
       astro: ^5.0.0
@@ -2447,7 +2447,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@catppuccin/starlight@1.0.1(@astrojs/starlight@0.35.2(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0)))(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0))':
+  '@catppuccin/starlight@1.0.2(@astrojs/starlight@0.35.2(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0)))(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0))':
     dependencies:
       '@astrojs/starlight': 0.35.2(astro@5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0))
       astro: 5.12.9(@types/node@24.2.1)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0)
