@@ -107,7 +107,7 @@ By the end, you should have a flake.nix that looks something like this
           home-manager.users.pepperjack = {
             imports = [
               ./home.nix
-              catppuccin.homeManagerModules.catppuccin
+              catppuccin.homeModules.catppuccin
             ];
           };
         }
@@ -119,7 +119,7 @@ By the end, you should have a flake.nix that looks something like this
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
         ./home.nix
-        catppuccin.homeManagerModules.catppuccin
+        catppuccin.homeModules.catppuccin
       ];
     };
   };
