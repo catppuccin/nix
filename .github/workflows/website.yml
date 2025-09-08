@@ -64,7 +64,7 @@ jobs:
           nix develop .#ci --command nrr build
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist/
 
