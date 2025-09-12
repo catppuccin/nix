@@ -165,9 +165,9 @@
     "rev": "9d4a3adc3dea2082831eeea00a7c1f5c68488f90"
   },
   "micro": {
-    "hash": "sha256-9S7kvdx2RFMjy8cuMYXhkqw3IduMsOq0Kse6vT9Fw8I=",
-    "lastModified": "2025-08-28",
-    "rev": "e93f291e376fd8d2321e3d051daedda3bb13df64"
+    "hash": "sha256-XbhUwRz21/XLkdOb6VOqLwzxWtehf6qRms0YcepNQ0s=",
+    "lastModified": "2025-08-29",
+    "rev": "015a2bb208f61a2d5a33121de2644bf4a059436b"
   },
   "mpv": {
     "hash": "sha256-oUheJNWk2R6gNEmkK8H6PWX0iofx2KMGDoFWtnr420A=",
@@ -225,9 +225,9 @@
     "rev": "71fb15577ccb091df2f4fc1f65710edbc61b5a53"
   },
   "sddm": {
-    "hash": "sha256-7S0DKyb+4lP+5HCPAJRw/KDls2ZO9kksdlwYSz2uQC8=",
-    "lastModified": "2025-08-16",
-    "rev": "5824845b721250bf5aad103ec70af500c49294d0"
+    "hash": "sha256-6sEBe8g0MPFwjo+JfjJxBw+/QoXL2J+wtdHlBtE2THk=",
+    "lastModified": "2025-09-08",
+    "rev": "28699090372cce33c12a923cf8fc297a9cae2cd4"
   },
   "sioyek": {
     "hash": "sha256-LBSSdyFvgJW8BxRHMp+cdR7F8Kmwxwz8epLQ8T9jBKc=",
@@ -260,9 +260,9 @@
     "rev": "0289f3bd9566f9666682f66a3355155c0d0563fc"
   },
   "tmux": {
-    "hash": "sha256-Xk3LogY3B2bZbUWyTHa2nap4Rn0bU2QgYlHlkngMPsk=",
-    "lastModified": "2025-07-12",
-    "rev": "9d21d7ccd50df82bd732be2850ce2798e78b6391"
+    "hash": "sha256-AX8/5/THPYEGOjeEJgSTo2UNirGgivMUxNan+T4H9LI=",
+    "lastModified": "2025-09-05",
+    "rev": "768a550743de659fd670bd05f54dd62f5d18ec2a"
   },
   "tofi": {
     "hash": "sha256-urvt0ZuCe6iEtHwMUl4K6GDLQat/lV0TqgUOlKs8ykE=",
