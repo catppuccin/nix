@@ -57,6 +57,7 @@
   ./tmux.nix
   ./tofi.nix
   ./vesktop.nix
+  ./vivid.nix
   ./vscode.nix
   ./waybar.nix
   ./wezterm.nix

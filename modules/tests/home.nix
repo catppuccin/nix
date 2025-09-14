@@ -78,6 +78,7 @@ in
     tmux.enable = true;
     tofi.enable = isLinux;
     vesktop.enable = true;
+    vivid.enable = true;
     vscode = {
       enable = true;
       package = pkgs.vscodium;
