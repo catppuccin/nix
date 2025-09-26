@@ -8,14 +8,18 @@ in
   xdg.enable = true;
 
   i18n.inputMethod = {
-    enable = true;
+    enable = isLinux;
     type = "fcitx5";
   };
 
-  catppuccin.xfce4-terminal.enable = true;
+  catppuccin.xfce4-terminal.enable = isLinux;
+
+  # this is enabled by default already, but still
+  # listing explicitly so we know it's tested
+  catppuccin.glamour.enable = true;
 
   # For `catppuccin.gtk.icon`
-  gtk.enable = true;
+  gtk.enable = isLinux;
 
   programs = {
     # keep-sorted start block=yes sticky_comments=yes
@@ -37,7 +41,7 @@ in
     };
     fish.enable = true;
     foot.enable = isLinux;
-    freetube.enable = true;
+    freetube.enable = isLinux;
     fuzzel.enable = isLinux;
     fzf.enable = true;
     gh-dash.enable = true;
@@ -47,9 +51,6 @@ in
       delta.enable = true;
     };
     gitui.enable = true;
-    # this is enabled by default already, but still
-    # listing explicitly so we know it's tested
-    glamour.catppuccin.enable = true;
     halloy.enable = true;
     helix.enable = true;
     hyprlock.enable = isLinux;

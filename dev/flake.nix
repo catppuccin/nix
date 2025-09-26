@@ -111,9 +111,9 @@
         fullEval =
           # NixOS includes the home-manager configuration
           if pkgs.stdenv.hostPlatform.isLinux then
-            self.nixosConfigurations.pepperjack-pc.config.system.build.toplevel.outPath
+            nixosConfiguration.config.system.build.toplevel.outPath
           else
-            self.homeConfigurations.pepperjack.activationPackage.outPath;
+            homeConfiguration.activationPackage.outPath;
 
         mkOptionsJSONFrom =
           eval:
