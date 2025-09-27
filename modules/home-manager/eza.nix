@@ -3,9 +3,7 @@
 
 let
   inherit (config.catppuccin) sources;
-
   cfg = config.catppuccin.eza;
-  theme = "${sources.eza}/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.yml";
 in
 
 {
@@ -15,8 +13,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.eza = {
-      theme = catppuccinLib.importYAML theme;
+    xdg.configFile = {
+      "eza/theme.yml".source = "${sources.eza}/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.yml";
     };
   };
 }
