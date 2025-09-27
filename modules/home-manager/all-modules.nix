@@ -12,6 +12,7 @@
   ./delta.nix
   ./dunst.nix
   ./element-desktop.nix
+  ./eza.nix
   ./fcitx5.nix
   ./firefox.nix
   ./fish.nix
