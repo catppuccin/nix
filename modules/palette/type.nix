@@ -80,32 +80,110 @@ let
 
   colors = types.submodule {
     options = {
-      rosewater = mkOptionReadOnly { type = colorFormat; };
-      flamingo = mkOptionReadOnly { type = colorFormat; };
-      pink = mkOptionReadOnly { type = colorFormat; };
-      mauve = mkOptionReadOnly { type = colorFormat; };
-      red = mkOptionReadOnly { type = colorFormat; };
-      maroon = mkOptionReadOnly { type = colorFormat; };
-      peach = mkOptionReadOnly { type = colorFormat; };
-      yellow = mkOptionReadOnly { type = colorFormat; };
-      green = mkOptionReadOnly { type = colorFormat; };
-      teal = mkOptionReadOnly { type = colorFormat; };
-      sky = mkOptionReadOnly { type = colorFormat; };
-      sapphire = mkOptionReadOnly { type = colorFormat; };
-      blue = mkOptionReadOnly { type = colorFormat; };
-      lavender = mkOptionReadOnly { type = colorFormat; };
-      text = mkOptionReadOnly { type = colorFormat; };
-      subtext1 = mkOptionReadOnly { type = colorFormat; };
-      subtext0 = mkOptionReadOnly { type = colorFormat; };
-      overlay2 = mkOptionReadOnly { type = colorFormat; };
-      overlay1 = mkOptionReadOnly { type = colorFormat; };
-      overlay0 = mkOptionReadOnly { type = colorFormat; };
-      surface2 = mkOptionReadOnly { type = colorFormat; };
-      surface1 = mkOptionReadOnly { type = colorFormat; };
-      surface0 = mkOptionReadOnly { type = colorFormat; };
-      base = mkOptionReadOnly { type = colorFormat; };
-      mantle = mkOptionReadOnly { type = colorFormat; };
-      crust = mkOptionReadOnly { type = colorFormat; };
+      rosewater = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Rosewater";
+      };
+      flamingo = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Flamingo";
+      };
+      pink = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Pink";
+      };
+      mauve = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Mauve";
+      };
+      red = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Red";
+      };
+      maroon = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Maroon";
+      };
+      peach = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Peach";
+      };
+      yellow = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Yellow";
+      };
+      green = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Green";
+      };
+      teal = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Teal";
+      };
+      sky = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Sky";
+      };
+      sapphire = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Sapphire";
+      };
+      blue = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Blue";
+      };
+      lavender = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Lavender";
+      };
+      text = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Text";
+      };
+      subtext1 = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Subtext 1";
+      };
+      subtext0 = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Subtext 0";
+      };
+      overlay2 = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Overlay 2";
+      };
+      overlay1 = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Overlay 1";
+      };
+      overlay0 = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Overlay 0";
+      };
+      surface2 = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Surface 2";
+      };
+      surface1 = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Surface 1";
+      };
+      surface0 = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Surface 0";
+      };
+      base = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Base";
+      };
+      mantle = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Mantle";
+      };
+      crust = mkOptionReadOnly {
+        type = colorFormat;
+        description = "Crust";
+      };
     };
   };
 
@@ -169,14 +247,38 @@ let
 
   ansiColors = types.submodule {
     options = {
-      black = mkOptionReadOnly { type = ansiColorGroup; };
-      red = mkOptionReadOnly { type = ansiColorGroup; };
-      green = mkOptionReadOnly { type = ansiColorGroup; };
-      yellow = mkOptionReadOnly { type = ansiColorGroup; };
-      blue = mkOptionReadOnly { type = ansiColorGroup; };
-      magenta = mkOptionReadOnly { type = ansiColorGroup; };
-      cyan = mkOptionReadOnly { type = ansiColorGroup; };
-      white = mkOptionReadOnly { type = ansiColorGroup; };
+      black = mkOptionReadOnly {
+        type = ansiColorGroup;
+        description = "Black";
+      };
+      red = mkOptionReadOnly {
+        type = ansiColorGroup;
+        description = "Red";
+      };
+      green = mkOptionReadOnly {
+        type = ansiColorGroup;
+        description = "Green";
+      };
+      yellow = mkOptionReadOnly {
+        type = ansiColorGroup;
+        description = "Yellow";
+      };
+      blue = mkOptionReadOnly {
+        type = ansiColorGroup;
+        description = "Blue";
+      };
+      magenta = mkOptionReadOnly {
+        type = ansiColorGroup;
+        description = "Magenta";
+      };
+      cyan = mkOptionReadOnly {
+        type = ansiColorGroup;
+        description = "Cyan";
+      };
+      white = mkOptionReadOnly {
+        type = ansiColorGroup;
+        description = "White";
+      };
     };
   };
 in
