@@ -7,15 +7,15 @@ let
   rgb = types.submodule {
     options = {
       r = mkOptionReadOnly {
-        type = types.unsigned;
+        type = types.ints.u8;
         description = "Red, 0-255";
       };
       g = mkOptionReadOnly {
-        type = types.unsigned;
+        type = types.ints.u8;
         description = "Green, 0-255";
       };
       b = mkOptionReadOnly {
-        type = types.unsigned;
+        type = types.ints.u8;
         description = "Blue, 0-255";
       };
     };
@@ -45,7 +45,7 @@ let
         description = "Name of the color.";
       };
       order = mkOptionReadOnly {
-        type = types.unsigned;
+        type = types.ints.unsigned;
         description = "Order of the color in the palette spec.";
       };
       hex = mkOptionReadOnly {
@@ -138,7 +138,7 @@ let
       };
     };
     code = mkOptionReadOnly {
-      type = types.unsigned;
+      type = types.ints.unsigned;
       description = "The ANSI color code.";
       example = 4;
     };
@@ -150,7 +150,7 @@ let
       description = "Name of the ANSI color.";
     };
     order = mkOptionReadOnly {
-      type = types.unsigned;
+      type = types.ints.unsigned;
       description = "Order of the ANSI color in the palette spec.";
     };
     normal = mkOptionReadOnly {
@@ -191,7 +191,7 @@ types.submodule {
       description = "Emoji associated with the flavor. Requires Unicode 13.0 (2020) or later to render.";
     };
     order = mkOptionReadOnly {
-      type = types.unsigned;
+      type = types.ints.unsigned;
       description = "Order of the flavor in the palette spec.";
     };
     dark = mkOptionReadOnly {
