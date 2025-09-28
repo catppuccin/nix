@@ -52,6 +52,90 @@ lib.makeExtensible (ctp: {
       "teal"
       "yellow"
     ];
+
+    rgb = types.submodule {
+      r = types.unsigned;
+      g = types.unsigned;
+      b = types.unsigned;
+    };
+
+    hsl = types.submodule {
+      h = types.float;
+      s = types.float;
+      l = types.float;
+    };
+
+    color = types.submodule {
+      name = types.str;
+      order = types.unsigned;
+      hex = types.str;
+      rgb = ctp.types.rgb;
+      hsl = ctp.types.hsl;
+      accent = types.bool;
+    };
+
+    colors = types.submodule {
+      rosewater = ctp.types.color;
+      flamingo = ctp.types.color;
+      pink = ctp.types.color;
+      mauve = ctp.types.color;
+      red = ctp.types.color;
+      maroon = ctp.types.color;
+      peach = ctp.types.color;
+      yellow = ctp.types.color;
+      green = ctp.types.color;
+      teal = ctp.types.color;
+      sky = ctp.types.color;
+      sapphire = ctp.types.color;
+      blue = ctp.types.color;
+      lavender = ctp.types.color;
+      text = ctp.types.color;
+      subtext1 = ctp.types.color;
+      subtext0 = ctp.types.color;
+      overlay2 = ctp.types.color;
+      overlay1 = ctp.types.color;
+      overlay0 = ctp.types.color;
+      surface2 = ctp.types.color;
+      surface1 = ctp.types.color;
+      surface0 = ctp.types.color;
+      base = ctp.types.color;
+      mantle = ctp.types.color;
+      crust = ctp.types.color;
+    };
+
+    ansiColorFormat = types.submodule {
+      name = types.str;
+      hex = types.str;
+      rgb = ctp.types.rgb;
+      hsl = ctp.types.hsl;
+      code = types.unsigned;
+    };
+
+    ansiColor = types.submodule {
+      name = types.str;
+      order = types.unsigned;
+      normal = ctp.types.ansiColorFormat;
+      bright = ctp.types.ansiColorFormat;
+    };
+
+    ansiColors = types.submodule {
+      black = ctp.types.ansiColor;
+      red = ctp.types.ansiColor;
+      green = ctp.types.ansiColor;
+      yellow = ctp.types.ansiColor;
+      blue = ctp.types.ansiColor;
+      magenta = ctp.types.ansiColor;
+      cyan = ctp.types.ansiColor;
+      white = ctp.types.ansiColor;
+    };
+
+    palette = types.submodule {
+      name = types.str;
+      emoji = types.str;
+      order = types.unsigned;
+      dark = types.bool;
+      inherit (ctp.types) colors ansiColors;
+    };
   };
 
   /**

@@ -46,6 +46,12 @@ in
         description = "Port sources used across all options";
       };
 
+    palette = lib.mkOption {
+      type = catppuccinLib.types.colors;
+      description = "Global Catppuccin palette";
+      readOnly = true;
+    };
+
     cache.enable = lib.mkEnableOption "the usage of Catppuccin's binary cache";
   };
 
@@ -54,5 +60,7 @@ in
       substituters = [ "https://catppuccin.cachix.org" ];
       trusted-public-keys = [ "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU=" ];
     };
+
+    catppuccin.palette = (import ./palette.nix).${config.catppuccin.flavor};
   };
 }
