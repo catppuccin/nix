@@ -1,0 +1,55 @@
+name: Generate palette
+
+on:
+  workflow_dispatch:
+
+jobs:
+  palette:
+    name: Generate palette file
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          repository: catppuccin/palette
+          path: palette
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+
+      - name: Install Cachix
+        uses: cachix/cachix-action@v16
+        with:
+          name: catppuccin
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Convert palette to Nix file
+        run: |
+          nix run nixpkgs#nix-converter -- -f palette/palette.json >modules/palette.nix
+          rm -rf palette
+
+      - name: Format Nix files
+        run: nix fmt
+
+      - name: Create pull request
+        id: create-pull-request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          commit-message: "chore: update palette"
+          title: "chore: update palette"
+          signoff: true
+          sign-commits: true
+          branch: "update-palette"
+
+      - name: Run CI
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run ci.yml \
+            --ref ${{ steps.create-pull-request.outputs.pull-request-branch }}
