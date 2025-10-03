@@ -64,10 +64,6 @@ in
         ];
         message = ''`qt.style.name` must be `"kvantum"` to use `qt.style.catppuccin`'';
       }
-      {
-        assertion = lib.elem (config.qt.platformTheme.name or null) [ "kvantum" ];
-        message = ''`qt.platformTheme.name` must be set to `"kvantum"` to use `qt.style.catppuccin`'';
-      }
     ];
 
     xdg.configFile = {
