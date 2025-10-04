@@ -8,13 +8,14 @@
 
 let
   catppuccinLib = import ./lib { inherit config lib pkgs; };
+
+  minimumVersion = "25.11";
+  isMinimumVersion = lib.versionAtLeast catppuccinLib.getModuleRelease minimumVersion;
+  # Use this to toggle between a deprecation warning for a release and a full assertion
+  warn = true;
 in
 
 {
-  config = {
-    assertions = [ (catppuccinLib.assertMinimumVersion "25.05") ];
-  };
-
   imports = catppuccinLib.applyToModules catppuccinModules;
 
   options.catppuccin = {
@@ -50,6 +51,17 @@ in
   };
 
   config = {
+    warnings = lib.mkIf (warn && !isMinimumVersion) [
+      "catppuccin/nix will soon require version ${minimumVersion} of Nixpkgs/NixOS/home-manager."
+    ];
+
+    assertions = lib.mkIf (!warn) [
+      {
+        assertion = isMinimumVersion;
+        message = "catppuccin/nix requires version ${minimumVersion} of Nixpkgs/NixOS/home-manager.";
+      }
+    ];
+
     nix.settings = lib.mkIf config.catppuccin.cache.enable {
       extra-substituters = [ "https://catppuccin.cachix.org" ];
       extra-trusted-public-keys = [
