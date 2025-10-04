@@ -54,6 +54,7 @@
   ./sway.nix
   ./swaylock.nix
   ./swaync.nix
+  ./television.nix
   ./thunderbird.nix
   ./tmux.nix
   ./tofi.nix
