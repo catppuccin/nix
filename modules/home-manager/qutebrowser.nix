@@ -17,13 +17,15 @@ let
 in
 
 {
-  options.catppuccin.qutebrowser = catppuccinLib.mkCatppuccinOption { name = "qutebrowser"; };
+  options.catppuccin.qutebrowser = catppuccinLib.mkCatppuccinOption { name = "qutebrowser"; } // {
+    plainLook = lib.mkEnableOption "plain look for the menu rows";
+  };
 
   config = lib.mkIf enable {
     programs.qutebrowser = {
       extraConfig = lib.mkMerge [
         (lib.mkBefore "import catppuccin")
-        (lib.mkAfter "catppuccin.setup(c, '${cfg.flavor}', True)")
+        (lib.mkAfter "catppuccin.setup(c, '${cfg.flavor}', ${lib.toSentenceCase (lib.boolToString cfg.plainLook)})")
       ];
     };
 
