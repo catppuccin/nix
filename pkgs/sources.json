@@ -165,9 +165,9 @@
     "rev": "92844f144e72f2dc8727879ec141ffdacf3ff6a1"
   },
   "mangohud": {
-    "hash": "sha256-t3BibbcC8EAk8/Z+xjmZXaaiSIGlFtIGYhL0G+A84Io=",
-    "lastModified": "2025-06-11",
-    "rev": "9d4a3adc3dea2082831eeea00a7c1f5c68488f90"
+    "hash": "sha256-1mWSHP85c+4Y4K0fxZfZd+TYf3UDpUUKGfyC8tvszfc=",
+    "lastModified": "2025-10-06",
+    "rev": "db70c8001df930984ffbe4398333414ac76dfe1a"
   },
   "micro": {
     "hash": "sha256-XbhUwRz21/XLkdOb6VOqLwzxWtehf6qRms0YcepNQ0s=",
@@ -190,9 +190,9 @@
     "rev": "c0568b4a78f04be24f68c80284755d4635647aa1"
   },
   "nvim": {
-    "hash": "sha256-dg3C0N7LBJZT3YCakL6T6dif9UVYxnktuPR667eafjg=",
-    "lastModified": "2025-09-30",
-    "rev": "c89184526212e04feffbddda9d06b041a8fca416"
+    "hash": "sha256-yJIVQSgRSD0PYOhYadjfVVsPWB40A0I1Kyd3i/3gaj0=",
+    "lastModified": "2025-10-08",
+    "rev": "af58927c55c9f3272c940ff02b3cee94a1249f26"
   },
   "obs": {
     "hash": "sha256-ezz3euxO5lxyVaVFDPjNowpivAm9tRGHt8SbflAdkA8=",
