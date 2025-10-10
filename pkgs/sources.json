@@ -284,6 +284,11 @@
     "lastModified": "2023-04-12",
     "rev": "b1a81bae74d66eaae16457f2d8f151b5bd4fe5da"
   },
+  "where-is-my-sddm-theme": {
+    "hash": "sha256-f6d7bJoSbFzEhAIfilxNLQGtAMQWTtUTube/pTqP7AY=",
+    "lastModified": "2024-10-13",
+    "rev": "82a36df79ab596b9fbe85c86d3c2f3a1e39433af"
+  },
   "wlogout": {
     "hash": "sha256-0VCk+7t/cSEmcnfvKdxUDwwrtK0VLhZrVpw4enoBEbc=",
     "lastModified": "2025-08-07",

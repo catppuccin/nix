@@ -7,5 +7,6 @@
   ./plymouth.nix
   ./sddm.nix
   ./tty.nix
+  ./where-is-my-sddm-theme.nix
   # keep-sorted end
 ]
