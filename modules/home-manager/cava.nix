@@ -6,6 +6,7 @@ let
 
   cfg = config.catppuccin.cava;
   flavor = "${cfg.flavor}" + lib.optionalString cfg.transparent "-transparent";
+  enable = cfg.enable && config.programs.cava.enable;
 in
 
 {
@@ -38,9 +39,8 @@ in
       )
     ];
 
-  config = lib.mkIf cfg.enable {
-    programs.cava = {
-      settings = catppuccinLib.importINIRaw (sources.cava + "/${flavor}.cava");
-    };
+  config = lib.mkIf enable {
+    xdg.configFile."cava/themes/catppuccin".source = sources.cava + "/${flavor}.cava";
+    programs.cava.settings.color.theme = "catppuccin";
   };
 }
