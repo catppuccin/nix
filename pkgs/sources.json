@@ -34,6 +34,11 @@
     "lastModified": "2024-09-03",
     "rev": "0746f77974330338ee2e1e4d1ef9872eba57eb26"
   },
+  "cosmic-desktop": {
+    "hash": "sha256-NAQnHS+XrMJ/rPgSS5nEQOMBhQtF6mP1i/0QP5arQ64=",
+    "lastModified": "2025-04-22",
+    "rev": "95e81098042dd2102f0b258f6990f886c5759692"
+  },
   "cursors": {
     "hash": "sha256-qis6p+/m7+DdRDYzLq9yB2eZGpfZe5z5xRsa/1HoIG4=",
     "lastModified": "2025-02-22",
