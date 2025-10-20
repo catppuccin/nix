@@ -259,6 +259,11 @@
     "lastModified": "2024-04-01",
     "rev": "77246bbbbf8926bdb8962cffab6616bc2b9e8a06"
   },
+  "television": {
+    "hash": "sha256-83C03FX2vb5UHq5sbad8XLoF/2EfX0NC+fUA0Xi60fw=",
+    "lastModified": "2025-08-04",
+    "rev": "4d9cfc97b0a5a6a2854c9e5f6f8fdae6a9343232"
+  },
   "thunderbird": {
     "hash": "sha256-07gT37m1+OhRTbUk51l0Nhx+I+tl1il5ayx2ow23APY=",
     "lastModified": "2024-11-01",
