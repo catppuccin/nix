@@ -22,9 +22,7 @@ in
   };
 
   config = lib.mkIf enable {
-    programs.git = {
-      includes = [ { path = "${sources.delta}/catppuccin.gitconfig"; } ];
-      delta.options.features = "catppuccin-${cfg.flavor}";
-    };
+    programs.git.includes = [ { path = "${sources.delta}/catppuccin.gitconfig"; } ];
+    programs.delta.options.features = "catppuccin-${cfg.flavor}";
   };
 }
