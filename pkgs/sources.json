@@ -90,9 +90,9 @@
     "rev": "acb1b1c22446e34781731ddbfb5e9bd699eccc74"
   },
   "ghostty": {
-    "hash": "sha256-4seUhPr6nv0ld9XMrQS4Ko9QnC1ZOEiRjENSfgHIvR0=",
-    "lastModified": "2025-09-18",
-    "rev": "10b3c5f56f2aa519b0e12255346a97d71a8bfeaf"
+    "hash": "sha256-j0HCakM9R/xxEjWd5A0j8VVlg0vQivjlAYHRW/4OpGU=",
+    "lastModified": "2025-10-21",
+    "rev": "0eeefa637affe0b5f29d7005cfe4e143c244a781"
   },
   "gitui": {
     "hash": "sha256-DRK/j3899qJW4qP1HKzgEtefz/tTJtwPkKtoIzuoTj0=",
@@ -190,9 +190,9 @@
     "rev": "c0568b4a78f04be24f68c80284755d4635647aa1"
   },
   "nvim": {
-    "hash": "sha256-yJIVQSgRSD0PYOhYadjfVVsPWB40A0I1Kyd3i/3gaj0=",
-    "lastModified": "2025-10-08",
-    "rev": "af58927c55c9f3272c940ff02b3cee94a1249f26"
+    "hash": "sha256-Nz/XbItShbrnKtj0+gcEDBFO5y00g0EG5CHqdJGK2j0=",
+    "lastModified": "2025-10-25",
+    "rev": "8c4125e3c746976ba025dc5d908fa22c6aa09486"
   },
   "obs": {
     "hash": "sha256-ezz3euxO5lxyVaVFDPjNowpivAm9tRGHt8SbflAdkA8=",
