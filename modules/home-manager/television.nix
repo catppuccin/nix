@@ -5,6 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.television;
+  enable = config.programs.television.enable && cfg.enable;
 in
 
 {
@@ -13,7 +14,7 @@ in
     accentSupport = true;
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enable {
     programs.television = {
       settings = {
         ui.theme = "catppuccin-${cfg.flavor}-${cfg.accent}";
