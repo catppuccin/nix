@@ -55,11 +55,7 @@ in
 
         inherit (config.services.${forge}) customDir;
         hasAssetsDir = lib.versionAtLeast config.services.${forge}.package.version "1.21.0";
-        themeDir =
-          if hasAssetsDir then
-            "${customDir}/public/assets/css"
-          else
-            "${customDir}/public/css";
+        themeDir = if hasAssetsDir then "${customDir}/public/assets/css" else "${customDir}/public/css";
       in
       lib.mkIf (cfg.enable && config.services.${forge}.enable) {
         systemd.tmpfiles.settings."10-catppuccin-${forge}-theme" = {
@@ -72,7 +68,7 @@ in
           };
 
           "${customDir}/public/assets".d = lib.attrsets.optionalAttrs (hasAssetsDir) {
-              inherit (config.services.${forge}) user group;
+            inherit (config.services.${forge}) user group;
           };
         };
 
