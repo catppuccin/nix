@@ -54,8 +54,9 @@ in
         cfg = config.catppuccin.${forge};
 
         inherit (config.services.${forge}) customDir;
+        hasAssetsDir = lib.versionAtLeast config.services.${forge}.package.version "1.21.0";
         themeDir =
-          if lib.versionAtLeast config.services.${forge}.package.version "1.21.0" then
+          if hasAssetsDir then
             "${customDir}/public/assets/css"
           else
             "${customDir}/public/css";
@@ -66,8 +67,12 @@ in
             argument = toString sources.gitea;
           };
 
-          ${dirOf themeDir}.d = {
+          "${customDir}/public".d = {
             inherit (config.services.${forge}) user group;
+          };
+
+          "${customDir}/public/assets".d = lib.attrsets.optionalAttrs (hasAssetsDir) {
+              inherit (config.services.${forge}) user group;
           };
         };
 
