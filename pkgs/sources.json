@@ -140,9 +140,9 @@
     "rev": "fdbec82284744a1fc2eb3e2d24cb92ef87ffb8b4"
   },
   "kvantum": {
-    "hash": "sha256-YNUkri+no+rNLTJHf6cPdy4AmQLzPiRK1Jbp2o8e1LE=",
-    "lastModified": "2025-08-18",
-    "rev": "c7cb144b041395e83e4f510a62526b7adfb79911"
+    "hash": "sha256-V5Upqkil9Q2MeEPtEAemirbJxnEyYcM3Z8jiyz//ccw=",
+    "lastModified": "2025-11-15",
+    "rev": "1156e5437435282b47ac6856acd9d0feef1ed929"
   },
   "lazygit": {
     "hash": "sha256-4eJEOEfwLBc4EoQ32TpuhXS3QDvQ8FtT7EgpotEKV7o=",
@@ -190,9 +190,9 @@
     "rev": "c0568b4a78f04be24f68c80284755d4635647aa1"
   },
   "nvim": {
-    "hash": "sha256-WNOuJ+XdO0x3Vlc8mALwtFU6iwJXilOM/NF0F1161FQ=",
-    "lastModified": "2025-11-01",
-    "rev": "234fc048de931a0e42ebcad675bf6559d75e23df"
+    "hash": "sha256-OAQpO/VxdGWbGTpOdPZTAB60QqmZSVrSO0onTxADpZA=",
+    "lastModified": "2025-11-14",
+    "rev": "da33755d00e09bff2473978910168ff9ea5dc453"
   },
   "obs": {
     "hash": "sha256-ezz3euxO5lxyVaVFDPjNowpivAm9tRGHt8SbflAdkA8=",
