@@ -81,6 +81,7 @@ in
     tmux.enable = true;
     tofi.enable = isLinux;
     vesktop.enable = true;
+    vicinae.enable = isLinux;
     vivid.enable = true;
     vscode = {
       enable = true;

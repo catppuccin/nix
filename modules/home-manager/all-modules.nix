@@ -59,6 +59,7 @@
   ./tmux.nix
   ./tofi.nix
   ./vesktop.nix
+  ./vicinae.nix
   ./vivid.nix
   ./vscode.nix
   ./waybar.nix
