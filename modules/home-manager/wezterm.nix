@@ -13,7 +13,7 @@ in
     // {
       apply = lib.mkOption {
         type = lib.types.bool;
-        default = false;
+        default = true;
         description = "Apply Catppuccin theme to WezTerm.";
       };
     };
