@@ -9,6 +9,8 @@
   xcur2png,
   xorg,
   zip,
+  flavors ? [ ],
+  accents ? [ ],
 }:
 
 buildCatppuccinPort (finalAttrs: {
@@ -27,13 +29,26 @@ buildCatppuccinPort (finalAttrs: {
     zip
   ];
 
-  buildPhase = ''
-    runHook preBuild
+  buildPhase =
+    let
+      numFlavors = lib.length flavors;
+      numAccents = lib.length accents;
+      accentString' = lib.concatStringsSep " " accents;
+      accentString = if numAccents == 0 then "" else "'${accentString'}'";
+      buildFlavor = flavor: "just build ${flavor} ${accentString}";
+      buildCmd =
+        if numFlavors == 0 then
+          "just all"
+        else
+          lib.concatStringsSep "\n" (builtins.map buildFlavor flavors);
+    in
+    ''
+      runHook preBuild
 
-    just all
+      ${buildCmd}
 
-    runHook postBuild
-  '';
+      runHook postBuild
+    '';
 
   installPhase = ''
     runHook preInstall
