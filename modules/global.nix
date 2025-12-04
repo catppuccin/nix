@@ -46,6 +46,12 @@ in
         description = "Port sources used across all options";
       };
 
+    palette = lib.mkOption {
+      type = (import ./palette/type.nix) lib;
+      readOnly = true;
+      description = "Global Catppuccin palette";
+    };
+
     cache.enable = lib.mkEnableOption "the usage of Catppuccin's binary cache";
   };
 
@@ -56,5 +62,7 @@ in
         "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
       ];
     };
+
+    catppuccin.palette = (import ./palette/data.nix).${config.catppuccin.flavor};
   };
 }
