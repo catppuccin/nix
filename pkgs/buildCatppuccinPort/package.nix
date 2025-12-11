@@ -35,7 +35,7 @@ lib.extendMkDerivation {
           getchoo
           isabelroses
         ];
-        platform = lib.platforms.all;
+        platforms = lib.platforms.all;
       }
       // args.meta or { };
     };
