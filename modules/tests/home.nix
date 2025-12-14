@@ -25,6 +25,7 @@ in
     # keep-sorted start block=yes sticky_comments=yes
     aerc.enable = true;
     alacritty.enable = true;
+    anki.enable = true;
     bat.enable = true;
     bottom.enable = true;
     brave.enable = true;
