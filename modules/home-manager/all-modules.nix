@@ -2,6 +2,7 @@
   # keep-sorted start
   ./aerc.nix
   ./alacritty.nix
+  ./anki.nix
   ./atuin.nix
   ./bat.nix
   ./bottom.nix
