@@ -66,6 +66,7 @@ in
     neovim.enable = true;
     newsboat.enable = true;
     obs-studio.enable = isLinux;
+    opencode.enable = true;
     qutebrowser.enable = false; # broken package due to python3.13-lxml-html-clean-0.4.2
     rio.enable = true;
     rofi.enable = isLinux;

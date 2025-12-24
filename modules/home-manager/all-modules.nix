@@ -44,6 +44,7 @@
   ./newsboat.nix
   ./nushell.nix
   ./obs.nix
+  ./opencode.nix
   ./polybar.nix
   ./qutebrowser.nix
   ./rio.nix
