@@ -15,10 +15,6 @@ let
       )
       || config.i18n.inputMethod.enabled == "fcitx5"
     );
-
-  package = sources.fcitx5.override {
-    inherit (cfg) enableRounded;
-  };
 in
 
 {
@@ -69,19 +65,11 @@ in
     ];
 
   config = lib.mkIf enable {
-    xdg.dataFile = {
-      "fcitx5/themes/catppuccin-${cfg.flavor}-${cfg.accent}" = {
-        source = "${package}/share/fcitx5/themes/catppuccin-${cfg.flavor}-${cfg.accent}";
-        recursive = true;
-      };
-    };
-
-    xdg.configFile = {
-      "fcitx5/conf/classicui.conf" = lib.mkIf cfg.apply {
-        text = lib.generators.toINIWithGlobalSection { } {
-          globalSection.Theme = "catppuccin-${cfg.flavor}-${cfg.accent}";
-        };
-      };
+    i18n.inputMethod.fcitx5 = {
+      addons = [
+        (sources.fcitx5.override { inherit (cfg) enableRounded; })
+      ];
+      settings.addons.classicui.globalSection.Theme = "catppuccin-${cfg.flavor}-${cfg.accent}";
     };
   };
 }
