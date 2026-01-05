@@ -5,13 +5,13 @@
 }:
 
 let
-  version = "0.2.3";
+  version = "1.0.1";
 
   artifactHashes = {
-    "frappe.css" = "sha256-9vfro7HpA2T5bk1So8kjUKSXwe5Qnqji7bhs5ASs/Pg=";
-    "latte.css" = "sha256-Xp7BekqhHUVTiEMMKKeEO9jlL1wtujlFSU0SINNtWZQ=";
-    "macchiato.css" = "sha256-LMm6nWn1JPPgj5YpppwFG3lXTtXem5atlIvqrDxd0bM=";
-    "mocha.css" = "sha256-Hie/vDt15nGCy4XWERGy1tUIecROw17GOoasT97kIfc=";
+    "frappe.css" = "sha256-CZezkBA43opa0aYggbCwxgqQVCBgRpLsRB0kWzP7oio=";
+    "latte.css" = "sha256-nOaSeCxL0ah4eGDFNgNC7mWMTHW6Z5MoQx9XJbvkoac=";
+    "macchiato.css" = "sha256-jN7oHf075g463+pPtiTJl3OTXMQjQ+O+OS8L4cCTipI=";
+    "mocha.css" = "sha256-EKTAKCU9HlxrrVjNhyMRq7WGfz8DM9IFPUIEGl3nHbo=";
   };
 in
 
@@ -20,7 +20,7 @@ linkFarm "catppuccin-swaync-${version}" (
     artifactName: hash:
 
     fetchurl {
-      url = "https://github.com/catppuccin/swaync/releases/download/v${version}/${artifactName}";
+      url = "https://github.com/catppuccin/swaync/releases/download/v${version}/catppuccin-${artifactName}";
       inherit hash;
     }
   ) artifactHashes
