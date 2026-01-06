@@ -263,32 +263,6 @@ lib.makeExtensible (ctp: {
     if versionAtLeast ctp.getModuleRelease minVersion then options else mkSinkUndeclaredOptions { };
 
   /**
-    Assert the current module release is >= the given version
-
-    # Example
-
-    ```nix
-    assertMinimumVersion "24.11";
-    => { ... }
-    ```
-
-    # Type
-
-    ```
-    getModuleRelease :: String -> AttrSet
-    ```
-
-    # Arguments
-
-    - [version] Minimum version required
-    ```
-  */
-  assertMinimumVersion = version: {
-    assertion = versionAtLeast ctp.getModuleRelease version;
-    message = "`catppuccin/nix` requires at least version ${version} of NixOS/home-manager";
-  };
-
-  /**
     Imports the given modules with the current library
 
     # Example
