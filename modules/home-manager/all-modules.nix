@@ -65,6 +65,7 @@
   ./vscode.nix
   ./waybar.nix
   ./wezterm.nix
+  ./wleave.nix
   ./wlogout.nix
   ./xfce4-terminal.nix
   ./yazi.nix
