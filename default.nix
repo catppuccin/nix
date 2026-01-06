@@ -20,10 +20,17 @@ let
         }:
         lib.recursiveUpdate acc {
           # Save our sources for each port
-          sources.${port} = catppuccinPackages.fetchCatppuccinPort { inherit port rev hash; };
+          sources.${port} = catppuccinPackages.fetchCatppuccinPort {
+            inherit
+              port
+              rev
+              hash
+              lastModified
+              ;
+          };
 
           # And create a default package for them
-          "${port}" = catppuccinPackages.buildCatppuccinPort { inherit port lastModified; };
+          "${port}" = catppuccinPackages.buildCatppuccinPort { inherit port; };
         }
       ) { } (lib.importJSON ./pkgs/sources.json);
 
