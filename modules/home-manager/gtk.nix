@@ -9,7 +9,6 @@
 let
   inherit (lib)
     concatStringsSep
-    mkRenamedOptionModule
     mkRemovedOptionModule
     toList
     ;
