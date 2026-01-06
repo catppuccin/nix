@@ -19,14 +19,6 @@ in
 {
   options.catppuccin.opencode = catppuccinLib.mkCatppuccinOption { name = "opencode"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "opencode"
-      "catppuccin"
-    ];
-    to = "opencode";
-  };
 
   config = lib.mkIf enable {
     programs.opencode.settings = {
