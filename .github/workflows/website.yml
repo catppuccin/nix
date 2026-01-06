@@ -53,7 +53,7 @@ jobs:
       - name: Update options data
         run: |
           ./dev/update-docs-data.sh main
-          ./dev/update-docs-data.sh 25.05 "github:catppuccin/nix/release-25.05?dir=dev/"
+          ./dev/update-docs-data.sh 25.11 "github:catppuccin/nix/release-25.11?dir=dev/"
 
       - name: Install dependencies
         run: |
