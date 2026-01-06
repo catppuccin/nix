@@ -9,7 +9,7 @@
 let
   catppuccinLib = import ./lib { inherit config lib pkgs; };
 
-  minimumVersion = "25.05";
+  minimumVersion = "25.11";
   isMinimumVersion = lib.versionAtLeast catppuccinLib.getModuleRelease minimumVersion;
 in
 
