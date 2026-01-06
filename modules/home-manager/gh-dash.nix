@@ -14,16 +14,6 @@ in
     accentSupport = true;
   };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "gh-dash"
-      "catppuccin"
-    ];
-    to = "gh-dash";
-    accentSupport = true;
-  };
-
   config = lib.mkIf cfg.enable {
     programs.gh-dash = {
       settings = catppuccinLib.importYAML theme;

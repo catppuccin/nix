@@ -9,84 +9,11 @@
 let
   inherit (lib)
     concatStringsSep
-    mkRenamedOptionModule
     mkRemovedOptionModule
     toList
     ;
 
   cfg = config.catppuccin.gtk;
-
-  namespaceRenameModules =
-    catppuccinLib.mkRenamedCatppuccinOptions {
-      from = [
-        "gtk"
-        "catppuccin"
-      ];
-      to = "gtk";
-      accentSupport = true;
-    }
-    ++ catppuccinLib.mkRenamedCatppuccinOptions {
-      from = [
-        "gtk"
-        "catppuccin"
-        "cursor"
-      ];
-      to = "cursors";
-      accentSupport = true;
-    }
-    ++ [
-      (mkRenamedOptionModule
-        [
-          "gtk"
-          "catppuccin"
-          "size"
-        ]
-        [
-          "catppuccin"
-          "gtk"
-          "size"
-        ]
-      )
-
-      (mkRenamedOptionModule
-        [
-          "gtk"
-          "catppuccin"
-          "tweaks"
-        ]
-        [
-          "catppuccin"
-          "gtk"
-          "tweaks"
-        ]
-      )
-
-      (mkRenamedOptionModule
-        [
-          "gtk"
-          "catppuccin"
-          "gnomeShellTheme"
-        ]
-        [
-          "catppuccin"
-          "gtk"
-          "gnomeShellTheme"
-        ]
-      )
-
-      (mkRenamedOptionModule
-        [
-          "gtk"
-          "catppuccin"
-          "icon"
-        ]
-        [
-          "catppuccin"
-          "gtk"
-          "icon"
-        ]
-      )
-    ];
 
   # Relative to `catppuccin.gtk`
   removedOptions = [
@@ -120,7 +47,7 @@ let
 in
 
 {
-  imports = namespaceRenameModules ++ removedOptionModules;
+  imports = removedOptionModules;
 
   options.catppuccin.gtk = {
     icon = catppuccinLib.mkCatppuccinOption {

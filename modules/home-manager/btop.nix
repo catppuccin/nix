@@ -14,15 +14,6 @@ in
 {
   options.catppuccin.btop = catppuccinLib.mkCatppuccinOption { name = "btop"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "btop"
-      "catppuccin"
-    ];
-    to = "btop";
-  };
-
   config = lib.mkIf enable {
     xdg.configFile = {
       "btop/themes/${themeFile}".source = theme;

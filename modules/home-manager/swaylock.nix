@@ -31,15 +31,6 @@ in
     '';
   };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "programs"
-      "swaylock"
-      "catppuccin"
-    ];
-    to = "swaylock";
-  };
-
   config = lib.mkIf cfg.enable {
     programs.swaylock = {
       settings = catppuccinLib.importINI (sources.swaylock + "/${cfg.flavor}.conf");

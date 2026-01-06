@@ -11,16 +11,6 @@ in
 {
   options.catppuccin.sway = catppuccinLib.mkCatppuccinOption { name = "sway"; };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "wayland"
-      "windowManager"
-      "sway"
-      "catppuccin"
-    ];
-    to = "sway";
-  };
-
   config = lib.mkIf cfg.enable {
     wayland.windowManager.sway = {
       extraConfigEarly = ''

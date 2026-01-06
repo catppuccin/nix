@@ -11,7 +11,6 @@ let
     importJSON
     mkEnableOption
     mkOption
-    mkRenamedOptionModule
     mkSinkUndeclaredOptions
     optional
     optionalAttrs
@@ -310,77 +309,4 @@ lib.makeExtensible (ctp: {
     ```
   */
   applyToModules = map (flip importApply { catppuccinLib = ctp; });
-
-  /**
-    Apply `mkRenamedOptionModule` to a set of standard Catppuccin module options (like those created by `mkCatppuccinOption`)
-
-    # Example
-
-    ```nix
-    mkRenamedCatppuccinOptions { from = [ "myProgram" "catppuccin" ]; to = [ "myProgram" ]; }
-    => [ { ... } ]
-    ```
-
-    # Type
-
-    ```
-    mkRenamedCatppuccinOptions :: AttrSet -> [ Module ]
-    ```
-
-    # Arguments
-
-    - [from] Path to original option
-    - [to] Path to new option (relative to the root `catppuccin` namespace)
-    - [accentSupport] Whether to alias `accent` options (defaults to false)
-    ```
-  */
-  mkRenamedCatppuccinOptions =
-    {
-      from,
-      to,
-      accentSupport ? false,
-    }:
-    [
-      (mkRenamedOptionModule
-        (
-          from
-          ++ [
-            "enable"
-          ]
-        )
-        [
-          "catppuccin"
-          to
-          "enable"
-        ]
-      )
-
-      (mkRenamedOptionModule
-        (
-          from
-          ++ [
-            "flavor"
-          ]
-        )
-        [
-          "catppuccin"
-          to
-          "flavor"
-        ]
-      )
-    ]
-    ++ optional accentSupport (
-      mkRenamedOptionModule
-        (
-          from
-          ++ [
-            "accent"
-          ]
-        )
-        [
-          "catppuccin"
-          to
-          "accent"
-        ]
-    );
 })

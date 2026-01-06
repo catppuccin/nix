@@ -20,17 +20,6 @@ in
       enableRounded = lib.mkEnableOption "rounded corners for the Fcitx5 theme";
     };
 
-  imports = catppuccinLib.mkRenamedCatppuccinOptions {
-    from = [
-      "i18n"
-      "inputMethod"
-      "fcitx5"
-      "catppuccin"
-    ];
-    to = "fcitx5";
-    accentSupport = true;
-  };
-
   config = lib.mkIf cfg.enable {
     i18n.inputMethod.fcitx5 = {
       addons = [

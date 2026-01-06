@@ -29,32 +29,6 @@ in
       };
     };
 
-  imports =
-    (catppuccinLib.mkRenamedCatppuccinOptions {
-      from = [
-        "qt"
-        "style"
-        "catppuccin"
-      ];
-      to = "kvantum";
-      accentSupport = true;
-    })
-    ++ [
-      (lib.mkRenamedOptionModule
-        [
-          "qt"
-          "style"
-          "catppuccin"
-          "apply"
-        ]
-        [
-          "catppuccin"
-          "kvantum"
-          "apply"
-        ]
-      )
-    ];
-
   config = lib.mkIf enable {
     assertions = [
       {

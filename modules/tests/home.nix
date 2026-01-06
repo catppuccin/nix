@@ -12,11 +12,13 @@ in
     type = "fcitx5";
   };
 
-  catppuccin.xfce4-terminal.enable = isLinux;
+  catppuccin = {
+    # NOTE: This is enabled by default already, but still
+    # listing explicitly so we know it's tested
+    glamour.enable = true;
 
-  # this is enabled by default already, but still
-  # listing explicitly so we know it's tested
-  catppuccin.glamour.enable = true;
+    xfce4-terminal.enable = isLinux;
+  };
 
   # For `catppuccin.gtk.icon`
   gtk.enable = isLinux;
