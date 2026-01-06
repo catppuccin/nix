@@ -5,11 +5,16 @@ lib.makeOverridable (
     port,
     rev,
     hash,
+    lastModified ? null,
     ...
   }@args:
 
   let
-    arguments = [ "port" ];
+    arguments = [
+      "port"
+      "lastModified"
+      "passthru"
+    ];
   in
 
   fetchFromGitHub (
@@ -17,6 +22,11 @@ lib.makeOverridable (
       owner = "catppuccin";
       repo = port;
       inherit rev hash;
+      passthru =
+        lib.optionalAttrs (lastModified != null) {
+          lastModified = lastModified;
+        }
+        // args.passthru or { };
     }
     // lib.removeAttrs args arguments
   )
