@@ -15,16 +15,16 @@ in
     programs.vicinae = {
       settings = {
         theme =
-        let
-        	themeConfiguration = {
-          	name = "catppuccin-${cfg.flavor}";
-          	iconTheme = "Catppuccin ${lib.toSentenceCase cfg.flavor} ${lib.toSentenceCase cfg.accent}";
-        	};
-        in
-        {
-        	light = themeConfiguration;
-        	dark = themeConfiguration;
-        };
+          let
+            themeConfiguration = {
+              name = "catppuccin-${cfg.flavor}";
+              iconTheme = "Catppuccin ${lib.toSentenceCase cfg.flavor} ${lib.toSentenceCase cfg.accent}";
+            };
+          in
+          {
+            light = themeConfiguration;
+            dark = themeConfiguration;
+          };
       };
     };
   };
