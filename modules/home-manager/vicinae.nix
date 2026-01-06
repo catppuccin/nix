@@ -14,9 +14,16 @@ in
   config = lib.mkIf cfg.enable {
     programs.vicinae = {
       settings = {
-        theme = {
-          name = "catppuccin-${cfg.flavor}";
-          iconTheme = "Catppuccin ${lib.toSentenceCase cfg.flavor} ${lib.toSentenceCase cfg.accent}";
+        theme =
+        let
+        	themeConfiguration = {
+          	name = "catppuccin-${cfg.flavor}";
+          	iconTheme = "Catppuccin ${lib.toSentenceCase cfg.flavor} ${lib.toSentenceCase cfg.accent}";
+        	};
+        in
+        {
+        	light = themeConfiguration;
+        	dark = themeConfiguration;
         };
       };
     };
