@@ -32,6 +32,10 @@ in
     btop.enable = true;
     cava.enable = true;
     chromium.enable = isLinux;
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+    };
     element-desktop.enable = true;
     eza.enable = true;
     firefox = {
@@ -47,10 +51,7 @@ in
     fzf.enable = true;
     gh-dash.enable = true;
     ghostty.enable = isLinux;
-    git = {
-      enable = true;
-      delta.enable = true;
-    };
+    git.enable = true;
     gitui.enable = true;
     halloy.enable = true;
     helix.enable = true;
