@@ -18,6 +18,14 @@ in
     glamour.enable = true;
 
     xfce4-terminal.enable = isLinux;
+
+    # we install the themes but don't apply them so we can test kvantum, qt5ct
+    # and qt6ct
+    kvantum.assertStyle = false;
+    qt5ct = {
+      enable = true;
+      assertStyle = false;
+    };
   };
 
   # For `catppuccin.gtk.icon`
@@ -106,11 +114,7 @@ in
     # keep-sorted end
   };
 
-  qt = {
-    enable = isLinux;
-    platformTheme.name = "kvantum";
-    style.name = "kvantum";
-  };
+  qt.enable = isLinux;
 
   services = {
     # keep-sorted start block=yes

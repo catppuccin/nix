@@ -45,6 +45,7 @@
   ./nushell.nix
   ./obs.nix
   ./polybar.nix
+  ./qt5ct.nix
   ./qutebrowser.nix
   ./rio.nix
   ./rofi.nix
