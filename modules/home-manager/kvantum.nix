@@ -27,10 +27,19 @@ in
           If this is disabled, you must manually set the theme (e.g. by using `kvantummanager`).
         '';
       };
+
+      assertStyle = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        example = false;
+        description = ''
+          Wether to assert that {option}`qt.style.name` is set to `"kvantum"` when Kvantum themes are enabled.
+        '';
+      };
     };
 
   config = lib.mkIf enable {
-    assertions = [
+    assertions = lib.mkIf cfg.assertStyle [
       {
         assertion = lib.elem config.qt.style.name [
           "kvantum"
