@@ -1,5 +1,63 @@
 # Changelog
 
+## [25.11](https://github.com/catppuccin/nix/releases/tag/v25.11) - 2026-01-06
+
+### 🚨 Breaking Changes
+
+- **modules**: drop support for nixpkgs 24.11 by [@getchoo](https://github.com/getchoo)
+
+### 🚀 Features
+
+- **home-manager**: add support for halloy by [@isabelroses](https://github.com/isabelroses)
+- **home-manager**: add support for vivid by [@Anomalocaridid](https://github.com/Anomalocaridid)
+- **home-manager**: add support for eza by [@ryanccn](https://github.com/ryanccn)
+- **home-manager**: add support for television by [@isabelroses](https://github.com/isabelroses)
+- **home-manager**: support vicinae by [@isabelroses](https://github.com/isabelroses)
+- **home-manager**: add support for anki by [@musjj](https://github.com/musjj)
+- **home-manager/qutebrowser**: add plainLook option by [@SchweGELBin](https://github.com/SchweGELBin)
+- **nixos**: add support for cursors and icons by [@musjj](https://github.com/musjj)
+- **wezterm**: set flavor and accent as plugin options by [@signegrau](https://github.com/signegrau)
+
+### 🐛 Bug Fixes
+
+- **global**: use `extra-*` for cache settings by [@musjj](https://github.com/musjj)
+- **home-manager**: import halloy by [@isabelroses](https://github.com/isabelroses)
+- **home-manager/cava**: remove ifd by [@Anomalocaridid](https://github.com/Anomalocaridid)
+- **home-manager/delta**: use new options by [@alapshin](https://github.com/alapshin)
+- **home-manager/eza**: remove IFD by [@ryanccn](https://github.com/ryanccn)
+- **home-manager/eza**: enable only if enabled in home-manager by [@SymphonySimper](https://github.com/SymphonySimper)
+- **home-manager/foot**: update port for v1.22.3 by [@aciceri](https://github.com/aciceri)
+- **home-manager/freetube**: fix theme setting formatting by [@Anomalocaridid](https://github.com/Anomalocaridid)
+- **home-manager/kvantum**: remove platform theme assertion by [@musjj](https://github.com/musjj)
+- **home-manager/mako**: remove ifd by [@Anomalocaridid](https://github.com/Anomalocaridid)
+- **home-manager/sioyek**: remove ifd by [@Anomalocaridid](https://github.com/Anomalocaridid)
+- **home-manager/television**: installed without enable option by [@isabelroses](https://github.com/isabelroses)
+- **nixos/gitea**: Explicitly create directories with forge user/group by [@aveeryy](https://github.com/aveeryy)
+- **pkgs/buildcatppuccinport**: failing meta checks by [@KP64](https://github.com/KP64)
+- **vscode**: flakey builds by [@isabelroses](https://github.com/isabelroses)
+
+### 📚 Documentation
+
+- **README**: update website links by [@getchoo](https://github.com/getchoo)
+- clean up and add release branch guides by [@getchoo](https://github.com/getchoo)
+- add 25.05 changelog by [@getchoo](https://github.com/getchoo)
+- theme code blocks by [@getchoo](https://github.com/getchoo)
+- move most content from repo to site by [@getchoo](https://github.com/getchoo)
+- Update obsolete flake attribute for importing catppuccin by [@MonsterDruide1](https://github.com/MonsterDruide1)
+
+### New Contributors
+
+* [@KP64](https://github.com/KP64) made their first contribution in [#789](https://github.com/catppuccin/nix/issues/789)
+* [@MonsterDruide1](https://github.com/MonsterDruide1) made their first contribution in [#710](https://github.com/catppuccin/nix/issues/710)
+* [@SymphonySimper](https://github.com/SymphonySimper) made their first contribution in [#775](https://github.com/catppuccin/nix/issues/775)
+* [@aciceri](https://github.com/aciceri) made their first contribution in [#622](https://github.com/catppuccin/nix/issues/622)
+* [@alapshin](https://github.com/alapshin) made their first contribution in [#755](https://github.com/catppuccin/nix/issues/755)
+* [@aveeryy](https://github.com/aveeryy) made their first contribution in [#763](https://github.com/catppuccin/nix/issues/763)
+* [@musjj](https://github.com/musjj) made their first contribution in [#790](https://github.com/catppuccin/nix/issues/790)
+* [@nickthegroot](https://github.com/nickthegroot) made their first contribution in [#797](https://github.com/catppuccin/nix/issues/797)
+* [@signegrau](https://github.com/signegrau) made their first contribution in [#714](https://github.com/catppuccin/nix/issues/714)
+* [@tomperr](https://github.com/tomperr) made their first contribution in [#799](https://github.com/catppuccin/nix/issues/799)
+
 ## [25.05](https://github.com/catppuccin/nix/releases/tag/v25.05) - 2025-08-01
 
 ### 🚨 Breaking Changes
