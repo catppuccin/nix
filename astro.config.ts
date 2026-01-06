@@ -18,7 +18,7 @@ const moduleTypeToNiceLabel = (type: string) => {
 };
 
 const rollingVersion = "main";
-const latestStableVersion = "25.05";
+const latestStableVersion = "25.11";
 
 export default defineConfig({
   site: process.env.URL || "https://nix.catppuccin.com",
