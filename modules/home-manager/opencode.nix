@@ -18,8 +18,6 @@ in
 
 {
   options.catppuccin.opencode = catppuccinLib.mkCatppuccinOption { name = "opencode"; };
-
-
   config = lib.mkIf enable {
     programs.opencode.settings = {
       theme = themeName;
