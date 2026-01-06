@@ -2,18 +2,13 @@
   lib,
   vscode-utils,
   fetchCatppuccinPort,
-  nodejs_22,
-  pnpm_10,
+  nodejs,
+  pnpm,
+  pnpmConfigHook,
+  fetchPnpmDeps,
 
   catppuccinOptions ? { },
 }:
-
-let
-
-  nodejs = nodejs_22;
-  pnpm = pnpm_10.override { inherit nodejs; };
-
-in
 
 vscode-utils.buildVscodeExtension (finalAttrs: {
   pname = "catppuccin-vscode";
@@ -33,20 +28,21 @@ vscode-utils.buildVscodeExtension (finalAttrs: {
   sourceRoot = null;
 
   pnpmWorkspaces = [ "catppuccin-vsc" ];
-  pnpmDeps = pnpm.fetchDeps {
+  pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs)
       pname
       version
       src
       pnpmWorkspaces
       ;
-    fetcherVersion = 2;
-    hash = "sha256-uwc1QtP3Orh8iAS0g9PNfOIkadJgZKflBvSvpIXN3T8=";
+    fetcherVersion = 3;
+    hash = "sha256-sPJhXj13O16kcaJ8LtJaGOtFxdXBl23wmCV4hcEhz4I=";
   };
 
   nativeBuildInputs = [
     nodejs
-    pnpm.configHook
+    pnpm
+    pnpmConfigHook
   ];
 
   env = lib.optionalAttrs (catppuccinOptions != { }) {
