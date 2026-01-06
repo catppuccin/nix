@@ -27,10 +27,6 @@ in
     };
 
   config = lib.mkIf enable {
-
-    # extensions support was added in https://github.com/nix-community/home-manager/pull/6033
-    assertions = [ (catppuccinLib.assertMinimumVersion "25.05") ];
-
     programs.thunderbird = {
       profiles."${cfg.profile}".extensions = [
         (pkgs.runCommandLocal "catppuccin-${cfg.flavor}-${cfg.accent}.thunderbird.theme"
