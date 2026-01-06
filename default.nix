@@ -32,25 +32,7 @@ let
         directory = ./pkgs;
       };
     in
-    generated
-    // collected
-    /*
-      TODO(@getchoo): Remove this with 25.05!!!
-
-      Pin foot to an older version in Nixpkgs < 25.11. See:
-      - https://github.com/catppuccin/nix/issues/636
-      - https://github.com/catppuccin/nix/pull/622
-    */
-    // lib.optionalAttrs (!(lib.versionAtLeast lib.version "25.11pre")) {
-      foot = generated.foot.overrideAttrs (oldAttrs: {
-        src = oldAttrs.src.override {
-          rev = "962ff1a5b6387bc5419e9788a773a080eea5f1e1";
-          hash = "sha256-eVH3BY2fZe0/OjqucM/IZthV8PMsM9XeIijOg8cNE1Y=";
-        };
-
-        lastModified = "2024-09-24";
-      });
-    };
+    generated // collected;
 in
 
 {
