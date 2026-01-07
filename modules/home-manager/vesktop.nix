@@ -12,7 +12,7 @@ in
     accentSupport = true;
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.vesktop.vencord = {
       settings.enabledThemes = [ "${themeName}.css" ];
       themes."${themeName}" = ''

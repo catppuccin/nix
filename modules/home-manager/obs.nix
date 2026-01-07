@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.obs;
-  enable = cfg.enable && config.programs.obs-studio.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.obs-studio.enable;
 
   themeName = "Catppuccin_${lib.toSentenceCase cfg.flavor}.ovt";
 in

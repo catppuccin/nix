@@ -10,7 +10,7 @@ in
 {
   options.catppuccin.nushell = catppuccinLib.mkCatppuccinOption { name = "nushell"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.nushell = {
       extraConfig = lib.mkBefore ''
         source ${sources.nushell + "/catppuccin_${cfg.flavor}.nu"}

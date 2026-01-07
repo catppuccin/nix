@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.btop;
-  enable = cfg.enable && config.programs.btop.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.btop.enable;
 
   themeFile = "catppuccin_${cfg.flavor}.theme";
   theme = sources.btop + "/${themeFile}";

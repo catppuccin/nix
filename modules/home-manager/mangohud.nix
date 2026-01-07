@@ -9,7 +9,7 @@ in
 {
   options.catppuccin.mangohud = catppuccinLib.mkCatppuccinOption { name = "mangohud"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     xdg.configFile = lib.mkIf config.programs.mangohud.enable {
       "MangoHud/MangoHud.conf".source = "${sources.mangohud}/${cfg.flavor}/MangoHud.conf";
     };

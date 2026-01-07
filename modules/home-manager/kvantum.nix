@@ -7,7 +7,7 @@
 
 let
   cfg = config.catppuccin.kvantum;
-  enable = cfg.enable && config.qt.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.qt.enable;
 
   themeName = "catppuccin-${cfg.flavor}-${cfg.accent}";
 in

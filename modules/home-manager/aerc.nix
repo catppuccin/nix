@@ -10,7 +10,7 @@ in
 {
   options.catppuccin.aerc = catppuccinLib.mkCatppuccinOption { name = "aerc"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.aerc = {
       stylesets.${themeName} = lib.fileContents "${sources.aerc}/${themeName}";
       extraConfig = {

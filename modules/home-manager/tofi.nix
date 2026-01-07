@@ -10,7 +10,7 @@ in
 {
   options.catppuccin.tofi = catppuccinLib.mkCatppuccinOption { name = "tofi"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.tofi = {
       settings = {
         include = sources.tofi + "/catppuccin-${cfg.flavor}";

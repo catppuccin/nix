@@ -10,7 +10,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.k9s;
-  enable = cfg.enable && config.programs.k9s.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.k9s.enable;
 
   # NOTE: On MacOS specifically, k9s expects its configuration to be in
   # `~/Library/Application Support` when not using XDG

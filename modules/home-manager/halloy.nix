@@ -4,7 +4,7 @@
 let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.halloy;
-  enable = cfg.enable && config.programs.halloy.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.halloy.enable;
 in
 
 {

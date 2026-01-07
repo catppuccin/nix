@@ -10,7 +10,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.lazygit;
-  enable = cfg.enable && config.programs.lazygit.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.lazygit.enable;
 
   # NOTE: On MacOS specifically, lazygit expects its configuration to be in
   # `~/Library/Application Support` when not using XDG

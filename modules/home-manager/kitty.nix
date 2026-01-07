@@ -8,7 +8,7 @@ in
 {
   options.catppuccin.kitty = catppuccinLib.mkCatppuccinOption { name = "kitty"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.kitty = {
       themeFile = "Catppuccin-${lib.toSentenceCase cfg.flavor}";
     };

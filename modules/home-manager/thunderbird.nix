@@ -9,7 +9,7 @@
 let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.thunderbird;
-  enable = cfg.enable && config.programs.thunderbird.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.thunderbird.enable;
 in
 {
   options.catppuccin.thunderbird =

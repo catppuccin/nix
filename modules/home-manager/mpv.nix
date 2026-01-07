@@ -13,7 +13,7 @@ in
     accentSupport = true;
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.mpv = {
       config = {
         include = sources.mpv + "/${cfg.flavor}/${cfg.accent}.conf";

@@ -9,7 +9,7 @@ in
 {
   options.catppuccin.bottom = catppuccinLib.mkCatppuccinOption { name = "bottom"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.bottom = {
       settings = lib.importTOML "${sources.bottom}/${cfg.flavor}.toml";
     };

@@ -9,7 +9,7 @@
 let
   inherit (config.catppuccin) sources cursors;
   cfg = config.catppuccin.hyprland;
-  enable = cfg.enable && config.wayland.windowManager.hyprland.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.wayland.windowManager.hyprland.enable;
 
   themeFile = pkgs.runCommandLocal "catppuccin-hyprland-${cfg.flavor}-${cfg.accent}.lua" { } ''
     install -m644 ${sources.hyprland}/catppuccin-${cfg.flavor}.lua $out

@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.zed;
-  enable = cfg.enable && config.programs.zed-editor.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.zed-editor.enable;
 
   accent = if cfg.accent == "mauve" then "" else " (${cfg.accent})";
   flavor = catppuccinLib.mkFlavorName cfg.flavor;

@@ -11,7 +11,7 @@ in
   options.catppuccin.swaylock = catppuccinLib.mkCatppuccinOption {
     name = "swaylock";
     /*
-      global `catppuccin.enable` purposefully doesn't work here in configurations with a `home.stateVersion`
+      global `catppuccin.autoEnable` purposefully doesn't work here in configurations with a `home.stateVersion`
       that is >= 23.05
       this is because the upstream module will automatically enable itself if `programs.swaylock.settings`
       is set in configurations with a `home.stateVersion` that is < 23.05. so, we can't use the
@@ -24,14 +24,14 @@ in
       this project.
       - @getchoo
     */
-    default = lib.versionAtLeast config.home.stateVersion "23.05" && config.catppuccin.enable;
+    default = lib.versionAtLeast config.home.stateVersion "23.05" && config.catppuccin.autoEnable;
     defaultText = lib.literalExpression ''
-      `catppuccin.enable` if `home.stateVersion` is >= 23.05, false otherwise
+      `catppuccin.autoEnable` if `home.stateVersion` is >= 23.05, false otherwise
       Yes this is weird, and there's a funny story about it in the code comments
     '';
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.swaylock = {
       settings = catppuccinLib.importINI (sources.swaylock + "/${cfg.flavor}.conf");
     };
