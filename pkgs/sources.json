@@ -214,6 +214,11 @@
     "lastModified": "2024-07-20",
     "rev": "20054f39d3b77bd1afc765981a42c3467bf91204"
   },
+  "qt5ct": {
+    "hash": "sha256-wDj6kQ2LQyMuEvTQP6NifYFdsDLT+fMCe3Fxr8S783w=",
+    "lastModified": "2025-03-29",
+    "rev": "cb585307edebccf74b8ae8f66ea14f21e6666535"
+  },
   "qutebrowser": {
     "hash": "sha256-FmxrgpFlp+cMUdCx5HHIiLMGWML23p+pfxTKT/X0UME=",
     "lastModified": "2025-03-14",

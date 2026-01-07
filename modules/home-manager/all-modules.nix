@@ -46,6 +46,7 @@
   ./obs.nix
   ./opencode.nix
   ./polybar.nix
+  ./qt5ct.nix
   ./qutebrowser.nix
   ./rio.nix
   ./rofi.nix
