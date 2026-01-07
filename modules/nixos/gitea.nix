@@ -67,7 +67,7 @@ in
             inherit (config.services.${forge}) user group;
           };
 
-          "${customDir}/public/assets".d = lib.attrsets.optionalAttrs (hasAssetsDir) {
+          "${customDir}/public/assets".d = lib.attrsets.optionalAttrs hasAssetsDir {
             inherit (config.services.${forge}) user group;
           };
         };

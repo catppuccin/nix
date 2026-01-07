@@ -1,7 +1,6 @@
 { catppuccinLib }:
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -18,8 +17,8 @@ in
     accentSupport = true;
   };
 
-  config.services.mako = lib.mkIf (config.catppuccin._enable && cfg.enable) ({
+  config.services.mako = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     settings.include =
       sources.mako + "/catppuccin-${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}";
-  });
+  };
 }

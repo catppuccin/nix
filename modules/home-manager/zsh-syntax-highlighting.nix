@@ -1,6 +1,5 @@
 { catppuccinLib }:
 {
-  options,
   config,
   lib,
   ...
