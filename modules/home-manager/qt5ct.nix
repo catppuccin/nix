@@ -26,7 +26,7 @@ in
         default = true;
         example = false;
         description = ''
-          Wether to assert that {option}`qt.style.name` is set to `"qtct"` when qtct themes are enabled.
+          Whether to assert that {option}`qt.style.name` is set to `"qtct"` when qtct themes are enabled.
         '';
       };
     };
