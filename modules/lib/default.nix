@@ -12,7 +12,6 @@ let
     mkEnableOption
     mkOption
     mkSinkUndeclaredOptions
-    optional
     optionalAttrs
     types
     versionAtLeast
