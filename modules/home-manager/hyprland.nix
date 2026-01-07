@@ -9,7 +9,7 @@
 let
   inherit (config.catppuccin) sources cursors;
   cfg = config.catppuccin.hyprland;
-  enable = cfg.enable && config.wayland.windowManager.hyprland.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.wayland.windowManager.hyprland.enable;
 in
 
 {

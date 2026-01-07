@@ -9,7 +9,7 @@
 let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.qutebrowser;
-  enable = cfg.enable && config.programs.qutebrowser.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.qutebrowser.enable;
 
   files = {
     "qutebrowser/catppuccin".source = sources.qutebrowser;

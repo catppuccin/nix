@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.fish;
-  enable = cfg.enable && config.programs.fish.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.fish.enable;
 
   themeName = "Catppuccin ${lib.toSentenceCase cfg.flavor}";
 in

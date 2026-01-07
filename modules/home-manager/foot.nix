@@ -10,7 +10,7 @@ in
 {
   options.catppuccin.foot = catppuccinLib.mkCatppuccinOption { name = "foot"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.foot = {
       settings = {
         main.include = sources.foot + "/catppuccin-${cfg.flavor}.ini";

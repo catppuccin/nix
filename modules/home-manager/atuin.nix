@@ -4,7 +4,7 @@
 let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.atuin;
-  enable = cfg.enable && config.programs.atuin.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.atuin.enable;
   themeName = "catppuccin-${cfg.flavor}-${cfg.accent}";
 in
 

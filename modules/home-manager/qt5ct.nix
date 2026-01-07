@@ -7,7 +7,7 @@
 
 let
   cfg = config.catppuccin.qt5ct;
-  enable = cfg.enable && config.qt.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.qt.enable;
 in
 
 {

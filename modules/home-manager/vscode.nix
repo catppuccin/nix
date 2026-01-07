@@ -82,7 +82,7 @@ in
 
   config.programs.vscode.profiles = lib.mapAttrs (
     _: profile:
-    lib.mkIf profile.enable {
+    lib.mkIf (config.catppuccin._enable && profile.enable) {
       extensions = [
         (sources.vscode.override { catppuccinOptions = profile.settings; })
       ]

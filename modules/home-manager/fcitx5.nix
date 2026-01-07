@@ -6,7 +6,8 @@ let
 
   cfg = config.catppuccin.fcitx5;
   enable =
-    cfg.enable
+    config.catppuccin._enable
+    && cfg.enable
     && (
       (
         config.i18n.inputMethod ? enable

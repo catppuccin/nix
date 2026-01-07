@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.helix;
-  enable = cfg.enable && config.programs.helix.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.helix.enable;
   subdir = if cfg.useItalics then "default" else "no_italics";
 in
 

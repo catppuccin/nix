@@ -11,7 +11,7 @@ in
 {
   options.catppuccin.newsboat = catppuccinLib.mkCatppuccinOption { name = "newsboat"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.newsboat = {
       extraConfig = lib.fileContents "${sources.newsboat}/${theme}";
     };
