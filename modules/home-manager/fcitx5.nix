@@ -41,7 +41,9 @@ in
       addons = [
         (sources.fcitx5.override { inherit (cfg) enableRounded; })
       ];
-      settings.addons.classicui.globalSection.Theme = "catppuccin-${cfg.flavor}-${cfg.accent}";
+      settings.addons = lib.mkIf cfg.apply {
+        classicui.globalSection.Theme = "catppuccin-${cfg.flavor}-${cfg.accent}";
+      };
     };
   };
 }
