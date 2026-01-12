@@ -91,6 +91,7 @@ in
     };
     waybar.enable = isLinux;
     wezterm.enable = true;
+    wleave.enable = isLinux;
     wlogout.enable = isLinux;
     yazi.enable = true;
     zathura.enable = true;
