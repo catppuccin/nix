@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.micro;
-  enable = cfg.enable && config.programs.micro.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.micro.enable;
 
   themePath =
     "catppuccin-${cfg.flavor}" + lib.optionalString cfg.transparent "-transparent" + ".micro";

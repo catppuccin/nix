@@ -35,7 +35,7 @@ in
       };
     };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     home.pointerCursor = {
       name = "catppuccin-${cfg.flavor}-${cfg.accent}-cursors";
       package = sources.cursors;

@@ -20,7 +20,7 @@ let
 
   generateConfig =
     browser:
-    lib.mkIf cfg.${browser}.enable {
+    lib.mkIf (config.catppuccin._enable && cfg.${browser}.enable) {
       programs.${browser}.extensions = [ { id = identifiers.${cfg.${browser}.flavor}; } ];
     };
 in

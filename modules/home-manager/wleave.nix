@@ -40,7 +40,7 @@ in
       };
     };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.wleave.style = lib.concatStrings [
       ''
         @import url("${sources.wlogout}/themes/${cfg.flavor}/${cfg.accent}.css");
