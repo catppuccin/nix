@@ -70,9 +70,9 @@
     "rev": "1aa345a3312f0a649068418679ceb81a9c599d36"
   },
   "fish": {
-    "hash": "sha256-Wy034oQuQXftG1TRzXyfEZO+8eAHTHQpUA6pXczIcE0=",
-    "lastModified": "2025-12-31",
-    "rev": "2c7edbb1ef5640cb4ef387647a53327149e51e80"
+    "hash": "sha256-5CXdzym6Vp+FbKTVBtVdWoh3dODudADIzOLXIyIIxgQ=",
+    "lastModified": "2026-01-06",
+    "rev": "521560ce2075ca757473816aa31914215332bac9"
   },
   "foot": {
     "hash": "sha256-bpGVDESE6Pr7kaFgfAWJ/5KC9mRPlv2ciYwRr6jcIKs=",
@@ -90,9 +90,9 @@
     "rev": "acb1b1c22446e34781731ddbfb5e9bd699eccc74"
   },
   "ghostty": {
-    "hash": "sha256-Y+f/kRYxZrkwcQrNEfEunpWjYHf1pqdS5RSXVfpI+KI=",
-    "lastModified": "2025-11-28",
-    "rev": "c4c0f8e64378d27d26967acb16c3c080190d07c2"
+    "hash": "sha256-Y6RFften1/6+1xdhIzEh/E7FBJTwY5a8NH4301HbgOM=",
+    "lastModified": "2026-01-07",
+    "rev": "5a58926563ddacbde4a12b4a347464c2c6945393"
   },
   "gitui": {
     "hash": "sha256-DRK/j3899qJW4qP1HKzgEtefz/tTJtwPkKtoIzuoTj0=",
@@ -115,9 +115,9 @@
     "rev": "b7f0c9a9447fcebcaa0b946935232bdf96494515"
   },
   "helix": {
-    "hash": "sha256-l9R3wMBLf2jofboGIaH39VnpjxP0lbWvhlexdNXq2co=",
-    "lastModified": "2025-07-27",
-    "rev": "1f13d5e7c72b064699e2c8761f603e4ddd48db8a"
+    "hash": "sha256-8ciLJNmAcpSt2enmwgDRKYikzCWGk/gtZd27Brvevvg=",
+    "lastModified": "2026-01-12",
+    "rev": "0f2e597bee08f536675e1068eda0f6d22b3e5f7d"
   },
   "hyprland": {
     "hash": "sha256-xSa/z0Pu+ioZ0gFH9qSo9P94NPkEMovstm1avJ7rvzM=",
@@ -190,9 +190,9 @@
     "rev": "815dfc6ea61f2746ff27b54ef425cfeb7b51dda8"
   },
   "nvim": {
-    "hash": "sha256-8GKpGGdeBwxuMrheojyl162CzUntRcq9AktQVmKbpuI=",
-    "lastModified": "2025-12-14",
-    "rev": "ce8d176faa4643e026e597ae3c31db59b63cef09"
+    "hash": "sha256-cZ6VeF69s0eQ9I7Tz8MoEKuF9w+TbA94vXj2EuDoSgU=",
+    "lastModified": "2026-01-08",
+    "rev": "beaf41a30c26fd7d6c386d383155cbd65dd554cd"
   },
   "obs": {
     "hash": "sha256-ezz3euxO5lxyVaVFDPjNowpivAm9tRGHt8SbflAdkA8=",
