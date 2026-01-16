@@ -21,6 +21,7 @@
   ./freetube.nix
   ./fuzzel.nix
   ./fzf.nix
+  ./gemini-cli.nix
   ./gh-dash.nix
   ./ghostty.nix
   ./gitui.nix
