@@ -11,12 +11,14 @@ lib.extendMkDerivation {
 
   extendDrvArgs =
     finalAttrs: args:
+    let
+      lastModified = args.lastModified or finalAttrs.src.lastModified or null;
+    in
     args
     // {
       pname = args.pname or "catppuccin-${finalAttrs.port}";
       version =
-        args.version
-          or ("0" + lib.optionalString (finalAttrs ? "lastModified") "-unstable-${finalAttrs.lastModified}");
+        args.version or ("0" + lib.optionalString (lastModified != null) "-unstable-${lastModified}");
 
       src =
         args.src or sources.${finalAttrs.port} or (fetchCatppuccinPort {
