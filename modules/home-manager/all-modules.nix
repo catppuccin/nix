@@ -6,6 +6,7 @@
   ./atuin.nix
   ./bat.nix
   ./bottom.nix
+  ./broot.nix
   ./btop.nix
   ./cava.nix
   ./chrome.nix
