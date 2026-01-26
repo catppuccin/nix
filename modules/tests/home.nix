@@ -39,8 +39,8 @@ in
     bat.enable = true;
     bottom.enable = true;
     brave.enable = true;
-    btop.enable = true;
     broot.enable = true;
+    btop.enable = true;
     cava.enable = true;
     chromium.enable = isLinux;
     delta = {
