@@ -60,6 +60,7 @@ in
     freetube.enable = isLinux;
     fuzzel.enable = isLinux;
     fzf.enable = true;
+    gemini-cli.enable = true;
     gh-dash.enable = true;
     ghostty.enable = isLinux;
     git.enable = true;
