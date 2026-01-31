@@ -24,7 +24,7 @@ in
     kvantum.assertStyle = false;
     qt5ct = {
       enable = true;
-      assertStyle = false;
+      assertPlatformTheme = false;
     };
   };
 
