@@ -11,28 +11,42 @@ let
 in
 
 {
+  imports = [
+    (
+      lib.mkRenamedOptionModule
+      [
+        "catppuccin"
+        "qt5ct"
+        "assertStyle"
+      ]
+      [
+        "catppuccin"
+        "qt5ct"
+        "assertPlatformTheme"
+      ]
+    )
+  ];
   options.catppuccin.qt5ct =
     catppuccinLib.mkCatppuccinOption {
       name = "qt5ct";
       accentSupport = true;
 
       # NOTE: don't default enable since it will conflict with kvantum themes
-      # at least for the extent of qt.style.name
       useGlobalEnable = false;
     }
     // {
-      assertStyle = lib.mkOption {
+      assertPlatformTheme = lib.mkOption {
         type = lib.types.bool;
         default = true;
         example = false;
         description = ''
-          Whether to assert that {option}`qt.style.name` is set to `"qtct"` when qtct themes are enabled.
+          Whether to assert that {option}`qt.platformTheme.name` is set to `"qtct"` when qtct themes are enabled.
         '';
       };
     };
 
   config = lib.mkIf enable {
-    assertions = lib.mkIf cfg.assertStyle [
+    assertions = lib.mkIf cfg.assertPlatformTheme [
       {
         assertion = config.qt.platformTheme.name == "qtct";
         message = ''{option}`qt.platformTheme.name` must be `"qtct"` to use {option}`catppuccin.qt5ct`'';
