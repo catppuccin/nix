@@ -12,8 +12,7 @@ in
 
 {
   imports = [
-    (
-      lib.mkRenamedOptionModule
+    (lib.mkRenamedOptionModule
       [
         "catppuccin"
         "qt5ct"
