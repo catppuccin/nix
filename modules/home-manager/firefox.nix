@@ -96,7 +96,7 @@ let
                   profile = cfg.profiles.${name} or { enable = false; };
                 in
                 {
-                  config = mkIf profile.enable {
+                  config = mkIf (config.catppuccin._enable && profile.enable) {
                     extensions = {
                       settings."FirefoxColor@mozilla.com" = {
                         inherit (profile) force;
