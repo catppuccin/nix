@@ -7,7 +7,7 @@
   python3,
   whiskers,
   xcur2png,
-  xorg,
+  xcursorgen,
   zip,
 }:
 
@@ -23,7 +23,7 @@ buildCatppuccinPort (finalAttrs: {
     just
     whiskers
     xcur2png
-    xorg.xcursorgen
+    xcursorgen
     zip
   ];
 
