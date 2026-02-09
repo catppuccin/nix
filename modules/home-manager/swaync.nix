@@ -19,6 +19,9 @@ let
       "--replace-warn"
       "Ubuntu Nerd Font"
       cfg.font
+      "--replace-warn"
+      "font-size: 14px;"
+      "font-size: ${cfg.fontSize}px;"
     ];
   };
 in
@@ -33,6 +36,12 @@ in
         type = lib.types.str;
         default = "Ubuntu Nerd Font";
         description = "Font to use for the notification center";
+      };
+
+      fontSize = lib.mkOption {
+        type = lib.types.str;
+        default = "14";
+        description = "Font size to use for the notification center";
       };
     };
 
