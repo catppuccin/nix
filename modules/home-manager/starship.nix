@@ -10,7 +10,7 @@ in
 {
   options.catppuccin.starship = catppuccinLib.mkCatppuccinOption { name = "starship"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.starship = {
       settings = {
         format = lib.mkDefault "$all";

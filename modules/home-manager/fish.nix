@@ -10,7 +10,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.fish;
-  enable = cfg.enable && config.programs.fish.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.fish.enable;
 
   isLatte = cfg.flavor == "latte";
   flavor = if isLatte then "mocha" else cfg.flavor;

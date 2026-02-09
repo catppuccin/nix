@@ -3,7 +3,7 @@
 
 let
   cfg = config.catppuccin.opencode;
-  enable = cfg.enable && config.programs.opencode.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.opencode.enable;
 
   # Map Catppuccin flavors to OpenCode's available theme names
   # OpenCode provides: "catppuccin", "catppuccin-frappe", "catppuccin-macchiato"

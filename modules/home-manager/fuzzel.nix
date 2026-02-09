@@ -13,7 +13,7 @@ in
     accentSupport = true;
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.fuzzel = {
       settings = {
         main.include = sources.fuzzel + "/catppuccin-${cfg.flavor}/${cfg.accent}.ini";
