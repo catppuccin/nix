@@ -18,7 +18,8 @@ in
   options.catppuccin.fish = catppuccinLib.mkCatppuccinOption { name = "fish"; };
 
   config = lib.mkIf enable {
-    xdg.configFile."fish/themes/${themeName}.theme".source = "${sources.fish}/static/${themeName}.theme";
+    xdg.configFile."fish/themes/${themeName}.theme".source =
+      "${sources.fish}/static/${themeName}.theme";
 
     programs.fish.shellInit = ''
       fish_config theme choose "${themeName}"
