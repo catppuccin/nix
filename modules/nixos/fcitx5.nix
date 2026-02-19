@@ -20,7 +20,7 @@ in
       enableRounded = lib.mkEnableOption "rounded corners for the Fcitx5 theme";
     };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     i18n.inputMethod.fcitx5 = {
       addons = [
         (sources.fcitx5.override { inherit (cfg) enableRounded; })

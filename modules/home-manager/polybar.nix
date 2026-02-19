@@ -10,7 +10,7 @@ in
 {
   options.catppuccin.polybar = catppuccinLib.mkCatppuccinOption { name = "polybar"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     services.polybar = {
       extraConfig = lib.fileContents "${sources.polybar}/${cfg.flavor}.ini";
     };
