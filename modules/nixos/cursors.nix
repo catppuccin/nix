@@ -43,7 +43,7 @@ in
       )
       {
         environment.systemPackages = [
-          sources.cursors
+          sources.cursors."${cfg.flavor}${lib.toSentenceCase cfg.accent}"
         ];
 
         programs.dconf.profiles.gdm.databases = [
