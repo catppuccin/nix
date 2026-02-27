@@ -21,7 +21,8 @@ in
   config =
     lib.mkIf
       (
-        cfg.icon.enable
+        config.catppuccin._enable
+        && cfg.icon.enable
         && (config.services.desktopManager.gnome.enable || config.services.displayManager.gdm.enable)
       )
       {

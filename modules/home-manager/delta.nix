@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.delta;
-  enable = cfg.enable && config.programs.delta.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.delta.enable;
 in
 
 {

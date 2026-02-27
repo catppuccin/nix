@@ -13,7 +13,7 @@ in
 {
   options.catppuccin.anki = catppuccinLib.mkCatppuccinOption { name = "anki"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.anki = {
       addons = with pkgs.ankiAddons; [
         (recolor.withConfig {

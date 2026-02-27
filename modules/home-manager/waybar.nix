@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.waybar;
-  enable = cfg.enable && config.programs.waybar.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.programs.waybar.enable;
 
   styleFile = "${sources.waybar}/${cfg.flavor}.css";
 in

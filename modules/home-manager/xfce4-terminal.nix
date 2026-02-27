@@ -4,7 +4,6 @@
 let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.xfce4-terminal;
-  enable = cfg.enable;
   themeName = "catppuccin-${cfg.flavor}";
 
   toCaseWithSeparator =
@@ -45,7 +44,7 @@ in
     useGlobalEnable = false;
   };
 
-  config = lib.mkIf enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     xfconf.settings = {
       xfce4-terminal = terminalSettings;
     };

@@ -11,7 +11,7 @@ in
 {
   options.catppuccin.skim = catppuccinLib.mkCatppuccinOption { name = "skim"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.skim = {
       defaultOptions = [
         "--color=fg:${palette.text.hex},bg:${palette.base.hex},matched:${palette.surface0.hex},matched_bg:${palette.flamingo.hex},current:${palette.text.hex},current_bg:${palette.surface1.hex},current_match:${palette.base.hex},current_match_bg:${palette.rosewater.hex},spinner:${palette.green.hex},info:${palette.mauve.hex},prompt:${palette.blue.hex},cursor:${palette.red.hex},selected:${palette.maroon.hex},header:${palette.teal.hex},border:${palette.overlay0.hex}"

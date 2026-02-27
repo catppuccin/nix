@@ -17,7 +17,7 @@ in
 {
   options.catppuccin.grub = catppuccinLib.mkCatppuccinOption { name = "grub"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     boot.loader.grub = {
       font = "${theme}/font.pf2";
       splashImage = "${theme}/background.png";

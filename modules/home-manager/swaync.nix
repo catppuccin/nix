@@ -10,7 +10,7 @@ let
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.swaync;
 
-  enable = cfg.enable && config.services.swaync.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.services.swaync.enable;
 
   theme = pkgs.substitute {
     src = sources.swaync + "/${cfg.flavor}.css";

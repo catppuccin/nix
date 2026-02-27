@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.tty;
-  enable = cfg.enable && config.console.enable;
+  enable = config.catppuccin._enable && cfg.enable && config.console.enable;
   palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
 in
 

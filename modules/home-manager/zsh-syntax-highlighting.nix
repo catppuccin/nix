@@ -1,6 +1,5 @@
 { catppuccinLib }:
 {
-  options,
   config,
   lib,
   ...
@@ -19,7 +18,7 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.zsh.initContent = lib.mkOrder 950 ''
       source '${sources.zsh-syntax-highlighting}/catppuccin_${cfg.flavor}-zsh-syntax-highlighting.zsh'
     '';
