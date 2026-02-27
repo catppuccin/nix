@@ -85,9 +85,9 @@
     "rev": "8d263e0e6b58a6b9ea507f71e4dbf6870aaf8507"
   },
   "fuzzel": {
-    "hash": "sha256-XpItMGsYq4XvLT+7OJ9YRILfd/9RG1GMuO6J4hSGepg=",
-    "lastModified": "2024-10-30",
-    "rev": "0af0e26901b60ada4b20522df739f032797b07c3"
+    "hash": "sha256-+/7lxQTRDZ0m+GAAFIjvFt8EXDeqZUtv0pLnNgaauZw=",
+    "lastModified": "2026-02-20",
+    "rev": "879879da8a7dc58f173b4cd7987723fd19bef6d5"
   },
   "gemini-cli": {
     "hash": "sha256-ISUr8Gnknb+8nnlsGbP2aVXAxQtBPbiaTc7MqsecBk4=",
@@ -270,9 +270,9 @@
     "rev": "c072ada05271eec960dc893affe9ac55af63a745"
   },
   "swaylock": {
-    "hash": "sha256-AKiOeV9ggvsreC/lq2qXytUsR+x66Q0kpN2F4/Oh2Ao=",
-    "lastModified": "2024-04-01",
-    "rev": "77246bbbbf8926bdb8962cffab6616bc2b9e8a06"
+    "hash": "sha256-u56du8sNauyiELdfWAvzH25PNMAiyKQdRCC1HnCXanw=",
+    "lastModified": "2026-02-23",
+    "rev": "7ce18805107746a36589cdce77c6892ff62c84d3"
   },
   "television": {
     "hash": "sha256-83C03FX2vb5UHq5sbad8XLoF/2EfX0NC+fUA0Xi60fw=",
