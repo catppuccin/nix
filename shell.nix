@@ -26,14 +26,14 @@ pkgs.mkShellNoCC {
       nixVersions.nix_2_28
 
       # Node tooling for Astro/Starlight
-      nodejs-slim_22
-      corepack
+      nodejs-slim
+      nodejs-slim.corepack
       nrr
     ]
     ++ lib.optionals (!minimal) [
       # Nix tools
       deadnix
-      nixfmt-rfc-style
+      nixfmt
       nil
       statix
 
