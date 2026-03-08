@@ -79,7 +79,7 @@
         pkgs.treefmt.withConfig {
           runtimeInputs = with pkgs; [
             keep-sorted
-            nixfmt-rfc-style
+            nixfmt
           ];
 
           settings = {
