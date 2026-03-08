@@ -38,7 +38,7 @@ in
   config = lib.mkIf cfg.enable {
     home.pointerCursor = {
       name = "catppuccin-${cfg.flavor}-${cfg.accent}-cursors";
-      package = sources.cursors;
+      package = sources.cursors."${cfg.flavor}${lib.toSentenceCase cfg.accent}";
     };
   };
 }
