@@ -37,8 +37,10 @@ jobs:
             system: aarch64-darwin
           - os: ubuntu-latest
             system: x86_64-linux
+          - os: ubuntu-24.04-arm
+            system: aarch64-linux
 
-        os: [macos-latest, ubuntu-latest]
+        os: [macos-latest, ubuntu-latest, ubuntu-24.04-arm]
 
     runs-on: ${{ matrix.os }}
 
@@ -81,7 +83,7 @@ jobs:
     name: Release Gate
     needs: [flake]
 
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, ubuntu-24.04-arm]
 
     steps:
       - name: Exit with error
