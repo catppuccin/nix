@@ -24,7 +24,7 @@ in
       };
     };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
     programs.hyprlock = {
       settings = {
         source = [

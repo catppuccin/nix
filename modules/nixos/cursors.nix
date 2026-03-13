@@ -38,7 +38,8 @@ in
   config =
     lib.mkIf
       (
-        cfg.enable
+        config.catppuccin._enable
+        && cfg.enable
         && (config.services.desktopManager.gnome.enable || config.services.displayManager.gdm.enable)
       )
       {
