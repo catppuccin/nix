@@ -7,15 +7,15 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "whiskers";
-  version = "2.5.1";
+  version = "2.9.0";
 
   src = fetchCatppuccinPort {
     port = "whiskers";
     rev = "refs/tags/v${version}";
-    hash = "sha256-OLEXy9MCrPQu1KWICsYhe/ayVqxkYIFwyJoJhgiNDz4=";
+    hash = "sha256-KU2cHBtz9rdfhulINRaQm+YZ7n8OBULrSHSSxmoitnk=";
   };
 
-  cargoHash = "sha256-CVg7kcOTRa8KfDwiJHQhTPQfK6g3jOMa4h/BCUo3ehw=";
+  cargoHash = "sha256-40IPDdxKTWYxsCfsECsXDGwfxXiTEIelxIGAFv3xlU4=";
 
   passthru = {
     updateScript = nix-update-script { };
