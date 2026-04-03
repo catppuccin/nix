@@ -155,9 +155,9 @@
     "rev": "71105d224fef95dd023691303477ce3eea487457"
   },
   "lazygit": {
-    "hash": "sha256-4eJEOEfwLBc4EoQ32TpuhXS3QDvQ8FtT7EgpotEKV7o=",
-    "lastModified": "2025-04-21",
-    "rev": "c24895902ec2a3cb62b4557f6ecd8e0afeed95d5"
+    "hash": "sha256-dwCRILNi2Qo8X0Y9ESnx2IjU1kSi4iOfcz5CoM2vSHY=",
+    "lastModified": "2026-04-01",
+    "rev": "798ad2e75a11766e9ba50e76e59aea6a81eb4866"
   },
   "limine": {
     "hash": "sha256-CdL1fq7JKju5SOvt8pBynLzM1knlM26SRinqYD48b+c=",
@@ -200,9 +200,9 @@
     "rev": "815dfc6ea61f2746ff27b54ef425cfeb7b51dda8"
   },
   "nvim": {
-    "hash": "sha256-NuwqxzZQ6YWHZdWYnCWDSlFIeagTU+Q4JdIHy25VR3A=",
-    "lastModified": "2026-03-22",
-    "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8"
+    "hash": "sha256-C+bsDGpXwuie67yCFQjbqg6POC+y94eBIz9zxqo9jGM=",
+    "lastModified": "2026-04-02",
+    "rev": "16408d203973da7e43fab87c6f9d3bf7fa98fa8b"
   },
   "obs": {
     "hash": "sha256-Uk4a0HKaeyQilgBiPsuAWQubk1yZdyirNcfhYJEL+lQ=",
@@ -235,9 +235,9 @@
     "rev": "808adc3d7d5be6fc573d6be6e9c888cb96b5d6e6"
   },
   "rio": {
-    "hash": "sha256-ZliaXIM+9YbRQLz4NCoZWQVcB5ieb4tqoPAPAZEegZs=",
-    "lastModified": "2025-04-11",
-    "rev": "2aed2a3e545504090edde25591b5e85abad0286f"
+    "hash": "sha256-m9yfFle1MWQvmXP4hp4xxkGgHjqHyRyrbKgGB36Kw/8=",
+    "lastModified": "2026-03-27",
+    "rev": "6c7e7f9ce7eeb1ae621beadd8f93641f6752c14d"
   },
   "rofi": {
     "hash": "sha256-81eeFjwM/haPjIEWkZPp1JSDwhWbWDAuKtWiCg7P9Q0=",
