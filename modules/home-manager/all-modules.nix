@@ -32,6 +32,7 @@
   ./helix.nix
   ./hyprland.nix
   ./hyprlock.nix
+  ./hyprtoolkit.nix
   ./imv.nix
   ./k9s.nix
   ./kitty.nix

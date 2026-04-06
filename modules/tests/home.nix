@@ -17,6 +17,7 @@ in
     # listing explicitly so we know it's tested
     glamour.enable = true;
 
+    hyprtoolkit.enable = true;
     xfce4-terminal.enable = isLinux;
 
     # we install the themes but don't apply them so we can test kvantum, qt5ct

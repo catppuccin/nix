@@ -139,6 +139,11 @@
     "lastModified": "2025-06-02",
     "rev": "f650895064ae80db7c0e095829fce83fd85d0b26"
   },
+  "hyprtoolkit": {
+    "hash": "sha256-D05IJCPK/9jOfqti0dlhymLBPwLf/PFtkP2nR+F1DDk=",
+    "lastModified": "2026-04-05",
+    "rev": "2074fbefdaa73cfb996006f817a03d9d288aa38c"
+  },
   "imv": {
     "hash": "sha256-4WOHc9k+NUsyFDKgDAyGfRtpFsx/KyOAE5kIv4gKhwM=",
     "lastModified": "2025-08-07",
