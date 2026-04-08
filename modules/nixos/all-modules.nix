@@ -5,6 +5,7 @@
   ./gitea.nix
   ./grub.nix
   ./gtk.nix
+  ./home-assistant.nix
   ./limine.nix
   ./plymouth.nix
   ./sddm.nix

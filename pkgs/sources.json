@@ -129,6 +129,11 @@
     "lastModified": "2026-02-18",
     "rev": "91e071bf9b9b2b8ae176a5581fcb61c789c55cab"
   },
+  "home-assistant": {
+    "hash": "sha256-+m6lWer9a4AwmTgckhSHOKd0Oo6x9N0jjza4/F0ye3E=",
+    "lastModified": "2026-04-04",
+    "rev": "b37ada06d011fe02d487719b06e70e98ded76149"
+  },
   "hyprland": {
     "hash": "sha256-xSa/z0Pu+ioZ0gFH9qSo9P94NPkEMovstm1avJ7rvzM=",
     "lastModified": "2024-06-19",

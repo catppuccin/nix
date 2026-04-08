@@ -23,6 +23,7 @@
     };
     forgejo.enable = true;
     gitea.enable = true;
+    home-assistant.enable = true;
 
     xserver.enable = true; # required for sddm
   };
