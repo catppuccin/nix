@@ -200,14 +200,14 @@
     "rev": "815dfc6ea61f2746ff27b54ef425cfeb7b51dda8"
   },
   "nvim": {
-    "hash": "sha256-C+bsDGpXwuie67yCFQjbqg6POC+y94eBIz9zxqo9jGM=",
-    "lastModified": "2026-04-02",
-    "rev": "16408d203973da7e43fab87c6f9d3bf7fa98fa8b"
+    "hash": "sha256-qs74a/h9nUoI1uZ7Rlh8krgWkTaIh4SaHshhPiDwBis=",
+    "lastModified": "2026-04-06",
+    "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1"
   },
   "obs": {
-    "hash": "sha256-Uk4a0HKaeyQilgBiPsuAWQubk1yZdyirNcfhYJEL+lQ=",
-    "lastModified": "2026-03-02",
-    "rev": "c5357ce7b0fb8c73aab0a80739832474087b1af6"
+    "hash": "sha256-Eb9P4ZWRHy0KjysWgL4F6jOq21yCl8E/hT+eZhTO/pA=",
+    "lastModified": "2026-04-05",
+    "rev": "94d317949c0f4c3e55b8ccc7f16890ce7ba3fc37"
   },
   "palette": {
     "hash": "sha256-hsy+GhuM4MSjnwGq1YJSLBFIbVm67SSdPRgObP00mxw=",
@@ -285,9 +285,9 @@
     "rev": "0289f3bd9566f9666682f66a3355155c0d0563fc"
   },
   "tmux": {
-    "hash": "sha256-godCgBMgqzim+W3O2sHcgw91h7sHsKHjd02BdLuazZ8=",
-    "lastModified": "2025-09-28",
-    "rev": "8b0b9150f9d7dee2a4b70cdb50876ba7fd6d674a"
+    "hash": "sha256-3CJRQCgS8NAN7vOLBjNGiHbGXTIrIyY/FLmfZrXcEYc=",
+    "lastModified": "2026-04-08",
+    "rev": "d2d25bd3393fe43f19eb4fff6cdd2bdf5578e622"
   },
   "tofi": {
     "hash": "sha256-urvt0ZuCe6iEtHwMUl4K6GDLQat/lV0TqgUOlKs8ykE=",
