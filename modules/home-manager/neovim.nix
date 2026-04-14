@@ -23,16 +23,15 @@ in
       plugins = [
         {
           plugin = config.catppuccin.sources.nvim;
+          type = "lua";
           config = ''
-            lua << EOF
-              local compile_path = vim.fn.stdpath("cache") .. "/catppuccin-nvim"
-              vim.fn.mkdir(compile_path, "p")
-              vim.opt.runtimepath:append(compile_path)
+            local compile_path = vim.fn.stdpath("cache") .. "/catppuccin-nvim"
+            vim.fn.mkdir(compile_path, "p")
+            vim.opt.runtimepath:append(compile_path)
 
-              require("catppuccin").setup(${lib.generators.toLua { } cfg.settings})
+            require("catppuccin").setup(${lib.generators.toLua { } cfg.settings})
 
-              vim.api.nvim_command("colorscheme catppuccin")
-            EOF
+            vim.api.nvim_command("colorscheme catppuccin")
           '';
         }
       ];
