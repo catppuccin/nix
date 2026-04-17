@@ -179,6 +179,7 @@
                   # Silence, convenient safety assertions!!!!
                   fileSystems."/" = {
                     label = "root";
+                    fsType = "auto";
                   };
 
                   # NOTE: This isn't required for NixOS. But it is for home-manager!
