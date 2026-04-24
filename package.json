@@ -13,13 +13,13 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
-    "@astrojs/starlight": "^0.38.1",
+    "@astrojs/starlight": "^0.38.4",
     "@catppuccin/starlight": "^2.0.1",
-    "astro": "^6.0.7",
-    "prettier": "^3.8.1",
+    "astro": "^6.1.9",
+    "prettier": "^3.8.3",
     "prettier-plugin-astro": "^0.14.1",
     "sharp": "^0.34.5",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "prettier": {
     "plugins": [
