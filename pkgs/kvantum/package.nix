@@ -8,6 +8,11 @@ buildCatppuccinPort (finalAttrs: {
 
   dontCatppuccinInstall = true;
 
+  whiskersTemplates = [
+    "templates/svg.tera"
+    "templates/kvantum.tera"
+  ];
+
   postInstall = ''
     mkdir -p $out/share
     mv themes $out/share/Kvantum/
