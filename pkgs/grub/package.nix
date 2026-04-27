@@ -3,6 +3,7 @@
 buildCatppuccinPort {
   port = "grub";
 
+  dontCatppuccinBuild = true;
   dontCatppuccinInstall = true;
 
   postInstall = ''
