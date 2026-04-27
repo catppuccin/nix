@@ -8,8 +8,19 @@ buildCatppuccinPort (finalAttrs: {
 
   dontCatppuccinInstall = true;
 
+  whiskersTemplates = [
+    "bullet.tera"
+    "capslock.tera"
+    "entry.tera"
+    "keyboard.tera"
+    "lock.tera"
+    "plymouth.tera"
+    "preview.tera"
+    "throbber.tera"
+  ];
+
   postPatch = ''
-    substituteInPlace themes/**/*.plymouth \
+    substituteInPlace plymouth.tera \
       --replace-fail '/usr' '${placeholder "out"}'
   '';
 
