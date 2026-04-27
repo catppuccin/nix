@@ -2,7 +2,9 @@
   lib,
   stdenvNoCC,
   catppuccinInstallHook,
+  catppuccinBuildHook,
   fetchCatppuccinPort,
+  whiskers,
   sources,
 }:
 
@@ -26,10 +28,16 @@ lib.extendMkDerivation {
           fetchSubmodules = finalAttrs.fetchSubmodules or false;
         });
 
-      nativeBuildInputs = args.nativeBuildInputs or [ ] ++ [ catppuccinInstallHook ];
+      nativeBuildInputs = args.nativeBuildInputs or [ ] ++ [
+        catppuccinInstallHook
+        catppuccinBuildHook
+        whiskers # dep of catppuccin build hook
+      ];
 
       __structuredAttrs = true;
       strictDeps = true;
+
+      whiskersTemplates = args.whiskersTemplates or [ "${finalAttrs.port}.tera" ];
 
       meta = {
         description = "Soothing pastel theme for ${finalAttrs.port}";
