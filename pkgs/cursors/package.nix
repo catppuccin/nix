@@ -5,7 +5,6 @@
   inkscape,
   just,
   python3,
-  whiskers,
   xcur2png,
   xcursorgen,
   zip,
@@ -55,7 +54,6 @@ buildCatppuccinPort (finalAttrs: {
     hyprcursor
     inkscape
     just
-    whiskers
     xcur2png
     xcursorgen
     zip

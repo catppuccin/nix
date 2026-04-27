@@ -3,7 +3,6 @@
   buildCatppuccinPort,
   bash,
   just,
-  whiskers,
   kdePackages,
   background ? null,
   font ? "Noto Sans",
@@ -47,7 +46,6 @@ buildCatppuccinPort (finalAttrs: {
 
   nativeBuildInputs = [
     just
-    whiskers
   ];
 
   propagatedBuildInputs = [
