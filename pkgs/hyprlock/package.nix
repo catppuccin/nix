@@ -9,5 +9,6 @@ buildCatppuccinPort {
     sed -i '1,4d' hyprlock.conf
   '';
 
+  dontCatppuccinBuild = true;
   installTargets = [ "hyprlock.conf" ];
 }
