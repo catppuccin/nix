@@ -29,6 +29,9 @@ lib.extendMkDerivation {
 
       nativeBuildInputs = args.nativeBuildInputs or [ ] ++ [ catppuccinInstallHook ];
 
+      __structuredAttrs = true;
+      strictDeps = true;
+
       meta = {
         description = "Soothing pastel theme for ${finalAttrs.port}";
         homepage = "https://github.com/catppuccin/${finalAttrs.port}";
