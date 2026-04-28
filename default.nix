@@ -9,7 +9,8 @@
 }:
 
 let
-  catppuccinPackages =
+  catppuccinPackages = pkgs.lib.makeScope pkgs.newScope (
+    self:
     let
       generated = lib.foldlAttrs (
         acc: port:
@@ -20,7 +21,7 @@ let
         }:
         lib.recursiveUpdate acc {
           # Save our sources for each port
-          sources.${port} = catppuccinPackages.fetchCatppuccinPort {
+          sources.${port} = self.fetchCatppuccinPort {
             inherit
               port
               rev
@@ -30,16 +31,17 @@ let
           };
 
           # And create a default package for them
-          "${port}" = catppuccinPackages.buildCatppuccinPort { inherit port; };
+          "${port}" = self.buildCatppuccinPort { inherit port; };
         }
       ) { } (lib.importJSON ./pkgs/sources.json);
 
       collected = lib.packagesFromDirectoryRecursive {
-        callPackage = lib.callPackageWith (pkgs // catppuccinPackages);
+        inherit (self) callPackage;
         directory = ./pkgs;
       };
     in
-    generated // collected;
+    generated // collected
+  );
 in
 
 {
