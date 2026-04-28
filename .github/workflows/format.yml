@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.PUSH_TOKEN }}
 
       - name: Set Git user info
         run: |
