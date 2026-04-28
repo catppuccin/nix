@@ -12,12 +12,11 @@
 
 vscode-utils.buildVscodeExtension (finalAttrs: {
   pname = "catppuccin-vscode";
-  name = finalAttrs.pname;
   version = "3.18.0";
 
   src = fetchCatppuccinPort {
     port = "vscode";
-    rev = "refs/tags/@catppuccin/vscode-v${finalAttrs.version}";
+    tag = "@catppuccin/vscode-v${finalAttrs.version}";
     hash = "sha256-vi+QNploStQFrXSc+izcycKtpkrRsq2mJWrKsHP3D5g=";
   };
 
@@ -44,6 +43,9 @@ vscode-utils.buildVscodeExtension (finalAttrs: {
     pnpm
     pnpmConfigHook
   ];
+
+  __structuredAttrs = true;
+  strictDeps = true;
 
   env = lib.optionalAttrs (catppuccinOptions != { }) {
     CATPPUCCIN_OPTIONS = builtins.toJSON catppuccinOptions;
