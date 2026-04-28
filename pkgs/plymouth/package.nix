@@ -6,27 +6,20 @@
 buildCatppuccinPort (finalAttrs: {
   port = "plymouth";
 
-  dontCatppuccinInstall = true;
-
-  whiskersTemplates = [
-    "bullet.tera"
-    "capslock.tera"
-    "entry.tera"
-    "keyboard.tera"
-    "lock.tera"
-    "plymouth.tera"
-    "preview.tera"
-    "throbber.tera"
-  ];
+  dontCatppuccinBuild = true;
 
   postPatch = ''
     substituteInPlace plymouth.tera \
       --replace-fail '/usr' '${placeholder "out"}'
   '';
 
-  postInstall = ''
+  installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/share/plymouth
     mv themes/ $out/share/plymouth/themes/
+
+    runHook postInstall
   '';
 
   meta = {
