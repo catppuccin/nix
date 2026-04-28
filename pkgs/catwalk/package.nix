@@ -1,20 +1,19 @@
 {
   lib,
   stdenv,
-  buildPackages,
   fetchCatppuccinPort,
   installShellFiles,
   nix-update-script,
   rustPlatform,
 }:
 
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "catwalk";
   version = "1.3.2";
 
   src = fetchCatppuccinPort {
     port = "catwalk";
-    rev = "refs/tags/v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-Yj9xTQJ0eu3Ymi2R9fgYwBJO0V+4bN4MOxXCJGQ8NjU=";
   };
 
@@ -22,16 +21,14 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [ installShellFiles ];
 
-  postInstall =
-    let
-      catwalk = stdenv.hostPlatform.emulator buildPackages + " $out/bin/catwalk";
-    in
-    lib.optionalString (stdenv.hostPlatform.emulatorAvailable buildPackages) ''
-      installShellCompletion --cmd catwalk \
-        --bash <(${catwalk} completion bash) \
-        --fish <(${catwalk} completion fish) \
-        --zsh <(${catwalk} completion zsh)
-    '';
+  __structuredAttrs = true;
+
+  postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
+    installShellCompletion --cmd catwalk \
+      --bash <("$out/bin/catwalk" completion bash) \
+      --zsh <("$out/bin/catwalk" completion zsh) \
+      --fish <("$out/bin/catwalk" completion fish)
+  '';
 
   passthru = {
     updateScript = nix-update-script { };
@@ -41,5 +38,10 @@ rustPlatform.buildRustPackage rec {
     description = "Soothing pastel previews for the high-spirited!";
     homepage = "https://catppuccin.com";
     license = lib.licenses.mit;
+    mainProgram = "catwalk";
+    maintainers = with lib.maintainers; [
+      getchoo
+      isabelroses
+    ];
   };
-}
+})
