@@ -3,7 +3,8 @@
 lib.makeOverridable (
   {
     port,
-    rev,
+    rev ? null,
+    tag ? null,
     hash,
     lastModified ? null,
     ...
@@ -21,7 +22,7 @@ lib.makeOverridable (
     {
       owner = "catppuccin";
       repo = port;
-      inherit rev hash;
+      inherit rev tag hash;
       passthru =
         lib.optionalAttrs (lastModified != null) {
           lastModified = lastModified;
