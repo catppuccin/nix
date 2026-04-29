@@ -9,7 +9,8 @@ on:
 
 permissions:
   contents: write
-  
+  actions: write
+
 jobs:
   nix:
     name: Nix files
