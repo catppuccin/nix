@@ -44,6 +44,7 @@ jobs:
           branch: "update-flake-lock"
 
       - name: Run CI
+        if: steps.create-pull-request.outputs.pull-request-number
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -85,6 +86,7 @@ jobs:
           branch: "update-ports"
 
       - name: Run CI
+        if: steps.create-pull-request.outputs.pull-request-number
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
