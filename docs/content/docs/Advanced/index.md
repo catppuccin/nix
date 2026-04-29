@@ -3,8 +3,9 @@ title: Advanced
 description: Advanced usage of catppuccin/nix
 ---
 
-This section covers more advanced uses of `catppuccin/nix`, extending beyond
-typical user requirements. These use cases are primarily **unsupported**, and
-users should have prior expertise when configuring these options.
+This section covers some of the more advanced uses of `catppuccin/nix`,
+extending far beyond typical user requirements. These use cases are primarily
+**unsupported**, and thus we recommend that all users have prior expertise 
+before configuring these options.
 
 - [Customization](/advanced/customisation/) - apply package and color customizations.

@@ -6,15 +6,15 @@ description: Customise the packages catppuccin/nix uses to build themes
 Internally, `catppuccin/nix` exposes the packages it uses to fetch ports and
 generate themes through the
 [`catppuccin.sources`](/options/main/nixos/catppuccin/#catppuccin-sources)
-option. The package set is robust so you can swap out a single package and it
-will cause no rebuilds beyond that single package. However, you can trigger a
-mass rebuild via `overideScope`. Each approach has their own respective
-benefits depending on your goal.
+option. The package set is modularised such that you could swap out a single package and it
+wouldn't trigger a rebuild beyond that single isolated package. However, you can trigger a
+mass rebuild manually, via `overideScope`. Each approach has their own respective
+benefits dependent on your goal.
 
 Some examples of this may include but are not limited to:
 
 - applying [color overrides] to every port that uses [whiskers]
-- pin a port to a specific revision
+- pinning a port to a specific revision
 
 [color overrides]: https://whiskers.catppuccin.com/concepts/overrides/#color-overrides
 [whiskers]: https://github.com/catppuccin/whiskers
@@ -38,8 +38,8 @@ to add to `catppuccin.sources`.
 }
 ```
 
-Another way if you *want* to cause a mass rebuild for any dependent packages
-may look like so:
+Another method of triggering a mass-rebuild for any dependent packages
+may take a form such as the following:
 
 ```nix
 { inputs, ... }:
@@ -60,12 +60,11 @@ may look like so:
 ## Example: OLED colour overrides
 
 The majority of our ports use [`whiskers`][whiskers] to build the final themed
-files. By wrapping the `whiskers` with the [`--color-overrides`][color
-overrides] flag, every port that is built using it will be rebuilt to use the
-colors you have specified.
+files. By wrapping `whiskers` to call with the [`--color-overrides`][color
+overrides] flag, every port that is built using it will be built with those respective colors replaced.
 
-The snippet below replaces the standard mocha background with pure black,
-producing the popular oledpuccin variant.
+The following snippet demonstrates an example that replaces the standard mocha background
+with pure black, producing the popular oledpuccin variant:
 
 ```nix
 {
