@@ -48,6 +48,10 @@ export default defineConfig({
           autogenerate: { directory: "Getting Started" },
         },
         {
+          label: "Advanced",
+          autogenerate: { directory: "Advanced" },
+        },
+        {
           label: "Options List",
           items: Object.entries(optionsData).map(([version, modules]) => {
             const versionGroup = {
