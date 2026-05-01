@@ -10,7 +10,7 @@ in
 
 tmuxPlugins.mkTmuxPlugin rec {
   pluginName = "catppuccin";
-  version = "0${lib.optionalString (src ? "lastModified") "-unstable-${src.lastModified}"}";
+  version = "0${lib.optionalString (src ? "lastModified") "-unstable-${builtins.toString src.lastModified}"}";
 
   src = sources.${portName};
 

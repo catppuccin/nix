@@ -19,7 +19,7 @@ lib.extendMkDerivation {
     {
       pname = args.pname or "catppuccin-${finalAttrs.port}";
       version =
-        args.version or ("0" + lib.optionalString (lastModified != null) "-unstable-${lastModified}");
+        args.version or ("0" + lib.optionalString (lastModified != null) "-unstable-${builtins.toString lastModified}");
 
       src =
         args.src or sources.${finalAttrs.port} or (fetchCatppuccinPort {
