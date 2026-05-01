@@ -80,9 +80,9 @@
     "rev": "5fc5ae9c2ec22eb376cb03ce76f0d262a38960f3"
   },
   "foot": {
-    "hash": "sha256-bpGVDESE6Pr7kaFgfAWJ/5KC9mRPlv2ciYwRr6jcIKs=",
-    "lastModified": "2025-07-20",
-    "rev": "8d263e0e6b58a6b9ea507f71e4dbf6870aaf8507"
+    "hash": "sha256-lFa5EpoLkrZcC80YDHyVOTnwYOCNybznlD80NkgVLYs=",
+    "lastModified": "2026-04-25",
+    "rev": "99384a83ee9246cd0a38aeee07d8300367724602"
   },
   "fuzzel": {
     "hash": "sha256-+/7lxQTRDZ0m+GAAFIjvFt8EXDeqZUtv0pLnNgaauZw=",
@@ -225,9 +225,9 @@
     "rev": "07d02aa110ef9eb7e7427afca5c73ba9cf7f8ebd"
   },
   "plymouth": {
-    "hash": "sha256-3JK4lX2ZmxysITDEEkhBLkyINUeCzvu5nUgrpvWZ+ZE=",
-    "lastModified": "2026-02-18",
-    "rev": "da38011d25f6f36152f2409372dfadb11c8f047c"
+    "hash": "sha256-2hGe8VOj1EhpwX51q8AcTfuVBByEHskBj89FX5YZqXc=",
+    "lastModified": "2026-04-28",
+    "rev": "198eba2071d80e4a23b8f51a5859e8f4acf8de6c"
   },
   "polybar": {
     "hash": "sha256-jMQ+gH1djp2euERZpVW9muHQFI7xYnEQoNpucRj7Gow=",
