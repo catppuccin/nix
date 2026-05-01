@@ -10,7 +10,7 @@ in
 
 vimUtils.buildVimPlugin rec {
   pname = "catppuccin-nvim";
-  version = "0${lib.optionalString (src ? "lastModified") "-unstable-${builtins.toString src.lastModified}"}";
+  version = "0${lib.optionalString (src ? "lastModified") "-unstable-${toString src.lastModified}"}";
 
   src = sources.${portName};
 
