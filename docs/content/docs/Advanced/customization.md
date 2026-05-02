@@ -57,6 +57,25 @@ may take a form such as the following:
 }
 ```
 
+Note that you can freely modify the sources here.
+The sources are derivations, so it's possible to adjust them as you would with any package derivation.
+For example, if you have a custom fork of a theme (here: `my-catppuccin-bat-fork` as part of `inputs`),
+you can override the package source:
+
+```nix
+{ inputs, ... }:
+{
+  catppuccin.sources = inputs.catppuccin.packages.x86_64-linux.overrideScope (
+    final: prev: {
+      bat = prev.bat.overrideAttrs {
+        # use an appropriate fetcher if the expression is not part of a flake
+        src = inputs.my-catppuccin-bat-fork;
+      };
+    }
+  );
+}
+```
+
 ## Example: OLED Color Overrides
 
 The majority of our ports use [`whiskers`][whiskers] to build the final themed
