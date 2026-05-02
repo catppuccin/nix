@@ -1,28 +1,28 @@
 ---
-title: Customisation
-description: Customise the packages catppuccin/nix uses to build themes
+title: Customization
+description: Customize the packages catppuccin/nix uses to build themes
 ---
 
 Internally, `catppuccin/nix` exposes the packages it uses to fetch ports and
 generate themes through the
 [`catppuccin.sources`](/options/main/nixos/catppuccin/#catppuccin-sources)
-option. The package set is modularised such that you could swap out a single package and it
+option. The package set is modularized such that you could swap out a single package and it
 wouldn't trigger a rebuild beyond that single isolated package. However, you can trigger a
 mass rebuild manually, via `overideScope`. Each approach has their own respective
-benefits dependent on your goal.
+benefits depending on your goal.
 
 Some examples of this may include but are not limited to:
 
-- applying [color overrides] to every port that uses [whiskers]
-- pinning a port to a specific revision
+- Applying [color overrides] to every port that uses [whiskers]
+- Pinning a port to a specific revision
 
 [color overrides]: https://whiskers.catppuccin.com/concepts/overrides/#color-overrides
 [whiskers]: https://github.com/catppuccin/whiskers
 
-## Overriding sources
+## Overriding Sources
 
-There are a few ways to change the sources for the ports, the easiest is simply
-to add to `catppuccin.sources`.
+There are a few ways to change the port sources, the easiest is simply
+to add it to `catppuccin.sources`:
 
 ```nix
 { lib, pkgs, config, ... }:
@@ -44,7 +44,7 @@ may take a form such as the following:
 ```nix
 { inputs, ... }:
 {
-  catppuccin.sources = inputs.catppuccin.packages.x86_64-linux.overideScope (
+  catppuccin.sources = inputs.catppuccin.packages.x86_64-linux.overrideScope (
     final: prev: {
       bat = prev.fetchCatppuccinPort {
         port = "bat";
@@ -57,14 +57,14 @@ may take a form such as the following:
 }
 ```
 
-## Example: OLED colour overrides
+## Example: OLED Color Overrides
 
 The majority of our ports use [`whiskers`][whiskers] to build the final themed
-files. By wrapping `whiskers` to call with the [`--color-overrides`][color
+files. By wrapping `whiskers` to call it with the [`--color-overrides`][color
 overrides] flag, every port that is built using it will be built with those respective colors replaced.
 
 The following snippet demonstrates an example that replaces the standard mocha background
-with pure black, producing the popular oledpuccin variant:
+with pure black, producing the popular _oledpuccin_ variant:
 
 ```nix
 {
