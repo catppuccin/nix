@@ -68,7 +68,6 @@ you can override the package source:
   catppuccin.sources = inputs.catppuccin.packages.x86_64-linux.overrideScope (
     final: prev: {
       bat = prev.bat.overrideAttrs {
-        # use an appropriate fetcher if the expression is not part of a flake
         src = inputs.my-catppuccin-bat-fork;
       };
     }
