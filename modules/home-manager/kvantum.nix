@@ -19,21 +19,12 @@ in
       accentSupport = true;
     }
     // {
-      apply = lib.mkOption {
-        type = lib.types.bool;
-        default = true;
-        description = ''
-          Applies the theme by overwriting `$XDG_CONFIG_HOME/Kvantum/kvantum.kvconfig`.
-          If this is disabled, you must manually set the theme (e.g. by using `kvantummanager`).
-        '';
-      };
-
       assertStyle = lib.mkOption {
         type = lib.types.bool;
         default = true;
         example = false;
         description = ''
-          Wether to assert that {option}`qt.style.name` is set to `"kvantum"` when Kvantum themes are enabled.
+          Whether to assert that {option}`qt.style.name` is set to `"kvantum"` when Kvantum themes are enabled.
         '';
       };
     };
@@ -49,14 +40,10 @@ in
       }
     ];
 
-    xdg.configFile = {
-      "Kvantum/${themeName}".source = "${config.catppuccin.sources.kvantum}/share/Kvantum/${themeName}";
-      "Kvantum/kvantum.kvconfig" = lib.mkIf cfg.apply {
-        text = ''
-          [General]
-          theme=${themeName}
-        '';
-      };
+    qt.kvantum = {
+      enable = true;
+      settings.General.theme = themeName;
+      themes = [ config.catppuccin.sources.kvantum ];
     };
   };
 }
