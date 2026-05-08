@@ -99,10 +99,7 @@ in
     vesktop.enable = true;
     vicinae.enable = isLinux;
     vivid.enable = true;
-    vscode = {
-      enable = true;
-      package = pkgs.vscodium;
-    };
+    vscodium.enable = true;
     waybar.enable = isLinux;
     wezterm.enable = true;
     wleave.enable = isLinux;
