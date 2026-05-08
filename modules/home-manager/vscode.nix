@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (lib) types;
+  inherit (lib) types genAttrs;
   inherit (config.catppuccin) sources;
   cfg = config.catppuccin.vscode;
 
@@ -26,6 +26,15 @@ let
     "profiles"
     "default"
   ];
+
+  supportedVscodes = [
+    "cursor"
+    "vscode"
+    "vscodium"
+    "windsurf"
+    "kiro"
+    "antigravity"
+  ];
 in
 {
   # Rename old catppuccin.vscode.* options to catppuccin.vscode.profiles.<profile>.*
@@ -33,77 +42,83 @@ in
     option: lib.mkRenamedOptionModule (ctpVscOptionPath ++ [ option ]) (newOptionPath ++ [ option ])
   ) renamedOptions;
 
-  options.catppuccin.vscode.profiles = lib.mkOption {
-    type = types.attrsOf (
-      types.submodule (
-        { config, ... }:
-        {
-          options =
-            catppuccinLib.mkCatppuccinOption {
-              name = "vscode";
-              accentSupport = true;
-            }
-            // {
-              settings = lib.mkOption {
-                description = ''
-                  Settings for the extension theme.
+  options.catppuccin = genAttrs supportedVscodes (vscodeName: {
+    profiles = lib.mkOption {
+      type = types.attrsOf (
+        types.submodule (
+          { config, ... }:
+          {
+            options =
+              catppuccinLib.mkCatppuccinOption {
+                name = vscodeName;
+                accentSupport = true;
+              }
+              // {
+                settings = lib.mkOption {
+                  description = ''
+                    Settings for the extension theme.
 
-                  See https://github.com/catppuccin/vscode/blob/8ac8c5e1db78174c98c55ecd9c1bd3a6f2cbbc0b/packages/catppuccin-vsc/src/theme/index.ts#L14-L25 for a full list of options.
-                '';
+                    See https://github.com/catppuccin/vscode/blob/8ac8c5e1db78174c98c55ecd9c1bd3a6f2cbbc0b/packages/catppuccin-vsc/src/theme/index.ts#L14-L25 for a full list of options.
+                  '';
 
-                default = { };
+                  default = { };
 
-                type = types.submodule {
-                  freeformType = settingsFormat.type;
+                  type = types.submodule {
+                    freeformType = settingsFormat.type;
 
-                  options = {
-                    accent = lib.mkOption {
-                      type = catppuccinLib.types.accent;
-                      default = config.accent;
-                      description = "Catppuccin accent for vscode.";
+                    options = {
+                      accent = lib.mkOption {
+                        type = catppuccinLib.types.accent;
+                        default = config.accent;
+                        description = "Catppuccin accent for ${vscodeName}.";
+                      };
                     };
                   };
                 };
+
+                icons = catppuccinLib.mkCatppuccinOption { name = "vscode-icons"; };
               };
+          }
+        )
+      );
 
-              icons = catppuccinLib.mkCatppuccinOption { name = "vscode-icons"; };
-            };
-        }
-      )
-    );
+      # by default we list the `default` profile to enable the theme with just the `.enable` option
+      default = {
+        default = { };
+      };
 
-    # by default we list the `default` profile to enable the theme with just the `.enable` option
-    default = {
-      default = { };
+      description = "Catppuccin settings for VSCode profiles.";
     };
+  });
 
-    description = "Catppuccin settings for VSCode profiles.";
-  };
+  config = lib.mkMerge (
+    map (vscodeName: {
+      programs.${vscodeName}.profiles = lib.mapAttrs (
+        _: profile:
+        lib.mkIf profile.enable {
+          extensions = [
+            (sources.vscode.override { catppuccinOptions = profile.settings; })
+          ]
+          ++ lib.optional (profile.icons.enable) sources.vscode-icons;
 
-  config.programs.vscode.profiles = lib.mapAttrs (
-    _: profile:
-    lib.mkIf profile.enable {
-      extensions = [
-        (sources.vscode.override { catppuccinOptions = profile.settings; })
-      ]
-      ++ lib.optional (profile.icons.enable) sources.vscode-icons;
+          userSettings = lib.mkMerge [
+            {
+              "workbench.colorTheme" = "Catppuccin " + (catppuccinLib.mkFlavorName profile.flavor);
+              "catppuccin.accentColor" = profile.accent;
 
-      userSettings = lib.mkMerge [
-        {
-          "workbench.colorTheme" = "Catppuccin " + (catppuccinLib.mkFlavorName profile.flavor);
-          "catppuccin.accentColor" = profile.accent;
+              # Recommended settings
+              # https://github.com/catppuccin/vscode?tab=readme-ov-file#vscode-settings
+              "editor.semanticHighlighting.enabled" = lib.mkDefault true;
+              "terminal.integrated.minimumContrastRatio" = lib.mkDefault 1;
+              "window.titleBarStyle" = lib.mkDefault "custom";
+            }
 
-          # Recommended settings
-          # https://github.com/catppuccin/vscode?tab=readme-ov-file#vscode-settings
-          "editor.semanticHighlighting.enabled" = lib.mkDefault true;
-          "terminal.integrated.minimumContrastRatio" = lib.mkDefault 1;
-          "window.titleBarStyle" = lib.mkDefault "custom";
+            (lib.mkIf (profile.icons.enable) {
+              "workbench.iconTheme" = "catppuccin-" + profile.icons.flavor;
+            })
+          ];
         }
-
-        (lib.mkIf (profile.icons.enable) {
-          "workbench.iconTheme" = "catppuccin-" + profile.icons.flavor;
-        })
-      ];
-    }
-  ) cfg.profiles;
+      ) cfg.profiles;
+    }) supportedVscodes
+  );
 }
