@@ -12,12 +12,12 @@
 
 vscode-utils.buildVscodeExtension (finalAttrs: {
   pname = "catppuccin-vscode";
-  version = "3.18.0";
+  version = "3.19.0";
 
   src = fetchCatppuccinPort {
     port = "vscode";
     tag = "@catppuccin/vscode-v${finalAttrs.version}";
-    hash = "sha256-vi+QNploStQFrXSc+izcycKtpkrRsq2mJWrKsHP3D5g=";
+    hash = "sha256-HUXRGK10A3YIU6ksTfzOzQvM5J699lJikndlYUgrkRA=";
   };
 
   vscodeExtPublisher = "catppuccin";
@@ -35,7 +35,7 @@ vscode-utils.buildVscodeExtension (finalAttrs: {
       pnpmWorkspaces
       ;
     fetcherVersion = 3;
-    hash = "sha256-sPJhXj13O16kcaJ8LtJaGOtFxdXBl23wmCV4hcEhz4I=";
+    hash = "sha256-DE0mHkBlV0RkrEmtIXnzKaiXOK8vgcCx3z7b49zzBhc=";
   };
 
   nativeBuildInputs = [
