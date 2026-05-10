@@ -11,11 +11,8 @@ let
     importJSON
     mkEnableOption
     mkOption
-    mkSinkUndeclaredOptions
-    optional
     optionalAttrs
     types
-    versionAtLeast
     toSentenceCase
     ;
 
@@ -235,31 +232,6 @@ lib.makeExtensible (ctp: {
   getModuleRelease =
     config.home.version.release or config.system.nixos.release
       or (throw "Couldn't determine release version!");
-
-  /**
-    Create options only if the current module release is more than a given version
-
-    # Example
-
-    ```nix
-    mkVersionedOpts "24.11" { myOption = lib.mkOption { ... }; }
-    => { myOption = { ... }; }
-    ```
-
-    # Type
-
-    ```
-    mkVersionedOpts :: String -> AttrSet -> AttrSet
-    ```
-
-    # Arguments
-
-    - [minVersion] Minimum module release to create options for
-    - [options] Conditional options
-  */
-  mkVersionedOpts =
-    minVersion: options:
-    if versionAtLeast ctp.getModuleRelease minVersion then options else mkSinkUndeclaredOptions { };
 
   /**
     Imports the given modules with the current library

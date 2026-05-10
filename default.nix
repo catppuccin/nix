@@ -9,7 +9,7 @@
 }:
 
 let
-  catppuccinPackages = pkgs.lib.makeScope pkgs.newScope (
+  catppuccinPackages = lib.makeScope pkgs.newScope (
     self:
     let
       generated = lib.foldlAttrs (
@@ -19,15 +19,18 @@ let
           hash,
           lastModified,
         }:
-        lib.recursiveUpdate acc {
+        (builtins.removeAttrs acc [ "sources" ])
+        // {
           # Save our sources for each port
-          sources.${port} = self.fetchCatppuccinPort {
-            inherit
-              port
-              rev
-              hash
-              lastModified
-              ;
+          sources = acc.sources or { } // {
+            ${port} = self.fetchCatppuccinPort {
+              inherit
+                port
+                rev
+                hash
+                lastModified
+                ;
+            };
           };
 
           # And create a default package for them
