@@ -9,7 +9,7 @@ buildCatppuccinPort (finalAttrs: {
   dontCatppuccinBuild = true;
 
   postPatch = ''
-    substituteInPlace plymouth.tera \
+    substituteInPlace themes/**/*.plymouth \
       --replace-fail '/usr' '${placeholder "out"}'
   '';
 
