@@ -45,11 +45,11 @@ export default defineConfig({
         },
         {
           label: "Getting Started",
-          autogenerate: { directory: "Getting Started" },
+          items: [{ autogenerate: { directory: "Getting Started" } }],
         },
         {
           label: "Advanced",
-          autogenerate: { directory: "Advanced" },
+          items: [{autogenerate: { directory: "Advanced" } }],
         },
         {
           label: "Options List",
