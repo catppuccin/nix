@@ -2,14 +2,17 @@
   lib,
   vscode-utils,
   fetchCatppuccinPort,
-  nodejs,
-  pnpm,
+  nodejs_24,
+  pnpm_10,
   pnpmConfigHook,
   fetchPnpmDeps,
 
   catppuccinOptions ? { },
 }:
-
+let
+  nodejs = nodejs_24;
+  pnpm = pnpm_10.override { inherit nodejs; };
+in
 vscode-utils.buildVscodeExtension (finalAttrs: {
   pname = "catppuccin-vscode";
   version = "3.19.0";
@@ -34,6 +37,7 @@ vscode-utils.buildVscodeExtension (finalAttrs: {
       src
       pnpmWorkspaces
       ;
+    inherit pnpm;
     fetcherVersion = 3;
     hash = "sha256-DE0mHkBlV0RkrEmtIXnzKaiXOK8vgcCx3z7b49zzBhc=";
   };
