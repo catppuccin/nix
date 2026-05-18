@@ -33,7 +33,7 @@ in
         default = true;
         example = false;
         description = ''
-          Wether to assert that {option}`qt.style.name` is set to `"kvantum"` when Kvantum themes are enabled.
+          Whether to assert that {option}`qt.style.name` is set to `"kvantum"` when Kvantum themes are enabled.
         '';
       };
     };
@@ -49,14 +49,12 @@ in
       }
     ];
 
+    qt.kvantum.settings = {
+      General.theme = themeName;
+    };
+
     xdg.configFile = {
       "Kvantum/${themeName}".source = "${config.catppuccin.sources.kvantum}/share/Kvantum/${themeName}";
-      "Kvantum/kvantum.kvconfig" = lib.mkIf cfg.apply {
-        text = ''
-          [General]
-          theme=${themeName}
-        '';
-      };
     };
   };
 }
