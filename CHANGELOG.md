@@ -1,5 +1,69 @@
 # Changelog
 
+## [26.05](https://github.com/catppuccin/nix/releases/tag/v26.05) - 2026-05-25
+
+### 🚨 Breaking Changes
+
+- **fish**: apply static themes by [@sollniss](https://github.com/sollniss)
+- **modules**: remove legacy options by [@getchoo](https://github.com/getchoo)
+
+### 🚀 Features
+
+- **catppuccinBuildHook**: init by [@isabelroses](https://github.com/isabelroses)
+- **home-manager**: add support for opencode by [@amodkala](https://github.com/amodkala)
+- **home-manager**: add support for broot by [@sollniss](https://github.com/sollniss)
+- **home-manager**: add support for gemini-cli by [@SymphonySimper](https://github.com/SymphonySimper)
+- **home-manager**: add support for hyprtoolkit by [@SchweGELBin](https://github.com/SchweGELBin)
+- **home-manager**: support vscode forks by [@isabelroses](https://github.com/isabelroses)
+- **home-manager/kvantum**: add style assertion option by [@isabelroses](https://github.com/isabelroses)
+- **home-manager/qt5ct**: init by [@isabelroses](https://github.com/isabelroses)
+- **home-manager/swaync**: Add font-size option to swaync by [@The1Penguin](https://github.com/The1Penguin)
+- **home-manager/wleave**: init by [@isabelroses](https://github.com/isabelroses)
+- **packages**: scope the output by [@isabelroses](https://github.com/isabelroses)
+- **pkgs**: add lastModified to manually defined packages by [@isabelroses](https://github.com/isabelroses)
+- **pkgs/whiskers**: update by [@isabelroses](https://github.com/isabelroses)
+- **waybar**: add [@accent](https://github.com/accent) variable by [@tomperr](https://github.com/tomperr)
+- structuredAttrs, strictDeps and more modernizeations by [@isabelroses](https://github.com/isabelroses)
+
+### 🐛 Bug Fixes
+
+- **cursors**: no xorg by [@isabelroses](https://github.com/isabelroses)
+- **devshell**: use nixfmt by [@isabelroses](https://github.com/isabelroses)
+- **fish**: Handle Latte flavor with dynamic themes by [@mactep](https://github.com/mactep)
+- **home-manager/qt5ct**: assertStyle -> assertPlatformTheme by [@aquifolly](https://github.com/aquifolly)
+- **home-manager/wezterm**: add settings & handle programs.wezterm.settings by [@isabelroses](https://github.com/isabelroses)
+- **home-manger/hyprland**: make compatible with lua configs by [@isabelroses](https://github.com/isabelroses)
+- **neovim**: make config type explicit by [@musjj](https://github.com/musjj)
+- **nixos/gtk**: deprecation warning by [@fredclausen](https://github.com/fredclausen)
+- **opencode**: move theme to programs.opencode.tui by [@fredclausen](https://github.com/fredclausen)
+- **plymouth**: fix path in existing themes files by [@mjm](https://github.com/mjm)
+- **vicinae**: updated vicinae settings to new format by [@xaiyadev](https://github.com/xaiyadev)
+- **vscode**: correct vendor hash by [@isabelroses](https://github.com/isabelroses)
+- convert lastModified to string by [@w-lfchen](https://github.com/w-lfchen)
+
+### 📚 Documentation
+
+- add 25.11 changelog by [@isabelroses](https://github.com/isabelroses)
+- build for 25.11 by [@isabelroses](https://github.com/isabelroses)
+- build docs for 25.11 stable by [@isabelroses](https://github.com/isabelroses)
+- add advanced section by [@isabelroses](https://github.com/isabelroses)
+- fix broken link; minor improvements to customization by [@w-lfchen](https://github.com/w-lfchen)
+
+### New Contributors
+
+* [@Aehmlo](https://github.com/Aehmlo) made their first contribution in [#885](https://github.com/catppuccin/nix/issues/885)
+* [@The1Penguin](https://github.com/The1Penguin) made their first contribution in [#835](https://github.com/catppuccin/nix/issues/835)
+* [@amodkala](https://github.com/amodkala) made their first contribution in [#794](https://github.com/catppuccin/nix/issues/794)
+* [@backwardspy](https://github.com/backwardspy) made their first contribution in [#903](https://github.com/catppuccin/nix/issues/903)
+* [@fredclausen](https://github.com/fredclausen) made their first contribution in [#883](https://github.com/catppuccin/nix/issues/883)
+* [@hey2022](https://github.com/hey2022) made their first contribution in [#820](https://github.com/catppuccin/nix/issues/820)
+* [@mactep](https://github.com/mactep) made their first contribution in [#819](https://github.com/catppuccin/nix/issues/819)
+* [@mjm](https://github.com/mjm) made their first contribution in [#928](https://github.com/catppuccin/nix/issues/928)
+* [@ninetailedtori](https://github.com/ninetailedtori) made their first contribution in [#906](https://github.com/catppuccin/nix/issues/906)
+* [@shirok1](https://github.com/shirok1) made their first contribution in [#862](https://github.com/catppuccin/nix/issues/862)
+* [@sollniss](https://github.com/sollniss) made their first contribution in [#848](https://github.com/catppuccin/nix/issues/848)
+* [@xaiyadev](https://github.com/xaiyadev) made their first contribution in [#800](https://github.com/catppuccin/nix/issues/800)
+
 ## [25.11](https://github.com/catppuccin/nix/releases/tag/v25.11) - 2026-01-06
 
 ### 🚨 Breaking Changes
