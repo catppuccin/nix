@@ -10,6 +10,11 @@ let
   inherit (config.catppuccin) sources cursors;
   cfg = config.catppuccin.hyprland;
   enable = cfg.enable && config.wayland.windowManager.hyprland.enable;
+
+  themeFile = pkgs.runCommandLocal "catppuccin-hyprland-${cfg.flavor}-${cfg.accent}.lua" { } ''
+    install -m644 ${sources.hyprland}/catppuccin-${cfg.flavor}.lua $out
+    sed -i 's|^return M$|M.accent = M.${cfg.accent}\nM.accentAlpha = M.${cfg.accent}Alpha\n\n&|' $out
+  '';
 in
 
 {
@@ -24,18 +29,10 @@ in
       HYPRCURSOR_THEME = "catppuccin-${cursors.flavor}-${cursors.accent}-cursors";
     };
 
-    wayland.windowManager.hyprland = {
-      settings = {
-        source = [
-          "${sources.hyprland}/${cfg.flavor}.conf"
+    xdg.configFile."hypr/themes/catppuccin.lua".source = themeFile;
 
-          # Define accents in file to ensure they appear before user vars
-          (pkgs.writeText "hyprland-${cfg.accent}-accent.conf" ''
-            $accent = ''$${cfg.accent}
-            $accentAlpha = ''$${cfg.accent}Alpha
-          '')
-        ];
-      };
+    wayland.windowManager.hyprland.settings = {
+      colors._var = lib.generators.mkLuaInline "require('themes.catppuccin')";
     };
   };
 }
