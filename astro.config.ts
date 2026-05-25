@@ -49,7 +49,7 @@ export default defineConfig({
         },
         {
           label: "Advanced",
-          items: [{autogenerate: { directory: "Advanced" } }],
+          items: [{ autogenerate: { directory: "Advanced" } }],
         },
         {
           label: "Options List",

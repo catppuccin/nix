@@ -78,8 +78,7 @@ you can override the package source:
 ## Example: OLED Color Overrides
 
 The majority of our ports use [`whiskers`][whiskers] to build the final themed
-files. By wrapping `whiskers` to call it with the [`--color-overrides`][color
-overrides] flag, every port that is built using it will be built with those respective colors replaced.
+files. By wrapping `whiskers` to call it with the [`--color-overrides`][color overrides] flag, every port that is built using it will be built with those respective colors replaced.
 
 The following snippet demonstrates an example that replaces the standard mocha background
 with pure black, producing the popular _oledpuccin_ variant:
