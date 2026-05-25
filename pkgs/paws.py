@@ -4,6 +4,7 @@ import asyncio
 import argparse
 import json
 import subprocess
+import urllib.request
 from multiprocessing import cpu_count
 from datetime import datetime, timezone
 from pathlib import Path
@@ -21,6 +22,7 @@ FETCH_ARGS = [
 ]
 
 SOURCES_FILE = ROOT / "sources.json"
+PALETTE_JSON_FILE = ROOT / "palette.json"
 
 
 fetch_port_sem = asyncio.Semaphore(cpu_count())
@@ -51,6 +53,18 @@ def update_file_with(old_sources: dict, new_sources: dict):
 		print("⚠ No updates made")
 
 
+def download_palette_json(rev: str):
+	"""Download palette.json from the catppuccin/palette repository at the given revision"""
+	url = f"https://raw.githubusercontent.com/catppuccin/palette/{rev}/palette.json"
+	print(f"🎨 Downloading palette.json from {url}")
+
+	with urllib.request.urlopen(url) as response:
+		palette = json.load(response)
+
+	with open(PALETTE_JSON_FILE, "w") as f:
+		json.dump(palette, f, indent=2, sort_keys=True)
+
+
 async def handle_port(sources: dict, port: str, remove=False):
 	"""Handle updating a port in the given sources"""
 	if remove:
@@ -61,6 +75,9 @@ async def handle_port(sources: dict, port: str, remove=False):
 		locked = data["locked"]
 		last_modified = datetime.fromtimestamp(int(locked["lastModified"]), tz = timezone.utc).strftime('%Y-%m-%d')
 		sources[port] = {"rev": locked["rev"], "hash": data["hash"], "lastModified": last_modified}
+
+		if port == "palette":
+			download_palette_json(locked["rev"])
 
 
 async def main():
