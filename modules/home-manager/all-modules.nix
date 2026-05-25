@@ -47,6 +47,7 @@
   ./newsboat.nix
   ./nushell.nix
   ./obs.nix
+  ./obsidian.nix
   ./opencode.nix
   ./polybar.nix
   ./qt5ct.nix
