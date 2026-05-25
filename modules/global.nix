@@ -46,8 +46,7 @@ in
       };
 
     palette = lib.mkOption {
-      type = (import ./palette/type.nix) lib;
-      readOnly = true;
+      inherit (pkgs.formats.json { }) type;
       description = "Global Catppuccin palette";
     };
 
@@ -76,13 +75,13 @@ in
       }
     ];
 
+    catppuccin.palette = lib.importJSON ../pkgs/palette.json;
+
     nix.settings = lib.mkIf config.catppuccin.cache.enable {
       extra-substituters = [ "https://catppuccin.cachix.org" ];
       extra-trusted-public-keys = [
         "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
       ];
     };
-
-    catppuccin.palette = (import ./palette/data.nix).${config.catppuccin.flavor};
   };
 }
