@@ -2,11 +2,9 @@
 { config, lib, ... }:
 
 let
-  inherit (config.catppuccin) sources;
-
   cfg = config.catppuccin.tty;
   enable = cfg.enable && config.console.enable;
-  palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
+  palette = config.catppuccin.palette.${cfg.flavor}.colors;
 in
 
 {
