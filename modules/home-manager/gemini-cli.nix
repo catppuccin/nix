@@ -5,7 +5,6 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.gemini-cli;
-  theme = lib.importJSON "${sources.gemini-cli}/catppuccin-${cfg.flavor}.json";
 in
 
 {
@@ -14,8 +13,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.gemini-cli = {
       settings.ui = {
-        theme = theme.name;
-        customThemes.${theme.name} = theme;
+        theme = "${sources.gemini-cli}/catppuccin-${cfg.flavor}.json";
       };
     };
   };
