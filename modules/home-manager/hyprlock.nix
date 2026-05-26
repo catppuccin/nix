@@ -28,7 +28,7 @@ in
     programs.hyprlock = {
       settings = {
         source = [
-          "${sources.hyprland}/${cfg.flavor}.conf"
+          "${sources.hyprlock}/${cfg.flavor}.conf"
 
           # Define accents in file to ensure they appear before user vars
           (pkgs.writeText "hyprland-${cfg.accent}-accent.conf" ''
@@ -36,7 +36,7 @@ in
             $accentAlpha = ''$${cfg.accent}Alpha
           '')
         ]
-        ++ lib.optional cfg.useDefaultConfig sources.hyprlock;
+        ++ lib.optional cfg.useDefaultConfig "${sources.hyprlock}/hyprlock.conf";
       };
     };
   };
