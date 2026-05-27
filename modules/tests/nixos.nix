@@ -27,4 +27,8 @@
 
     xserver.enable = true; # required for sddm
   };
+
+  programs = {
+    fish.enable = true;
+  };
 }
