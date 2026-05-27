@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.dunst;
-  enable = config.catppuccin._enable && cfg.enable && config.services.dunst.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.services.dunst.enable;
 in
 
 {

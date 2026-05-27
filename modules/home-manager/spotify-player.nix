@@ -12,7 +12,7 @@ in
     name = "spotify-player";
   };
 
-  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     programs.spotify-player = {
       settings.theme = "Catppuccin-${cfg.flavor}";
       inherit (lib.importTOML "${sources.spotify-player}/theme.toml") themes;

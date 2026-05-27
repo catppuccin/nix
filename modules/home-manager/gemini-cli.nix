@@ -10,7 +10,7 @@ in
 {
   options.catppuccin.gemini-cli = catppuccinLib.mkCatppuccinOption { name = "gemini-cli"; };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     programs.gemini-cli = {
       settings.ui = {
         theme = "${sources.gemini-cli}/catppuccin-${cfg.flavor}.json";

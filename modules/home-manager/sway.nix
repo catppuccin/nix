@@ -11,7 +11,7 @@ in
 {
   options.catppuccin.sway = catppuccinLib.mkCatppuccinOption { name = "sway"; };
 
-  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     wayland.windowManager.sway = {
       extraConfigEarly = ''
         include ${theme}

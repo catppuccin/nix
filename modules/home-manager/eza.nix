@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.eza;
-  enable = config.catppuccin._enable && cfg.enable && config.programs.eza.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.programs.eza.enable;
 in
 
 {

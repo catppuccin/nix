@@ -1,4 +1,5 @@
 {
+  options,
   config,
   lib,
   pkgs,
@@ -181,7 +182,21 @@ lib.makeExtensible (ctp: {
     {
       name,
       useGlobalEnable ? true,
-      default ? if useGlobalEnable then config.catppuccin.autoEnable else false,
+      default ?
+        if useGlobalEnable then
+          (
+            if
+              (
+                (lib.versionAtLeast ctp.getModuleRelease "27.05")
+                || (options.catppuccin.autoEnable.highestPrio != 1500)
+              )
+            then
+              config.catppuccin.autoEnable
+            else
+              config.catppuccin.enable
+          )
+        else
+          false,
       defaultText ? if useGlobalEnable then "catppuccin.autoEnable" else null,
       accentSupport ? false,
     }:

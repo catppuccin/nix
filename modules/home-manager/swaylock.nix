@@ -1,10 +1,26 @@
 { catppuccinLib }:
-{ config, lib, ... }:
+{
+  options,
+  config,
+  lib,
+  ...
+}:
 
 let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.swaylock;
+
+  enable =
+    if
+      (
+        (lib.versionAtLeast catppuccinLib.getModuleRelease "27.05")
+        || (options.catppuccin.autoEnable.highestPrio != 1500)
+      )
+    then
+      config.catppuccin.enable && cfg.enable
+    else
+      cfg.enable;
 in
 
 {
@@ -31,7 +47,7 @@ in
     '';
   };
 
-  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
+  config = lib.mkIf enable {
     programs.swaylock = {
       settings = catppuccinLib.importINI (sources.swaylock + "/${cfg.flavor}.conf");
     };

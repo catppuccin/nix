@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.rofi;
-  enable = config.catppuccin._enable && cfg.enable && config.programs.rofi.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.programs.rofi.enable;
 in
 
 {

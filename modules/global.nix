@@ -1,5 +1,6 @@
 { catppuccinModules }:
 {
+  options,
   config,
   lib,
   pkgs,
@@ -7,7 +8,22 @@
 }:
 
 let
-  catppuccinLib = import ./lib { inherit config lib pkgs; };
+  catppuccinLib = import ./lib {
+    inherit
+      options
+      config
+      lib
+      pkgs
+      ;
+  };
+
+  autoEnabledSet = options.catppuccin.autoEnable.highestPrio != 1500;
+
+  enable =
+    if ((lib.versionAtLeast catppuccinLib.getModuleRelease "27.05") || autoEnabledSet) then
+      config.catppuccin.enable
+    else
+      true;
 
   minimumVersion = "26.05";
   isMinimumVersion = lib.versionAtLeast catppuccinLib.getModuleRelease minimumVersion;
@@ -18,19 +34,16 @@ in
 
   options.catppuccin = {
     enable = lib.mkEnableOption ''
-      Catppuccin.
+      Catppuccin gloabl toggle.
 
-      Note: for `stateVersion` < 26.05, this is equivalent to `autoEnable`,
-      and there is no way to globally disable Catppuccin.
-      Since 26.05, this is a more traditional `enable` option;
-      `false` disables all Catppuccin modules.
+      If you intend for auto enrolling ports then you want to see
+      {option}`catppuccin.autoEnable`
     '';
 
-    autoEnable = lib.mkEnableOption ''
-      all Catppuccin integrations by default.
-
-      Note: for `stateVersion` < 26.05, this option is equivalent to `enable`.
-    '';
+    autoEnable = lib.mkEnableOption "all Catppuccin integrations by default" // {
+      default = config.catppuccin.enable;
+      defaultText = "catppuccin.enable";
+    };
 
     flavor = lib.mkOption {
       type = catppuccinLib.types.flavor;
@@ -69,19 +82,24 @@ in
         the version does not match catppuccin/nix's minimum supported version.
       '';
     };
-
-    # TODO: remove this back-compatibility implementation detail
-    _enable = lib.mkOption {
-      type = lib.types.bool;
-      internal = true;
-      readOnly = true;
-    };
   };
 
-  config = {
-    warnings = lib.mkIf (config.catppuccin.enableReleaseCheck && !isMinimumVersion) [
-      "catppuccin/nix will soon require version ${minimumVersion} of Nixpkgs/NixOS/home-manager."
-    ];
+  config = lib.mkIf enable {
+    warnings =
+      lib.optionals (config.catppuccin.enableReleaseCheck && !isMinimumVersion) [
+        "catppuccin/nix will soon require version ${minimumVersion} of Nixpkgs/NixOS/home-manager."
+      ]
+      ++ lib.optionals (!autoEnabledSet) [
+        ''
+          catppuccin/nix will soon auto enroll ports using
+          `catppuccin.autoEnable` and `catppuccin.enable` will act as a global
+          toggle to disable all ports and catppuccin modifications.
+
+          you can supress this warning by explicitly setting
+          `catppuccin.autoEnable` to match your current value of
+          `catppuccin.enable` and change `catppuccin.enable` to true
+        ''
+      ];
 
     assertions = lib.mkIf (!config.catppuccin.enableReleaseCheck) [
       {
@@ -90,23 +108,7 @@ in
       }
     ];
 
-    # Make our lives easier by centralizing the different interpretations of `enable`.
-    # That way all modules can just rely on `autoEnable` being correct, and `_enable`
-    # being a global enablement state.
-    catppuccin = {
-      # Keep `autoEnable` in sync with `enable` for releases where it didn't exist.
-      autoEnable = lib.mkIf (
-        !lib.versionAtLeast catppuccinLib.getModuleRelease "26.05"
-      ) config.catppuccin.enable;
-
-      _enable =
-        if lib.versionAtLeast catppuccinLib.getModuleRelease "26.05" then
-          config.catppuccin.enable
-        else
-          true;
-    };
-
-    nix.settings = lib.mkIf (config.catppuccin._enable && config.catppuccin.cache.enable) {
+    nix.settings = lib.mkIf config.catppuccin.cache.enable {
       extra-substituters = [ "https://catppuccin.cachix.org" ];
       extra-trusted-public-keys = [
         "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="

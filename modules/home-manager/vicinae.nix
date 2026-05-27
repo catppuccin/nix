@@ -11,7 +11,7 @@ in
     accentSupport = true;
   };
 
-  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     programs.vicinae = {
       settings = {
         theme =

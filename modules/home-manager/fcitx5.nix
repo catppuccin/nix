@@ -6,7 +6,7 @@ let
 
   cfg = config.catppuccin.fcitx5;
   enable =
-    config.catppuccin._enable
+    config.catppuccin.enable
     && cfg.enable
     && (
       (

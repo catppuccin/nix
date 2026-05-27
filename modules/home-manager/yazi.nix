@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.yazi;
-  enable = config.catppuccin._enable && cfg.enable && config.programs.yazi.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.programs.yazi.enable;
 in
 
 {

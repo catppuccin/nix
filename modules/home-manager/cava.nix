@@ -6,7 +6,7 @@ let
 
   cfg = config.catppuccin.cava;
   flavor = "${cfg.flavor}" + lib.optionalString cfg.transparent "-transparent";
-  enable = config.catppuccin._enable && cfg.enable && config.programs.cava.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.programs.cava.enable;
 in
 
 {

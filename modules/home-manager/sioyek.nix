@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.sioyek;
-  enable = config.catppuccin._enable && cfg.enable && config.programs.sioyek.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.programs.sioyek.enable;
 in
 
 {

@@ -39,7 +39,7 @@ in
       };
     };
 
-  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     programs.wlogout.style = lib.concatStrings [
       ''
         @import url("${sources.wlogout}/themes/${cfg.flavor}/${cfg.accent}.css");

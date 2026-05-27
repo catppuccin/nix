@@ -23,7 +23,7 @@ in
       };
     };
 
-  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     programs.freetube.settings = {
       # NOTE: For some reason, baseTheme does not capitalize first letter, but the other settings do
       baseTheme = "catppuccin${toSentenceCase cfg.flavor}";

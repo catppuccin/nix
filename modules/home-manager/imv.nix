@@ -10,7 +10,7 @@ in
 {
   options.catppuccin.imv = catppuccinLib.mkCatppuccinOption { name = "imv"; };
 
-  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     programs.imv = {
       settings = catppuccinLib.importINI (sources.imv + "/${cfg.flavor}.config");
     };

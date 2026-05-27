@@ -44,7 +44,7 @@ in
     useGlobalEnable = false;
   };
 
-  config = lib.mkIf (config.catppuccin._enable && cfg.enable) {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     xfconf.settings = {
       xfce4-terminal = terminalSettings;
     };
