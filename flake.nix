@@ -2,7 +2,7 @@
   description = "Soothing pastel theme for Nix";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
   };
 
   outputs =
