@@ -2,6 +2,7 @@
   # keep-sorted start
   ./cursors.nix
   ./fcitx5.nix
+  ./fish.nix
   ./gitea.nix
   ./grub.nix
   ./gtk.nix
