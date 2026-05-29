@@ -14,7 +14,7 @@ buildCatppuccinPort {
   ];
 
   yarnOfflineCache = fetchYarnDeps {
-    yarnLock = sources.firefox + /yarn.lock;
+    yarnLock = "${sources.firefox}/yarn.lock";
     hash = "sha256-EWx1/kujC6HBSJr6d4sTlFwANbZqBQ3FHetHcbMtiVU=";
   };
 
