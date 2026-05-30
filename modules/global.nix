@@ -45,6 +45,11 @@ in
         description = "Port sources used across all options";
       };
 
+    palette = lib.mkOption {
+      inherit (pkgs.formats.json { }) type;
+      description = "Global Catppuccin palette";
+    };
+
     cache.enable = lib.mkEnableOption "the usage of Catppuccin's binary cache";
 
     enableReleaseCheck = lib.mkOption {
@@ -69,6 +74,8 @@ in
         message = "catppuccin/nix requires version ${minimumVersion} of Nixpkgs/NixOS/home-manager.";
       }
     ];
+
+    catppuccin.palette = lib.importJSON ../pkgs/palette.json;
 
     nix.settings = lib.mkIf config.catppuccin.cache.enable {
       extra-substituters = [ "https://catppuccin.cachix.org" ];

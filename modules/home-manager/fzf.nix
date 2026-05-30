@@ -2,10 +2,8 @@
 { config, lib, ... }:
 
 let
-  inherit (config.catppuccin) sources;
-
   cfg = config.catppuccin.fzf;
-  palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
+  palette = config.catppuccin.palette.${cfg.flavor}.colors;
 
   # Manually populate with colors from catppuccin/fzf
   # The ordering is meant to match the order of catppuccin/fzf to make comparison easier

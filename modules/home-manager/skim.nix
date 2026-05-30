@@ -2,10 +2,8 @@
 { config, lib, ... }:
 
 let
-  inherit (config.catppuccin) sources;
-
   cfg = config.catppuccin.skim;
-  palette = (lib.importJSON "${sources.palette}/palette.json").${cfg.flavor}.colors;
+  palette = config.catppuccin.palette.${cfg.flavor}.colors;
 in
 
 {
