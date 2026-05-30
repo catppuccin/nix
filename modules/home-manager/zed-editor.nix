@@ -8,7 +8,6 @@ let
   enable = cfg.enable && config.programs.zed-editor.enable;
 
   accent = if cfg.accent == "mauve" then "" else " (${cfg.accent})";
-  flavor = catppuccinLib.mkFlavorName cfg.flavor;
 in
 
 {
@@ -16,6 +15,7 @@ in
     catppuccinLib.mkCatppuccinOption {
       name = "zed";
       accentSupport = true;
+      darkLightSupport = true;
     }
     // {
       italics = lib.mkEnableOption "the italicized version of theme" // {
@@ -35,8 +35,16 @@ in
           "Catppuccin " + (catppuccinLib.mkFlavorName cfg.icons.flavor)
         );
         theme = {
-          light = "Catppuccin " + flavor + accent + lib.optionalString (!cfg.italics) " - No Italics";
-          dark = "Catppuccin " + flavor + accent + lib.optionalString (!cfg.italics) " - No Italics";
+          light =
+            "Catppuccin "
+            + (catppuccinLib.mkFlavorName cfg.lightFlavor)
+            + accent
+            + lib.optionalString (!cfg.italics) " - No Italics";
+          dark =
+            "Catppuccin "
+            + (catppuccinLib.mkFlavorName cfg.darkFlavor)
+            + accent
+            + lib.optionalString (!cfg.italics) " - No Italics";
         };
       };
     };

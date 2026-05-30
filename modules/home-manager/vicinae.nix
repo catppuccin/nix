@@ -9,22 +9,20 @@ in
   options.catppuccin.vicinae = catppuccinLib.mkCatppuccinOption {
     name = "vicinae";
     accentSupport = true;
+    darkLightSupport = true;
   };
 
   config = lib.mkIf cfg.enable {
     programs.vicinae = {
-      settings = {
-        theme =
-          let
-            themeConfiguration = {
-              name = "catppuccin-${cfg.flavor}";
-              iconTheme = "Catppuccin ${lib.toSentenceCase cfg.flavor} ${lib.toSentenceCase cfg.accent}";
-            };
-          in
-          {
-            light = themeConfiguration;
-            dark = themeConfiguration;
-          };
+      settings.theme = {
+        light = {
+          name = "catppuccin-${cfg.lightFlavor}";
+          iconTheme = "Catppuccin ${lib.toSentenceCase cfg.lightFlavor} ${lib.toSentenceCase cfg.accent}";
+        };
+        dark = {
+          name = "catppuccin-${cfg.darkFlavor}";
+          iconTheme = "Catppuccin ${lib.toSentenceCase cfg.darkFlavor} ${lib.toSentenceCase cfg.accent}";
+        };
       };
     };
   };
