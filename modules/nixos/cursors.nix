@@ -1,5 +1,6 @@
 { catppuccinLib }:
 {
+  options,
   config,
   lib,
   ...
@@ -9,6 +10,17 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.cursors;
+
+  enable =
+    if
+      (
+        (lib.versionAtLeast catppuccinLib.getModuleRelease "27.05")
+        || (options.catppuccin.autoEnable.highestPrio != 1500)
+      )
+    then
+      config.catppuccin.enable && cfg.enable
+    else
+      cfg.enable;
 
   # "dark" and "light" can be used alongside the regular accents
   cursorAccentType = lib.types.mergeTypes catppuccinLib.types.accent (
@@ -36,15 +48,14 @@ in
     };
 
   config = lib.mkMerge [
-    (lib.mkIf cfg.enable {
+    (lib.mkIf enable {
       environment.systemPackages = [
         sources.cursors."${cfg.flavor}${lib.toSentenceCase cfg.accent}"
       ];
     })
     (lib.mkIf
       (
-        cfg.enable
-        && (config.services.desktopManager.gnome.enable || config.services.displayManager.gdm.enable)
+        enable && (config.services.desktopManager.gnome.enable || config.services.displayManager.gdm.enable)
       )
       {
         programs.dconf.profiles.gdm.databases = [

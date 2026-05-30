@@ -13,7 +13,7 @@ let
     ;
 
   cfg = config.catppuccin.sddm;
-  enable = cfg.enable && config.services.displayManager.sddm.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.services.displayManager.sddm.enable;
 in
 
 {

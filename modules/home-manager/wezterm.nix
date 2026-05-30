@@ -35,7 +35,7 @@ in
       };
     };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     programs.wezterm = {
       extraConfig = lib.mkBefore (
         ''

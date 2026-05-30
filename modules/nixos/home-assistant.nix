@@ -23,7 +23,7 @@ in
       };
     };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     services.home-assistant.config = {
       frontend.themes = "!include_dir_merge_named ${sources.home-assistant}";
 

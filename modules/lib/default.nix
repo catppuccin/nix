@@ -1,4 +1,5 @@
 {
+  options,
   config,
   lib,
   pkgs,
@@ -173,16 +174,30 @@ lib.makeExtensible (ctp: {
 
     - [name] Name of the module
     - [useGlobalEnable] Whether to enable the module by default when `catppuccin.enable` is set (recommended, defaults to `true`)
-    - [default] Default `enable` option value (defaults to `if useGlobalEnable then config.catppuccin.enable else false`)
-    - [defaultText] Default `enable` option text (automatic if `null`, defaults to `if useGlobalEnable then "config.catppuccin.enable" else null`)
+    - [default] Default `enable` option value (defaults to `if useGlobalEnable then config.catppuccin.autoEnable else false`)
+    - [defaultText] Default `enable` option text (automatic if `null`, defaults to `if useGlobalEnable then "config.catppuccin.autoEnable" else null`)
     - [accentSupport] Add an `accent` option (defaults to `false`)
   */
   mkCatppuccinOption =
     {
       name,
       useGlobalEnable ? true,
-      default ? if useGlobalEnable then config.catppuccin.enable else false,
-      defaultText ? if useGlobalEnable then "catppuccin.enable" else null,
+      default ?
+        if useGlobalEnable then
+          (
+            if
+              (
+                (lib.versionAtLeast ctp.getModuleRelease "27.05")
+                || (options.catppuccin.autoEnable.highestPrio != 1500)
+              )
+            then
+              config.catppuccin.autoEnable
+            else
+              config.catppuccin.enable
+          )
+        else
+          false,
+      defaultText ? if useGlobalEnable then "catppuccin.autoEnable" else null,
       accentSupport ? false,
     }:
 

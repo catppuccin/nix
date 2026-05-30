@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.obsidian;
-  enable = cfg.enable && config.programs.obsidian.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.programs.obsidian.enable;
 in
 
 {

@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.television;
-  enable = config.programs.television.enable && cfg.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.programs.television.enable;
 in
 
 {

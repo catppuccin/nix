@@ -57,7 +57,7 @@ in
     };
   };
 
-  config = lib.mkIf cfg.icon.enable {
+  config = lib.mkIf (config.catppuccin.enable && cfg.icon.enable) {
     gtk.iconTheme =
       let
         # use the light icon theme for latte
