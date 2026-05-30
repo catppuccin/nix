@@ -74,17 +74,6 @@ in
         };
     };
 
-  imports = [
-    (lib.mkRemovedOptionModule
-      [
-        "catppuccin"
-        "sddm"
-        "accentColor"
-      ]
-      "The `accentColor` option is no longer used upstream, please migrate to the new `accent` option instead."
-    )
-  ];
-
   config = lib.mkIf enable {
     assertions = lib.optional cfg.assertQt6Sddm {
       assertion = config.services.displayManager.sddm.package == pkgs.kdePackages.sddm;
