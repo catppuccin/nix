@@ -34,7 +34,7 @@ in
 
   options.catppuccin = {
     enable = lib.mkEnableOption ''
-      Catppuccin gloabl toggle.
+      Catppuccin global toggle.
 
       If you intend for auto enrolling ports then you want to see
       {option}`catppuccin.autoEnable`
