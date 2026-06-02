@@ -22,6 +22,9 @@ let
     "fg+" = "text";
     prompt = cfg.accent;
     "hl+" = cfg.accent;
+    selected-bg = "surface1";
+    border = "overlay0";
+    label = "text";
   };
 in
 
