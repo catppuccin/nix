@@ -89,11 +89,6 @@
     "lastModified": "2026-02-20",
     "rev": "879879da8a7dc58f173b4cd7987723fd19bef6d5"
   },
-  "gemini-cli": {
-    "hash": "sha256-ISUr8Gnknb+8nnlsGbP2aVXAxQtBPbiaTc7MqsecBk4=",
-    "lastModified": "2026-01-15",
-    "rev": "6b78ab52a0569cac80158c643e7699d0a116aebc"
-  },
   "gh-dash": {
     "hash": "sha256-Pm5PkfyFqBZQ+L0cu6b66yiIE7hpT7z062xm9khxfc8=",
     "lastModified": "2026-04-14",
