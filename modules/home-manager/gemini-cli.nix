@@ -1,22 +1,15 @@
-{ catppuccinLib }:
-{ config, lib, ... }:
-
-let
-  inherit (config.catppuccin) sources;
-
-  cfg = config.catppuccin.gemini-cli;
-  theme = lib.importJSON "${sources.gemini-cli}/catppuccin-${cfg.flavor}.json";
-in
+{ ... }:
+{ lib, ... }:
 
 {
-  options.catppuccin.gemini-cli = catppuccinLib.mkCatppuccinOption { name = "gemini-cli"; };
-
-  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
-    programs.gemini-cli = {
-      settings.ui = {
-        theme = theme.name;
-        customThemes.${theme.name} = theme;
-      };
-    };
-  };
+  imports = [
+    (lib.mkRemovedOptionModule [ "catppuccin" "gemini-cli" "enable" ] ''
+      Upstream home-manager removed gemini-cli in favor of the
+      antigravity-cli which no longer supports the catppuccin theme.
+    '')
+    (lib.mkRemovedOptionModule [ "catppuccin" "gemini-cli" "flavor" ] ''
+      Upstream home-manager removed gemini-cli in favor of the
+      antigravity-cli which no longer supports the catppuccin theme.
+    '')
+  ];
 }
