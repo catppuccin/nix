@@ -8,7 +8,6 @@
 let
   inherit (lib) types genAttrs;
   inherit (config.catppuccin) sources;
-  cfg = config.catppuccin.vscode;
 
   settingsFormat = pkgs.formats.json { };
 
@@ -118,7 +117,7 @@ in
             })
           ];
         }
-      ) cfg.profiles;
+      ) config.catppuccin.${vscodeName}.profiles;
     }) supportedVscodes
   );
 }
