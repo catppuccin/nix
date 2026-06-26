@@ -205,14 +205,14 @@
     "rev": "815dfc6ea61f2746ff27b54ef425cfeb7b51dda8"
   },
   "nvim": {
-    "hash": "sha256-0N/yFCK2Sc+dNpN+0TpSJnY0TCoE4kLCitNLhHSE8rM=",
-    "lastModified": "2026-06-14",
-    "rev": "49a926655a2f5579e9c276470fc300baaa49e524"
+    "hash": "sha256-RqSdg/fbuCweDxs6jAjMNOdHgI5KPhxRzW27OggBp70=",
+    "lastModified": "2026-06-21",
+    "rev": "e068ab5f8261f23f6f71ffd8791ae40315b77b9c"
   },
   "obs": {
-    "hash": "sha256-jUXdfXXKjxgN7XDkIqCLWigjcyiwnoZJCF69d9s1PRs=",
-    "lastModified": "2026-06-18",
-    "rev": "d70e36b0074d535e82c3e8f09a9fe0db662bc056"
+    "hash": "sha256-zFg7dgxLIK3K1KpLdEgphH2JpdMwVTovr+oKiAqdLEE=",
+    "lastModified": "2026-06-20",
+    "rev": "054a297d303a5bac4f1652a13b17d78a13201c0e"
   },
   "obsidian": {
     "hash": "sha256-uB0a2nSZkHHf65xBYXyNh50vaAiqdEpKQVf3eXnCVlE=",
