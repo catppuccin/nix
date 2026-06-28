@@ -89,6 +89,11 @@
     "lastModified": "2026-02-20",
     "rev": "879879da8a7dc58f173b4cd7987723fd19bef6d5"
   },
+  "fzf": {
+    "hash": "sha256-A6X0TyzET1HbcCv4tlUvhMr6IguRYA9GYqWDKY7XeMg=",
+    "lastModified": "2026-06-28",
+    "rev": "7508f8141286fb95249100a2b5325960320dcf32"
+  },
   "gh-dash": {
     "hash": "sha256-Pm5PkfyFqBZQ+L0cu6b66yiIE7hpT7z062xm9khxfc8=",
     "lastModified": "2026-04-14",
