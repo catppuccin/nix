@@ -16,7 +16,7 @@ in
 
   config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     programs.gh-dash = {
-      settings = catppuccinLib.importYAML theme;
+      settings.include = [ theme ];
     };
   };
 }
