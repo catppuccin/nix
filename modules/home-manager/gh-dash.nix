@@ -14,7 +14,7 @@ in
     accentSupport = true;
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     programs.gh-dash = {
       settings = catppuccinLib.importYAML theme;
     };

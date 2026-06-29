@@ -5,7 +5,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.lsd;
-  enable = cfg.enable && config.programs.lsd.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.programs.lsd.enable;
 in
 
 {

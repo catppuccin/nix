@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 
-const branches = ["main", "25.11", "25.05", "v1.1", "v1.2"];
+const branches = ["main", "26.05", "25.11", "25.05", "v1.1", "v1.2"];
 
 export interface OptionData {
   declarations: string[];

@@ -6,7 +6,7 @@ let
 
   cfg = config.catppuccin.ghostty;
   themeName = "catppuccin-${cfg.flavor}";
-  enable = cfg.enable && config.programs.ghostty.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.programs.ghostty.enable;
 in
 {
   options.catppuccin.ghostty = catppuccinLib.mkCatppuccinOption { name = "ghostty"; };

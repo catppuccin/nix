@@ -14,7 +14,7 @@ in
     useGlobalEnable = false;
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     xdg.configFile."hypr/hyprtoolkit.conf".source =
       sources.hyprtoolkit + "/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.conf";
   };

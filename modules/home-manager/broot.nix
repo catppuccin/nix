@@ -8,7 +8,7 @@ let
   inherit (config.catppuccin) sources;
 
   cfg = config.catppuccin.broot;
-  enable = cfg.enable && config.programs.broot.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.programs.broot.enable;
 
   themeFile = "catppuccin-${cfg.flavor}-${cfg.accent}.hjson";
 in

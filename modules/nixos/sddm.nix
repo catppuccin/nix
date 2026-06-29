@@ -13,7 +13,7 @@ let
     ;
 
   cfg = config.catppuccin.sddm;
-  enable = cfg.enable && config.services.displayManager.sddm.enable;
+  enable = config.catppuccin.enable && cfg.enable && config.services.displayManager.sddm.enable;
 in
 
 {
@@ -73,17 +73,6 @@ in
           default = true;
         };
     };
-
-  imports = [
-    (lib.mkRemovedOptionModule
-      [
-        "catppuccin"
-        "sddm"
-        "accentColor"
-      ]
-      "The `accentColor` option is no longer used upstream, please migrate to the new `accent` option instead."
-    )
-  ];
 
   config = lib.mkIf enable {
     assertions = lib.optional cfg.assertQt6Sddm {

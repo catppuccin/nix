@@ -45,9 +45,9 @@
     "rev": "a7eb08527dcce01010fa0ec46fa2bc4c3154f0d4"
   },
   "delta": {
-    "hash": "sha256-NjqqB/BHqduiNWKeksiRZUMfjRUodJlsVu1yaEIZRsM=",
-    "lastModified": "2025-10-14",
-    "rev": "74b47a345638a2f19b3e5bdb9d7e4984066f9ac7"
+    "hash": "sha256-lztkxX9O41YossvRzpR7tqxMhDNT1Efy2JvkCwtsiXQ=",
+    "lastModified": "2026-06-03",
+    "rev": "011516f5d14f66b771b3e716f29c77231e008c74"
   },
   "dunst": {
     "hash": "sha256-rBp9wU6QHpmNAjeaKnI6u8rOUlv8MC70SLUzeKHN/eY=",
@@ -89,10 +89,10 @@
     "lastModified": "2026-02-20",
     "rev": "879879da8a7dc58f173b4cd7987723fd19bef6d5"
   },
-  "gemini-cli": {
-    "hash": "sha256-ISUr8Gnknb+8nnlsGbP2aVXAxQtBPbiaTc7MqsecBk4=",
-    "lastModified": "2026-01-15",
-    "rev": "6b78ab52a0569cac80158c643e7699d0a116aebc"
+  "fzf": {
+    "hash": "sha256-A6X0TyzET1HbcCv4tlUvhMr6IguRYA9GYqWDKY7XeMg=",
+    "lastModified": "2026-06-28",
+    "rev": "7508f8141286fb95249100a2b5325960320dcf32"
   },
   "gh-dash": {
     "hash": "sha256-Pm5PkfyFqBZQ+L0cu6b66yiIE7hpT7z062xm9khxfc8=",
@@ -170,9 +170,9 @@
     "rev": "798ad2e75a11766e9ba50e76e59aea6a81eb4866"
   },
   "limine": {
-    "hash": "sha256-ccD/6soFIJT4hUCFbbEhfOda10McAW+KtEDkVy5MXrk=",
-    "lastModified": "2026-05-05",
-    "rev": "01c564b7903280d12950acd19237774d07ad163c"
+    "hash": "sha256-4quZdgijooBlIevUpdwJXu/7eg32BQdHA21HqWIzFis=",
+    "lastModified": "2026-06-11",
+    "rev": "43d7027853c6f733bcea7e22968510915ba0da23"
   },
   "lsd": {
     "hash": "sha256-lf6VawCgK9VlKO+PAzPD/WqPjxoqw2j000b5ZlEXj/Y=",
@@ -210,14 +210,14 @@
     "rev": "815dfc6ea61f2746ff27b54ef425cfeb7b51dda8"
   },
   "nvim": {
-    "hash": "sha256-qs74a/h9nUoI1uZ7Rlh8krgWkTaIh4SaHshhPiDwBis=",
-    "lastModified": "2026-04-06",
-    "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1"
+    "hash": "sha256-RqSdg/fbuCweDxs6jAjMNOdHgI5KPhxRzW27OggBp70=",
+    "lastModified": "2026-06-21",
+    "rev": "e068ab5f8261f23f6f71ffd8791ae40315b77b9c"
   },
   "obs": {
-    "hash": "sha256-Eb9P4ZWRHy0KjysWgL4F6jOq21yCl8E/hT+eZhTO/pA=",
-    "lastModified": "2026-04-05",
-    "rev": "94d317949c0f4c3e55b8ccc7f16890ce7ba3fc37"
+    "hash": "sha256-zFg7dgxLIK3K1KpLdEgphH2JpdMwVTovr+oKiAqdLEE=",
+    "lastModified": "2026-06-20",
+    "rev": "054a297d303a5bac4f1652a13b17d78a13201c0e"
   },
   "obsidian": {
     "hash": "sha256-uB0a2nSZkHHf65xBYXyNh50vaAiqdEpKQVf3eXnCVlE=",
@@ -250,9 +250,9 @@
     "rev": "808adc3d7d5be6fc573d6be6e9c888cb96b5d6e6"
   },
   "rio": {
-    "hash": "sha256-m9yfFle1MWQvmXP4hp4xxkGgHjqHyRyrbKgGB36Kw/8=",
-    "lastModified": "2026-03-27",
-    "rev": "6c7e7f9ce7eeb1ae621beadd8f93641f6752c14d"
+    "hash": "sha256-AzZmRLHptgQB3CC1fl/E9BR1Qw5a6VPprpQopn/O3CM=",
+    "lastModified": "2026-06-15",
+    "rev": "4d37b8334a3e8f853fc6543dc2a60c295a66ddca"
   },
   "rofi": {
     "hash": "sha256-81eeFjwM/haPjIEWkZPp1JSDwhWbWDAuKtWiCg7P9Q0=",
@@ -320,9 +320,9 @@
     "rev": "b1a81bae74d66eaae16457f2d8f151b5bd4fe5da"
   },
   "wlogout": {
-    "hash": "sha256-0VCk+7t/cSEmcnfvKdxUDwwrtK0VLhZrVpw4enoBEbc=",
-    "lastModified": "2025-08-07",
-    "rev": "b51d7189efb414fc76cb6c08f27c0c69706b9f78"
+    "hash": "sha256-4e5uGfMvE7iXOosthxryLaUgXT1v4rCxBxvTWveHE2c=",
+    "lastModified": "2026-06-03",
+    "rev": "de7da5b64610da3a6f3f2db23cda60acba4aa701"
   },
   "xfce4-terminal": {
     "hash": "sha256-xVK77p+kmwhxPHveHhmVglUt4bN2GUxhlhllS2wwvzs=",
@@ -330,9 +330,9 @@
     "rev": "cbc9861bb9c40fad098cf55d4b53879e6f9a737c"
   },
   "yazi": {
-    "hash": "sha256-Og33IGS9pTim6LEH33CO102wpGnPomiperFbqfgrJjw=",
-    "lastModified": "2026-05-14",
-    "rev": "41f24ed142e34109a9a65a5dfe58c1b4eb6d2fd9"
+    "hash": "sha256-L6SApM07CSQk0znEsFP8WaxW+ZHcindXo612r1XcwIg=",
+    "lastModified": "2026-06-13",
+    "rev": "baaf5d1c9427b836fbefd126aa855f9eab7a9d0d"
   },
   "zathura": {
     "hash": "sha256-upyfc4OSx9xKUoM/JdRfuXiw38ffoSB/Utm2jpyXgy8=",

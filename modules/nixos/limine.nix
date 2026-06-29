@@ -10,13 +10,16 @@ let
 
   cfg = config.catppuccin.limine;
 
-  theme = sources.limine + "/catppuccin-${cfg.flavor}.conf";
+  theme = sources.limine + "/${cfg.flavor}/catppuccin-${cfg.flavor}-${cfg.accent}.conf";
 in
 
 {
-  options.catppuccin.limine = catppuccinLib.mkCatppuccinOption { name = "limine"; };
+  options.catppuccin.limine = catppuccinLib.mkCatppuccinOption {
+    name = "limine";
+    accentSupport = true;
+  };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     boot.loader.limine = {
       extraConfig = lib.fileContents theme;
       style.wallpapers = [ ];

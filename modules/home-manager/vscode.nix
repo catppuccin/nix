@@ -8,7 +8,6 @@
 let
   inherit (lib) types genAttrs;
   inherit (config.catppuccin) sources;
-  cfg = config.catppuccin.vscode;
 
   settingsFormat = pkgs.formats.json { };
 
@@ -95,7 +94,7 @@ in
     map (vscodeName: {
       programs.${vscodeName}.profiles = lib.mapAttrs (
         _: profile:
-        lib.mkIf profile.enable {
+        lib.mkIf (config.catppuccin.enable && profile.enable) {
           extensions = [
             (sources.vscode.override { catppuccinOptions = profile.settings; })
           ]
@@ -118,7 +117,7 @@ in
             })
           ];
         }
-      ) cfg.profiles;
+      ) config.catppuccin.${vscodeName}.profiles;
     }) supportedVscodes
   );
 }

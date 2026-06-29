@@ -23,7 +23,7 @@ pkgs.mkShellNoCC {
 
         Basically: Nix is the only one that evaluates our development Flake correctly. Yay.
       */
-      nixVersions.nix_2_28
+      nixVersions.nix_2_34
 
       # Node tooling for Astro/Starlight
       nodejs-slim

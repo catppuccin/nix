@@ -16,7 +16,7 @@ First, we need to add the project to our inputs so we can use it in our configur
 ```nix
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     catppuccin.url = "github:catppuccin/nix";
   };
 }
@@ -24,13 +24,13 @@ First, we need to add the project to our inputs so we can use it in our configur
 
 </TabItem>
 
-<TabItem label="25.11">
+<TabItem label="26.05">
 
 ```nix
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.11";
-    catppuccin.url = "github:catppuccin/nix/release-25.11";
+    nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
+    catppuccin.url = "github:catppuccin/nix/release-26.05";
   };
 }
 ```
@@ -84,7 +84,7 @@ By the end, you should have a flake.nix that looks something like this
 ```nix
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager";
