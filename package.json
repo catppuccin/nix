@@ -18,7 +18,7 @@
     "astro": "^6.3.4",
     "prettier": "^3.8.3",
     "prettier-plugin-astro": "^0.14.1",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.0",
     "typescript": "^6.0.3"
   },
   "prettier": {
