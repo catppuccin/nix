@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
-    "@astrojs/starlight": "^0.39.2",
+    "@astrojs/starlight": "^0.41.0",
     "@catppuccin/starlight": "^2.0.1",
     "astro": "^6.3.4",
     "prettier": "^3.8.3",
