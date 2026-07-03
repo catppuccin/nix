@@ -10,6 +10,7 @@
   ./btop.nix
   ./cava.nix
   ./chrome.nix
+  ./clipse.nix
   ./cursors.nix
   ./delta.nix
   ./dunst.nix

@@ -119,6 +119,7 @@ in
 
   services = {
     # keep-sorted start block=yes
+    clipse.enable = isLinux;
     dunst.enable = isLinux;
     mako.enable = isLinux;
     polybar = {
