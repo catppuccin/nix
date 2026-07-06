@@ -16,7 +16,7 @@ importers:
         version: 0.39.2(astro@6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0))(typescript@6.0.3)
       '@catppuccin/starlight':
         specifier: ^2.0.1
-        version: 2.0.1(@astrojs/starlight@0.39.2(astro@6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0))(typescript@6.0.3))(astro@6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0))
+        version: 2.1.0(@astrojs/starlight@0.39.2(astro@6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0))(typescript@6.0.3))(astro@6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0))
       astro:
         specifier: ^6.3.4
         version: 6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0)
@@ -111,11 +111,11 @@ packages:
     resolution: {integrity: sha512-VERIM64vtTP1C4mxQ5thVT9fK0apjPFobqybMtA1UdUujWka24ERHbRHFGmpbbhp73MhV+KSsHQH9C6uOTdEQA==}
     engines: {node: '>=18'}
 
-  '@catppuccin/starlight@2.0.1':
-    resolution: {integrity: sha512-+ddv7PS8z0E+eae92KYVPTKl3f7zi6Rz/y1aLC0pleybtHfvqrM4eHRa5TUS9R5xfXEcoFWShDw3rPBJ4sBF9g==}
+  '@catppuccin/starlight@2.1.0':
+    resolution: {integrity: sha512-S5zr0WMHUZgsKzoAebj48DAT5r96jRgJSNftNEIoSi9Nk9KatxP5IUntYqmX5B2L5PGfvKO/oEjINuLLaiRn0g==}
     peerDependencies:
       '@astrojs/starlight': '>=0.38'
-      astro: ^6.0.0
+      astro: ^6.0.0 || ^7.0.0
 
   '@clack/core@1.3.1':
     resolution: {integrity: sha512-fT1qHVGAag4IEkrupZ6lRRbNCs1vS9P01KB/sG8zKgvUztbYtFBtQpjSITNwooDZ83tpsPzP0mRNs1/KVszCRA==}
@@ -2280,7 +2280,7 @@ snapshots:
     dependencies:
       fontkitten: 1.0.3
 
-  '@catppuccin/starlight@2.0.1(@astrojs/starlight@0.39.2(astro@6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0))(typescript@6.0.3))(astro@6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0))':
+  '@catppuccin/starlight@2.1.0(@astrojs/starlight@0.39.2(astro@6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0))(typescript@6.0.3))(astro@6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0))':
     dependencies:
       '@astrojs/starlight': 0.39.2(astro@6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0))(typescript@6.0.3)
       astro: 6.3.4(@types/node@24.12.4)(rollup@4.60.4)(yaml@2.9.0)
