@@ -20,6 +20,9 @@ in
     hyprtoolkit.enable = true;
     xfce4-terminal.enable = isLinux;
 
+    # `home.pointerCursor` asserts the Linux platform, so only enable there
+    cursors.enable = isLinux;
+
     # we install the themes but don't apply them so we can test kvantum, qt5ct
     # and qt6ct
     kvantum.assertStyle = false;
