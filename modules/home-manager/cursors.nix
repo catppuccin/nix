@@ -36,7 +36,7 @@ in
   options.catppuccin.cursors =
     catppuccinLib.mkCatppuccinOption {
       name = "pointer cursors";
-      useGlobalEnable = pkgs.stdenv.hostPlatform.isLinux;
+      useGlobalEnable = false;
     }
     // {
       accent = lib.mkOption {
