@@ -2,7 +2,7 @@
   lib,
   vscode-utils,
   fetchCatppuccinPort,
-  nodejs_24,
+  nodejs-slim_24,
   pnpm_10,
   pnpmConfigHook,
   fetchPnpmDeps,
@@ -10,8 +10,8 @@
   catppuccinOptions ? { },
 }:
 let
-  nodejs = nodejs_24;
-  pnpm = pnpm_10.override { inherit nodejs; };
+  nodejs = nodejs-slim_24;
+  pnpm = pnpm_10.override { nodejs-slim = nodejs; };
 in
 vscode-utils.buildVscodeExtension (finalAttrs: {
   pname = "catppuccin-vscode";
