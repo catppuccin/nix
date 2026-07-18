@@ -13,7 +13,7 @@ in
   config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     programs.foot = {
       settings = {
-        main.include = sources.foot + "/catppuccin-${cfg.flavor}.ini";
+        main.include = sources.foot + "/static/catppuccin-${cfg.flavor}.ini";
       };
     };
   };
