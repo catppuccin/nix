@@ -215,9 +215,9 @@
     "rev": "815dfc6ea61f2746ff27b54ef425cfeb7b51dda8"
   },
   "nvim": {
-    "hash": "sha256-8gGBRbxwMOI49sdsQUVI+pzGlkLuYH9rQoaxOU4HQUE=",
-    "lastModified": "2026-07-07",
-    "rev": "05e8787020dcfdb937bf2ff23855ea2415b4e072"
+    "hash": "sha256-o65k3uGswjAsTXAglx0uL9m+W1xGknjctjsijRR+a7o=",
+    "lastModified": "2026-07-25",
+    "rev": "79e2049a0fdf7ec840f8463fe1d962c94493196b"
   },
   "obs": {
     "hash": "sha256-zFg7dgxLIK3K1KpLdEgphH2JpdMwVTovr+oKiAqdLEE=",
@@ -225,9 +225,9 @@
     "rev": "054a297d303a5bac4f1652a13b17d78a13201c0e"
   },
   "obsidian": {
-    "hash": "sha256-uB0a2nSZkHHf65xBYXyNh50vaAiqdEpKQVf3eXnCVlE=",
-    "lastModified": "2026-03-11",
-    "rev": "55aa9c9036a9df864593fdaedb2a227d3823fb06"
+    "hash": "sha256-StOHhkN4j9zysiVsopMM/i6E7h+PIHioLAbV6/G5R/c=",
+    "lastModified": "2026-07-22",
+    "rev": "04ba57f98e045ab25793c349596741c400734fb9"
   },
   "palette": {
     "hash": "sha256-hsy+GhuM4MSjnwGq1YJSLBFIbVm67SSdPRgObP00mxw=",
