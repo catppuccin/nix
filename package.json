@@ -12,14 +12,14 @@
     "fmt": "prettier --write ."
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
-    "@astrojs/starlight": "^0.41.3",
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/starlight": "^0.41.6",
     "@catppuccin/starlight": "^2.1.0",
-    "astro": "^7.0.6",
-    "prettier": "^3.9.4",
+    "astro": "^7.1.6",
+    "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "sharp": "^0.35.3",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "prettier": {
     "plugins": [
