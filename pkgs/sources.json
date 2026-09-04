@@ -105,9 +105,9 @@
     "rev": "ecd62f5a2b6230ba2d8fe080e31d870997c7a738"
   },
   "ghostty": {
-    "hash": "sha256-Y6RFften1/6+1xdhIzEh/E7FBJTwY5a8NH4301HbgOM=",
-    "lastModified": "2026-01-07",
-    "rev": "5a58926563ddacbde4a12b4a347464c2c6945393"
+    "hash": "sha256-XwUwWdBLyFwfyL9/kUhJaztTj+s3JShyc15YAA2HPaY=",
+    "lastModified": "2026-08-28",
+    "rev": "b0b03ccee7ae8f16b13bd4fdfe267616defdb2b7"
   },
   "gitui": {
     "hash": "sha256-DRK/j3899qJW4qP1HKzgEtefz/tTJtwPkKtoIzuoTj0=",
@@ -335,9 +335,9 @@
     "rev": "cbc9861bb9c40fad098cf55d4b53879e6f9a737c"
   },
   "yazi": {
-    "hash": "sha256-L6SApM07CSQk0znEsFP8WaxW+ZHcindXo612r1XcwIg=",
-    "lastModified": "2026-06-13",
-    "rev": "baaf5d1c9427b836fbefd126aa855f9eab7a9d0d"
+    "hash": "sha256-bwzEO8exoBwa19q+jnYjHkaamGl2mhfukIEhDfUCRGI=",
+    "lastModified": "2026-08-20",
+    "rev": "d62802be39210ea10e54b3e3b09735c6cb9e57c1"
   },
   "zathura": {
     "hash": "sha256-upyfc4OSx9xKUoM/JdRfuXiw38ffoSB/Utm2jpyXgy8=",
