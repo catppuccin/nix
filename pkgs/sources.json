@@ -255,9 +255,9 @@
     "rev": "808adc3d7d5be6fc573d6be6e9c888cb96b5d6e6"
   },
   "rio": {
-    "hash": "sha256-AzZmRLHptgQB3CC1fl/E9BR1Qw5a6VPprpQopn/O3CM=",
-    "lastModified": "2026-06-15",
-    "rev": "4d37b8334a3e8f853fc6543dc2a60c295a66ddca"
+    "hash": "sha256-o4UW/luCrHgewi53/nC3eLjSQMzMJG5c3rKAaTBtbe4=",
+    "lastModified": "2026-09-04",
+    "rev": "ebb70c9775c5df04239f3a5a231766a6e0adf7e5"
   },
   "rofi": {
     "hash": "sha256-81eeFjwM/haPjIEWkZPp1JSDwhWbWDAuKtWiCg7P9Q0=",
@@ -345,9 +345,9 @@
     "rev": "9f29c2c1622c70436f0e0b98fea9735863596c1e"
   },
   "zed": {
-    "hash": "sha256-+SO9W98LQbG6Oz5YStzdgYpVgT77pGZHaTsH3HhZr60=",
-    "lastModified": "2026-01-23",
-    "rev": "b54cb81708d06912d50e6bb9fd2fd2103b9dda25"
+    "hash": "sha256-844wZqnc3l8SNrSCbVlXr3uGXbVIjH/JQaurfa6DhFI=",
+    "lastModified": "2026-09-08",
+    "rev": "6fd105a51a0a0ba96579c86df0f58193a51001a3"
   },
   "zsh-syntax-highlighting": {
     "hash": "sha256-l6tztApzYpQ2/CiKuLBf8vI2imM6vPJuFdNDSEi7T/o=",
