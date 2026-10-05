@@ -305,9 +305,9 @@
     "rev": "0289f3bd9566f9666682f66a3355155c0d0563fc"
   },
   "tmux": {
-    "hash": "sha256-3CJRQCgS8NAN7vOLBjNGiHbGXTIrIyY/FLmfZrXcEYc=",
-    "lastModified": "2026-04-08",
-    "rev": "d2d25bd3393fe43f19eb4fff6cdd2bdf5578e622"
+    "hash": "sha256-yOlLZhRdZabBTdD2t9I0mbMRcx8xApAmBPq87F3Hu3o=",
+    "lastModified": "2026-09-21",
+    "rev": "b2dc4121fe63c6da41fa030bcbc5440a994b58ef"
   },
   "tofi": {
     "hash": "sha256-urvt0ZuCe6iEtHwMUl4K6GDLQat/lV0TqgUOlKs8ykE=",
@@ -345,9 +345,9 @@
     "rev": "9f29c2c1622c70436f0e0b98fea9735863596c1e"
   },
   "zed": {
-    "hash": "sha256-844wZqnc3l8SNrSCbVlXr3uGXbVIjH/JQaurfa6DhFI=",
-    "lastModified": "2026-09-08",
-    "rev": "6fd105a51a0a0ba96579c86df0f58193a51001a3"
+    "hash": "sha256-oR27ofTVtKOw14F9cr4dDhMmRj4L888woOQ9if+Wno4=",
+    "lastModified": "2026-09-18",
+    "rev": "4314cb05c74d141b7962290a41d6087e8c0ad02f"
   },
   "zsh-syntax-highlighting": {
     "hash": "sha256-l6tztApzYpQ2/CiKuLBf8vI2imM6vPJuFdNDSEi7T/o=",
