@@ -3,7 +3,7 @@
   vscode-utils,
   fetchCatppuccinPort,
   nodejs-slim_24,
-  pnpm_10,
+  pnpm_11,
   pnpmConfigHook,
   fetchPnpmDeps,
 
@@ -11,7 +11,7 @@
 }:
 let
   nodejs = nodejs-slim_24;
-  pnpm = pnpm_10.override { nodejs-slim = nodejs; };
+  pnpm = pnpm_11.override { nodejs-slim = nodejs; };
 in
 vscode-utils.buildVscodeExtension (finalAttrs: {
   pname = "catppuccin-vscode";
@@ -38,8 +38,8 @@ vscode-utils.buildVscodeExtension (finalAttrs: {
       pnpmWorkspaces
       ;
     inherit pnpm;
-    fetcherVersion = 3;
-    hash = "sha256-DE0mHkBlV0RkrEmtIXnzKaiXOK8vgcCx3z7b49zzBhc=";
+    fetcherVersion = 4;
+    hash = "sha256-pycHugIQFpALC6nAnj6r+eZ0Y1lxJ5CzXermOE2MXgk=";
   };
 
   nativeBuildInputs = [
