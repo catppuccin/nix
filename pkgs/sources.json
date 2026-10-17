@@ -170,9 +170,9 @@
     "rev": "71105d224fef95dd023691303477ce3eea487457"
   },
   "lazygit": {
-    "hash": "sha256-hb6W9WwBOtsq+TFw72P17BQCMtHJ3y0um2rSiXOzVZ8=",
-    "lastModified": "2026-10-09",
-    "rev": "f50a723711ccb524691652cd870c94415aaa4669"
+    "hash": "sha256-TUrQcoA5T46Jvl9jeHiNO/+8ZddtUqRY6eDr51zGbYU=",
+    "lastModified": "2026-10-10",
+    "rev": "1a4b26cbc2b5be05cc5494d0d7f764120a2cf86d"
   },
   "limine": {
     "hash": "sha256-4quZdgijooBlIevUpdwJXu/7eg32BQdHA21HqWIzFis=",
@@ -225,9 +225,9 @@
     "rev": "054a297d303a5bac4f1652a13b17d78a13201c0e"
   },
   "obsidian": {
-    "hash": "sha256-SH8SbkuoP+O7kWD6QoCSQAK2Y3hAjwiWm4DnP+lCzE4=",
-    "lastModified": "2026-10-05",
-    "rev": "95eac6d290622542306b2b19fd20d4700775a394"
+    "hash": "sha256-9IwQsXFf63/R27xazFKzkVhPSgTnlYtNzb9uUY3WRa8=",
+    "lastModified": "2026-10-09",
+    "rev": "7ebbd577464d6ef8a18cb02811983bee623f30d6"
   },
   "palette": {
     "hash": "sha256-hsy+GhuM4MSjnwGq1YJSLBFIbVm67SSdPRgObP00mxw=",
@@ -305,9 +305,9 @@
     "rev": "0289f3bd9566f9666682f66a3355155c0d0563fc"
   },
   "tmux": {
-    "hash": "sha256-yOlLZhRdZabBTdD2t9I0mbMRcx8xApAmBPq87F3Hu3o=",
-    "lastModified": "2026-09-21",
-    "rev": "b2dc4121fe63c6da41fa030bcbc5440a994b58ef"
+    "hash": "sha256-BIuMmx+UQR3pX692yRYQprpnSYxnusmydHUOVSnbTIU=",
+    "lastModified": "2026-10-15",
+    "rev": "32d0a8d95d562dd064a62a09d41af136561ae659"
   },
   "tofi": {
     "hash": "sha256-urvt0ZuCe6iEtHwMUl4K6GDLQat/lV0TqgUOlKs8ykE=",
