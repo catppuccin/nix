@@ -22,7 +22,10 @@
       package = pkgs.kdePackages.sddm; # our module/the upstream port requires the qt6 version
     };
     forgejo.enable = true;
-    gitea.enable = true;
+    gitea = {
+      enable = true;
+      settings.server.ROOT_URL = "https://gitea.catppuccin.com";
+    };
     home-assistant.enable = true;
 
     xserver.enable = true; # required for sddm
