@@ -177,6 +177,8 @@ lib.makeExtensible (ctp: {
     - [default] Default `enable` option value (defaults to `if useGlobalEnable then config.catppuccin.autoEnable else false`)
     - [defaultText] Default `enable` option text (automatic if `null`, defaults to `if useGlobalEnable then "config.catppuccin.autoEnable" else null`)
     - [accentSupport] Add an `accent` option (defaults to `false`)
+    - [darkLightSupport] Add `lightFlavor` and `darkFlavor` options, for ports that can switch between a light and a dark theme (defaults to `false`)
+    - [flavorOption] The port's `flavor` option, used by `lightFlavor` and `darkFlavor` (defaults to `options.catppuccin.${name}.flavor`)
   */
   mkCatppuccinOption =
     {
@@ -200,6 +202,7 @@ lib.makeExtensible (ctp: {
       defaultText ? if useGlobalEnable then "catppuccin.autoEnable" else null,
       accentSupport ? false,
       darkLightSupport ? false,
+      flavorOption ? options.catppuccin.${name}.flavor,
     }:
 
     {
@@ -227,21 +230,32 @@ lib.makeExtensible (ctp: {
         description = "Catppuccin accent for ${name}";
       };
     }
-    // optionalAttrs darkLightSupport {
-      darkFlavor = mkOption {
-        type = ctp.types.flavor;
-        default = config.catppuccin.darkFlavor;
-        defaultText = "catppuccin.darkFlavor";
-        description = "Catppuccin dark flavor for ${name}";
-      };
-
-      lightFlavor = mkOption {
-        type = ctp.types.flavor;
-        default = config.catppuccin.lightFlavor;
-        defaultText = "catppuccin.lightFlavor";
-        description = "Catppuccin light flavor for ${name}";
-      };
-    };
+    // optionalAttrs darkLightSupport (
+      let
+        # A flavor set on the port wins over the global light/dark flavor, which
+        # wins over the global flavor. This keeps existing
+        # `catppuccin.<port>.flavor` settings working.
+        mkVariantOption =
+          variant:
+          let
+            global = "${variant}Flavor";
+          in
+          mkOption {
+            type = ctp.types.flavor;
+            default =
+              if flavorOption.highestPrio == 1500 && config.catppuccin.${global} != null then
+                config.catppuccin.${global}
+              else
+                flavorOption.value;
+            defaultText = "the flavor of ${name} if set, otherwise catppuccin.${global} if not null, otherwise catppuccin.flavor";
+            description = "Catppuccin ${variant} flavor for ${name}";
+          };
+      in
+      {
+        darkFlavor = mkVariantOption "dark";
+        lightFlavor = mkVariantOption "light";
+      }
+    );
 
   /**
     Returns the current release version of nixos or home-manager.

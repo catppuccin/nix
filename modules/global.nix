@@ -52,17 +52,15 @@ in
     };
 
     darkFlavor = lib.mkOption {
-      type = catppuccinLib.types.flavor;
-      default = config.catppuccin.flavor;
-      defaultText = "catppuccin.flavor";
-      description = "Global Catppuccin dark flavor";
+      type = lib.types.nullOr catppuccinLib.types.flavor;
+      default = null;
+      description = "Global Catppuccin flavor for the dark theme of ports that support separate light and dark themes. When null, each port uses its own flavor";
     };
 
     lightFlavor = lib.mkOption {
-      type = catppuccinLib.types.flavor;
-      default = config.catppuccin.flavor;
-      defaultText = "catppuccin.flavor";
-      description = "Global Catppuccin light flavor";
+      type = lib.types.nullOr catppuccinLib.types.flavor;
+      default = null;
+      description = "Global Catppuccin flavor for the light theme of ports that support separate light and dark themes. When null, each port uses its own flavor";
     };
 
     accent = lib.mkOption {
