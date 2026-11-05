@@ -177,6 +177,7 @@ lib.makeExtensible (ctp: {
     - [default] Default `enable` option value (defaults to `if useGlobalEnable then config.catppuccin.autoEnable else false`)
     - [defaultText] Default `enable` option text (automatic if `null`, defaults to `if useGlobalEnable then "config.catppuccin.autoEnable" else null`)
     - [accentSupport] Add an `accent` option (defaults to `false`)
+    - [fontSupport] Add `font` and `fontSize` options (defaults to `false`)
   */
   mkCatppuccinOption =
     {
@@ -199,6 +200,7 @@ lib.makeExtensible (ctp: {
           false,
       defaultText ? if useGlobalEnable then "catppuccin.autoEnable" else null,
       accentSupport ? false,
+      fontSupport ? false,
     }:
 
     {
@@ -224,6 +226,21 @@ lib.makeExtensible (ctp: {
         default = config.catppuccin.accent;
         defaultText = "catppuccin.accent";
         description = "Catppuccin accent for ${name}";
+      };
+    }
+    // optionalAttrs fontSupport {
+      font = mkOption {
+        type = types.nullOr types.str;
+        default = config.catppuccin.font;
+        defaultText = "catppuccin.font";
+        description = "Font for ${name}";
+      };
+
+      fontSize = mkOption {
+        type = types.nullOr types.number;
+        default = config.catppuccin.fontSize;
+        defaultText = "catppuccin.fontSize";
+        description = "Font size for ${name}";
       };
     };
 

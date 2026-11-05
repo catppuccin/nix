@@ -9,7 +9,7 @@ buildCatppuccinPort (finalAttrs: {
   # Make sure we aren't sourcing possibly non-existent files
   # or overriding our own settings
   postPatch = ''
-    sed -i '1,4d' hyprlock.conf
+    sed -i '1,5d' hyprlock.conf
   '';
 
   installPhase = ''

@@ -13,6 +13,7 @@ in
     catppuccinLib.mkCatppuccinOption {
       name = "wezterm";
       accentSupport = true;
+      fontSupport = true;
     }
     // {
       apply = lib.mkOption {
@@ -48,9 +49,17 @@ in
             config = wezterm.config_builder()
           end
         ''
-        + lib.optionalString ((config.programs.wezterm.settings != { }) || cfg.apply) ''
-          dofile("${sources.wezterm}/plugin/init.lua").apply_to_config(config, catppuccin_config)
-        ''
+        + lib.optionalString ((config.programs.wezterm.settings != { }) || cfg.apply) (
+          ''
+            dofile("${sources.wezterm}/plugin/init.lua").apply_to_config(config, catppuccin_config)
+          ''
+          + lib.optionalString (cfg.font != null) ''
+            config.font = wezterm.font(${builtins.toJSON cfg.font})
+          ''
+          + lib.optionalString (cfg.fontSize != null) ''
+            config.font_size = ${toString cfg.fontSize}
+          ''
+        )
       );
     };
   };

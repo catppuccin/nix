@@ -51,6 +51,7 @@ in
               catppuccinLib.mkCatppuccinOption {
                 name = vscodeName;
                 accentSupport = true;
+                fontSupport = true;
               }
               // {
                 settings = lib.mkOption {
@@ -114,6 +115,14 @@ in
 
             (lib.mkIf (profile.icons.enable) {
               "workbench.iconTheme" = "catppuccin-" + profile.icons.flavor;
+            })
+
+            (lib.mkIf (profile.font != null) {
+              "editor.fontFamily" = lib.mkDefault profile.font;
+            })
+
+            (lib.mkIf (profile.fontSize != null) {
+              "editor.fontSize" = lib.mkDefault profile.fontSize;
             })
           ];
         }

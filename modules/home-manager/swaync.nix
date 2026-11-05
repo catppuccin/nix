@@ -21,7 +21,7 @@ let
       cfg.font
       "--replace-warn"
       "font-size: 14px;"
-      "font-size: ${cfg.fontSize}px;"
+      "font-size: ${toString cfg.fontSize}px;"
     ];
   };
 in
@@ -34,13 +34,15 @@ in
     // {
       font = lib.mkOption {
         type = lib.types.str;
-        default = "Ubuntu Nerd Font";
+        default = if config.catppuccin.font != null then config.catppuccin.font else "Ubuntu Nerd Font";
+        defaultText = ''if catppuccin.font != null then catppuccin.font else "Ubuntu Nerd Font"'';
         description = "Font to use for the notification center";
       };
 
       fontSize = lib.mkOption {
-        type = lib.types.str;
-        default = "14";
+        type = lib.types.either lib.types.number lib.types.str;
+        default = if config.catppuccin.fontSize != null then config.catppuccin.fontSize else "14";
+        defaultText = ''if catppuccin.fontSize != null then catppuccin.fontSize else "14"'';
         description = "Font size to use for the notification center";
       };
     };

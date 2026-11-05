@@ -25,13 +25,15 @@ in
     // {
       font = mkOption {
         type = types.str;
-        default = "Noto Sans";
+        default = if config.catppuccin.font != null then config.catppuccin.font else "Noto Sans";
+        defaultText = ''if catppuccin.font != null then catppuccin.font else "Noto Sans"'';
         description = "Font to use for the login screen";
       };
 
       fontSize = mkOption {
-        type = types.str;
-        default = "9";
+        type = types.either types.number types.str;
+        default = if config.catppuccin.fontSize != null then config.catppuccin.fontSize else "9";
+        defaultText = ''if catppuccin.fontSize != null then catppuccin.fontSize else "9"'';
         description = "Font size to use for the login screen";
       };
 

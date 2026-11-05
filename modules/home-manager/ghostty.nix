@@ -9,7 +9,10 @@ let
   enable = config.catppuccin.enable && cfg.enable && config.programs.ghostty.enable;
 in
 {
-  options.catppuccin.ghostty = catppuccinLib.mkCatppuccinOption { name = "ghostty"; };
+  options.catppuccin.ghostty = catppuccinLib.mkCatppuccinOption {
+    name = "ghostty";
+    fontSupport = true;
+  };
 
   config = lib.mkIf enable {
     xdg.configFile = {
@@ -19,6 +22,8 @@ in
     programs.ghostty = {
       settings = {
         theme = "light:${themeName},dark:${themeName}";
+        font-family = lib.mkIf (cfg.font != null) (lib.mkDefault cfg.font);
+        font-size = lib.mkIf (cfg.fontSize != null) (lib.mkDefault cfg.fontSize);
       };
     };
   };

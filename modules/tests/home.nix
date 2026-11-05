@@ -13,6 +13,9 @@ in
   };
 
   catppuccin = {
+    font = "JetBrainsMono Nerd Font";
+    fontSize = 12;
+
     # NOTE: This is enabled by default already, but still
     # listing explicitly so we know it's tested
     glamour.enable = true;

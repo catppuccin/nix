@@ -42,11 +42,18 @@ in
   options.catppuccin.xfce4-terminal = catppuccinLib.mkCatppuccinOption {
     name = "xfce4-terminal";
     useGlobalEnable = false;
+    fontSupport = true;
   };
 
   config = lib.mkIf (config.catppuccin.enable && cfg.enable) {
     xfconf.settings = {
-      xfce4-terminal = terminalSettings;
+      xfce4-terminal =
+        terminalSettings
+        // lib.optionalAttrs (cfg.font != null) {
+          font-name = lib.mkDefault "${cfg.font}${
+            lib.optionalString (cfg.fontSize != null) " ${toString cfg.fontSize}"
+          }";
+        };
     };
   };
 }

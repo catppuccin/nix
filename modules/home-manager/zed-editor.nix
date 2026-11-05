@@ -16,6 +16,7 @@ in
     catppuccinLib.mkCatppuccinOption {
       name = "zed";
       accentSupport = true;
+      fontSupport = true;
     }
     // {
       italics = lib.mkEnableOption "the italicized version of theme" // {
@@ -34,6 +35,10 @@ in
         icon_theme = lib.mkIf cfg.icons.enable (
           "Catppuccin " + (catppuccinLib.mkFlavorName cfg.icons.flavor)
         );
+        buffer_font_family = lib.mkIf (cfg.font != null) (lib.mkDefault cfg.font);
+        ui_font_family = lib.mkIf (cfg.font != null) (lib.mkDefault cfg.font);
+        buffer_font_size = lib.mkIf (cfg.fontSize != null) (lib.mkDefault cfg.fontSize);
+        ui_font_size = lib.mkIf (cfg.fontSize != null) (lib.mkDefault cfg.fontSize);
         theme = {
           light = "Catppuccin " + flavor + accent + lib.optionalString (!cfg.italics) " - No Italics";
           dark = "Catppuccin " + flavor + accent + lib.optionalString (!cfg.italics) " - No Italics";

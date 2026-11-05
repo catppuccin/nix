@@ -57,6 +57,27 @@ in
       description = "Global Catppuccin accent";
     };
 
+    font = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      example = "JetBrainsMono Nerd Font";
+      description = "Global font family name";
+    };
+
+    fontSize = lib.mkOption {
+      type = lib.types.nullOr lib.types.number;
+      default = null;
+      example = 12;
+      description = "Global font size";
+    };
+
+    fontPackage = lib.mkOption {
+      type = lib.types.nullOr lib.types.package;
+      default = null;
+      example = lib.literalExpression "pkgs.nerd-fonts.jetbrains-mono";
+      description = "Global font package to install";
+    };
+
     sources =
       let
         defaultSources = (import ../default.nix { inherit pkgs; }).packages;
