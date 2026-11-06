@@ -135,9 +135,9 @@
     "rev": "91e071bf9b9b2b8ae176a5581fcb61c789c55cab"
   },
   "home-assistant": {
-    "hash": "sha256-+m6lWer9a4AwmTgckhSHOKd0Oo6x9N0jjza4/F0ye3E=",
-    "lastModified": "2026-04-04",
-    "rev": "b37ada06d011fe02d487719b06e70e98ded76149"
+    "hash": "sha256-Iq+cY2TFBmms0cbPW/aM0Pqs1XorjTEqh9ZSgGhwmVA=",
+    "lastModified": "2026-11-06",
+    "rev": "0703fcb4725120b575912eee04eef7bc7e9fa23c"
   },
   "hyprland": {
     "hash": "sha256-jGqBpSQa793phan9PeU2yXMX1nxzYClthQSeTwdqgEQ=",
@@ -225,9 +225,9 @@
     "rev": "054a297d303a5bac4f1652a13b17d78a13201c0e"
   },
   "obsidian": {
-    "hash": "sha256-i4hNCLsu7oIyymsMoMD3ksl6cND469Tpj6p9n5C8ZUs=",
-    "lastModified": "2026-10-21",
-    "rev": "7e22a6e8cfe805c9278a07d91d1dc772553cbb9f"
+    "hash": "sha256-ZekHtSD9Y51Rkh+ha/pZUpQpwCqctFUIGZDoaHmOy9g=",
+    "lastModified": "2026-11-04",
+    "rev": "5f36251340fb442b94492f4ec7d8e5093e0b50ad"
   },
   "palette": {
     "hash": "sha256-hsy+GhuM4MSjnwGq1YJSLBFIbVm67SSdPRgObP00mxw=",
