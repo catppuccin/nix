@@ -42,7 +42,6 @@ in
     anki.enable = true;
     bat.enable = true;
     bottom.enable = true;
-    brave.enable = true;
     broot.enable = true;
     btop.enable = true;
     cava.enable = true;
