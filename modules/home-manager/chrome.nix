@@ -13,6 +13,7 @@ let
   # Google Chrome is not supported since it does not support extensions
   # See nix-community/home-manager#1383 for more information.
   supportedBrowsers = [
+    "helium"
     "chromium"
     "vivaldi"
   ];
