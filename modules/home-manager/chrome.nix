@@ -13,6 +13,7 @@ let
   # Google Chrome is not supported since it does not support extensions
   # See nix-community/home-manager#1383 for more information.
   supportedBrowsers = [
+    "brave"
     "chromium"
     "vivaldi"
   ];
@@ -24,10 +25,6 @@ let
     };
 in
 {
-  imports = [
-    (lib.mkRemovedOptionModule [ "catppuccin" "brave" ] "brave has been removed from nixpkgs")
-  ];
-
   options.catppuccin = lib.genAttrs supportedBrowsers (
     name: catppuccinLib.mkCatppuccinOption { inherit name; }
   );
