@@ -1,6 +1,12 @@
 { pkgs, ... }:
 
 {
+  # Exercise the global light and dark flavors (used by home-assistant)
+  catppuccin = {
+    lightFlavor = "latte";
+    darkFlavor = "macchiato";
+  };
+
   boot = {
     loader.grub = {
       enable = true;
