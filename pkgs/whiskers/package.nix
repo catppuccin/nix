@@ -6,7 +6,7 @@
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
-  pname = "whiskers";
+  pname = "catppuccin-whiskers";
   version = "2.9.0";
 
   src = fetchCatppuccinPort {
