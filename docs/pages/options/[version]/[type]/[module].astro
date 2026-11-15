@@ -38,32 +38,32 @@ const filenameFromLink = (link: string): string => {
     pagefind: version == "main",
   }}
 >
-  <p>Options for the <code>{module}</code> module.</p>
+  <p>
+    Options for the <code>{module}</code> module.
+  </p>
 
-  {
-    moduleData.map(([optionName, data]) => (
-      <>
-        <AnchorHeading level="1" id={optionName.replace(".", "-")}>
-          {optionName}
-        </AnchorHeading>
+  {moduleData.map(([optionName, data]) => (
+    <>
+      <AnchorHeading level="1" id={optionName.replace(".", "-")}>
+        {optionName}
+      </AnchorHeading>
 
-        <p>{data.description}</p>
+      <p>{data.description}</p>
 
-        <p>
-          Type: <code>{data.type}</code>
-        </p>
+      <p>
+        Type: <code>{data.type}</code>
+      </p>
 
-        <p>
-          Default: <code>{data.default.text}</code>
-        </p>
+      <p>
+        Default: <code>{data.default.text}</code>
+      </p>
 
-        <p>
-          Declared in:{" "}
-          <a href={data.declarations[0]}>
-            {filenameFromLink(data.declarations[0])}
-          </a>
-        </p>
-      </>
-    ))
-  }
+      <p>
+        Declared in:{" "}
+        <a href={data.declarations[0]}>
+          {filenameFromLink(data.declarations[0])}
+        </a>
+      </p>
+    </>
+  ))}
 </StarlightPage>

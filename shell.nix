@@ -27,7 +27,7 @@ pkgs.mkShellNoCC {
 
       # Node tooling for Astro/Starlight
       nodejs-slim
-      corepack
+      pnpm_12
       nrr
     ]
     ++ lib.optionals (!minimal) [
@@ -51,6 +51,10 @@ pkgs.mkShellNoCC {
       # Shell lints
       shellcheck
     ];
+
+  # pnpm >= 12 is a native binary; letting it switch to the version pinned in
+  # `packageManager` downloads a generic glibc build that won't run on NixOS
+  env.PNPM_CONFIG_PM_ON_FAIL = "ignore";
 
   shellHook = ''
     echo "Welcome to the catppuccin/nix repository! Thanks for contributing and have a wonderful day 🐈"
