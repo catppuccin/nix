@@ -24,12 +24,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Create backport PRs
-        uses: korthout/backport-action@v4
+        uses: korthout/backport-action@ad272ff24e4a8593bf18a951a154ae6af93b26b8 # v5.0.0
         with:
           pull_description: |-
             Bot-based backport to `${target_branch}`, triggered by a label in #${pull_number}.
