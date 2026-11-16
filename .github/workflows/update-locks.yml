@@ -23,9 +23,6 @@ jobs:
 
       - name: Install Nix
         uses: cachix/install-nix-action@3dc140bfc76c49fbd4dd958429132e3746bcb086 # v31.11.5
-        with:
-          # NOTE: Required for subflake
-          install_url: https://releases.nixos.org/nix/nix-2.26.0/install
 
       - name: Update Flakes
         run: |
