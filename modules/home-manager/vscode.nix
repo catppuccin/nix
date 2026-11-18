@@ -11,6 +11,8 @@ let
 
   settingsFormat = pkgs.formats.json { };
 
+  themeName = flavor: "Catppuccin " + (catppuccinLib.mkFlavorName flavor);
+
   renamedOptions = [
     "accent"
     "enable"
@@ -45,12 +47,14 @@ in
     profiles = lib.mkOption {
       type = types.attrsOf (
         types.submodule (
-          { config, ... }:
+          { config, options, ... }:
           {
             options =
               catppuccinLib.mkCatppuccinOption {
                 name = vscodeName;
                 accentSupport = true;
+                darkLightSupport = true;
+                flavorOption = options.flavor;
               }
               // {
                 settings = lib.mkOption {
@@ -102,7 +106,7 @@ in
 
           userSettings = lib.mkMerge [
             {
-              "workbench.colorTheme" = "Catppuccin " + (catppuccinLib.mkFlavorName profile.flavor);
+              "workbench.colorTheme" = themeName profile.darkFlavor;
               "catppuccin.accentColor" = profile.accent;
 
               # Recommended settings
@@ -111,6 +115,13 @@ in
               "terminal.integrated.minimumContrastRatio" = lib.mkDefault 1;
               "window.titleBarStyle" = lib.mkDefault "custom";
             }
+
+            # Follow the OS color scheme
+            (lib.mkIf (profile.lightFlavor != profile.darkFlavor) {
+              "window.autoDetectColorScheme" = lib.mkDefault true;
+              "workbench.preferredLightColorTheme" = themeName profile.lightFlavor;
+              "workbench.preferredDarkColorTheme" = themeName profile.darkFlavor;
+            })
 
             (lib.mkIf (profile.icons.enable) {
               "workbench.iconTheme" = "catppuccin-" + profile.icons.flavor;

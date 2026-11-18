@@ -23,6 +23,12 @@ in
     # `home.pointerCursor` asserts the Linux platform, so only enable there
     cursors.enable = isLinux;
 
+    # Use a different light flavor for some ports that support separate light
+    # and dark themes, and keep the fallback to `flavor` for the others
+    kitty.lightFlavor = "latte";
+    vscodium.profiles.default.lightFlavor = "latte";
+    zed.lightFlavor = "latte";
+
     # we install the themes but don't apply them so we can test kvantum, qt5ct
     # and qt6ct
     kvantum.assertStyle = false;
