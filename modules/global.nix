@@ -51,6 +51,18 @@ in
       description = "Global Catppuccin flavor";
     };
 
+    darkFlavor = lib.mkOption {
+      type = lib.types.nullOr catppuccinLib.types.flavor;
+      default = null;
+      description = "Global Catppuccin flavor for the dark theme of ports that support separate light and dark themes. When null, each port uses its own flavor";
+    };
+
+    lightFlavor = lib.mkOption {
+      type = lib.types.nullOr catppuccinLib.types.flavor;
+      default = null;
+      description = "Global Catppuccin flavor for the light theme of ports that support separate light and dark themes. When null, each port uses its own flavor";
+    };
+
     accent = lib.mkOption {
       type = catppuccinLib.types.accent;
       default = "mauve";
